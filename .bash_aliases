@@ -2,6 +2,9 @@
 alias bs="xmodmap -e \"clear Lock\""
 alias c="clear"
 shopt -s dotglob
+alias reb="sudo shutdown -r 0"
+alias sd="sudo shutdown 0"
+alias slp="systemctl suspend"
 
 # directories
 alias cdr="cd ~/../../"
@@ -14,7 +17,7 @@ alias lab="cd ~/258/258-labs-self"
 
 # bash
 alias vb="vim ~/.bash_aliases"
-alias reb=". ~/.bashrc"
+alias rba=". ~/.bashrc"
 
 # git
 . ~/.secure
@@ -25,3 +28,7 @@ alias vig="vi .gitignore"
 alias ga="git add *"
 alias gai="git add .gitignore"
 
+# redshift
+rs(){
+    redshift -O $1
+}
