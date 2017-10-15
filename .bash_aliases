@@ -10,6 +10,7 @@ alias slp="systemctl suspend"
 alias cdr="cd ~/../../"
 alias cdd="cd ~/Downloads"
 alias 221="cd ~/Documents/School/221"
+alias 221lt="okular ~/Downloads/Textbook.pdf"
 
 alias p1="cd ~/258/258-labs-self/l5/p1"
 alias l5="cd ~/258/258-labs-self/l5"
@@ -27,6 +28,10 @@ alias gps="git push"
 alias vig="vi .gitignore"
 alias ga="git add *"
 alias gai="git add .gitignore"
+alias gd="git diff --cached"
+gc(){
+	git commit -m "$1"
+}
 
 # redshift
 rs(){
