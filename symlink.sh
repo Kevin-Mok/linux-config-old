@@ -1,5 +1,5 @@
 files=".bash_aliases .bashrc .inputrc .vimrc"
-dir=~/dotfiles
+dir=~/my-dotfiles
 
 mkdir $dir
 

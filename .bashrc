@@ -93,8 +93,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -a'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -128,8 +127,10 @@ bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
+DIR_LAB="/h/u3/c7/05/mokkar/.bash_it"
+DIR_HOME="/home/kevin/.bash_it"
 # Path to the bash it configuration
-export BASH_IT="/home/kevin/.bash_it"
+export BASH_IT="$DIR_LAB"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
