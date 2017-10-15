@@ -28,7 +28,8 @@ alias gps="git push"
 alias vig="vi .gitignore"
 alias ga="git add *"
 alias gai="git add .gitignore"
-alias gd="git diff --cached"
+alias gd="git diff"
+alias gdc="git diff --cached"
 gc(){
 	git commit -m "$1"
 }
