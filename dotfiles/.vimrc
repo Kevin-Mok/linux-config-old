@@ -12,7 +12,7 @@
 
 set relativenumber
 syntax on
-set tabstop=8
+set tabstop=4
 set autoindent
 
 " 'h/u3/c7/05/mokkar/.vim/plugged'
