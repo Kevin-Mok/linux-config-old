@@ -16,8 +16,9 @@ alias p1="cd ~/258/258-labs-self/l5/p1"
 alias l5="cd ~/258/258-labs-self/l5"
 alias lab="cd ~/258/258-labs-self"
 
-# bash
+# config
 alias vb="gvim ~/.bash_aliases"
+alias vv="gvim ~/.vimrc"
 alias rba=". ~/.bashrc"
 
 # git
