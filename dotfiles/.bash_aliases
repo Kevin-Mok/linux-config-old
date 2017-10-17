@@ -17,7 +17,7 @@ alias l5="cd ~/258/258-labs-self/l5"
 alias lab="cd ~/258/258-labs-self"
 
 # bash
-alias vb="vim ~/.bash_aliases"
+alias vb="gvim ~/.bash_aliases"
 alias rba=". ~/.bashrc"
 
 # git
@@ -34,7 +34,10 @@ gc(){
 	git commit -m "$1"
 }
 
-# redshift
+g(){
+	gvim $1
+}
+
 rs(){
     redshift -O $1
 }
