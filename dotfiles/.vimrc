@@ -17,3 +17,6 @@ Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 colorscheme gotham
+
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
