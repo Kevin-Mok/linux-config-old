@@ -1,5 +1,5 @@
 # system
-alias bs="xmodmap -e \"clear Lock\""
+xmodmap -e "clear Lock"
 alias c="clear"
 shopt -s dotglob
 alias reb="sudo shutdown -r 0"
@@ -10,15 +10,16 @@ alias s="systemctl suspend"
 alias cdr="cd ~/../../"
 alias cdd="cd ~/Downloads"
 alias 221="cd ~/Documents/School/221"
-alias 221t="okular ~/Documents/School/221/Textbook.pdf"
-alias 221lt="okular ~/Downloads/Textbook.pdf"
+alias mt="okular ~/Documents/School/221/Textbook.pdf"
+alias mlt="okular ~/Downloads/Textbook.pdf"
 
-alias p1="cd ~/258/258-labs-self/l5/p1"
+alias p2="cd ~/258/258-labs-self/l5/p2"
 alias l5="cd ~/258/258-labs-self/l5"
 alias lab="cd ~/258/258-labs-self"
 
-# bash
-alias vb="vim ~/.bash_aliases"
+# config
+alias vb="gvim ~/.bash_aliases"
+alias vv="gvim ~/.vimrc"
 alias rba=". ~/.bashrc"
 
 # git
@@ -31,11 +32,15 @@ alias ga="git add *"
 alias gai="git add .gitignore"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gstore="git config credential.helper store"
 gc(){
 	git commit -m "$1"
 }
 
-# redshift
+g(){
+	gvim $1
+}
+
 rs(){
     redshift -O $1
 }
