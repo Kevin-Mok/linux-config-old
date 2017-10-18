@@ -4,12 +4,13 @@ alias c="clear"
 shopt -s dotglob
 alias reb="sudo shutdown -r 0"
 alias sd="sudo shutdown 0"
-alias slp="systemctl suspend"
+alias s="systemctl suspend"
 
 # directories
 alias cdr="cd ~/../../"
 alias cdd="cd ~/Downloads"
 alias 221="cd ~/Documents/School/221"
+alias 221t="okular ~/Documents/School/221/Textbook.pdf"
 alias 221lt="okular ~/Downloads/Textbook.pdf"
 
 alias p1="cd ~/258/258-labs-self/l5/p1"
