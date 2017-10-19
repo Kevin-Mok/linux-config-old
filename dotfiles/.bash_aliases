@@ -4,7 +4,7 @@ alias c="clear"
 shopt -s dotglob
 alias reb="sudo shutdown -r 0"
 alias sd="sudo shutdown 0"
-alias slp="systemctl suspend"
+alias s="systemctl suspend"
 
 # directories
 alias cdr="cd ~/../../"
