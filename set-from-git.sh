@@ -1,7 +1,5 @@
-files=".bash_aliases .bashrc .inputrc .vimrc"
+files=".bash_aliases .bashrc .inputrc .vimrc .gvimrc"
 dir=~/linux-config/dotfiles
-
-# mkdir $dir
 
 for file in $files; do
 	rm ~/$file 
