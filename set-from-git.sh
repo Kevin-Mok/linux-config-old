@@ -1,5 +1,5 @@
 # home
-files=".bash_aliases .bashrc .inputrc .vimrc .gvimrc"
+files=".bash_aliases .bashrc .inputrc .vimrc .gvimrc .profile"
 dotDir=~/linux-config/dotfiles
 
 for file in $files; do

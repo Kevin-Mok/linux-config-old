@@ -16,6 +16,7 @@ Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'felixhummel/setcolors.vim'
 
 call plug#end()
 
