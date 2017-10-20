@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
+Plug 'felixhummel/setcolors.vim'
 
 call plug#end()
 
