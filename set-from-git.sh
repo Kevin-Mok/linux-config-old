@@ -1,7 +1,13 @@
+# home
 files=".bash_aliases .bashrc .inputrc .vimrc .gvimrc"
-dir=~/linux-config/dotfiles
+dotDir=~/linux-config/dotfiles
 
 for file in $files; do
 	rm ~/$file 
-	ln -s $dir/$file ~/$file
+	ln -s $dotDir/$file ~/$file
 done
+
+# terminator
+termDir=~/.config/terminator/
+rm $termDir/config 
+ln -s $dotDir/termConfig $termDir/config 

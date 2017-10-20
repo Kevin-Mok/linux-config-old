@@ -1,0 +1,23 @@
+[global_config]
+  title_font = Noto Sans 10
+  title_transmit_bg_color = "#3d3d3d"
+[keybindings]
+  close_term = <Primary>w
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    copy_on_selection = True
+    cursor_color = "#b9b9b9"
+    font = Noto Mono 11
+    foreground_color = "#174af0"
+    palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
+    use_system_font = False
