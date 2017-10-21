@@ -16,7 +16,7 @@ Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'felixhummel/setcolors.vim'
+# Plug 'felixhummel/setcolors.vim'
 
 call plug#end()
 
@@ -24,3 +24,5 @@ colorscheme gotham
 
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
+map <F10> :PlugInstall<CR>
+map <F4> :wqa<CR>
