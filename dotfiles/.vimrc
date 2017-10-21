@@ -8,6 +8,8 @@ set autoindent
 set mouse=c
 set clipboard=unnamedplus
 
+autocmd VimResized * wincmd =
+
 " 'h/u3/c7/05/mokkar/.vim/plugged'
 " '~/.vim/plugged'
 call plug#begin('~/.vim/plugged')
@@ -24,3 +26,5 @@ colorscheme gotham
 
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
+map <F4> :wqa<CR>
+map <F3> :wa<CR>

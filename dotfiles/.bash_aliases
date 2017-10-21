@@ -41,5 +41,5 @@ g(){
 }
 
 rs(){
-    redshift -O $1
+	redshift -O $(($1 * 1000))
 }
