@@ -17,8 +17,8 @@ alias mlt="okular ~/Downloads/Textbook.pdf"
 	alias lab="cd ~/258/258-labs-self"
 
 # config
-alias vb="gvim ~/.bash_aliases"
-alias vv="gvim ~/.vimrc"
+alias vb="vi ~/.bash_aliases"
+alias vv="vi ~/.vimrc"
 alias rba=". ~/.bashrc"
 
 # git
