@@ -8,9 +8,13 @@ alias s="systemctl suspend"
 # directories
 alias cdr="cd ~/../../"
 alias cdd="cd ~/Downloads"
-alias 221="cd ~/Documents/School/221"
-alias mt="okular ~/Documents/School/221/Textbook.pdf"
-alias mlt="okular ~/Downloads/Textbook.pdf"
+alias a2="cd ~/Documents/School/207/mokkar/a2"
+alias a2n="a2 && vi notes.txt"
+alias rcg="cd ~/Documents/coding/random-color-generator"
+	# 221
+	alias 221="cd ~/Documents/School/221"
+	alias mt="okular ~/Documents/School/221/Textbook.pdf"
+	alias mlt="okular ~/Downloads/Textbook.pdf"
 	# 258 (lab)
 	alias p2="cd ~/258/258-labs-self/l5/p2"
 	alias l5="cd ~/258/258-labs-self/l5"
@@ -35,6 +39,13 @@ alias gstore="git config credential.helper store"
 gc(){
 	git commit -m "$1"
 }
+
+# idea
+alias jh="echo $JAVA_HOME"
+alias jv="java -version"
+# alias idea=". ~/Desktop/idea.sh"
+# alias idea=". ~/usr/idea-IC-172.4343.14/bin/idea.sh"
+# alias jf="export JAVA_HOME=/home/kevin/usr/jdk1.8.0_151 && export PATH=$JAVA_HOME/bin:$PATH"
 
 g(){
 	gvim $1

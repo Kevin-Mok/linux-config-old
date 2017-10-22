@@ -180,3 +180,7 @@ export SHORT_USER=${USER:0:8}
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
+# export JAVA_HOME=/home/kevin/usr/java/jdk1.8.0_151/
+# export PATH=$JAVA_HOME/bin:$PATH
+# export IDEA_VM_OPTION="/home/kevin/usr/idea-IC-172.4343.14/bin/idea64.vmoptions"
+# source /etc/environment

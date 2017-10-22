@@ -27,7 +27,7 @@ colorscheme gotham256
 
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
-map <F5> :qa<CR>
+map <F5> :qa!<CR>
 map <F10> :PlugInstall<CR>
 " map <Enter> o<ESC>
 " map <S-Enter> O<ESC>
