@@ -21,6 +21,7 @@ alias rcg="cd ~/Documents/coding/random-color-generator"
 	alias lab="cd ~/258/258-labs-self"
 
 # config
+alias lc="cd ~/linux-config"
 alias vb="vi ~/.bash_aliases"
 alias vv="vi ~/.vimrc"
 alias rba=". ~/.bashrc"
@@ -54,3 +55,4 @@ g(){
 rs(){
 	redshift -O $(($1 * 1000))
 }
+alias rx="redshift -x"

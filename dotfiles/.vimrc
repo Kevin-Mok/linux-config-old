@@ -1,6 +1,6 @@
 set relativenumber
 set background=dark
-set t_Co=256
+" set t_Co=256
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -29,5 +29,6 @@ map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F10> :PlugInstall<CR>
+map <C-F1> :.,$s/:\(\w\)/: \1/g<CR>
 " map <Enter> o<ESC>
 " map <S-Enter> O<ESC>
