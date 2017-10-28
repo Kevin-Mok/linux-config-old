@@ -1,3 +1,8 @@
+in_lab=false
+if [ -d "/h/u3/c7/" ]; then
+	in_lab=true
+fi
+
 # system
 alias c="clear"
 shopt -s dotglob
@@ -8,17 +13,29 @@ alias s="systemctl suspend"
 # directories
 alias cdr="cd ~/../../"
 alias cdd="cd ~/Downloads"
-alias a2="cd ~/Documents/School/207/mokkar/a2"
-alias a2n="a2 && vi notes.txt"
-alias rcg="cd ~/Documents/coding/random-color-generator"
-	# 221
-	alias 221="cd ~/Documents/School/221"
-	alias mt="okular ~/Documents/School/221/Textbook.pdf"
-	alias mlt="okular ~/Downloads/Textbook.pdf"
-	# 258 (lab)
+if $in_lab; then
+	alias mt="okular ~/Downloads/Textbook.pdf"
+
+	# 207
+	alias a2="cd ~/207/mokkar/a2"
+	alias a2n="a2 && vi notes.txt"
+
+	# 258
 	alias p2="cd ~/258/258-labs-self/l5/p2"
 	alias l5="cd ~/258/258-labs-self/l5"
 	alias lab="cd ~/258/258-labs-self"
+
+else
+	alias mt="okular ~/Documents/School/221/Textbook.pdf"
+	alias rcg="cd ~/Documents/coding/random-color-generator"
+
+	# 207
+	alias a2="cd ~/Documents/School/207/mokkar/a2"
+	alias a2n="a2 && vi notes.txt"
+
+	# 221
+	alias 221="cd ~/Documents/School/221"
+fi
 
 # config
 alias lc="cd ~/linux-config"

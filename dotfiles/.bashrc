@@ -127,10 +127,12 @@ bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
-DIR_LAB="/h/u3/c7/05/mokkar/.bash_it"
-DIR_HOME="/home/kevin/.bash_it"
+DIR_BASH_IT="/home/kevin/.bash_it"
+if [ -d "/h/u3/c7/" ]; then
+	DIR_BASH_IT="/h/u3/c7/05/mokkar/.bash_it"
+fi
 # Path to the bash it configuration
-export BASH_IT="$DIR_HOME"
+export BASH_IT="$DIR_BASH_IT"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
