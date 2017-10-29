@@ -18,8 +18,10 @@ Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'felixhummel/setcolors.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'felixhummel/setcolors.vim'
+" Plug 'artur-shaik/vim-javacomplete2'
+" 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 call plug#end()
 

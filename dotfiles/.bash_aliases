@@ -17,8 +17,9 @@ if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
 
 	# 207
-	alias a2="cd ~/207/mokkar/a2"
-	alias a2n="a2 && vi notes.txt"
+	alias 207r="cd ~/207/mokkar/"
+	alias a2="cd ~/207/mokkar/a2/src/farmyard"
+	alias a2n="vi ~/207/mokkar/a2/notes.txt"
 
 	# 258
 	alias p2="cd ~/258/258-labs-self/l5/p2"
@@ -30,8 +31,9 @@ else
 	alias rcg="cd ~/Documents/coding/random-color-generator"
 
 	# 207
-	alias a2="cd ~/Documents/School/207/mokkar/a2"
-	alias a2n="a2 && vi notes.txt"
+	alias 207r="cd ~/Documents/School/207/mokkar/"
+	alias a2="cd ~/Documents/School/207/mokkar/a2/src/farmyard"
+	alias a2n="vi ~/Documents/School/207/mokkar/a2/notes.txt"
 
 	# 221
 	alias 221="cd ~/Documents/School/221"
