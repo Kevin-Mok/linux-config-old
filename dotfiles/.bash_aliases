@@ -31,9 +31,8 @@ else
 	alias rcg="cd ~/Documents/coding/random-color-generator"
 
 	# 207
-	alias 207r="cd ~/Documents/School/207/mokkar/"
-	alias a2="cd ~/Documents/School/207/mokkar/a2/src/farmyard"
-	alias a2n="vi ~/Documents/School/207/mokkar/a2/notes.txt"
+	alias 7r="cd ~/Documents/School/207/group_0485"
+	alias ph1="cd ~/Documents/School/207/group_0485/phase1"
 
 	# 221
 	alias 221="cd ~/Documents/School/221"
@@ -59,6 +58,9 @@ alias gstore="git config credential.helper store"
 gc(){
 	git commit -m "$1"
 }
+alias gcm="git commit"
+alias gl="git log"
+alias gsl="git shortlog"
 
 # idea
 alias jh="echo $JAVA_HOME"
