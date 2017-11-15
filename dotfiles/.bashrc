@@ -91,10 +91,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias l='ls -a'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -186,3 +182,5 @@ source "$BASH_IT"/bash_it.sh
 # export PATH=$JAVA_HOME/bin:$PATH
 # export IDEA_VM_OPTION="/home/kevin/usr/idea-IC-172.4343.14/bin/idea64.vmoptions"
 # source /etc/environment
+
+export QSYS_ROOTDIR="/home/kevin/usr/altera_lite/16.0/quartus/sopc_builder/bin"

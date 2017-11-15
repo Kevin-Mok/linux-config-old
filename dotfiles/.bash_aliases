@@ -6,15 +6,18 @@ if [ -d "/h/u3/c7/" ]; then
 fi
 
 # system
-alias c="clear"
+alias l='ls -a'
+c() { cd $@ && l ; }
+alias ll='ls -alF'
+alias cs='printf "\033c"'
 shopt -s dotglob
 alias reb="sudo shutdown -r 0"
 alias sd="sudo shutdown 0"
 alias s="systemctl suspend"
 
 # directories
-alias cdr="cd ~/../../"
-alias cdd="cd ~/Downloads"
+alias cdr="c ~/../../"
+alias cdd="c ~/Downloads"
 if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
 
@@ -29,19 +32,18 @@ if $in_lab; then
 
 else
 	alias mt="okular ~/Documents/School/221/Textbook.pdf"
-	alias rcg="cd ~/Documents/coding/random-color-generator"
+	alias rcg="c ~/Documents/coding/random-color-generator"
 
 	# 207
-	alias 207r="cd ~/Documents/School/207/mokkar/"
-	alias a2="cd ~/Documents/School/207/mokkar/a2/src/farmyard"
-	alias a2n="vi ~/Documents/School/207/mokkar/a2/notes.txt"
+	alias 7r="c ~/Documents/School/207/group_0485"
+	alias ph1="c ~/Documents/School/207/group_0485/phase1"
 
 	# 221
-	alias 221="cd ~/Documents/School/221"
+	alias 221="c ~/Documents/School/221"
 fi
 
 # config
-alias lc="cd ~/linux-config"
+alias lc="c ~/linux-config"
 alias vb="vi ~/.bash_aliases"
 alias vv="vi ~/.vimrc"
 alias rba=". ~/.bashrc"
@@ -57,11 +59,19 @@ alias gai="git add .gitignore"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gstore="git config credential.helper store"
+<<<<<<< HEAD
 gc(){
 	git commit -m "$1"
 }
 alias gcm="git commit"
  
+=======
+gc(){ git commit -m "$1" ; }
+alias gcm="git commit"
+alias gl="git log"
+alias gsl="git shortlog"
+
+>>>>>>> 0feebeeb849fd3764551b913a2cfd5f71f51b579
 # idea
 alias jh="echo $JAVA_HOME"
 alias jv="java -version"
@@ -69,11 +79,7 @@ alias jv="java -version"
 # alias idea=". ~/usr/idea-IC-172.4343.14/bin/idea.sh"
 # alias jf="export JAVA_HOME=/home/kevin/usr/jdk1.8.0_151 && export PATH=$JAVA_HOME/bin:$PATH"
 
-g(){
-	gvim $1
-}
+# g(){ gvim $1 ; }
 
-rs(){
-	redshift -O $(($1 * 1000))
-}
+rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
