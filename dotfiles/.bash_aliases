@@ -59,19 +59,11 @@ alias gai="git add .gitignore"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gstore="git config credential.helper store"
-<<<<<<< HEAD
-gc(){
-	git commit -m "$1"
-}
-alias gcm="git commit"
- 
-=======
 gc(){ git commit -m "$1" ; }
 alias gcm="git commit"
 alias gl="git log"
 alias gsl="git shortlog"
 
->>>>>>> 0feebeeb849fd3764551b913a2cfd5f71f51b579
 # idea
 alias jh="echo $JAVA_HOME"
 alias jv="java -version"
