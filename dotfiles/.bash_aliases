@@ -1,5 +1,7 @@
 in_lab=false
 if [ -d "/h/u3/c7/" ]; then
+	TERM=xterm-256color
+	xmodmap -e "clear Lock"
 	in_lab=true
 fi
 
@@ -17,13 +19,12 @@ if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
 
 	# 207
-	alias 207r="cd ~/207/mokkar/"
-	alias a2="cd ~/207/mokkar/a2/src/farmyard"
-	alias a2n="vi ~/207/mokkar/a2/notes.txt"
+	alias 7r="cd ~/207/group_0485/"
+	alias ph1="cd ~/207/group_0485/phase1"
 
 	# 258
-	alias p2="cd ~/258/258-labs-self/l5/p2"
-	alias l5="cd ~/258/258-labs-self/l5"
+	alias p1="cd ~/258/258-labs-self/l7/p1"
+	alias l7="cd ~/258/258-labs-self/l7"
 	alias lab="cd ~/258/258-labs-self"
 
 else
@@ -59,7 +60,8 @@ alias gstore="git config credential.helper store"
 gc(){
 	git commit -m "$1"
 }
-
+alias gcm="git commit"
+ 
 # idea
 alias jh="echo $JAVA_HOME"
 alias jv="java -version"
