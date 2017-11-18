@@ -7,7 +7,7 @@ fi
 
 # system
 alias l='ls -a'
-c() { cd $@ && l ; }
+c() { cd "$@" && ls -a ; }
 alias ll='ls -alF'
 alias cs='printf "\033c"'
 shopt -s dotglob
@@ -22,13 +22,15 @@ if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
 
 	# 207
-	alias 7r="cd ~/207/group_0485/"
-	alias ph1="cd ~/207/group_0485/phase1"
+	alias 7r="c ~/207/group_0485/"
+	alias ph1="c ~/207/group_0485/phase1"
 
 	# 258
-	alias p1="cd ~/258/258-labs-self/l7/p1"
-	alias l7="cd ~/258/258-labs-self/l7"
-	alias lab="cd ~/258/258-labs-self"
+	alias l52="c ~/258/258-labs-self/l5/p2"
+	alias p3="c ~/258/258-labs-self/l7/p3"
+	alias l7="c ~/258/258-labs-self/l7"
+	alias lab="c ~/258/258-labs-self"
+	alias us="echo unsigned"
 
 else
 	alias mt="okular ~/Documents/School/221/Textbook.pdf"
@@ -46,7 +48,7 @@ fi
 alias lc="c ~/linux-config"
 alias vb="vi ~/.bash_aliases"
 alias vv="vi ~/.vimrc"
-alias rba=". ~/.bashrc"
+alias r=". ~/.bashrc"
 
 # git
 . ~/.secure
@@ -59,10 +61,13 @@ alias gai="git add .gitignore"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gstore="git config credential.helper store"
-gc(){ git commit -m "$1" ; }
-alias gcm="git commit"
+gca(){ git commit -m "$1" ; }
+alias gc="git commit"
 alias gl="git log"
 alias gsl="git shortlog"
+alias gst="git stash"
+alias gstp="git stash pop"
+alias gstc="git stash clear"
 
 # idea
 alias jh="echo $JAVA_HOME"
