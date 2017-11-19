@@ -5,6 +5,10 @@
 [keybindings]
   close_term = <Primary>w
   cycle_next = <Shift>Tab
+  go_down = <Primary>Down
+  go_left = <Primary>Left
+  go_right = <Primary>Right
+  go_up = <Primary>Up
   new_tab = <Primary>t
   split_horiz = <Primary><Shift>e
   split_vert = <Primary><Shift>o

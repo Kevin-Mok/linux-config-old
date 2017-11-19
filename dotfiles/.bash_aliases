@@ -7,7 +7,6 @@ fi
 
 # system
 alias l='ls -a'
-c() { cd "$@" && ls -a ; }
 alias ll='ls -alF'
 alias cs='printf "\033c"'
 shopt -s dotglob
@@ -16,7 +15,9 @@ alias sd="sudo shutdown 0"
 alias s="systemctl suspend"
 
 # directories
-alias cdr="c ~/../../"
+c() { cd "$@" && ls -a ; }
+cd-up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
+alias "c."="cd-up"
 alias cdd="c ~/Downloads"
 if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
@@ -67,7 +68,7 @@ alias gl="git log"
 alias gsl="git shortlog"
 alias gst="git stash"
 alias gstp="git stash pop"
-alias gstc="git stash clear"
+alias gclear="git stash clear"
 
 # idea
 alias jh="echo $JAVA_HOME"
