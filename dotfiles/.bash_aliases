@@ -21,6 +21,7 @@ alias "c."="cd-up"
 alias cdd="c ~/Downloads"
 if $in_lab; then
 	alias mt="okular ~/Downloads/Textbook.pdf"
+	ff() { firefox $1 ; }
 
 	# 207
 	alias 7r="c ~/207/group_0485/"
@@ -32,17 +33,22 @@ if $in_lab; then
 	alias l7="c ~/258/258-labs-self/l7"
 	alias lab="c ~/258/258-labs-self"
 	alias us="echo unsigned"
+	alias gob="c ~/258/going-bananas"
 
 else
 	alias mt="okular ~/Documents/School/221/Textbook.pdf"
 	alias rcg="c ~/Documents/coding/random-color-generator"
-
+	chr() { google-chrome $1 ; }
+	
 	# 207
 	alias 7r="c ~/Documents/School/207/group_0485"
 	alias ph1="c ~/Documents/School/207/group_0485/phase1"
 
 	# 221
 	alias 221="c ~/Documents/School/221"
+
+	# 258
+	alias gob="c ~/Documents/School/258/going-bananas"
 fi
 
 # config
@@ -78,6 +84,7 @@ alias jv="java -version"
 # alias jf="export JAVA_HOME=/home/kevin/usr/jdk1.8.0_151 && export PATH=$JAVA_HOME/bin:$PATH"
 
 # g(){ gvim $1 ; }
+md() { multimarkdown -f -o $1.html $1.md ; }
 
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
