@@ -20,20 +20,28 @@ cd-up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "c."="cd-up"
 alias cdd="c ~/Downloads"
 if $in_lab; then
-	alias mt="okular ~/Downloads/Textbook.pdf"
 	ff() { firefox $1 ; }
+	zip() { tar -zcvf $1.tar.gz $1/ ; }
+	
+	alias mt="okular ~/Downloads/Textbook.pdf"
+	alias nau="nautilus ."
 
 	# 207
 	alias 7r="c ~/207/group_0485/"
-	alias ph1="c ~/207/group_0485/phase1"
+	alias ph2="c ~/207/group_0485/phase2"
+	alias fph2="ff ~/207/group_0485/phase2/p2.html"
+	alias gin="vi ~/207/group_0485/phase2/commit_issue_numbers.txt"
+	alias rp2="ph2 && ./src/compile_project.sh"
 
 	# 258
 	alias l52="c ~/258/258-labs-self/l5/p2"
 	alias p3="c ~/258/258-labs-self/l7/p3"
 	alias l7="c ~/258/258-labs-self/l7"
 	alias lab="c ~/258/258-labs-self"
-	alias us="echo unsigned"
-	alias gob="c ~/258/going-bananas"
+	alias rad="echo radix unsigned"
+	alias go="c ~/258/going-bananas"
+	alias gob="c ~/258/going-bananas/banana"
+	alias gom="c ~/258/going-bananas/monkey"
 
 else
 	alias mt="okular ~/Documents/School/221/Textbook.pdf"
@@ -84,7 +92,12 @@ alias jv="java -version"
 # alias jf="export JAVA_HOME=/home/kevin/usr/jdk1.8.0_151 && export PATH=$JAVA_HOME/bin:$PATH"
 
 # g(){ gvim $1 ; }
-md() { multimarkdown -f -o $1.html $1.md ; }
+md() {
+	multimarkdown -f -o $1.html $1.md 
+	if $in_lab; then
+		ff $1.html
+	fi
+}
 
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
