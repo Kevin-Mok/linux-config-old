@@ -92,12 +92,12 @@ alias jv="java -version"
 # alias jf="export JAVA_HOME=/home/kevin/usr/jdk1.8.0_151 && export PATH=$JAVA_HOME/bin:$PATH"
 
 # g(){ gvim $1 ; }
-md() {
-	multimarkdown -f -o $1.html $1.md 
-	if $in_lab; then
-		ff $1.html
-	fi
-}
+# md() {
+# 	multimarkdown -f -o $1.html $1.md 
+# 	if $in_lab; then
+# 		ff $1.html
+# 	fi
+# }
 
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"

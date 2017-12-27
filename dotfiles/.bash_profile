@@ -19,4 +19,13 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+if [ ! -d "/h/u3/c7/" ]; then
+	export JAVA_HOME=/home/kevin/usr/java/jdk1.8.0_151/bin
+	export PATH=$JAVA_HOME/bin:$PATH
+
+	export QSYS_ROOTDIR="/home/kevin/usr/altera_lite/16.0/quartus/sopc_builder/bin"
+	export PATH=$PATH:/home/kevin/usr/altera_lite/16.0/quartus/bin/
+	export PATH=$PATH:/home/kevin/usr/altera_lite/16.0/modelsim_ase/linuxaloem
+fi
+
 xmodmap -e "clear Lock"
