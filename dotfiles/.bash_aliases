@@ -23,7 +23,7 @@ if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
 	
-	alias mt="okular ~/Downloads/Textbook.pdf"
+	alias mt="ok ~/Downloads/Textbook.pdf"
 	alias nau="nautilus ."
 
 	# 207
@@ -44,9 +44,13 @@ if $in_lab; then
 	alias gom="c ~/258/going-bananas/monkey"
 
 else
-	alias mt="okular ~/Documents/School/221/Textbook.pdf"
+	alias school="c Documents/School/"
+
+	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
 	alias rcg="c ~/Documents/coding/random-color-generator"
+	alias dcr="c ~/Documents/coding/dcr-logger"
 	chr() { google-chrome $1 ; }
+	alias nem="nemo ."
 	
 	# 207
 	alias 7r="c ~/Documents/School/207/group_0485"
@@ -59,6 +63,9 @@ else
 	alias gob="c ~/Documents/School/258/going-bananas"
 fi
 
+# apps
+ok() { okular $1 ; }
+
 # config
 alias lc="c ~/linux-config"
 alias vb="vi ~/.bash_aliases"
@@ -67,7 +74,7 @@ alias r=". ~/.bashrc"
 
 # git
 . ~/.secure
-alias gs="git status"
+alias gs="git status -u"
 alias gpl="git pull"
 alias gps="git push"
 alias vig="vi .gitignore"
