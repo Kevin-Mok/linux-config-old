@@ -22,27 +22,7 @@ alias cdd="c ~/Downloads"
 if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
-	
-	alias mt="ok ~/Downloads/Textbook.pdf"
 	alias nau="nautilus ."
-
-	# 207
-	alias 7r="c ~/207/group_0485/"
-	alias ph2="c ~/207/group_0485/phase2"
-	alias fph2="ff ~/207/group_0485/phase2/p2.html"
-	alias gin="vi ~/207/group_0485/phase2/commit_issue_numbers.txt"
-	alias rp2="ph2 && ./src/compile_project.sh"
-
-	# 258
-	alias l52="c ~/258/258-labs-self/l5/p2"
-	alias p3="c ~/258/258-labs-self/l7/p3"
-	alias l7="c ~/258/258-labs-self/l7"
-	alias lab="c ~/258/258-labs-self"
-	alias rad="echo radix unsigned"
-	alias go="c ~/258/going-bananas"
-	alias gob="c ~/258/going-bananas/banana"
-	alias gom="c ~/258/going-bananas/monkey"
-
 else
 	alias school="c Documents/School/"
 
@@ -75,12 +55,13 @@ alias r=". ~/.bashrc"
 # git
 . ~/.secure
 alias gs="git status -u"
-alias gpl="git pull"
+alias gpl="git pull --rebase"
+alias grbc="git rebase --continue"
 alias gps="git push"
 alias vig="vi .gitignore"
-alias ga="git add *"
+alias ga="git add -A *"
 alias gai="git add .gitignore"
-alias gd="git diff"
+alias gd="git diff -w"
 alias gdc="git diff --cached"
 alias gstore="git config credential.helper store"
 gca(){ git commit -m "$1" ; }
@@ -90,6 +71,11 @@ alias gsl="git shortlog"
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gclear="git stash clear"
+gcho() { git checkout $1 ; }
+gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+}
 
 # idea
 alias jh="echo $JAVA_HOME"

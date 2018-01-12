@@ -20,6 +20,7 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
+Plug '907th/vim-auto-save'
 " Plug 'artur-shaik/vim-javacomplete2'
 " 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -30,6 +31,7 @@ colorscheme gotham256
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
+map <F7> :AutoSaveToggle<CR>
 map <F10> :PlugInstall<CR>
 map <C-F1> :.,$s/:\(\w\)/: \1/g<CR>
 " map <Enter> o<ESC>
