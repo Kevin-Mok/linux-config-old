@@ -23,24 +23,44 @@ if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
 	alias nau="nautilus ."
-else
-	alias school="c Documents/School/"
 
-	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
-	alias rcg="c ~/Documents/coding/random-color-generator"
-	alias dcr="c ~/Documents/coding/dcr-logger"
+	mkex() { chmod 700 $1 ; }
+else
+	rt() {
+		output="HDMI-0"
+		if [ "$1" = "s" ]
+		# if [ "${1:0:1}" = "s" ]
+		then
+			output="DVI-I-1"
+		fi
+
+		dir="normal"
+		if [ "$2" = "r" ]
+		# if [ "${1:1:2}" = "r" ]
+		then
+			dir="right"
+		fi
+
+		# echo "xrandr --output \"$output\" --rotate \"$dir\""
+		xrandr --output "$output" --rotate "$dir"
+	}
+
+	alias ow7="virtualbox startvm W7"
+	# alias ow7="VBoxManage startvm W7 --type headless"
+
 	chr() { google-chrome $1 ; }
 	alias nem="nemo ."
-	
-	# 207
-	alias 7r="c ~/Documents/School/207/group_0485"
-	alias ph1="c ~/Documents/School/207/group_0485/phase1"
+	alias spt="speedtest"
+	alias pg="ping -c 5 google.ca"
 
-	# 221
-	alias 221="c ~/Documents/School/221"
+	alias sch="c ~/Documents/School/"
+	alias 136="c ~/Documents/School/136"
+	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
+	alias 209="c ~/Documents/School/209"
+	alias psy="c ~/Documents/School/psy"
 
-	# 258
-	alias gob="c ~/Documents/School/258/going-bananas"
+	alias rcg="c ~/Documents/coding/random-color-generator"
+	alias dcr="c ~/Documents/coding/dcr-logger"
 fi
 
 # apps
@@ -53,7 +73,7 @@ alias vv="vi ~/.vimrc"
 alias r=". ~/.bashrc"
 
 # git
-. ~/.secure
+# . ~/.secure
 alias gs="git status -u"
 alias gpl="git pull --rebase"
 alias grbc="git rebase --continue"
