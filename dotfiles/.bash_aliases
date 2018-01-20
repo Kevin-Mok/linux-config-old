@@ -1,8 +1,10 @@
 in_lab=false
+cdSchool="c ~/Documents/School";
 if [ -d "/h/u3/c7/" ]; then
 	TERM=xterm-256color
 	xmodmap -e "clear Lock"
 	in_lab=true
+	cdSchool="c ~";
 fi
 
 # system
@@ -16,24 +18,13 @@ alias s="systemctl suspend"
 
 # directories
 c() { cd "$@" && ls -a ; }
-cd-up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
-alias "c."="cd-up"
+cd_up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
+alias "c."="cd_up"
 alias cdd="c ~/Downloads"
 if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
 	alias nau="nautilus ."
-
-	# 209
-	alias ll="ls -l"
-	alias 9r="c ~/209/mokkar"
-	alias l2="c ~/209/mokkar/lab2"
-	
-	gcc9() { 
-		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
-		./"${1%.*}.out"
-	}
-	mkex() { chmod 700 $1 ; }
 else
 	rt() {
 		output="HDMI-0"
@@ -62,15 +53,26 @@ else
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 
-	alias sch="c ~/Documents/School/"
-	alias 136="c ~/Documents/School/136"
-	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
-	alias 209="c ~/Documents/School/209"
-	alias psy="c ~/Documents/School/psy"
-
 	alias rcg="c ~/Documents/coding/random-color-generator"
 	alias dcr="c ~/Documents/coding/dcr-logger"
 fi
+
+# school
+alias sch="$cdSchool"
+alias 136="$cdSchool/136"
+alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
+alias psy="$cdSchool/psy"
+
+	# 209
+	alias ll="ls -l"
+	alias 209="$cdSchool/209"
+	alias 9r="$cdSchool/209/mokkar"
+	alias l2="$cdSchool/209/mokkar/lab2"
+	gcc9() { 
+		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
+		./"${1%.*}.out"
+	}
+	mkex() { chmod 700 $1 ; }
 
 # apps
 ok() { okular $1 ; }
