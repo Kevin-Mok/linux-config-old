@@ -24,6 +24,15 @@ if $in_lab; then
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
 	alias nau="nautilus ."
 
+	# 209
+	alias ll="ls -l"
+	alias 9r="c ~/209/mokkar"
+	alias l2="c ~/209/mokkar/lab2"
+	
+	gcc9() { 
+		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
+		./"${1%.*}.out"
+	}
 	mkex() { chmod 700 $1 ; }
 else
 	rt() {
@@ -84,7 +93,7 @@ alias gai="git add .gitignore"
 alias gd="git diff -w"
 alias gdc="git diff --cached"
 alias gstore="git config credential.helper store"
-gca(){ git commit -m "$1" ; }
+gcm(){ git commit -m "$1" ; }
 alias gc="git commit"
 alias gl="git log"
 alias gsl="git shortlog"
