@@ -184,3 +184,5 @@ source "$BASH_IT"/bash_it.sh
 # source /etc/environment
 
 export QSYS_ROOTDIR="/home/kevin/usr/altera_lite/16.0/quartus/sopc_builder/bin"
+export EDITOR='vim'
+export VISUAL='vim'

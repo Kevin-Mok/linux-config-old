@@ -1,6 +1,7 @@
 set relativenumber
 set background=dark
 " set t_Co=256
+filetype plugin on
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -12,6 +13,13 @@ autocmd VimResized * wincmd =
 
 " 'h/u3/c7/05/mokkar/.vim/plugged'
 " '~/.vim/plugged'
+
+" plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+	  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/L9'
