@@ -15,6 +15,7 @@ shopt -s dotglob
 alias reb="sudo shutdown -r 0"
 alias sd="sudo shutdown 0"
 alias s="systemctl suspend"
+alias hst="history"
 
 # directories
 c() { cd "$@" && ls -a ; }
@@ -68,9 +69,17 @@ alias psy="$cdSchool/psy"
 	alias 209="$cdSchool/209"
 	alias 9r="$cdSchool/209/mokkar"
 	alias l2="$cdSchool/209/mokkar/lab2"
+	alias a1="$cdSchool/209/mokkar/a1"
 	gcc9() { 
 		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
+	}
+	gcc9r() {
+		gcc9c $1
 		./"${1%.*}.out"
+	}
+	gcc9i() {
+		gcc9c $1
+		./"${1%.*}.out" < $2
 	}
 	mkex() { chmod 700 $1 ; }
 
