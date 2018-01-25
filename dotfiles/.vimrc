@@ -4,6 +4,8 @@ set background=dark
 filetype plugin on
 syntax on
 set tabstop=4
+set tw=80
+set colorcolumn=80
 set shiftwidth=4
 set autoindent
 set mouse=c
@@ -29,6 +31,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug '907th/vim-auto-save'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " Plug 'artur-shaik/vim-javacomplete2'
 " 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -39,6 +42,7 @@ colorscheme gotham256
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
+map <F6> :LLPStartPreview<CR>
 map <F7> :AutoSaveToggle<CR>
 map <F10> :PlugInstall<CR>
 map <C-F1> :.,$s/:\(\w\)/: \1/g<CR>

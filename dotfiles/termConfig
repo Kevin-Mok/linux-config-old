@@ -1,6 +1,5 @@
 [global_config]
   inactive_color_offset = 1.0
-  suppress_multiple_term_dialog = True
   title_font = Noto Sans 10
   title_transmit_bg_color = "#3d3d3d"
 [keybindings]
@@ -28,7 +27,7 @@
     copy_on_selection = True
     cursor_color = "#b9b9b9"
     custom_command = env TERM=xterm-256color bash
-    font = Monospace 13
+    font = Monospace 8.5
     foreground_color = "#0077ff"
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollbar_position = hidden

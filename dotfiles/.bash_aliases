@@ -1,10 +1,10 @@
 in_lab=false
-cdSchool="c ~/Documents/School";
+cd_school="c ~/Documents/School";
 if [ -d "/h/u3/c7/" ]; then
 	TERM=xterm-256color
 	xmodmap -e "clear Lock"
 	in_lab=true
-	cdSchool="c ~";
+	cd_school="c ~";
 fi
 
 # system
@@ -59,17 +59,18 @@ else
 fi
 
 # school
-alias sch="$cdSchool"
-alias 136="$cdSchool/136"
-alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
-alias psy="$cdSchool/psy"
+alias sch="$cd_school"
+alias 136="$cd_school/136"
+alias pr2="c \"$cd_school\"/136/par/1"
+alias mt="ok \"$cd_school\"/136/calc-textbook.pdf"
+alias psy="$cd_school/psy"
 
 	# 209
 	alias ll="ls -l"
-	alias 209="$cdSchool/209"
-	alias 9r="$cdSchool/209/mokkar"
-	alias l3="$cdSchool/209/mokkar/lab3"
-	alias a1="$cdSchool/209/mokkar/a1"
+	alias 209="$cd_school/209"
+	alias 9r="$cd_school/209/mokkar"
+	alias l3="$cd_school/209/mokkar/lab3"
+	alias a1="$cd_school/209/mokkar/a1"
 	gcc9() { 
 		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
 	}
