@@ -68,7 +68,7 @@ alias psy="$cdSchool/psy"
 	alias ll="ls -l"
 	alias 209="$cdSchool/209"
 	alias 9r="$cdSchool/209/mokkar"
-	alias l2="$cdSchool/209/mokkar/lab2"
+	alias l3="$cdSchool/209/mokkar/lab3"
 	alias a1="$cdSchool/209/mokkar/a1"
 	gcc9() { 
 		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 

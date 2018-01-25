@@ -132,7 +132,7 @@ export BASH_IT="$DIR_BASH_IT"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='simple'
+export BASH_IT_THEME='nwinkler'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -184,5 +184,7 @@ source "$BASH_IT"/bash_it.sh
 # source /etc/environment
 
 export QSYS_ROOTDIR="/home/kevin/usr/altera_lite/16.0/quartus/sopc_builder/bin"
+
+# custom
 export EDITOR='vim'
 export VISUAL='vim'
