@@ -71,15 +71,20 @@ alias psy="$cd_school/psy"
 	alias 9r="$cd_school/209/mokkar"
 	alias l3="$cd_school/209/mokkar/lab3"
 	alias a1="$cd_school/209/mokkar/a1"
-	gcc9() { 
-		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" 
+
+	gc9l3() {
+		gcc -Wall -std=gnu99 -g -o split_array.out split_array.c -lm 
+		./split_array.out 1 2 3 
 	}
-	gcc9r() {
-		gcc9c $1
+	gc9() { 
+		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm 
+	}
+	gc9r() {
+		gc9 $1
 		./"${1%.*}.out"
 	}
-	gcc9i() {
-		gcc9c $1
+	gc9i() {
+		gc9 $1
 		./"${1%.*}.out" < $2
 	}
 	mkex() { chmod 700 $1 ; }
