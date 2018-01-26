@@ -25,15 +25,26 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/FuzzyFinder'
+" Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug '907th/vim-auto-save'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-" Plug 'artur-shaik/vim-javacomplete2'
-" 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
+Plug 'lervag/vimtex'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 call plug#end()
 

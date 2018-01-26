@@ -61,7 +61,7 @@ fi
 # school
 alias sch="$cd_school"
 alias 136="$cd_school/136"
-alias pr2="c \"$cd_school\"/136/par/1"
+alias pr2="$cd_school/136/par/2"
 alias mt="ok \"$cd_school\"/136/calc-textbook.pdf"
 alias psy="$cd_school/psy"
 
@@ -73,7 +73,7 @@ alias psy="$cd_school/psy"
 	alias a1="$cd_school/209/mokkar/a1"
 
 	gc9l3() {
-		gcc -Wall -std=gnu99 -g -o split_array.out split_array.c -lm 
+		gcc -Wall -std=gnu99 -g -o split_array.out split_array.c
 		./split_array.out 1 2 3 
 	}
 	gc9() { 
