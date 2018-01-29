@@ -72,18 +72,29 @@ alias psy="$cd_school/psy"
 	alias l3="$cd_school/209/mokkar/lab3"
 	alias a1="$cd_school/209/mokkar/a1"
 
-	gc9l3() {
+	alias cdf="ssh mokkar@cdf.utoronto.ca"
+
+	ca12() {
+		gcc -Wall -std=gnu99 -g -o validate_sin.out validate_sin.c sin_helpers.c
+		./validate_sin.out 810620716
+	}
+	ca1() {
+		gcc -Wall -std=gnu99 -g -o count_large.out count_large.c
+		# ll | ./count_large.out 4000
+		./count_large.out 0 rw------- < ll.txt
+	}
+	cl3() {
 		gcc -Wall -std=gnu99 -g -o split_array.out split_array.c
 		./split_array.out 1 2 3 
 	}
-	gc9() { 
+	c9() { 
 		gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm 
 	}
-	gc9r() {
+	c9r() {
 		gc9 $1
 		./"${1%.*}.out"
 	}
-	gc9i() {
+	c9i() {
 		gc9 $1
 		./"${1%.*}.out" < $2
 	}
