@@ -1,10 +1,10 @@
 in_lab=false
-cd_school="c ~/Documents/School";
+cd_school="d ~/Documents/School";
 if [ -d "/h/u3/c7/" ]; then
 	TERM=xterm-256color
 	xmodmap -e "clear Lock"
 	in_lab=true
-	cd_school="c ~";
+	cd_school="d ~";
 fi
 
 # system
@@ -18,10 +18,10 @@ alias s="systemctl suspend"
 alias hst="history"
 
 # directories
-c() { cd "$@" && ls -a ; }
+d() { cd "$@" && ls -a ; }
 cd_up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "c."="cd_up"
-alias cdd="c ~/Downloads"
+alias cdd="d ~/Downloads"
 if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
@@ -41,6 +41,10 @@ else
 		then
 			dir="right"
 		fi
+		if [ "$2" = "l" ]
+		then
+			dir="left"
+		fi
 
 		# echo "xrandr --output \"$output\" --rotate \"$dir\""
 		xrandr --output "$output" --rotate "$dir"
@@ -54,15 +58,17 @@ else
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 
-	alias rcg="c ~/Documents/coding/random-color-generator"
-	alias dcr="c ~/Documents/coding/dcr-logger"
+	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
+	alias 36t="ok ~/Documents/School/236/236-textbook.pdf"
+
+	alias rcg="d ~/Documents/coding/random-color-generator"
+	alias dcr="d ~/Documents/coding/dcr-logger"
 fi
 
 # school
 alias sch="$cd_school"
 alias 136="$cd_school/136"
 alias pr2="$cd_school/136/par/2"
-alias mt="ok \"$cd_school\"/136/calc-textbook.pdf"
 alias psy="$cd_school/psy"
 
 	# 209
@@ -104,7 +110,7 @@ alias psy="$cd_school/psy"
 ok() { okular $1 ; }
 
 # config
-alias lc="c ~/linux-config"
+alias lc="d ~/linux-config"
 alias vb="vi ~/.bash_aliases"
 alias vv="vi ~/.vimrc"
 alias r=". ~/.bashrc"
