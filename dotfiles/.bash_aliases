@@ -23,6 +23,11 @@ d() { cd "$@" && ls -a ; }
 cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "c."="cd_up"
 alias cdd="d ~/Downloads"
+alias dsnip="d ~/.vim/plugged/vim-snippets/UltiSnips/"
+alias csnip="d ~/.vim/UltiSnips/"
+vdsnip() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+vsnip() { vi ~/.vim/UltiSnips/"$1".snippets ; }
+
 if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
@@ -79,7 +84,8 @@ alias psy="$cd_school/psy"
 	alias 9r="$cd_school/209/mokkar"
 	alias l3="$cd_school/209/mokkar/lab3"
 	alias a1="$cd_school/209/mokkar/a1"
-	alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc'"
+	# alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
+	alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
 
 	ca12() {
 		gcc -Wall -std=gnu99 -g -o validate_sin.out validate_sin.c sin_helpers.c
