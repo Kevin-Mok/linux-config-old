@@ -1,0 +1,35 @@
+[global_config]
+  inactive_color_offset = 1.0
+  title_font = Noto Sans 10
+  title_transmit_bg_color = "#3d3d3d"
+[keybindings]
+  close_term = <Primary>w
+  cycle_next = <Shift>Tab
+  go_down = <Primary>j
+  go_left = <Primary>h
+  go_right = <Primary>l
+  go_up = <Primary>k
+  new_tab = <Primary>t
+  split_horiz = <Primary><Shift>e
+  split_vert = <Primary><Shift>o
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    copy_on_selection = True
+    cursor_color = "#b9b9b9"
+    custom_command = env TERM=xterm-256color bash
+    font = Monospace 8.5
+    foreground_color = "#0077ff"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False

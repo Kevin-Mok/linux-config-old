@@ -1,4 +1,3 @@
-*.swp
+*.sw*
 temp.sh
 konsole.shortcuts
-dotfiles/termConfig

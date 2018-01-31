@@ -57,6 +57,7 @@ map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F6> :LLPStartPreview<CR>
 map <F7> :AutoSaveToggle<CR>
+set pastetoggle=<F9>
 map <F10> :PlugInstall<CR>
-map <Enter> o<ESC>
+map <C-Enter> o<ESC>
 map <S-Enter> O<ESC>

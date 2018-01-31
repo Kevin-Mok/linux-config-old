@@ -18,8 +18,9 @@ alias s="systemctl suspend"
 alias hst="history"
 
 # directories
+# unalias c
 d() { cd "$@" && ls -a ; }
-cd_up() { c $(printf "%0.s../" $(seq 1 $1 )) ; }
+cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "c."="cd_up"
 alias cdd="d ~/Downloads"
 if $in_lab; then
@@ -68,6 +69,7 @@ fi
 # school
 alias sch="$cd_school"
 alias 136="$cd_school/136"
+alias 236="$cd_school/236"
 alias pr2="$cd_school/136/par/2"
 alias psy="$cd_school/psy"
 
@@ -77,8 +79,7 @@ alias psy="$cd_school/psy"
 	alias 9r="$cd_school/209/mokkar"
 	alias l3="$cd_school/209/mokkar/lab3"
 	alias a1="$cd_school/209/mokkar/a1"
-
-	alias cdf="ssh mokkar@cdf.utoronto.ca"
+	alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc'"
 
 	ca12() {
 		gcc -Wall -std=gnu99 -g -o validate_sin.out validate_sin.c sin_helpers.c
