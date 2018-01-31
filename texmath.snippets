@@ -1,7 +1,15 @@
-snippet eqs "Equation with split" b
-\begin{equation*}
-	\begin{split}
-		$0
-	\end{split}
-\end{equation*}
+snippet al "Align (math)" b
+\begin{align*}
+	$0
+\end{align*}
+endsnippet
+
+snippet pwf "Piecewise function" b
+\[
+	${1:name} = \left.
+	\begin{cases}
+		${2:equation}, & ${3:condition} \\\\
+	\end{cases}
+	\right\\}
+\]
 endsnippet
