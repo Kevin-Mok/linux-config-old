@@ -46,7 +46,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
 
 call plug#end()
 
@@ -61,3 +61,7 @@ set pastetoggle=<F9>
 map <F10> :PlugInstall<CR>
 map <C-Enter> o<ESC>
 map <S-Enter> O<ESC>
+
+let mapleader="\<Space>"
+" nnoremap <leader>Enter oit<Tab>
+nnoremap <leader>s :set syn=sh<CR>

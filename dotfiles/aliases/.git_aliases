@@ -1,0 +1,23 @@
+# . ~/.secure
+alias gs="git status -u"
+alias gpl="git pull --rebase"
+alias grbc="git rebase --continue"
+alias gps="git push"
+alias vig="vi .gitignore"
+alias ga="git add -A *"
+alias gai="git add .gitignore"
+alias gd="git diff -w"
+alias gdc="git diff --cached"
+alias gstore="git config credential.helper store"
+gcm(){ git commit -m "$1" ; }
+alias gc="git commit"
+alias gl="git log"
+alias gsl="git shortlog"
+alias gst="git stash"
+alias gstp="git stash pop"
+alias gclear="git stash clear"
+gcho() { git checkout $1 ; }
+gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+}
