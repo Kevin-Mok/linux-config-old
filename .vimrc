@@ -12,6 +12,7 @@ set mouse=c
 set clipboard=unnamedplus
 
 autocmd VimResized * wincmd =
+autocmd BufNewFile,BufRead .*_aliases set syntax=sh
 
 " 'h/u3/c7/05/mokkar/.vim/plugged'
 " '~/.vim/plugged'
@@ -49,7 +50,6 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
 
 call plug#end()
-
 colorscheme gotham256
 
 map <F3> :wa<CR>

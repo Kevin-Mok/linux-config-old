@@ -1,7 +1,7 @@
-alias_folder="~/linux-config/dotfiles/aliases"
+alias_folder="~/linux-config/aliases"
 alias_type="school git pc laptop"
 for type in $alias_type; do
-	. ~/linux-config/dotfiles/aliases/."$type"_aliases
+	. ~/linux-config/aliases/."$type"_aliases
 done
 
 # system
@@ -29,10 +29,10 @@ vsnip() { vi ~/.vim/UltiSnips/"$1".snippets ; }
 ok() { okular $1 ; }
 
 # config
-alias lc="d ~/linux-config/dotfiles"
-alias lca="d ~/linux-config/dotfiles/aliases"
-alias vb="vi ~/.bash_aliases"
-alias vs="vi $alias_folder/.school_aliases"
+alias lc="d ~/linux-config/"
+alias lca="d ~/linux-config/aliases"
+alias vb="vi \"$alias_folder\"/.bash_aliases"
+alias vs="vi \"$alias_folder\"/.school_aliases"
 alias vv="vi ~/.vimrc"
 alias r=". ~/.bashrc"
 
