@@ -21,3 +21,5 @@ gremotes() {
 	git remote set-url --add --push origin $1
 	git remote set-url --add --push origin $2
 }
+
+alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"

@@ -30,9 +30,6 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 
-	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
-	alias 36t="ok ~/Documents/School/236/236-textbook.pdf"
-
 	alias rcg="d ~/Documents/coding/random-color-generator"
 	alias dcr="d ~/Documents/coding/dcr-logger"
 fi

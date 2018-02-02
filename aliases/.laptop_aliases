@@ -1,4 +1,5 @@
 if [ "$(hostname)" == "X1-Carbon" ]; then
+	# key swaps
 	xmodmap -e "keycode 9 = Escape"
 	xmodmap -e "keycode 22 = Home"
 	xmodmap -e "keycode 119 = End"

@@ -1,5 +1,5 @@
 alias_folder="~/linux-config/aliases"
-alias_type="school git pc laptop"
+alias_type="school git pc laptop 209 my_pc"
 for type in $alias_type; do
 	. ~/linux-config/aliases/."$type"_aliases
 done
@@ -13,6 +13,8 @@ alias reb="sudo shutdown -r 0"
 alias sd="sudo shutdown 0"
 alias s="systemctl suspend"
 alias hst="history"
+alias topo="top -o %MEM"
+alias rmsw="rm .sw*"
 
 # directories
 # unalias c
@@ -31,8 +33,9 @@ ok() { okular $1 ; }
 # config
 alias lc="d ~/linux-config/"
 alias lca="d ~/linux-config/aliases"
-alias vb="vi \"$alias_folder\"/.bash_aliases"
-alias vs="vi \"$alias_folder\"/.school_aliases"
+alias vb="vi $alias_folder/.bash_aliases"
+alias vs="vi $alias_folder/.school_aliases"
+alias vs9="vi $alias_folder/.209_aliases"
 alias vv="vi ~/.vimrc"
 alias r=". ~/.bashrc"
 

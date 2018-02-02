@@ -1,0 +1,48 @@
+alias ll="ls -l"
+alias 209="$cd_school/209"
+alias 9r="$cd_school/209/mokkar"
+alias l4="$cd_school/209/mokkar/lab4"
+alias a1="$cd_school/209/mokkar/a1"
+# alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
+alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
+mkex() { chmod 700 $1 ; }
+
+## compilation functions
+
+# compile without running
+c9() { gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm ; }
+
+# compile without running
+c9a() { 
+	for file in *; do
+		if [[ $file = *.c ]]; then
+			gcc -Wall -std=gnu99 -g -o "${file%.*}".out "$file"
+		fi
+	done
+} 
+
+# compile and run
+c9r() { gc9 $1 && ./"${1%.*}.out" ; }
+
+# compile and run with input
+c9i() { gc9 $1 && ./"${1%.*}.out" < $2 ; }
+
+# compile and run with input file
+run() {
+	while read line; do 
+		./$1 $line
+	done < $2
+}
+
+	# compile a1p2 and test with simple case
+	ca12() {
+		gcc -Wall -std=gnu99 -g -o validate_sin.out validate_sin.c sin_helpers.c
+		./validate_sin.out 810620716
+	}
+
+	# compile a1p1 and test with simple case
+	ca1() {
+		gcc -Wall -std=gnu99 -g -o count_large.out count_large.c
+		# ll | ./count_large.out 4000
+		./count_large.out 0 rw------- < ll.txt
+	}

@@ -10,5 +10,6 @@ done
 
 # terminator
 term_dir=~/.config/terminator
-rm $term_dir/config
-ln $dot_dir/termConfig "$term_dir"/config
+pc=$(hostname)
+rm "$dot_dir"/"$pc"-terminator
+ln -s "$term_dir"/config $dot_dir/"$pc"-terminator

@@ -1,0 +1,6 @@
+if [ "$(whoami)" == "kevin" ]; then
+	alias vbn="cvlc --loop ~/Downloads/brown-noise.mp3"
+
+	alias mt="ok ~/Documents/School/136/calc-textbook.pdf"
+	alias 36t="ok ~/Documents/School/236/236-textbook.pdf"
+fi
