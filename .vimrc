@@ -55,13 +55,13 @@ colorscheme gotham256
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
-map <F6> :LLPStartPreview<CR>
 map <F7> :AutoSaveToggle<CR>
 set pastetoggle=<F9>
 map <F10> :PlugInstall<CR>
-map <C-Enter> o<ESC>
 map <S-Enter> O<ESC>
 
 let mapleader="\<Space>"
-" nnoremap <leader>Enter oit<Tab>
+nnoremap <leader>e o<ESC>
+nnoremap <leader>f :set foldmethod=marker<CR>
+nnoremap <leader>p :LLPStartPreview<CR>
 nnoremap <leader>s :set syn=sh<CR>

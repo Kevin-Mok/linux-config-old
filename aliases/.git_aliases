@@ -4,7 +4,7 @@ alias gpl="git pull --rebase"
 alias grbc="git rebase --continue"
 alias gps="git push"
 alias vig="vi .gitignore"
-alias ga="git add -A *"
+alias ga="git add -A * && gs"
 alias gai="git add .gitignore"
 alias gd="git diff -w"
 alias gdc="git diff --cached"
@@ -16,10 +16,18 @@ alias gsl="git shortlog"
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gclear="git stash clear"
+alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+
 gcho() { git checkout $1 ; }
 gremotes() {
 	git remote set-url --add --push origin $1
 	git remote set-url --add --push origin $2
 }
-
-alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+gmrgr() { 
+	# 1 = remote name, 2 = remote path
+	git remote add $1 $2
+	git fetch $1
+	# whichever branch you want to merge
+	git merge --allow-unrelated-histories $1/master 
+	git remote remove $1
+}

@@ -1,0 +1,21 @@
+snippet forg "Generic for"
+for (int i = 0; i < ${1:count}; i++) {
+	${2}
+}
+endsnippet
+
+snippet mlc "malloc" i
+= malloc(sizeof(${1:type}) * ${2:amt});
+endsnippet
+
+snippet stl "strlen"
+strlen(${1:var})
+endsnippet
+
+snippet scp "strcpy"
+strcpy(${1:dest}, ${2:str});
+endsnippet
+
+snippet cmt "Line comment" b
+/* ${1:text} */
+endsnippet

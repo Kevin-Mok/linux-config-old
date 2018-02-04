@@ -30,9 +30,16 @@ c9i() { gc9 $1 && ./"${1%.*}.out" < $2 ; }
 # compile and run with input file
 run() {
 	while read line; do 
-		./$1 $line
-	done < $2
+		# ./$1.out $line
+		echo ./$1.out $line
+	done < $1.in
 }
+
+	# temp
+	c4g() {
+		gcc -Wall -std=gnu99 -g -o greeting.out greeting.c
+		./greeting.out "Good morning" "Emmanuel"
+	}
 
 	# compile a1p2 and test with simple case
 	ca12() {

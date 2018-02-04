@@ -1,6 +1,6 @@
 in_lab=false
-cd_school="d ~/Documents/School";
-if [ -d "/h/u3/c7/" ]; then
+cd_school="d ~/Documents/School/notes";
+if [ $(whoami) == "mokkar" ]; then
 	TERM=xterm-256color
 	xmodmap -e "clear Lock"
 	in_lab=true
@@ -17,9 +17,10 @@ fi
 alias sch="$cd_school"
 alias 236="$cd_school/236"
 alias psy="$cd_school/psy"
+alias rml="rm *.aux *.log *.pdf"
 pdl() { pdflatex $1 ; } 
 cptp() { 
-	cp template.tex cp-template.tex 
+	cp *template.tex cp-template.tex 
 	chmod 600 cp-template.tex 
 	date=`date +%-m-%d`
 	mv cp-template.tex "$date".tex
@@ -27,5 +28,4 @@ cptp() {
 
 # 136
 alias 136="$cd_school/136"
-alias 136n="$cd_school/136/notes"
 alias pr2="$cd_school/136/par/2"

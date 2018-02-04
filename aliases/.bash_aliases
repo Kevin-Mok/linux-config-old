@@ -20,24 +20,25 @@ alias rmsw="rm .sw*"
 # unalias c
 d() { cd "$@" && ls -a ; }
 cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
-alias "c."="cd_up"
+alias "d."="cd_up"
 alias cdd="d ~/Downloads"
-alias dsnip="d ~/.vim/plugged/vim-snippets/UltiSnips/"
-alias csnip="d ~/.vim/UltiSnips/"
-vdsnip() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
-vsnip() { vi ~/.vim/UltiSnips/"$1".snippets ; }
+alias dsnp="d ~/.vim/plugged/vim-snippets/UltiSnips/"
+alias csnp="d ~/.vim/UltiSnips/"
+vdsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+vsnp() { vi ~/.vim/UltiSnips/"$1".snippets ; }
 
 # apps
 ok() { okular $1 ; }
 
-# config
+## config
 alias lc="d ~/linux-config/"
-alias lca="d ~/linux-config/aliases"
-alias vb="vi $alias_folder/.bash_aliases"
-alias vs="vi $alias_folder/.school_aliases"
-alias vs9="vi $alias_folder/.209_aliases"
 alias vv="vi ~/.vimrc"
 alias r=". ~/.bashrc"
+	# aliases
+	alias lca="d ~/linux-config/aliases"
+	alias vb="vi $alias_folder/.bash_aliases"
+	alias vs="vi $alias_folder/.school_aliases"
+	alias vs9="vi $alias_folder/.209_aliases"
 
 # redshift
 rs(){ redshift -O $(($1 * 1000)) ; }
