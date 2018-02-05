@@ -28,4 +28,5 @@ cptp() {
 
 # 136
 alias 136="$cd_school/136"
+alias 136l="$cd_school/136/lecture"
 alias pr2="$cd_school/136/par/2"

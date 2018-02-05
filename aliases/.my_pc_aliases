@@ -1,5 +1,5 @@
 if [ "$(whoami)" == "kevin" ]; then
-	alias vbn="cvlc --loop ~/Downloads/brown-noise.mp3"
+	alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
 
 	alias mt="ok ~/Documents/School/calc-textbook.pdf"
 	alias clc="gcalccmd"

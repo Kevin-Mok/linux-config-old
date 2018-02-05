@@ -1,7 +1,11 @@
-snippet al "Align (math)" b
+snippet ali "Align (math)" b
 \begin{align*}
-	$0 \\\\
+	$1 &= $2 \\\\
 \end{align*}
+endsnippet
+
+snippet al "Align line" b
+&= $2 \\\\
 endsnippet
 
 snippet pwf "Piecewise function" b
@@ -44,4 +48,16 @@ endsnippet
 
 snippet thus "Therefore" b
 $\therefore$ 
+endsnippet
+
+snippet rd "Roman d" i
+\mathrm{d}${1:x} $2
+endsnippet
+
+snippet xax "x-axis" i
+$x$-axis 
+endsnippet
+
+snippet yax "y-axis" i
+$y$-axis 
 endsnippet

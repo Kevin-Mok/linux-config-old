@@ -22,10 +22,6 @@ d() { cd "$@" && ls -a ; }
 cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "d."="cd_up"
 alias cdd="d ~/Downloads"
-alias dsnp="d ~/.vim/plugged/vim-snippets/UltiSnips/"
-alias csnp="d ~/.vim/UltiSnips/"
-vdsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
-vsnp() { vi ~/.vim/UltiSnips/"$1".snippets ; }
 
 # apps
 ok() { okular $1 ; }
@@ -43,3 +39,12 @@ alias r=". ~/.bashrc"
 # redshift
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
+
+# UltiSnips
+alias dsnp="d ~/.vim/plugged/vim-snippets/UltiSnips/"
+alias csnp="d ~/.vim/UltiSnips/"
+
+alias vsptm="vi ~/.vim/UltiSnips/texmath.snippets"
+vdsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+vsnp() { vi ~/.vim/UltiSnips/"$1".snippets ; }
+

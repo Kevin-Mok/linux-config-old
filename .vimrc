@@ -10,6 +10,7 @@ set shiftwidth=4
 set autoindent
 set mouse=c
 set clipboard=unnamedplus
+set foldmethod=marker
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .*_aliases set syntax=sh
@@ -62,7 +63,7 @@ map <S-Enter> O<ESC>
 
 let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
-nnoremap <leader>ff :set foldmethod=marker<CR>
 nnoremap <leader>f za
+nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 nnoremap <leader>p :LLPStartPreview<CR>
 nnoremap <leader>s :set syn=sh<CR>
