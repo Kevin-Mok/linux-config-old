@@ -62,6 +62,7 @@ map <S-Enter> O<ESC>
 
 let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
-nnoremap <leader>f :set foldmethod=marker<CR>
+nnoremap <leader>ff :set foldmethod=marker<CR>
+nnoremap <leader>f za
 nnoremap <leader>p :LLPStartPreview<CR>
 nnoremap <leader>s :set syn=sh<CR>
