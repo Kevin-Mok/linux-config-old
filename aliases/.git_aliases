@@ -1,3 +1,4 @@
+# Aliases {{{
 # . ~/.secure
 alias gs="git status -u"
 alias gpl="git pull --rebase"
@@ -17,8 +18,11 @@ alias gst="git stash"
 alias gstp="git stash pop"
 alias gclear="git stash clear"
 alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+# Aliases }}}
 
+# Functions {{{
 gcho() { git checkout $1 ; }
+gcln() { git clone $1 ; }
 gremotes() {
 	git remote set-url --add --push origin $1
 	git remote set-url --add --push origin $2
@@ -31,3 +35,4 @@ gmrgr() {
 	git merge --allow-unrelated-histories $1/master 
 	git remote remove $1
 }
+# Functions }}}

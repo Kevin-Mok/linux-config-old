@@ -1,19 +1,20 @@
 in_lab=false
 cd_school="d ~/Documents/School/notes";
+
+# Lab Setup/Aliases {{{
 if [ $(whoami) == "mokkar" ]; then
 	TERM=xterm-256color
 	xmodmap -e "clear Lock"
 	in_lab=true
 	cd_school="d ~";
-fi
 
-if $in_lab; then
 	ff() { firefox $1 ; }
 	zip() { tar -zcvf $1.tar.gz $1/ ; }
 	alias nau="nautilus ."
 fi
+# }}} 
 
-# general
+# General {{{ 
 alias sch="$cd_school"
 alias 236="$cd_school/236"
 alias psy="$cd_school/psy"
@@ -25,8 +26,53 @@ cptp() {
 	date=`date +%-m-%d`
 	mv cp-template.tex "$date".tex
 } 
+# }}} 
 
-# 136
+# 136 {{{ 
 alias 136="$cd_school/136"
 alias 136l="$cd_school/136/lecture"
 alias pr2="$cd_school/136/par/2"
+# }}}
+
+# 209 {{{
+alias ll="ls -l"
+
+# General {{{
+cd_209="d ~/Documents/School/209";
+alias 209="$cd_209"
+alias 9r="$cd_209/mokkar"
+alias l5="$cd_209/mokkar/lab5"
+alias a2="$cd_209/mokkar/a2"
+# alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
+alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
+mkex() { chmod 700 $1 ; }
+# }}}
+
+# {{{ Compilation Functions
+# compile without running
+c9() { gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm ; }
+
+# compile all without running
+c9a() { 
+	for file in *; do
+		if [[ $file = *.c ]]; then
+			gcc -Wall -std=gnu99 -g -o "${file%.*}".out "$file"
+		fi
+	done
+} 
+
+# compile and run
+c9r() { gc9 $1 && ./"${1%.*}.out" ; }
+
+# compile and run with input
+c9i() { gc9 $1 && ./"${1%.*}.out" < $2 ; }
+
+# compile and run with input file
+run() {
+	while read line; do 
+		# ./$1.out $line
+		echo ./$1.out $line
+	done < $1.in
+}
+# }}}
+# }}}

@@ -1,7 +1,0 @@
-if [ "$(whoami)" == "kevin" ]; then
-	alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
-
-	alias mt="ok ~/Documents/School/calc-textbook.pdf"
-	alias clc="gcalccmd"
-	alias 36t="ok ~/Documents/School/236-textbook.pdf"
-fi
