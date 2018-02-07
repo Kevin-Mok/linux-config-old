@@ -24,7 +24,7 @@ alias rmsw="rm .sw*"
 d() { cd "$@" && ls -a ; }
 cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "d."="cd_up"
-alias cdd="d ~/Downloads"
+alias dd="d ~/Downloads"
 # }}}  #
 
 ok() { okular $1 ; }

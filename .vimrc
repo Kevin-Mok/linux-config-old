@@ -1,6 +1,7 @@
 " set x=y {{{ "
 set relativenumber
 set background=dark
+" set background=light
 " set t_Co=256
 filetype plugin on
 syntax on
@@ -31,7 +32,6 @@ Plug 'vim-scripts/L9'
 Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
-Plug 'felixhummel/setcolors.vim'
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -43,6 +43,8 @@ Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 	let g:NERDTrimTrailingWhitespace = 1
 	let g:NERDSpaceDelims = 1
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
 " }}} vim-plug "
 
 " YCM/UltiSnips {{{ "
@@ -65,7 +67,6 @@ map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
 set pastetoggle=<F9>
-map <F10> :PlugInstall<CR>
 map <S-Enter> O<ESC>
 
 let mapleader="\<Space>"
@@ -74,6 +75,9 @@ nnoremap <leader>f za
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 nnoremap <leader>p :LLPStartPreview<CR>
+nnoremap <leader>pli :PlugInstall<CR>
+nnoremap <leader>plc :PlugClean<CR>
+nnoremap <leader>plu :PlugUpdate<CR>
 nnoremap <leader>r :.,.+s///g<left><left><left><left><left>
 nnoremap <leader>s :set syn=sh<CR>
 " }}} Mappings "
