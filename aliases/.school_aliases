@@ -74,5 +74,8 @@ run() {
 		echo ./$1.out $line
 	done < $1.in
 }
+	# temp
+	# l5
+	alias mka="make all; ./bitmap_printer.out dog.bmp"
 # }}}
 # }}}

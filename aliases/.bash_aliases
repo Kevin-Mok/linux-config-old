@@ -37,8 +37,8 @@ alias r=". ~/.bashrc"
 	alias lca="d ~/linux-config/aliases"
 	alias vb="vi $alias_folder/.bash_aliases"
 	alias vs="vi $alias_folder/.school_aliases"
-	alias vsg="vi $alias_folder/.git_aliases"
-	alias vsp="vi $alias_folder/.pc_aliases"
+	alias vag="vi $alias_folder/.git_aliases"
+	alias vap="vi $alias_folder/.pc_aliases"
 # }}} Config #
 
 # redshift

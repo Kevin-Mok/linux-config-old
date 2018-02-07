@@ -33,12 +33,16 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug '907th/vim-auto-save'
+	let g:auto_save = 1
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Kevin-Mok/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
+Plug 'scrooloose/nerdcommenter'
+	let g:NERDTrimTrailingWhitespace = 1
+	let g:NERDSpaceDelims = 1
 " }}} vim-plug "
 
 " YCM/UltiSnips {{{ "

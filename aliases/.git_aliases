@@ -35,4 +35,5 @@ gmrgr() {
 	git merge --allow-unrelated-histories $1/master 
 	git remote remove $1
 }
+gunc() { git update-index --assume-unchanged $1 ; } 
 # Functions }}}
