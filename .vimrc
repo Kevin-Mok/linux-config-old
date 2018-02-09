@@ -13,6 +13,7 @@ set autoindent
 set mouse=c
 set clipboard=unnamedplus
 set foldmethod=marker
+set linespace=5
 " }}} set x=y "
 
 autocmd VimResized * wincmd =
@@ -73,12 +74,14 @@ let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
 nnoremap <leader>f za
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 nnoremap <leader>p :LLPStartPreview<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
 nnoremap <leader>r :.,.+s///g<left><left><left><left><left>
+nnoremap <leader>R :%s///g<left><left><left>
 nnoremap <leader>s :set syn=sh<CR>
 " }}} Mappings "
 
@@ -86,7 +89,21 @@ nnoremap <leader>s :set syn=sh<CR>
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel 
 
-autocmd Filetype tex inoremap <localleader>t $T$ 
+autocmd Filetype tex inoremap <localleader>e \exists  
+autocmd Filetype tex inoremap <localleader>fa \forall  
+autocmd Filetype tex inoremap <localleader>g \geq  
+autocmd Filetype tex inoremap <localleader>i \in 
+autocmd Filetype tex inoremap <localleader>l \leq  
+autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow   
+autocmd Filetype tex inoremap <localleader>n \neg 
+autocmd Filetype tex inoremap <localleader>N \mathbb{N} 
+autocmd Filetype tex inoremap <localleader>R \Rightarrow 
+autocmd Filetype tex inoremap <localleader>st such that 
+autocmd Filetype tex inoremap <localleader>t \times 
+autocmd Filetype tex inoremap <localleader>T $T$ 
+autocmd Filetype tex inoremap <localleader>v \vee 
+autocmd Filetype tex inoremap <localleader>w \wedge 
 autocmd Filetype tex inoremap <localleader>x $x$-axis 
 autocmd Filetype tex inoremap <localleader>y $y$-axis 
+autocmd Filetype tex inoremap <localleader>Z \mathbb{Z} 
 " }}} Local Mappings "

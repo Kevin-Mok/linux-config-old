@@ -54,5 +54,7 @@ if [ "$(hostname)" == "X1-Carbon" ]; then
 	xmodmap -e "keycode 119 = End"
 	xmodmap -e "keycode 110 = Delete"
 	xmodmap -e "keycode 115 = BackSpace"
+
+	alias thn="thunar ."
 fi
 # Laptop }}}

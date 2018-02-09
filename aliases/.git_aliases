@@ -36,4 +36,10 @@ gmrgr() {
 	git remote remove $1
 }
 gunc() { git update-index --assume-unchanged $1 ; } 
+gpla() { 
+	cmds="lc snp 9r sch"
+	for cmd in $cmds; do
+		eval $cmd && gst && gpl && gclear
+	done
+}
 # Functions }}}

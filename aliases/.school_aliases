@@ -42,7 +42,7 @@ cd_209="d ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
 alias l5="$cd_209/mokkar/lab5"
-alias a2="$cd_209/mokkar/a2"
+alias 9a="$cd_209/mokkar/a2"
 # alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
 alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
 mkex() { chmod 700 $1 ; }
@@ -79,3 +79,5 @@ run() {
 	alias mka="make all; ./bitmap_printer.out dog.bmp"
 # }}}
 # }}}
+
+alias 6a="$cd_school/236/a1"
