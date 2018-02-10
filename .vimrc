@@ -87,23 +87,23 @@ nnoremap <leader>s :set syn=sh<CR>
 
 " Local Mappings {{{ "
 let maplocalleader="-"
-autocmd Filetype c inoremap <localleader>s struct pixel 
+autocmd Filetype c inoremap <localleader>s struct pixel
 
-autocmd Filetype tex inoremap <localleader>e \exists  
-autocmd Filetype tex inoremap <localleader>fa \forall  
-autocmd Filetype tex inoremap <localleader>g \geq  
-autocmd Filetype tex inoremap <localleader>i \in 
-autocmd Filetype tex inoremap <localleader>l \leq  
-autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow   
-autocmd Filetype tex inoremap <localleader>n \neg 
-autocmd Filetype tex inoremap <localleader>N \mathbb{N} 
-autocmd Filetype tex inoremap <localleader>R \Rightarrow 
-autocmd Filetype tex inoremap <localleader>st such that 
-autocmd Filetype tex inoremap <localleader>t \times 
-autocmd Filetype tex inoremap <localleader>T $T$ 
-autocmd Filetype tex inoremap <localleader>v \vee 
-autocmd Filetype tex inoremap <localleader>w \wedge 
-autocmd Filetype tex inoremap <localleader>x $x$-axis 
-autocmd Filetype tex inoremap <localleader>y $y$-axis 
-autocmd Filetype tex inoremap <localleader>Z \mathbb{Z} 
+autocmd Filetype tex inoremap <localleader>e \exists
+autocmd Filetype tex inoremap <localleader>fa \forall
+autocmd Filetype tex inoremap <localleader>g \geq
+autocmd Filetype tex inoremap <localleader>i \in
+autocmd Filetype tex inoremap <localleader>l \leq
+autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
+autocmd Filetype tex inoremap <localleader>n \neg
+autocmd Filetype tex inoremap <localleader>N \mathbb{N}
+autocmd Filetype tex inoremap <localleader>R \Rightarrow
+autocmd Filetype tex inoremap <localleader>st such that
+autocmd Filetype tex inoremap <localleader>t \times
+autocmd Filetype tex inoremap <localleader>T $T$
+autocmd Filetype tex inoremap <localleader>v \vee
+autocmd Filetype tex inoremap <localleader>w \wedge
+autocmd Filetype tex inoremap <localleader>x $x$-axis
+autocmd Filetype tex inoremap <localleader>y $y$-axis
+autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 " }}} Local Mappings "

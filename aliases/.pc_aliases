@@ -4,7 +4,7 @@ if [ "$(whoami)" == "kevin" ]; then
 
 	alias mt="ok ~/Documents/School/calc-textbook.pdf"
 	alias clc="gcalccmd"
-	alias 36t="ok ~/Documents/School/236-textbook.pdf"
+	alias 6t="ok ~/Documents/School/236-textbook.pdf"
 fi
 # Both PC/Laptop }}}
 

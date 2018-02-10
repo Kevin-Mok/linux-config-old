@@ -49,5 +49,5 @@ alias rx="redshift -x"
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
 alias snp="d $usnp_dir"
 vsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
-alias tmsp="vi $usnp_dir/texmath.snippets"
+alias tm="vi $usnp_dir/texmath.snippets"
 # }}} #

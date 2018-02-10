@@ -39,7 +39,7 @@ gunc() { git update-index --assume-unchanged $1 ; }
 gpla() { 
 	cmds="lc snp 9r sch"
 	for cmd in $cmds; do
-		eval $cmd && gst && gpl && gclear
+		eval $cmd && gst && gpl && gstp && gclear
 	done
 }
 # Functions }}}
