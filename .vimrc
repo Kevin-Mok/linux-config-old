@@ -46,6 +46,10 @@ Plug 'scrooloose/nerdcommenter'
 	let g:NERDSpaceDelims = 1
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}} vim-plug "
 
 " YCM/UltiSnips {{{ "
@@ -67,8 +71,18 @@ map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
+map <F9> :LLPStartPreview<CR>
 set pastetoggle=<F9>
 map <S-Enter> O<ESC>
+
+" For splits.
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-Up> <C-W><C-K>
+nnoremap <C-Right> <C-W><C-L>
+nnoremap <C-Left> <C-W><C-H>
+" Maximize height/width.
+nnoremap <C-g> <C-W>_
+nnoremap <C-w> <C-W>|
 
 let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
@@ -76,7 +90,6 @@ nnoremap <leader>f za
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
-nnoremap <leader>p :LLPStartPreview<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
