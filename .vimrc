@@ -7,6 +7,7 @@ filetype plugin on
 syntax on
 set tabstop=4
 set tw=80
+set linebreak
 set colorcolumn=80
 set shiftwidth=4
 set autoindent
@@ -14,6 +15,11 @@ set mouse=c
 set clipboard=unnamedplus
 set foldmethod=marker
 set linespace=5
+" set listchars=tab:\|\
+" set list
+set cursorcolumn
+set cursorline
+set timeoutlen=300
 " }}} set x=y "
 
 autocmd VimResized * wincmd =
@@ -31,7 +37,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/L9'
 " Plug 'vim-scripts/FuzzyFinder'
 Plug 'whatyouhide/vim-gotham'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
@@ -72,7 +77,7 @@ map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
 map <F9> :LLPStartPreview<CR>
-set pastetoggle=<F9>
+set pastetoggle=<F10>
 map <S-Enter> O<ESC>
 
 " For splits.
@@ -86,7 +91,6 @@ nnoremap <C-w> <C-W>|
 
 let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
-nnoremap <leader>f za
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
@@ -94,8 +98,10 @@ nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
 nnoremap <leader>r :.,.+s///g<left><left><left><left><left>
+nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R :%s///g<left><left><left>
 nnoremap <leader>s :set syn=sh<CR>
+nnoremap <leader>z za
 " }}} Mappings "
 
 " Local Mappings {{{ "

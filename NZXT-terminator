@@ -11,6 +11,10 @@
   go_up = <Primary>k
   new_tab = <Primary>t
   new_window = <Primary><Shift>n
+  resize_down = <Primary><Shift>j
+  resize_left = <Primary><Shift>h
+  resize_right = <Primary><Shift>l
+  resize_up = <Primary><Shift>k
   split_horiz = <Primary><Shift>i
   split_vert = <Primary><Shift>o
 [layouts]
@@ -24,13 +28,20 @@
 [plugins]
 [profiles]
   [[default]]
+    background_darkness = 0.89
     background_image = None
+    background_type = transparent
     copy_on_selection = True
     cursor_color = "#b9b9b9"
     custom_command = env TERM=xterm-256color bash
-    font = Monospace 8.5
+    font = Ubuntu Mono 10
     foreground_color = "#0077ff"
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollbar_position = hidden
     use_custom_command = True
     use_system_font = False
+  [[light]]
+    background_color = "#fdf6e3"
+    background_image = None
+    foreground_color = "#657b83"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"

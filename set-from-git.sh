@@ -1,6 +1,5 @@
-dot_dir=~/linux-config
-
 # dotfiles
+dot_dir=~/linux-config
 dotfiles="bashrc gitconfig inputrc vimrc"
 cd $dot_dir
 for dotfile in $dotfiles; do
@@ -9,10 +8,11 @@ for dotfile in $dotfiles; do
 done
 
 # terminator
+dot_dir=~/linux-config
 term_dir=~/.config/terminator
 pc=$(hostname)
 rm "$dot_dir"/"$pc"-terminator
-ln "$term_dir"/config $dot_dir/"$pc"-terminator
+cp "$term_dir"/config $dot_dir/"$pc"-terminator
 
 # UltiSnips
 ln -s $dot_dir/UltiSnips ~/.vim
