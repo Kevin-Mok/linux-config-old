@@ -42,6 +42,7 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias pg="ping -c 5 google.ca"
 
 	alias res="vi ~/Documents/resume/README.md"
+	alias sfa="d ~/Documents/self-authoring"
 	alias rcg="d ~/Documents/coding/random-color-generator"
 	alias dcr="d ~/Documents/coding/dcr-logger"
 fi

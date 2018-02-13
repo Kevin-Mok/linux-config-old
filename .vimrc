@@ -55,6 +55,7 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dkarter/bullets.vim'
 " }}} vim-plug "
 
 " YCM/UltiSnips {{{ "
@@ -77,7 +78,7 @@ map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
 map <F9> :LLPStartPreview<CR>
-set pastetoggle=<F10>
+nnoremap <F10> :set paste<CR>p:set nopaste<CR>
 map <S-Enter> O<ESC>
 
 " For splits.
@@ -98,9 +99,11 @@ nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
 nnoremap <leader>r :.,.+s///g<left><left><left><left><left>
+nnoremap <leader>rl :.s///g<left><left><left>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R :%s///g<left><left><left>
 nnoremap <leader>s :set syn=sh<CR>
+nnoremap <leader>w Vgq
 nnoremap <leader>z za
 " }}} Mappings "
 
