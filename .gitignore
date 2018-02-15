@@ -2,3 +2,4 @@ commit-msg.txt
 *.sw*
 temp.sh
 konsole.shortcuts
+cp-*

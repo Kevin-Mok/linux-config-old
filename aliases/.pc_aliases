@@ -45,6 +45,11 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias sfa="d ~/Documents/self-authoring"
 	alias rcg="d ~/Documents/coding/random-color-generator"
 	alias dcr="d ~/Documents/coding/dcr-logger"
+
+	# xset r rate 200 75
+	# xmodmap -e "clear Lock"
+	# xmodmap -e "keycode 22 = Caps_Lock"
+	# xmodmap -e "keycode 66 = BackSpace"
 fi
 # NZXT }}}
 
