@@ -11,9 +11,10 @@ alias l='ls -a'
 alias ll='ls -alF'
 alias cs='printf "\033c"'
 shopt -s dotglob
-alias reb="sudo shutdown -r 0"
-alias sd="sudo shutdown 0"
+alias lo="i3-msg exit"
 alias s="systemctl suspend"
+alias sd="sudo shutdown 0"
+alias reb="sudo shutdown -r 0"
 alias hst="history"
 alias topo="top -o %MEM"
 alias rmsw="rm .sw*"

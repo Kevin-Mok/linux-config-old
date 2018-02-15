@@ -23,7 +23,7 @@ set timeoutlen=300
 " }}} set x=y "
 
 autocmd VimResized * wincmd =
-autocmd BufNewFile,BufRead .*_aliases set syntax=sh
+autocmd BufNewFile,BufRead .* set syntax=sh
 
 " vim-plug {{{ "
 " plug auto-install

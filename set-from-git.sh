@@ -10,15 +10,12 @@ done
 # config files
 dot_dir=~/linux-config
 config_dir=~/.config
-config_files="neofetch/config.conf i3/config"
+config_files="neofetch/config.conf i3/config i3blocks/i3blocks.conf"
 for file in $config_files; do
 	rm $config_dir/$file
 	ln -s $dot_dir/$(echo $file | cut -d'/' -f 1).conf $config_dir/$file
 	# echo $(echo $file | cut -d'/' -f 1)
 done
-# old code
-	# neofetch_dir=~/.config/neofetch
-	# ln -s $dot_dir/neofetch.conf $config_dir/neofetch/config.conf
 
 # terminator
 dot_dir=~/linux-config
