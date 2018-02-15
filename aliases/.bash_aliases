@@ -17,6 +17,7 @@ alias s="systemctl suspend"
 alias hst="history"
 alias topo="top -o %MEM"
 alias rmsw="rm .sw*"
+alias nf="neofetch"
 # }}} System #
 
 # Directories {{{ #

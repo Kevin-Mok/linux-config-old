@@ -94,6 +94,8 @@ let mapleader="\<Space>"
 nnoremap <leader>e o<ESC>
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
+nnoremap <leader>he :help 
+nnoremap <leader>vhe :vert help 
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>

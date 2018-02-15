@@ -14,5 +14,7 @@ pc=$(hostname)
 rm "$dot_dir"/"$pc"-terminator
 cp "$term_dir"/config $dot_dir/"$pc"-terminator
 
-# UltiSnips
-ln -s $dot_dir/UltiSnips ~/.vim
+# neofetch
+dot_dir=~/linux-config
+neofetch_dir=~/.config/neofetch
+ln -s $dot_dir/neofetch.conf $neofetch_dir/config.conf
