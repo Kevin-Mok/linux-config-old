@@ -19,6 +19,7 @@ alias hst="history"
 alias topo="top -o %MEM"
 alias rmsw="rm .sw*"
 alias nf="neofetch"
+alias vlm="alsamixer -c 1"
 # }}} System #
 
 # Directories {{{ #
@@ -27,6 +28,7 @@ d() { cd "$@" && ls -a ; }
 cd_up() { d $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "d."="cd_up"
 alias dd="d ~/Downloads"
+alias cfg="d ~/.config"
 # }}}  #
 
 ok() { okular $1 ; }

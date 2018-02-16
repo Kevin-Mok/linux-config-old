@@ -5,6 +5,8 @@ if [ "$(whoami)" == "kevin" ]; then
 	alias mt="ok ~/Documents/School/calc-textbook.pdf"
 	alias clc="gcalccmd"
 	alias 6t="ok ~/Documents/School/236-textbook.pdf"
+
+	cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 fi
 # Both PC/Laptop }}}
 

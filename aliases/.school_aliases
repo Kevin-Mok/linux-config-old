@@ -45,7 +45,7 @@ alias l5="$cd_209/mokkar/lab5"
 alias 9a="$cd_209/mokkar/a2"
 # alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
 alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
-mkex() { chmod 700 $1 ; }
+mkex() { chmod 777 $1 ; }
 # }}}
 
 # {{{ Compilation Functions
