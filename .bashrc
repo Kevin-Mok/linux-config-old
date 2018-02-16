@@ -183,9 +183,12 @@ export QSYS_ROOTDIR="/home/kevin/usr/altera_lite/16.0/quartus/sopc_builder/bin"
 export EDITOR='vim'
 export VISUAL='vim'
 
+# Both PC/Laptop {{{
+if [ "$(whoami)" == "kevin" ]; then
+	xset r rate 200 90
+fi
 # NZXT
 if [ "$(hostname)" == "NZXT" ]; then
-	xset r rate 200 90
 	xmodmap -e "clear Lock"
 	xmodmap -e "keycode 22 = Caps_Lock"
 	xmodmap -e "keycode 66 = BackSpace"
