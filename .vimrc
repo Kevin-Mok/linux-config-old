@@ -97,6 +97,7 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>he :help 
 nnoremap <leader>vhe :vert help 
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
+nnoremap <leader>nw :set nowrap<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>

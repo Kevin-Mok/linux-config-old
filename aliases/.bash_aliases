@@ -42,6 +42,7 @@ alias r=". ~/.bashrc"
 	alias vag="vi $alias_folder/.git_aliases"
 	alias vap="vi $alias_folder/.pc_aliases"
 	alias v3="vi ~/.config/i3/config"
+	alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
 # }}} Config #
 
 # redshift

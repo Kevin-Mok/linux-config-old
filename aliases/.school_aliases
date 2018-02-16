@@ -76,7 +76,9 @@ run() {
 }
 	# temp
 	alias mkt="make test_print && ./test_print.out"
-	alias mka="make all && ./print_ptree.out 4463"
+	alias mka="make all && ./print_ptree.out -d 0 31589"
+	alias ppt="./print_ptree.out 31589"
+	alias pptd="./print_ptree.out -d 2 31589"
 	# alias db="gdb ./print_ptree.out < gdb.txt"
 	deb() {
 		gdb ./print_ptree.out < "$1"
