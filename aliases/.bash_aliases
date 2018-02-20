@@ -16,7 +16,6 @@ alias s="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias hst="history"
-alias topo="top -o %MEM"
 alias rmsw="rm .sw*"
 alias nf="neofetch"
 alias vlm="alsamixer -c 1"
@@ -43,13 +42,12 @@ alias r=". ~/.bashrc"
 	alias vs="vi $alias_folder/.school_aliases"
 	alias vag="vi $alias_folder/.git_aliases"
 	alias vap="vi $alias_folder/.pc_aliases"
-	alias v3="vi ~/.config/i3/config"
-	alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
 # }}} Config #
 
 # redshift
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
+pand() { pandoc -o ${1%.*}.html $1 && google-chrome ${1%.*}.html ; } 
 
 # UltiSnips {{{ #
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"

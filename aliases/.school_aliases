@@ -31,7 +31,7 @@ cptp() {
 # 136 {{{ 
 alias 136="$cd_school/136"
 alias 136l="$cd_school/136/lecture"
-alias pr2="$cd_school/136/par/2"
+alias pr3="$cd_school/136/par/3"
 # }}}
 
 # 209 {{{
@@ -41,7 +41,7 @@ alias ll="ls -l"
 cd_209="d ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
-alias l5="$cd_209/mokkar/lab5"
+alias l6="$cd_209/mokkar/lab6"
 alias 9a="$cd_209/mokkar/a2"
 # alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
 alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
@@ -62,10 +62,10 @@ c9a() {
 } 
 
 # compile and run
-c9r() { gc9 $1 && ./"${1%.*}.out" ; }
+c9r() { c9 $1 && ./"${1%.*}.out" ; }
 
 # compile and run with input
-c9i() { gc9 $1 && ./"${1%.*}.out" < $2 ; }
+c9i() { c9 $1 && ./"${1%.*}.out" < $2 ; }
 
 # compile and run with input file
 run() {
@@ -75,11 +75,6 @@ run() {
 	done < $1.in
 }
 	# temp
-	alias mkt="make test_print && ./test_print.out"
-	alias mka="make all && ./print_ptree.out -d 0 31589"
-	alias ppt="./print_ptree.out 31589"
-	alias pptd="./print_ptree.out -d 2 31589"
-	# alias db="gdb ./print_ptree.out < gdb.txt"
 	deb() {
 		gdb ./print_ptree.out < "$1"
 	} 

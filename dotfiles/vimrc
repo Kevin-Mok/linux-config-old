@@ -101,10 +101,10 @@ nnoremap <leader>nw :set nowrap<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
-nnoremap <leader>r :.,.+s///g<left><left><left><left><left>
-nnoremap <leader>rl :.s///g<left><left><left>
+nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
+nnoremap <leader>rl q:i.s///g<left><left><left>
 nnoremap <leader>rv :source $MYVIMRC<CR>
-nnoremap <leader>R :%s///g<left><left><left>
+nnoremap <leader>R q:i%s///g<ESC>2F/i
 nnoremap <leader>s :set syn=sh<CR>
 nnoremap <leader>w Vgq
 nnoremap <leader>z za
