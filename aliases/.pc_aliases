@@ -2,22 +2,36 @@
 if [ "$(whoami)" == "kevin" ]; then
 	alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
 
+	#  school {{{ # 
 	alias mt="ok ~/Documents/School/calc-textbook.pdf"
 	alias clc="gcalccmd"
 	alias 6t="ok ~/Documents/School/236-textbook.pdf"
 	alias doc="d ~/Documents"
+	#  }}} school # 
 
+	#  i3 {{{ # 
 	alias v3="vi ~/.config/i3/config"
 	alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
 	alias i3b="d /usr/share/i3blocks"
+	#  }}} i3 # 
+	
+	#  coding projs {{{ # 
+	cd_coding_dir="d ~/Documents/coding"
 	alias ans="d /usr/local/android-studio/bin && ./studio.sh"
+	alias cdn="$cd_coding_dir"
+	alias tb="$cd_coding_dir/trapbot"
+		alias vtb="$cd_coding_dir/trapbot && vi trapbot.py"
+		alias ptb="python trapbot.py"
+	#  }}} coding projs # 
 
+	bl() { xbacklight -set $1 ; } 
 	cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 fi
 # Both PC/Laptop }}}
 
 # NZXT {{{
 if [ "$(hostname)" == "NZXT" ]; then
+	#  rotate monitor {{{ # 
 	rt() {
 		output="HDMI-0"
 		if [ "$1" = "s" ]
@@ -40,52 +54,51 @@ if [ "$(hostname)" == "NZXT" ]; then
 		# echo "xrandr --output \"$output\" --rotate \"$dir\""
 		xrandr --output "$output" --rotate "$dir"
 	}
+	#  }}} rotate monitor # 
 
+	#  audio {{{ # 
 	alias alsi="pactl list short sink-inputs"
 	alias als="pactl list short sinks"
 	amsih() { pactl move-sink-input $1 0 ; } 
 	amsis() { pactl move-sink-input $1 1 ; } 
+	#  }}} audio # 
 
-	alias w7="VBoxManage startvm W7 --type headless"
-
+	#  apps {{{ # 
 	chr() { google-chrome $1 ; }
 	alias nem="nemo ."
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
+	alias w7="VBoxManage startvm W7 --type headless"
+	#  }}} apps  # 
 
-	cd_coding_dir="d ~/Documents/coding"
-	alias cdn="$cd_coding_dir"
+	#  various coding projs {{{ # 
 	alias res="vi ~/Documents/resume/README.md"
 	alias sfa="d ~/Documents/self-authoring"
 	alias rcg="$cd_coding_dir/random-color-generator"
 	alias dcr="$cd_coding_dir/dcr-logger"
 	alias pf="$cd_coding_dir/ParsaFood"
-	alias tb="$cd_coding_dir/trapbot"
-	alias vtb="$cd_coding_dir/trapbot && vi trapbot.py"
-		alias ptb="python trapbot.py"
-		alias ptbo="python trapbot.py > output.py"
 	alias sb="$cd_coding_dir/swbot"
 		# alias psb="p3 create_skills_dict.py"
 		# alias psbo="p3 create_skills_dict.py > output.py"
 		alias psb="p3 create_monster_dict.py"
 		alias psbo="p3 create_monster_dict.py > output.py"
-
-	# xset r rate 200 75
-	# xmodmap -e "clear Lock"
-	# xmodmap -e "keycode 22 = Caps_Lock"
-	# xmodmap -e "keycode 66 = BackSpace"
+	#  }}} various coding projs # 
 fi
 # NZXT }}}
 
 # Laptop {{{
 if [ "$(hostname)" == "X1-Carbon" ]; then
-	# key swaps
+	#  key swaps {{{ # 
 	xmodmap -e "keycode 9 = Escape"
 	xmodmap -e "keycode 22 = Home"
 	xmodmap -e "keycode 119 = End"
 	xmodmap -e "keycode 110 = Delete"
 	xmodmap -e "keycode 115 = BackSpace"
+	#  }}} key swaps # 
 
 	alias thn="thunar ."
+
+	alias plz="d ~/platterz2018/ocr-reader/app/src/main/java/com/google/android/gms/samples/vision/ocrreader"
+	alias ans="d /usr/local/android-studio/bin/"
 fi
 # Laptop }}}

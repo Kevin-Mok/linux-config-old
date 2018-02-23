@@ -1,5 +1,5 @@
 in_lab=false
-cd_school="d ~/Documents/School/notes";
+cd_school="d ~/Documents/School/notes"
 
 # Lab Setup/Aliases {{{
 if [ $(whoami) == "mokkar" ]; then

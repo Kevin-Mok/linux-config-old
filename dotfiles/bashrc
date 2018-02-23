@@ -188,8 +188,11 @@ if [ "$(whoami)" == "kevin" ]; then
 	xset r rate 200 90
 fi
 # NZXT
-if [ "$(hostname)" == "NZXT" ]; then
+if [ "$(hostname)" == "NZXT" ];
+then
 	xmodmap -e "clear Lock"
 	xmodmap -e "keycode 22 = Caps_Lock"
 	xmodmap -e "keycode 66 = BackSpace"
+else
+	xrandr --dpi 150
 fi
