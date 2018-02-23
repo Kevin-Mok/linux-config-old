@@ -60,10 +60,15 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias rcg="$cd_coding_dir/random-color-generator"
 	alias dcr="$cd_coding_dir/dcr-logger"
 	alias pf="$cd_coding_dir/ParsaFood"
-	alias tpb="$cd_coding_dir/trapbot"
+	alias tb="$cd_coding_dir/trapbot"
+	alias vtb="$cd_coding_dir/trapbot && vi trapbot.py"
 		alias ptb="python trapbot.py"
-		alias ptbo="python trapbot.py > output.py && vi output.py"
-		alias tbof="python trapbot-local.py"
+		alias ptbo="python trapbot.py > output.py"
+	alias sb="$cd_coding_dir/swbot"
+		# alias psb="p3 create_skills_dict.py"
+		# alias psbo="p3 create_skills_dict.py > output.py"
+		alias psb="p3 create_monster_dict.py"
+		alias psbo="p3 create_monster_dict.py > output.py"
 
 	# xset r rate 200 75
 	# xmodmap -e "clear Lock"

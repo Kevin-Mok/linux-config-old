@@ -19,6 +19,7 @@ alias gst="git stash"
 alias gstp="git stash pop"
 alias gclear="git stash clear"
 alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+alias gchom="git checkout master"
 # Aliases }}}
 
 # Functions {{{

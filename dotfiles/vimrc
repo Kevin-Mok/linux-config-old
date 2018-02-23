@@ -20,6 +20,7 @@ set linespace=5
 set cursorcolumn
 set cursorline
 set timeoutlen=300
+set hlsearch
 " }}} set x=y "
 
 autocmd VimResized * wincmd =
@@ -91,7 +92,7 @@ nnoremap <C-g> <C-W>_
 nnoremap <C-w> <C-W>|
 
 let mapleader="\<Space>"
-nnoremap <leader>e o<ESC>
+nnoremap <leader>e :e<CR>
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>he :help 
@@ -101,12 +102,14 @@ nnoremap <leader>nw :set nowrap<CR>
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
+nnoremap <leader>py :set tw=200<CR>
 nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
 nnoremap <leader>rl q:i.s///g<left><left><left>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 nnoremap <leader>s :set syn=sh<CR>
 nnoremap <leader>w Vgq
+nnoremap <leader>ww Vjgq
 nnoremap <leader>z za
 " }}} Mappings "
 

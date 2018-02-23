@@ -31,6 +31,10 @@ alias cfg="d ~/.config"
 # }}}  #
 
 ok() { okular $1 ; }
+rfnd() { find . -name "$1" ; } 
+rgrp() { grep -r $1 * ; } 
+p3() { python3 $1 ; } 
+py() { python $1 ; } 
 
 # Config {{{ #
 alias lc="d ~/linux-config/"
@@ -47,7 +51,7 @@ alias r=". ~/.bashrc"
 # redshift
 rs(){ redshift -O $(($1 * 1000)) ; }
 alias rx="redshift -x"
-pand() { pandoc -o ${1%.*}.html $1 && google-chrome ${1%.*}.html ; } 
+mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; } 
 
 # UltiSnips {{{ #
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
