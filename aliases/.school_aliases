@@ -41,8 +41,9 @@ alias ll="ls -l"
 cd_209="d ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
-alias l6="$cd_209/mokkar/lab6"
-alias 9a="$cd_209/mokkar/a2"
+alias l7="$cd_209/mokkar/lab7"
+	alias m7="make childcreates && ./childcreates 3"
+alias 9a="$cd_209/mokkar/a3"
 # alias cdf="ssh -t mokkar@cdf.utoronto.ca '. ./.bashrc; bash -l'"
 alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
 mkex() { chmod 777 $1 ; }
@@ -75,10 +76,9 @@ run() {
 	done < $1.in
 }
 	# temp
-	deb() {
-		gdb ./print_ptree.out < "$1"
-	} 
+		alias m3="make pfact && ./pfact 10"
 # }}}
 # }}}
 
 alias 36a="$cd_school/236/a1"
+alias 36t="$cd_school && ok ../236-textbook.pdf"

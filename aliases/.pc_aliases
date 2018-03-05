@@ -20,8 +20,9 @@ if [ "$(whoami)" == "kevin" ]; then
 	alias ans="d /usr/local/android-studio/bin && ./studio.sh"
 	alias cdn="$cd_coding_dir"
 	alias tb="$cd_coding_dir/trapbot"
-		alias vtb="$cd_coding_dir/trapbot && vi trapbot.py"
-		alias ptb="python trapbot.py"
+		alias vtb="$cd_coding_dir/trapbot && vi scan_reddit.py"
+		alias ptb="python scan_reddit.py"
+		alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
 	#  }}} coding projs # 
 
 	bl() { xbacklight -set $1 ; } 
@@ -72,7 +73,10 @@ if [ "$(hostname)" == "NZXT" ]; then
 	#  }}} apps  # 
 
 	#  various coding projs {{{ # 
-	alias res="vi ~/Documents/resume/README.md"
+	alias cv="d ~/Documents/resume/examples"
+		alias cvf="d ~/Documents/resume/examples/cv"
+		alias vcv="vi ~/Documents/resume/examples/cv.tex"
+		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
 	alias sfa="d ~/Documents/self-authoring"
 	alias rcg="$cd_coding_dir/random-color-generator"
 	alias dcr="$cd_coding_dir/dcr-logger"

@@ -32,7 +32,9 @@ alias cfg="d ~/.config"
 
 ok() { okular $1 ; }
 rfnd() { find . -name "$1" ; } 
+# rfnde() { find . -name "*.$1" ; }
 rgrp() { grep -r $1 * ; } 
+grpy() { grep $1 *.py ; } 
 p3() { python3 $1 ; } 
 py() { python $1 ; } 
 
