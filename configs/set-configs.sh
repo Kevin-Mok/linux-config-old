@@ -1,7 +1,8 @@
 # Get directory variables from script.
 . ../dirs.sh
 # List of config files in system config dir that I want to link to.
-config_files="neofetch/config.conf i3/config i3blocks/i3blocks.conf"
+config_files="neofetch/config.conf i3/config i3blocks/i3blocks.conf "\
+"sam-i3blocks/sam-i3blocks.conf"
 for file in $config_files; do
 	# Remove system file.
 	rm "$sys_config_dir"/"$file"
