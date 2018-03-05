@@ -124,8 +124,11 @@ fi
 # Path to the bash it configuration
 export BASH_IT="$DIR_BASH_IT"
 
+
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
+PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 export BASH_IT_THEME='nwinkler'
 
 # (Advanced): Change this to the name of your remote repo if you
