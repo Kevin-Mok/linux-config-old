@@ -1,5 +1,6 @@
-commit-msg.txt
+cp-*
 *.sw*
+*.html
 temp.sh
 konsole.shortcuts
-cp-*
+commit-msg.txt

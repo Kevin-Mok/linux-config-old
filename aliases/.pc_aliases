@@ -13,6 +13,8 @@ if [ "$(whoami)" == "kevin" ]; then
 	alias v3="vi ~/.config/i3/config"
 	alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
 	alias i3b="d /usr/share/i3blocks"
+
+	alias pipes="pipes.sh -t 2"
 	#  }}} i3 # 
 	
 	#  coding projs {{{ # 
@@ -25,7 +27,7 @@ if [ "$(whoami)" == "kevin" ]; then
 		alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
 	#  }}} coding projs # 
 
-	bl() { xbacklight -set $1 ; } 
+	chr() { google-chrome $1 ; }
 	cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 fi
 # Both PC/Laptop }}}
@@ -65,7 +67,6 @@ if [ "$(hostname)" == "NZXT" ]; then
 	#  }}} audio # 
 
 	#  apps {{{ # 
-	chr() { google-chrome $1 ; }
 	alias nem="nemo ."
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
@@ -99,6 +100,9 @@ if [ "$(hostname)" == "X1-Carbon" ]; then
 	xmodmap -e "keycode 110 = Delete"
 	xmodmap -e "keycode 115 = BackSpace"
 	#  }}} key swaps # 
+
+	alias gbl="xbacklight -get"
+	sbl() { xbacklight -set $1 ; } 
 
 	alias thn="thunar ."
 

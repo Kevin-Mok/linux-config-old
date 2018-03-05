@@ -1,7 +1,7 @@
 " set x=y {{{ "
 set relativenumber
-set background=dark
-" set background=light
+" set background=dark
+set background=light
 " set t_Co=256
 filetype plugin on
 syntax on
@@ -117,6 +117,7 @@ nnoremap <leader>z za
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
 
+autocmd Filetype tex inoremap <localleader>D \Delta
 autocmd Filetype tex inoremap <localleader>e \exists
 autocmd Filetype tex inoremap <localleader>fa \forall
 autocmd Filetype tex inoremap <localleader>g \geq
