@@ -1,5 +1,7 @@
 # Both PC/Laptop {{{
 if [ "$(whoami)" == "kevin" ]; then
+	apti() { sudo apt install $1 ; } 
+	aptr() { sudo apt remove $1 ; } 
 	alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
 
 	#  school {{{ # 
@@ -15,6 +17,7 @@ if [ "$(whoami)" == "kevin" ]; then
 	alias i3b="d /usr/share/i3blocks"
 
 	alias pipes="pipes.sh -t 2"
+	alias bgs="nemo ~/Pictures/Backgrounds"
 	#  }}} i3 # 
 	
 	#  coding projs {{{ # 
@@ -71,6 +74,8 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 	alias w7="VBoxManage startvm W7 --type headless"
+	gvx() { urxvt --help 2>&1 | grep $1 ; } 
+	alias rur="xrdb ~/.Xresources"
 	#  }}} apps  # 
 
 	#  various coding projs {{{ # 
@@ -102,7 +107,7 @@ if [ "$(hostname)" == "X1-Carbon" ]; then
 	#  }}} key swaps # 
 
 	alias gbl="xbacklight -get"
-	sbl() { xbacklight -set $1 ; } 
+	sbl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
 
 	alias thn="thunar ."
 

@@ -124,11 +124,13 @@ fi
 # Path to the bash it configuration
 export BASH_IT="$DIR_BASH_IT"
 
+# store current working dir after every command so can launch new
+# terminals from same dir (for i3)
+PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
-[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 export BASH_IT_THEME='nwinkler'
 
 # (Advanced): Change this to the name of your remote repo if you
@@ -189,6 +191,8 @@ export VISUAL='vim'
 # Both PC/Laptop {{{
 if [ "$(whoami)" == "kevin" ]; then
 	xset r rate 200 90
+	export PATH="${PATH}:${HOME}/.local/bin/"
+	(cat ~/.cache/wal/sequences &)
 fi
 # NZXT
 if [ "$(hostname)" == "NZXT" ];

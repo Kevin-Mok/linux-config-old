@@ -1,0 +1,8 @@
+URxvt.font: xft:hack:size=11
+
+URxvt*inheritPixmap: true
+URxvt*transparent: true
+! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*shading: 20
+
+URxvt.scrollBar: false

@@ -8,7 +8,7 @@ syntax on
 set tabstop=4
 set tw=80
 set linebreak
-set colorcolumn=80
+" set colorcolumn=80
 set shiftwidth=4
 set autoindent
 set mouse=c
@@ -17,8 +17,8 @@ set foldmethod=marker
 set linespace=5
 " set listchars=tab:\|\
 " set list
-set cursorcolumn
-set cursorline
+" set cursorcolumn
+" set cursorline
 set timeoutlen=300
 set hlsearch
 " }}} set x=y "
@@ -57,6 +57,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dkarter/bullets.vim'
+Plug 'dylanaraps/wal.vim'
 " }}} vim-plug "
 
 " YCM/UltiSnips {{{ "
@@ -71,7 +72,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
 " }}} YCM/UltiSnips "
 
 call plug#end()
-colorscheme gotham256
+" colorscheme gotham256
+colorscheme wal
 
 " Mappings {{{ "
 map <F3> :wa<CR>

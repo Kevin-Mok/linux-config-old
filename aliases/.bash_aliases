@@ -41,6 +41,7 @@ py() { python $1 ; }
 # Config {{{ #
 alias lc="d ~/linux-config/"
 alias vv="vi ~/.vimrc"
+alias vu="vi ~/.Xresources"
 alias r=". ~/.bashrc"
 	# aliases
 	alias lca="d ~/linux-config/aliases"
@@ -51,8 +52,9 @@ alias r=". ~/.bashrc"
 # }}} Config #
 
 # redshift
-rs(){ redshift -O $(($1 * 1000)) ; }
+rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
 alias rx="redshift -x"
+
 mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; } 
 
 # UltiSnips {{{ #
