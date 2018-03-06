@@ -20,6 +20,7 @@ alias gstore="git config credential.helper store"
 alias gstp="git stash pop"
 alias vig="vi .gitignore"
 alias vir="vi README.md"
+alias crm="mrk README.md"
 gcm(){ git commit -m "$1" ; }
 # Aliases }}}
 

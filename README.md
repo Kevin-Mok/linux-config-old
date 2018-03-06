@@ -27,18 +27,18 @@ in the system. `set-configs.sh` sets different config files for my PC and laptop
 as they have slightly different needs (multiple monitors, screen size, etc.).
 
 ## Programs Used
-* [Bash-it](https -//github.com/Bash-it/bash-it/) - For autocompletion and themes.
-* [cmatrix](https -//github.com/abishekvashok/cmatrix) - Matrix screensaver.
-* [i3blocks](https -//github.com/vivien/i3blocks) - Alternative status bar for
+* [Bash-it](https://github.com/Bash-it/bash-it/) - For autocompletion and themes.
+* [cmatrix](https://github.com/abishekvashok/cmatrix) - Matrix screensaver.
+* [i3blocks](https://github.com/vivien/i3blocks) - Alternative status bar for
   i3wm.
-* [Various Vim plug-ins](https -//github.com/Kevin-Mok/linux-config/blob/f922e56b50635c9344b26f9088e37acea5647359/dotfiles/vimrc#L38)
-* [Neofetch](https -//github.com/dylanaraps/neofetch) - CLI-based app to display
+* [Various Vim plug-ins](https://github.com/Kevin-Mok/linux-config/blob/f922e56b50635c9344b26f9088e37acea5647359/dotfiles/vimrc#L38)
+* [Neofetch](https://github.com/dylanaraps/neofetch) - CLI-based app to display
   system information.
-* [pipes.sh](https -//github.com/pipeseroni/pipes.sh) - Animated pipes
+* [pipes.sh](https://github.com/pipeseroni/pipes.sh) - Animated pipes
   screensaver.
-* [pywal](https -//github.com/dylanaraps/pywal) - Color scheme coordinator.
+* [pywal](https://github.com/dylanaraps/pywal) - Color scheme coordinator.
 
-## Switch From:
+## Switch From
 * Linux Mint ➔ Arch Linux
 * Bash ➔ [Zsh](http://zsh.sourceforge.net/)
 * Vim(-based) apps:
