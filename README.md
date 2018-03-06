@@ -13,10 +13,10 @@ being. My dotfiles are primarily focused on workflow efficiency.
 
 ## Basic Info
 * **OS**: Linux Mint 18.2
-* **Terminal**: [rxvt](https://www.wikiwand.com/en/Rxvt) 
+* **Terminal**: [urxvt](https://www.wikiwand.com/en/Rxvt) 
 * **Shell**: [Zsh](http://zsh.sourceforge.net/)
 * **WM**: [i3-gaps](https://github.com/Airblader/i3)
-* **Editor**: Vim
+* **Editor**: [Neovim](https://github.com/neovim/neovim)
 
 ## Setup
 I wrote a couple simple scripts
@@ -31,7 +31,7 @@ as they have slightly different needs (multiple monitors, screen size, etc.).
 * [cmatrix](https://github.com/abishekvashok/cmatrix) - Matrix screensaver.
 * [i3blocks](https://github.com/vivien/i3blocks) - Alternative status bar for
   i3wm.
-* [Various Vim plug-ins](https://github.com/Kevin-Mok/linux-config/blob/f922e56b50635c9344b26f9088e37acea5647359/dotfiles/vimrc#L38)
+* [Various Vim plug-ins](https://github.com/Kevin-Mok/linux-config/blob/4dce53aafcd7cdafe888a92ec0dd6466cc07ca9f/dotfiles/vimrc#L36)
 * [Neofetch](https://github.com/dylanaraps/neofetch) - CLI-based app to display
   system information.
 * [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - For Zsh config and
@@ -43,6 +43,5 @@ as they have slightly different needs (multiple monitors, screen size, etc.).
 ## Switch From (To-Do)
 * Linux Mint ➔ Arch Linux
 * Vim(-based) apps:
-  * Vim ➔ [Neovim](https://github.com/neovim/neovim)
   * Google Chrome ➔ [qutebrowser](https://github.com/qutebrowser/qutebrowser)
   * Nemo/Thunar ➔ [ranger](https://ranger.github.io/)

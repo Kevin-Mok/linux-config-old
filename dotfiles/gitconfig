@@ -3,3 +3,5 @@
 	name = Kevin Mok
 [color]
 	ui = auto
+[core]
+	editor = nvim

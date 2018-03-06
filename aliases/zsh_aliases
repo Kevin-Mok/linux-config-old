@@ -59,14 +59,14 @@ function 	aptr() { sudo apt remove $1 ; }
 alias lc="f ~/linux-config/"
 alias lca="f ~/linux-config/aliases"
 
-alias vv="vi ~/.vimrc"
-alias vu="vi ~/.Xresources"
-alias vzb="vi ~/.zshrc"
-alias vz="vi ~/linux-config/aliases/zsh_aliases"
+alias vv="ni ~/.vimrc"
+alias vu="ni ~/.Xresources"
+alias vzb="ni ~/.zshrc"
+alias vz="ni ~/linux-config/aliases/zsh_aliases"
 	
 #  i3 {{{ # 
-alias v3="vi ~/.config/i3/config"
-alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
+alias v3="ni ~/.config/i3/config"
+alias v3b="ni ~/.config/i3blocks/i3blocks.conf"
 alias i3b="f /usr/share/i3blocks"
 
 alias pipes="pipes.sh -t 2"
@@ -76,8 +76,8 @@ alias bgs="nemo ~/Pictures/Backgrounds"
 # UltiSnips {{{ #
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
 alias snp="f $usnp_dir"
-function vsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
-alias tm="vi $usnp_dir/texmath.snippets"
+function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+alias tm="ni $usnp_dir/texmath.snippets"
 # }}} #
 
 # }}} config files #
@@ -85,6 +85,7 @@ alias tm="vi $usnp_dir/texmath.snippets"
 #  applications {{{ # 
 function ok() { okular $1 ; }
 function chr() { google-chrome $1 ; }
+function ni() { nvim $1 ; }
 function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; } 
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
@@ -166,7 +167,7 @@ function 	gvx() { urxvt --help 2>&1 | grep $1 ; }
 	#  resume {{{ # 
 	alias cv="f ~/Documents/resume/examples"
 		alias cvf="f ~/Documents/resume/examples/cv"
-		alias vcv="vi ~/Documents/resume/examples/cv.tex"
+		alias vcv="ni ~/Documents/resume/examples/cv.tex"
 		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
 	#  }}} resume # 
 	
@@ -201,8 +202,8 @@ fi
 alias gstore="git config credential.helper store"
 
 #  add {{{ # 
-alias ga="git add -A .*(.) && gs"
-alias gac="git add -A .*(.); git commit"
+alias ga="git add -A . && gs"
+alias gac="git add -A . && git commit"
 #  }}} add # 
 
 #  diff/log {{{ # 
@@ -237,8 +238,8 @@ alias grbc="git rebase --continue"
 #  }}} update # 
 
 #  edit {{{ # 
-alias vig="vi .gitignore"
-alias vir="vi README.md"
+alias vig="ni .gitignore"
+alias vir="ni README.md"
 alias crm="mrk README.md"
 #  }}} edit # 
 
@@ -284,7 +285,7 @@ cd_coding_dir="f ~/Documents/coding"
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias cdn="$cd_coding_dir"
 alias tb="$cd_coding_dir/trapbot"
-	alias vtb="$cd_coding_dir/trapbot && vi scan_reddit.py"
+	alias vtb="$cd_coding_dir/trapbot && ni scan_reddit.py"
 	alias ptb="python scan_reddit.py"
 	alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
 #  }}} coding projs # 
