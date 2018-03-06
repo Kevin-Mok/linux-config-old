@@ -18,6 +18,9 @@ if [ "$(whoami)" == "kevin" ]; then
 
 	alias pipes="pipes.sh -t 2"
 	alias bgs="nemo ~/Pictures/Backgrounds"
+
+	gvx() { urxvt --help 2>&1 | grep $1 ; } 
+	alias rur="xrdb ~/.Xresources"
 	#  }}} i3 # 
 	
 	#  coding projs {{{ # 
@@ -74,8 +77,6 @@ if [ "$(hostname)" == "NZXT" ]; then
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 	alias w7="VBoxManage startvm W7 --type headless"
-	gvx() { urxvt --help 2>&1 | grep $1 ; } 
-	alias rur="xrdb ~/.Xresources"
 	#  }}} apps  # 
 
 	#  various coding projs {{{ # 

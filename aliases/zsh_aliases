@@ -37,6 +37,8 @@ alias cfg="f ~/.config"
 alias cs='printf "\033c"'
 alias hst="history"
 alias nf="neofetch"
+alias rur="xrdb ~/.Xresources"
+function gvx() { urxvt --help 2>&1 | grep $1 ; } 
 
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
@@ -146,8 +148,6 @@ if [ "$(hostname)" = "NZXT" ]; then
 	alias spt="speedtest"
 	alias pg="ping -c 5 google.ca"
 	alias w7="VBoxManage startvm W7 --type headless"
-function 	gvx() { urxvt --help 2>&1 | grep $1 ; } 
-	alias rur="xrdb ~/.Xresources"
 	#  }}} apps  # 
 
 	#  various coding projs {{{ # 

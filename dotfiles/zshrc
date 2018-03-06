@@ -93,3 +93,19 @@ source ~/linux-config/aliases/zsh_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Both PC/Laptop {{{
+if [ "$(whoami)" = "kevin" ]; then
+	xset r rate 200 90
+	export PATH="${PATH}:${HOME}/.local/bin/"
+	(cat ~/.cache/wal/sequences &)
+fi
+# NZXT
+if [ "$(hostname)" = "NZXT" ];
+then
+	xmodmap -e "clear Lock"
+	xmodmap -e "keycode 22 = Caps_Lock"
+	xmodmap -e "keycode 66 = BackSpace"
+else
+	xrandr --dpi 150
+fi
