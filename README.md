@@ -14,7 +14,7 @@ being. My dotfiles are primarily focused on workflow efficiency.
 ## Basic Info
 * **OS**: Linux Mint 18.2
 * **Terminal**: [rxvt](https://www.wikiwand.com/en/Rxvt) 
-* **Shell**: Bash
+* **Shell**: [Zsh](http://zsh.sourceforge.net/)
 * **WM**: [i3-gaps](https://github.com/Airblader/i3)
 * **Editor**: Vim
 
@@ -34,19 +34,15 @@ as they have slightly different needs (multiple monitors, screen size, etc.).
 * [Various Vim plug-ins](https://github.com/Kevin-Mok/linux-config/blob/f922e56b50635c9344b26f9088e37acea5647359/dotfiles/vimrc#L38)
 * [Neofetch](https://github.com/dylanaraps/neofetch) - CLI-based app to display
   system information.
+* [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - For Zsh config and
+  themes.
 * [pipes.sh](https://github.com/pipeseroni/pipes.sh) - Animated pipes
   screensaver.
 * [pywal](https://github.com/dylanaraps/pywal) - Color scheme coordinator.
 
-## Switch From
+## Switch From (To-Do)
 * Linux Mint ➔ Arch Linux
-* Bash ➔ [Zsh](http://zsh.sourceforge.net/)
 * Vim(-based) apps:
   * Vim ➔ [Neovim](https://github.com/neovim/neovim)
   * Google Chrome ➔ [qutebrowser](https://github.com/qutebrowser/qutebrowser)
   * Nemo/Thunar ➔ [ranger](https://ranger.github.io/)
-
-<!-- below are more minor stylistic goals that don't feel the need to explicitly
-include
-* i3blocks ➔ Polybar
-* Discord ➔ CLI IRC app -->

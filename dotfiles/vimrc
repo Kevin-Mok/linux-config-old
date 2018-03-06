@@ -35,45 +35,81 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 
+" prequisite for other plugins
 Plug 'vim-scripts/L9'
+
+" find files from within Vim
 " Plug 'vim-scripts/FuzzyFinder'
-Plug 'whatyouhide/vim-gotham'
+
+" Gotham color scheme
+" Plug 'whatyouhide/vim-gotham'
+
+" collection of Vim color schemes
 Plug 'flazz/vim-colorschemes'
+
+" preview Vim color scheme easily within Vim
+Plug 'xolox/vim-colorscheme-switcher'
+" prerequisite for above plugin
+Plug 'xolox/vim-misc'
+
+" automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
+	
+" compile LaTeX PDF while writing the file
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+" provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
+
+" auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
-Plug 'Kevin-Mok/vim-snippets'
+
+" wrote short bits of text that expand into whatever you want
+" demo: https://www.youtube.com/watch?v=Zik6u0klD40
 Plug 'SirVer/ultisnips'
+	" better key bindings for UltiSnipsExpandTrigger
+	let g:UltiSnipsExpandTrigger = "<tab>"
+	let g:UltiSnipsJumpForwardTrigger = "<tab>"
+	let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
+
+" custom snippets
+Plug 'Kevin-Mok/vim-snippets'
+
+" to make YouCompleteMe work with UltiSnips (both use Tab)
 Plug 'ervandew/supertab'
+	" make YCM compatible with UltiSnips (using supertab)
+	let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+	let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+	let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" easily comment/uncomment lines
 Plug 'scrooloose/nerdcommenter'
 	let g:NERDTrimTrailingWhitespace = 1
 	let g:NERDSpaceDelims = 1
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-colorscheme-switcher'
+
+" add quotes/brackets around chunks of text easily
 Plug 'tpope/vim-surround'
+
+" navigate around file easily and precisely
 Plug 'easymotion/vim-easymotion'
+
+" status bar displaying various info about the current buffer
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dkarter/bullets.vim'
-Plug 'dylanaraps/wal.vim'
-" }}} vim-plug "
 
-" YCM/UltiSnips {{{ "
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
-" }}} YCM/UltiSnips "
+" continue Markdown lists when started
+Plug 'dkarter/bullets.vim'
+
+" coordinate Vim color scheme with terminal color scheme
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
+
 " colorscheme gotham256
 colorscheme wal
+
+" }}} vim-plug "
 
 " Mappings {{{ "
 map <F3> :wa<CR>

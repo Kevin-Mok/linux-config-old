@@ -1,0 +1,375 @@
+#  system {{{ # 
+setopt extendedglob
+
+# vim mode {{{ # 
+bindkey -v
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+#  }}} vim mode # 
+
+#  directory-related {{{ # 
+alias l='ls -a'
+alias ll='ls -alF'
+function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
+# restore last dir
+if [ -f ~/.last_dir ]
+    then cd `cat ~/.last_dir`
+fi
+
+# todo: fix
+# function f.() { f $(printf "%0.s../" $(seq 1 $1 )) ; }
+alias "f."="f .."
+alias "f.2"="f ...."
+
+alias dd="f ~/Downloads"
+alias doc="f ~/Documents"
+alias cfg="f ~/.config"
+
+#  }}}  directory-related # 
+
+#  command line related {{{ # 
+alias cs='printf "\033c"'
+alias hst="history"
+alias nf="neofetch"
+
+function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
+alias grep='grep --color=auto'
+function rfnd() { find . -name "$1" ; } 
+function rgrp() { grep -r $1 * ; } 
+#  }}} command line related # 
+
+#  power options {{{ # 
+alias s="systemctl suspend"
+alias sd="sudo shutdown 0"
+alias reb="sudo shutdown -r 0"
+alias lo="i3-msg exit"
+#  }}} power options # 
+
+function 	apti() { sudo apt install $1 ; } 
+function 	aptr() { sudo apt remove $1 ; } 
+#  }}} system # 
+
+# config files {{{ #
+alias lc="f ~/linux-config/"
+alias lca="f ~/linux-config/aliases"
+
+alias vv="vi ~/.vimrc"
+alias vu="vi ~/.Xresources"
+alias vzb="vi ~/.zshrc"
+alias vz="vi ~/linux-config/aliases/zsh_aliases"
+	
+#  i3 {{{ # 
+alias v3="vi ~/.config/i3/config"
+alias v3b="vi ~/.config/i3blocks/i3blocks.conf"
+alias i3b="f /usr/share/i3blocks"
+
+alias pipes="pipes.sh -t 2"
+alias bgs="nemo ~/Pictures/Backgrounds"
+#  }}} i3 # 
+	
+# UltiSnips {{{ #
+usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
+alias snp="f $usnp_dir"
+function vsnp() { vi ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+alias tm="vi $usnp_dir/texmath.snippets"
+# }}} #
+
+# }}} config files #
+
+#  applications {{{ # 
+function ok() { okular $1 ; }
+function chr() { google-chrome $1 ; }
+function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; } 
+
+alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
+alias vlm="alsamixer -c 1"
+alias rmsw="rm .sw*"
+
+function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
+alias rx="redshift -x"
+
+#  python related {{{ # 
+function grpy() { grep $1 *.py ; } 
+function p3() { python3 $1 ; } 
+function py() { python $1 ; } 
+#  }}} python related # 
+
+#  }}} applications # 
+
+#  device specific {{{ # 
+
+# NZXT {{{
+if [ "$(hostname)" = "NZXT" ]; then
+	#  rotate monitor {{{ # 
+	function rt() {
+		output="HDMI-0"
+		if [ "$1" = "s" ]
+		# if [ "${1:0:1}" = "s" ]
+		then
+			output="DVI-I-1"
+		fi
+
+		dir="normal"
+		if [ "$2" = "r" ]
+		# if [ "${1:1:2}" = "r" ]
+		then
+			dir="right"
+		fi
+		if [ "$2" = "l" ]
+		then
+			dir="left"
+		fi
+
+		# echo "xrandr --output \"$output\" --rotate \"$dir\""
+		xrandr --output "$output" --rotate "$dir"
+	}
+	#  }}} rotate monitor # 
+
+	#  audio {{{ # 
+	#  was for transferring sink inputs between DAC and speakers but not
+	#  necessary if not using
+	alias alsi="pactl list short sink-inputs"
+	alias als="pactl list short sinks"
+	function amsih() { pactl move-sink-input $1 0 ; } 
+	function amsis() { pactl move-sink-input $1 1 ; } 
+	#  }}} audio # 
+
+	#  apps {{{ # 
+	alias nem="nemo ."
+	alias spt="speedtest"
+	alias pg="ping -c 5 google.ca"
+	alias w7="VBoxManage startvm W7 --type headless"
+function 	gvx() { urxvt --help 2>&1 | grep $1 ; } 
+	alias rur="xrdb ~/.Xresources"
+	#  }}} apps  # 
+
+	#  various coding projs {{{ # 
+	alias sfa="f ~/Documents/self-authoring"
+	alias rcg="$cd_coding_dir/random-color-generator"
+	alias dcr="$cd_coding_dir/dcr-logger"
+	alias pf="$cd_coding_dir/ParsaFood"
+
+	#  swbot {{{ # 
+	alias sb="$cd_coding_dir/swbot"
+		# alias psb="p3 create_skills_dict.py"
+		# alias psbo="p3 create_skills_dict.py > output.py"
+		alias psb="p3 create_monster_dict.py"
+		alias psbo="p3 create_monster_dict.py > output.py"
+	#  }}} swbot # 
+		
+	#  resume {{{ # 
+	alias cv="f ~/Documents/resume/examples"
+		alias cvf="f ~/Documents/resume/examples/cv"
+		alias vcv="vi ~/Documents/resume/examples/cv.tex"
+		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
+	#  }}} resume # 
+	
+	#  }}} various coding projs # 
+fi
+# NZXT }}}
+
+# laptop {{{
+if [[ "$(hostname)" = "X1-Carbon" ]]; then
+	#  key swaps {{{ # 
+	xmodmap -e "keycode 9 = Escape"
+	xmodmap -e "keycode 22 = Home"
+	xmodmap -e "keycode 119 = End"
+	xmodmap -e "keycode 110 = Delete"
+	xmodmap -e "keycode 115 = BackSpace"
+	#  }}} key swaps # 
+
+	alias gbl="xbacklight -get"
+	function sbl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
+
+	alias thn="thunar ."
+
+	alias plz="f ~/platterz2018/ocr-reader/app/src/main/java/com/google/android/gms/samples/vision/ocrreader"
+	alias ans="f /usr/local/android-studio/bin/"
+fi
+# laptop }}}
+
+#  }}} device specific # 
+
+#  git {{{ # 
+# aliases {{{
+alias gstore="git config credential.helper store"
+
+#  add {{{ # 
+alias ga="git add -A .*(.) && gs"
+alias gac="git add -A .*(.); git commit"
+#  }}} add # 
+
+#  diff/log {{{ # 
+alias gd="git diff -w"
+alias gdc="git diff --cached"
+alias gl="git log"
+alias gsl="git shortlog"
+#  }}}  diff/log # 
+
+#  update {{{ # 
+
+alias gs="git status -u"
+alias gchom="git checkout master"
+
+#  push {{{ # 
+alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+alias gst="git stash"
+alias gstp="git stash pop"
+
+alias gc="git commit"
+function gcm(){ git commit -m "$1" ; }
+
+alias gps="git push"
+alias gclear="git stash clear"
+#  }}} push # 
+
+#  pull {{{ # 
+alias gpl="git pull --rebase"
+alias grbc="git rebase --continue"
+#  }}} pull # 
+
+#  }}} update # 
+
+#  edit {{{ # 
+alias vig="vi .gitignore"
+alias vir="vi README.md"
+alias crm="mrk README.md"
+#  }}} edit # 
+
+# aliases }}}
+
+# functions {{{
+function gcho() { git checkout $1 ; }
+function gcln() { git clone $1 ; }
+
+function gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+}
+
+# gmrgr: merge repos {{{ # 
+function gmrgr() { 
+	# 1 = remote name, 2 = remote path
+	git remote add $1 $2
+	git fetch $1
+	# whichever branch you want to merge
+	git merge --allow-unrelated-histories $1/master 
+	git remote remove $1
+}
+#  }}} merge repos # 
+
+function gunc() { git update-index --assume-unchanged $1 ; } 
+
+#  pull all {{{ # 
+function gpla() { 
+	cmds="lc snp 9r sch"
+	for cmd in $cmds; do
+		eval $cmd && gst && gpl && gstp && gclear
+	done
+}
+#  }}} pull all # 
+
+# functions }}}
+
+#  }}} git # 
+
+#  coding projs {{{ # 
+cd_coding_dir="f ~/Documents/coding"
+alias ans="f /usr/local/android-studio/bin && ./studio.sh"
+alias cdn="$cd_coding_dir"
+alias tb="$cd_coding_dir/trapbot"
+	alias vtb="$cd_coding_dir/trapbot && vi scan_reddit.py"
+	alias ptb="python scan_reddit.py"
+	alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
+#  }}} coding projs # 
+
+#  school {{{ # 
+in_lab=false
+cd_school="f ~/Documents/School/notes"
+
+# general {{{ 
+alias sch="$cd_school"
+alias 236="$cd_school/236"
+alias rml="rm *.aux *.log *.pdf"
+
+#  LaTeX {{{ # 
+function pdl() { pdflatex $1 ; } 
+function cptp() { 
+	cp *template.tex cp-template.tex 
+	chmod 600 cp-template.tex 
+	date=`date +%-m-%d`
+	mv cp-template.tex "$date".tex
+} 
+#  }}} LaTeX # 
+
+# }}} 
+
+# 136 {{{ 
+alias clc="gcalccmd"
+alias mt="ok ~/Documents/School/calc-textbook.pdf"
+
+alias 136="$cd_school/136"
+alias 136l="$cd_school/136/lecture"
+alias pr3="$cd_school/136/par/3"
+# }}}
+
+# 209 {{{
+# dirs {{{
+cd_209="f ~/Documents/School/209";
+alias 209="$cd_209"
+alias 9r="$cd_209/mokkar"
+alias l7="$cd_209/mokkar/lab7"
+alias 9a="$cd_209/mokkar/a3"
+# }}}
+
+alias ll="ls -la"
+alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
+function mkex() { chmod 777 $1 ; }
+
+# {{{ Compilation Functions
+# compile without running
+function c9() { gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm ; }
+
+#  compile all without running {{{ # 
+function c9a() { 
+	for file in *; do
+		if [[ $file = *.c ]]; then
+			gcc -Wall -std=gnu99 -g -o "${file%.*}".out "$file"
+		fi
+	done
+} 
+#  }}} compile all without running # 
+
+# compile and run
+function c9r() { c9 $1 && ./"${1%.*}.out" ; }
+
+# compile and run with input
+function c9i() { c9 $1 && ./"${1%.*}.out" < $2 ; }
+
+#  compile and run with input file {{{ # 
+function run() {
+	while read line; do 
+		# ./$1.out $line
+		echo ./$1.out $line
+	done < $1.in
+}
+#  }}} compile and run with input file # 
+
+#  temp {{{ # 
+alias m7="make childcreates && ./childcreates 3"
+alias m3="make pfact && ./pfact 10"
+alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
+#  }}} temp # 
+
+# }}}
+# }}}
+
+alias 36a="$cd_school/236/a1"
+alias 6t="ok ~/Documents/School/236-textbook.pdf"
+#  }}} school #

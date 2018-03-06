@@ -1,8 +1,16 @@
 URxvt.font: xft:hack:size=11
 
+/* transparency {{{ */
 URxvt*inheritPixmap: true
 URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*shading: 20
+URxvt*shading: 10
+/* }}} transparency */
 
 URxvt.scrollBar: false
+
+/* Clickable URLs {{{ */
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+/* }}} Clickable URLs */
