@@ -90,7 +90,8 @@ alias tm="ni $usnp_dir/texmath.snippets"
 function ok() { okular $1 ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
-function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; } 
+# function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
+function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
 alias vlm="alsamixer -c 1"
@@ -218,7 +219,9 @@ alias gsl="git shortlog"
 #  update {{{ # 
 
 alias gs="git status -u"
-alias gchom="git checkout master"
+alias gchm="git checkout master"
+alias gchnw="git checkout -b wip"
+alias gchw="git checkout wip"
 
 #  push {{{ # 
 alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
@@ -226,9 +229,11 @@ alias gst="git stash"
 alias gstp="git stash pop"
 
 alias gc="git commit"
-function gcm(){ git commit -m "$1" ; }
+# todo: fix
+function gcm(){ echo git commit -m \""$1"\" ; }
 
 alias gps="git push"
+alias gdwip="git push -d origin wip && git branch -d wip"
 alias gclear="git stash clear"
 #  }}} push # 
 
@@ -251,13 +256,12 @@ alias crm="mrk README.md"
 function gcho() { git checkout $1 ; }
 function gcln() { git clone $1 ; }
 
-# assume file is changed
-function gunc() { git update-index --assume-unchanged $1 ; } 
+function gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+}
 
-# only take certain commit from branch
-function gchp() { git cherry-pick $1 ; } 
-
-# merge repos {{{ # 
+# gmrgr: merge repos {{{ # 
 function gmrgr() { 
 	# 1 = remote name, 2 = remote path
 	git remote add $1 $2
@@ -268,12 +272,7 @@ function gmrgr() {
 }
 #  }}} merge repos # 
 
-#  add multiple remotes {{{ # 
-function gremotes() {
-	git remote set-url --add --push origin $1
-	git remote set-url --add --push origin $2
-}
-#  }}} add multiple remotes # 
+function gunc() { git update-index --assume-unchanged $1 ; } 
 
 #  pull all {{{ # 
 function gpla() { 
