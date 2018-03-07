@@ -1,13 +1,8 @@
 <!---  Intro {{{ --> 
 # Kevin's Linux Setup
 
-<!---  pictures {{{ --> 
-![desktop-screenshot](https://i.imgur.com/mbu9aYf.png)
-*Screenshot from my dual-monitor desktop config.*
-
 ![laptop-screenshot](https://i.imgur.com/UpdX90A.png)
 *Screenshot from my laptop config.*
-<!---  }}} pictures --> 
 
 This repository contains the dotfiles for my Linux
 [rice](https://www.reddit.com/r/unixporn/comments/3iy3wd/stupid_question_what_is_ricing/cukxwog/) and also help to increase my workflow efficiency significantly.

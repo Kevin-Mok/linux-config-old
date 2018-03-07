@@ -251,12 +251,13 @@ alias crm="mrk README.md"
 function gcho() { git checkout $1 ; }
 function gcln() { git clone $1 ; }
 
-function gremotes() {
-	git remote set-url --add --push origin $1
-	git remote set-url --add --push origin $2
-}
+# assume file is changed
+function gunc() { git update-index --assume-unchanged $1 ; } 
 
-# gmrgr: merge repos {{{ # 
+# only take certain commit from branch
+function gchp() { git cherry-pick $1 ; } 
+
+# merge repos {{{ # 
 function gmrgr() { 
 	# 1 = remote name, 2 = remote path
 	git remote add $1 $2
@@ -267,7 +268,12 @@ function gmrgr() {
 }
 #  }}} merge repos # 
 
-function gunc() { git update-index --assume-unchanged $1 ; } 
+#  add multiple remotes {{{ # 
+function gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+}
+#  }}} add multiple remotes # 
 
 #  pull all {{{ # 
 function gpla() { 
