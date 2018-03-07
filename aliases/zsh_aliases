@@ -25,7 +25,7 @@ fi
 # todo: fix
 # function f.() { f $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "f."="f .."
-alias "f.2"="f ...."
+alias "f.2"="f ..."
 
 alias dd="f ~/Downloads"
 alias doc="f ~/Documents"
@@ -44,6 +44,7 @@ function cld() { colordiff -y --suppress-common-lines $1 $2 ; }
 alias grep='grep --color=auto'
 function rfnd() { find . -name "$1" ; } 
 function rgrp() { grep -r $1 * ; } 
+function cpd() { cp -avr $1 $2 ; } 
 #  }}} command line related # 
 
 #  power options {{{ # 
@@ -65,6 +66,7 @@ alias vv="ni ~/.vimrc"
 alias vu="ni ~/.Xresources"
 alias vzb="ni ~/.zshrc"
 alias vz="ni ~/linux-config/aliases/zsh_aliases"
+alias vr="ni ~/.config/ranger/rc.conf"
 	
 #  i3 {{{ # 
 alias v3="ni ~/.config/i3/config"
@@ -219,7 +221,7 @@ alias gs="git status -u"
 alias gchom="git checkout master"
 
 #  push {{{ # 
-alias egc="vim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
 alias gst="git stash"
 alias gstp="git stash pop"
 

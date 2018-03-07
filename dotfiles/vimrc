@@ -150,6 +150,7 @@ nnoremap <leader>s :set syn=sh<CR>
 nnoremap <leader>w Vgq
 nnoremap <leader>ww Vjgq
 nnoremap <leader>z za
+nnoremap <leader>y "+
 " }}} Mappings "
 
 " Local Mappings {{{ "

@@ -5,11 +5,11 @@ exec redshift -O 4000
 # random bg
 # exec_always feh -z --bg-fill ~/Pictures/Backgrounds/*
 # exec_always feh --bg-fill ~/Pictures/Backgrounds/
-# exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
-exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/retro-mountains-pink.jpg"
+exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
+# exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/retro-mountains-pink.jpg"
 exec imwheel
 exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
-exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
+# exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 3 ; exec google-chrome'
 #  }}} startup # 
 
@@ -24,6 +24,7 @@ bindsym Mod4+e exec nemo
 bindsym Mod4+o exec okular
 bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+p exec pycharm
+bindsym Mod4+r exec urxvt -e ranger
 bindsym Print exec ksnapshot
 #  }}} app shortcuts # 
 
