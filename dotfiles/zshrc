@@ -94,9 +94,9 @@ source ~/linux-config/aliases/zsh_aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Both PC/Laptop {{{
 if [ "$(whoami)" = "kevin" ]; then
-	xset r rate 200 90
+	gsettings set org.gnome.desktop.peripherals.keyboard delay 25
+	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 200
 	export PATH="${PATH}:${HOME}/.local/bin/"
 	(cat ~/.cache/wal/sequences &)
 fi

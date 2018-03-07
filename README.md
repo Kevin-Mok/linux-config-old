@@ -1,21 +1,19 @@
->  Intro {{{ > 
+<!---  Intro {{{ --> 
 # Kevin's Linux Setup
 
->  pictures {{{ > 
+<!---  pictures {{{ --> 
 ![desktop-screenshot](https://i.imgur.com/mbu9aYf.png)
 *Screenshot from my dual-monitor desktop config.*
 
-![laptop-screenshot](https://i.imgur.com/hrSnXmV.png)
+![laptop-screenshot](https://i.imgur.com/UpdX90A.png)
 *Screenshot from my laptop config.*
->  }}} pictures > 
+<!---  }}} pictures --> 
 
 This repository contains the dotfiles for my Linux
-[rice](https://www.reddit.com/r/unixporn/comments/3iy3wd/stupid_question_what_is_ricing/cukxwog/).
-It's always going to be a work-in-progress, but it's satisfactory for the time
-being. My dotfiles are primarily focused on workflow efficiency.
->  }}} Intro > 
+[rice](https://www.reddit.com/r/unixporn/comments/3iy3wd/stupid_question_what_is_ricing/cukxwog/) and also help to increase my workflow efficiency significantly.
+<!---  }}} Intro -->
 
->  Basic Info {{{ > 
+<!---  Basic Info {{{ --> 
 ## Basic Info
 * **OS**: Linux Mint 18.2
 * **Terminal**: [urxvt](https://www.wikiwand.com/en/Rxvt) 
@@ -23,9 +21,9 @@ being. My dotfiles are primarily focused on workflow efficiency.
 * **WM**: [i3-gaps](https://github.com/Airblader/i3)
 * **Editor**: [Neovim](https://github.com/neovim/neovim)
 * **File Explorer**: [ranger](https://ranger.github.io/)
->  }}} Basic Info > 
+<!---  }}} Basic Info --> 
 
->  Setup {{{ > 
+<!---  Setup {{{ --> 
 ## Setup
 I wrote a couple simple scripts
 ([`set-configs.sh`](https://github.com/Kevin-Mok/linux-config/blob/master/configs/set-configs.sh) &
@@ -34,9 +32,9 @@ to symbolically link the files/directories in the repository to the locations
 they should be in the system. `set-configs.sh` sets different config files for
 my PC and laptop as they have slightly different needs (multiple monitors,
 screen size, etc.).
->  }}} Setup > 
+<!---  }}} Setup --> 
 
->  Programs Used {{{ > 
+<!---  Programs Used {{{ --> 
 ## Programs Used
 * [Bash-it](https://github.com/Bash-it/bash-it/) - For autocompletion and themes.
 * [cmatrix](https://github.com/abishekvashok/cmatrix) - Matrix screensaver.
@@ -50,11 +48,16 @@ screen size, etc.).
 * [pipes.sh](https://github.com/pipeseroni/pipes.sh) - Animated pipes
   screensaver.
 * [pywal](https://github.com/dylanaraps/pywal) - Color scheme coordinator.
->  }}} Programs Used > 
+<!---  }}} Programs Used --> 
 
->  Switch From (To-Do) {{{ > 
+<!---  Switch From (To-Do) {{{ --> 
 ## Switch From (To-Do)
 * Linux Mint ➔ Arch Linux
-* Vim(-based) apps:
-  * Google Chrome ➔ [qutebrowser](https://github.com/qutebrowser/qutebrowser)
->  }}} From (To-Do) > 
+* Google Chrome ➔ [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+<!---  }}} From (To-Do) -->
+
+<!-- History {{{ -->
+## History
+![laptop-screenshot](https://i.imgur.com/hrSnXmV.png)
+*Screenshot from my laptop config (3/5).*
+<!-- }}} History -->

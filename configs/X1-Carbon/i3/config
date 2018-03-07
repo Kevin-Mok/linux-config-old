@@ -1,8 +1,8 @@
 # applications {{{ # 
 #  startup {{{ # 
 exec redshift -O 4000 
-# exec_always feh --bg-scale ~/Pictures/space-wallpaper.jpg
-exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+# exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/japan-street.jpg"
 exec imwheel
 # enable horizontal scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1
@@ -12,11 +12,13 @@ exec $def_term
 #  }}} startup # 
 
 set $def_term "rxvt-unicode"
-bindsym Mod4+e exec cd /usr/local/android-studio/bin/ && ./studio.sh
 bindsym $mod+control+Return exec $def_term
-bindsym Mod4+c exec google-chrome-stable --force-device-scale-factor=1.5
+bindsym Mod4+a exec cd /usr/local/android-studio/bin/ && ./studio.sh
+bindsym Mod4+e exec thunar
+set $run_chrome "google-chrome-stable --force-device-scale-factor=1.5"
+bindsym Mod4+c exec $run_chrome
 bindsym Mod4+p exec ksnapshot
-bindsym Mod4+t exec thunar
+bindsym Mod4+r exec urxvt -e ranger
 
 #  redshift {{{ # 
 bindsym $mod+Mod4+1 exec redshift -O 1500
@@ -104,7 +106,7 @@ set $ws2 "2 "
 bindsym $mod+F2 workspace $ws2; exec $def_term
 
 set $ws3 "3 🌐"
-bindsym $mod+F3 workspace $ws3; exec google-chrome
+bindsym $mod+F3 workspace $ws3; exec $run_chrome
 
 set $ws4 "4 🖹"
 set $ws5 "5 "
@@ -112,7 +114,9 @@ set $ws6 "6 🗪"
 bindsym Mod4+d workspace $ws6; exec discord
 
 set $ws7 "7 ↥"
-set $ws8 "8 📱"
+set $ws8 "8 𝅘𝅥𝅮"
+bindsym Mod4+s workspace $ws8; exec spotify
+
 set $ws9 "9 ✎"
 bindsym $mod+F9 workspace $ws9; exec $def_term
 
@@ -173,15 +177,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 #  resizing windows {{{ # 
 bindsym $mod+control+h resize grow width 10 px or 10 ppt
+bindsym $mod+control+l resize shrink width 10 px or 10 ppt
 bindsym $mod+control+k resize grow height 10 px or 10 ppt
 bindsym $mod+control+j resize shrink height 10 px or 10 ppt
-bindsym $mod+control+l resize shrink width 10 px or 10 ppt
+# bindsym $mod+control+k resize grow height 1 px or 1 ppt
+# bindsym $mod+control+j resize shrink height 1 px or 1 ppt
 #  }}} resizing windows # 
 
 #  gaps {{{ # 
 for_window [class="^.*"] border pixel 0
-gaps inner 20
-gaps outer 0
+gaps inner 30
+gaps outer 2
 
 bindsym control+shift+plus gaps inner all plus 5;gaps outer all plus 5
 bindsym control+shift+0 gaps inner all minus 5;gaps outer all minus 5
