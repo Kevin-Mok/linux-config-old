@@ -54,6 +54,11 @@ screen size, etc.).
 
 <!-- History {{{ -->
 ## History
+
+### 3/5
+![desktop-screenshot](https://i.imgur.com/mbu9aYf.png)
+*Dual-monitor desktop.*
+
 ![laptop-screenshot](https://i.imgur.com/hrSnXmV.png)
-*Screenshot from my laptop config (3/5).*
+*Laptop.*
 <!-- }}} History -->
