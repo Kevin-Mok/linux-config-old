@@ -4,8 +4,9 @@
 ![laptop-screenshot](https://i.imgur.com/UpdX90A.png)
 *Screenshot from my laptop config.*
 
-This repository contains the dotfiles for my Linux
-[rice](https://www.reddit.com/r/unixporn/comments/3iy3wd/stupid_question_what_is_ricing/cukxwog/) and also help to increase my workflow efficiency significantly.
+This repository contains the dotfiles to increase my workflow efficiency. They
+are also for my Linux
+[rice](https://www.reddit.com/r/unixporn/comments/3iy3wd/stupid_question_what_is_ricing/cukxwog/).
 <!---  }}} Intro -->
 
 <!---  Basic Info {{{ --> 

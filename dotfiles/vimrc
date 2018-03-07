@@ -112,15 +112,20 @@ colorscheme wal
 " }}} vim-plug "
 
 " Mappings {{{ "
+
+" function keys {{{ "
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
 map <F9> :LLPStartPreview<CR>
 nnoremap <F10> :set paste<CR>p:set nopaste<CR>
+" }}} function keys "
+
+map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 
-" For splits.
+" splits {{{ "
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>
 nnoremap <C-Right> <C-W><C-L>
@@ -128,35 +133,59 @@ nnoremap <C-Left> <C-W><C-H>
 " Maximize height/width.
 nnoremap <C-g> <C-W>_
 nnoremap <C-w> <C-W>|
+" }}} splits "
 
+" leader mappings {{{ "
 let mapleader="\<Space>"
+" reload file
 nnoremap <leader>e :e<CR>
+" reload folds
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
+" toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
+" help
 nnoremap <leader>he :help 
 nnoremap <leader>vhe :vert help 
+" move cursor to middle of line
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
+" don't wrap lines
 nnoremap <leader>nw :set nowrap<CR>
+" check if in neovim
 nnoremap <leader>nv :echo has('nvim')<CR>
+" Plug commands
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
+" don't break lines
 nnoremap <leader>py :set tw=200<CR>
+" replace in next x lines
 nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
+" replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
+" reload vim config
 nnoremap <leader>rv :source $MYVIMRC<CR>
+" replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
+" set syntax to shell (for dotfiles)
 nnoremap <leader>s :set syn=sh<CR>
+" format current line
 nnoremap <leader>w Vgq
+" format this and next line
 nnoremap <leader>ww Vjgq
+" toggle fold
 nnoremap <leader>z za
+" copy next thing to system clipboard
 nnoremap <leader>y "+
+
+" }}} leader mappings "
+
 " }}} Mappings "
 
 " Local Mappings {{{ "
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
 
+" tex {{{ "
 autocmd Filetype tex inoremap <localleader>D \Delta
 autocmd Filetype tex inoremap <localleader>e \exists
 autocmd Filetype tex inoremap <localleader>fa \forall
@@ -175,4 +204,6 @@ autocmd Filetype tex inoremap <localleader>w \wedge
 autocmd Filetype tex inoremap <localleader>x $x$-axis
 autocmd Filetype tex inoremap <localleader>y $y$-axis
 autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
+" }}} tex "
+
 " }}} Local Mappings "
