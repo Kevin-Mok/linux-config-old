@@ -60,7 +60,8 @@ handle_extension() {
         # PDF
         pdf)
             # Preview as text conversion
-            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
+			pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
+			# pdftoppm -jpeg -singlefile "$path" "${cached//.jpg}" && exit 6 || exit 1;;
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 

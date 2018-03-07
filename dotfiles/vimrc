@@ -19,7 +19,7 @@ set linespace=5
 " set list
 " set cursorcolumn
 " set cursorline
-set timeoutlen=300
+set timeoutlen=500
 set hlsearch
 " }}} set x=y "
 
@@ -104,6 +104,9 @@ Plug 'dkarter/bullets.vim'
 " coordinate Vim color scheme with terminal color scheme
 Plug 'dylanaraps/wal.vim'
 
+" repeat plugin commands
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 " colorscheme gotham256
@@ -117,12 +120,12 @@ colorscheme wal
 map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
+map <F6> :make -C ~/Documents/resume cv<CR>
 map <F7> :AutoSaveToggle<CR>
 map <F9> :LLPStartPreview<CR>
-nnoremap <F10> :set paste<CR>p:set nopaste<CR>
+nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
-map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 
 " splits {{{ "
@@ -168,6 +171,8 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 " set syntax to shell (for dotfiles)
 nnoremap <leader>s :set syn=sh<CR>
+" replace bars/underscores in URL
+nnoremap <leader>url :.s/\([-_]\)/\\\1/g<CR>
 " format current line
 nnoremap <leader>w Vgq
 " format this and next line

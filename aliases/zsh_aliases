@@ -87,6 +87,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 # }}} config files #
 
 #  applications {{{ # 
+alias rg="ranger"
 function ok() { okular $1 ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
@@ -172,6 +173,18 @@ if [ "$(hostname)" = "NZXT" ]; then
 		alias cvf="f ~/Documents/resume/examples/cv"
 		alias vcv="ni ~/Documents/resume/examples/cv.tex"
 		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
+		# https://stackoverflow.com/a/6605085/8811872
+		function pdftojpg() { 
+			convert \
+				-verbose       \
+				-density 150   \
+				-trim          \
+				$1.pdf      \
+				-quality 100   \
+				-flatten       \
+				-sharpen 0x1.0 \
+				$1.jpg
+		} 
 	#  }}} resume # 
 	
 	#  }}} various coding projs # 
