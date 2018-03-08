@@ -117,7 +117,7 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
-map <F3> :wa<CR>
+" map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F6> :make -C ~/Documents/resume cv<CR>
@@ -171,8 +171,6 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 " set syntax to shell (for dotfiles)
 nnoremap <leader>s :set syn=sh<CR>
-" replace bars/underscores in URL
-nnoremap <leader>url :.s/\([-_]\)/\\\1/g<CR>
 " format current line
 nnoremap <leader>w Vgq
 " format this and next line
@@ -181,6 +179,7 @@ nnoremap <leader>ww Vjgq
 nnoremap <leader>z za
 " copy next thing to system clipboard
 nnoremap <leader>y "+
+nnoremap <leader>Y "+Y
 
 " }}} leader mappings "
 
@@ -193,6 +192,7 @@ autocmd Filetype c inoremap <localleader>s struct pixel
 " tex {{{ "
 autocmd Filetype tex inoremap <localleader>D \Delta
 autocmd Filetype tex inoremap <localleader>e \exists
+autocmd Filetype tex inoremap <localleader>ep \epsilon
 autocmd Filetype tex inoremap <localleader>fa \forall
 autocmd Filetype tex inoremap <localleader>g \geq
 autocmd Filetype tex inoremap <localleader>i \in
@@ -204,6 +204,8 @@ autocmd Filetype tex inoremap <localleader>R \Rightarrow
 autocmd Filetype tex inoremap <localleader>st such that
 autocmd Filetype tex inoremap <localleader>t \times
 autocmd Filetype tex inoremap <localleader>T $T$
+" replace bars/underscores in URL
+autocmd Filetype tex inoremap <localleader>url :.s/\([-_]\)/\\\1/g<CR>
 autocmd Filetype tex inoremap <localleader>v \vee
 autocmd Filetype tex inoremap <localleader>w \wedge
 autocmd Filetype tex inoremap <localleader>x $x$-axis

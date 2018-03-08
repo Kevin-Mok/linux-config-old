@@ -1,0 +1,9 @@
+#!/bin/sh
+# https://askubuntu.com/a/179949/794515
+round()
+{
+echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
+};
+
+cur_bl=$(xbacklight -get)
+echo "$(round "$cur_bl" 0)%"

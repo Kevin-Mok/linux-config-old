@@ -71,7 +71,7 @@ alias vr="ni ~/.config/ranger/rc.conf"
 #  i3 {{{ # 
 alias v3="ni ~/.config/i3/config"
 alias v3b="ni ~/.config/i3blocks/i3blocks.conf"
-alias i3b="f /usr/share/i3blocks"
+alias i3b="f ~/i3blocks"
 
 alias pipes="pipes.sh -t 2"
 alias bgs="nemo ~/Pictures/Backgrounds"
@@ -91,6 +91,7 @@ alias rg="ranger"
 function ok() { okular $1 ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
+	alias nisw="f ~/.local/share/nvim/swap"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 
@@ -202,7 +203,7 @@ if [[ "$(hostname)" = "X1-Carbon" ]]; then
 	#  }}} key swaps # 
 
 	alias gbl="xbacklight -get"
-	function sbl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
+	function bl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
 
 	alias thn="thunar ."
 
@@ -242,10 +243,12 @@ alias gst="git stash"
 alias gstp="git stash pop"
 
 alias gc="git commit"
+alias gcam="git commit --amend"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 
 alias gps="git push"
+alias gpsfrc="git push --force"
 alias gdwip="git push -d origin wip && git branch -d wip"
 alias gclear="git stash clear"
 #  }}} push # 

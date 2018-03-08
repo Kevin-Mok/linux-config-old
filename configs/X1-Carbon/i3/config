@@ -1,14 +1,16 @@
 # applications {{{ # 
+
 #  startup {{{ # 
 exec redshift -O 4000 
-# exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
-exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/japan-street.jpg"
+exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+# exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/japan-street.jpg"
 exec imwheel
 # enable horizontal scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1
 # disable touchscreen
 exec xinput disable 12
 exec $def_term
+reload
 #  }}} startup # 
 
 set $def_term "rxvt-unicode"
@@ -100,18 +102,19 @@ bindsym $mod+a focus parent
 #  workspace {{{ # 
 #  ws names {{{ # 
 set $ws1 "1 "
-bindsym $mod+F1 workspace $ws1; exec $def_term
+bindsym F1 workspace $ws1; exec $def_term
 
 set $ws2 "2 "
-bindsym $mod+F2 workspace $ws2; exec $def_term
+bindsym F2 workspace $ws2; exec $def_term
 
 set $ws3 "3 🌐"
-bindsym $mod+F3 workspace $ws3; exec $run_chrome
+bindsym F3 workspace $ws3; exec $run_chrome
 
 set $ws4 "4 🖹"
 set $ws5 "5 "
 set $ws6 "6 🗪"
 bindsym Mod4+d workspace $ws6; exec discord
+bindsym Mod4+l workspace $ws6; exec slack
 
 set $ws7 "7 ↥"
 set $ws8 "8 𝅘𝅥𝅮"

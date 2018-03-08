@@ -95,8 +95,6 @@ source ~/linux-config/aliases/zsh_aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [ "$(whoami)" = "kevin" ]; then
-	gsettings set org.gnome.desktop.peripherals.keyboard delay 25
-	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 200
 	export PATH="${PATH}:${HOME}/.local/bin/"
 	(cat ~/.cache/wal/sequences &)
 fi
@@ -106,6 +104,11 @@ then
 	xmodmap -e "clear Lock"
 	xmodmap -e "keycode 22 = Caps_Lock"
 	xmodmap -e "keycode 66 = BackSpace"
+
+	# keyboard repeat rate
+	gsettings set org.gnome.desktop.peripherals.keyboard delay 25
+	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 200
 else
 	xrandr --dpi 150
+	xset r rate 200 60
 fi
