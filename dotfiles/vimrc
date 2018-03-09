@@ -140,6 +140,8 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
+" replace vim-commentary Markdown comments with HTML
+nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
 " reload file
 nnoremap <leader>e :e<CR>
 " reload folds

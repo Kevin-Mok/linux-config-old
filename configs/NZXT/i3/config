@@ -142,6 +142,7 @@ bindsym $mod+F5 workspace $ws5; exec google-chrome
 set $ws6 "6 "
 workspace $ws6 output $samsung
 bindsym Mod4+d workspace $ws6; exec discord
+bindsym Mod4+l workspace $ws6; exec slack
 assign [class="Slack"] $ws6
 
 set $ws7 "7 "
@@ -270,9 +271,9 @@ font pango:Hack 11
 #  }}} mod key/font # 
 
 #  media keys {{{ # 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset Master 5+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset Master 5-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 sset Master 3+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 sset Master 3-
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 2+ toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"

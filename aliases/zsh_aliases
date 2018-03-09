@@ -13,6 +13,29 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 #  }}} vim mode # 
 
+#  command line related {{{ # 
+alias cs='printf "\033c"'
+alias hst="history"
+alias nf="neofetch"
+alias rur="xrdb ~/.Xresources"
+function gvx() { urxvt --help 2>&1 | grep $1 ; } 
+alias dum="du -B M"
+
+# install deb files
+function ideb() { sudo dpkg -i $1 ; } 
+
+function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
+alias grep='grep --color=auto'
+# for finding files by name
+function rfnd() { find . -name "$1" ; } 
+# find text inside files
+function rgrp() { grep -r $1 * ; } 
+function cpd() { cp -avr $1 $2 ; } 
+
+# extract tar archive
+function untar() { tar -xzvf $1 ; } 
+#  }}} command line related # 
+
 #  directory-related {{{ # 
 alias l='ls -a'
 alias ll='ls -alF'
@@ -27,25 +50,11 @@ fi
 alias "f."="f .."
 alias "f.2"="f ..."
 
-alias dd="f ~/Downloads"
+alias fd="f ~/Downloads"
 alias doc="f ~/Documents"
 alias cfg="f ~/.config"
 
 #  }}}  directory-related # 
-
-#  command line related {{{ # 
-alias cs='printf "\033c"'
-alias hst="history"
-alias nf="neofetch"
-alias rur="xrdb ~/.Xresources"
-function gvx() { urxvt --help 2>&1 | grep $1 ; } 
-
-function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
-alias grep='grep --color=auto'
-function rfnd() { find . -name "$1" ; } 
-function rgrp() { grep -r $1 * ; } 
-function cpd() { cp -avr $1 $2 ; } 
-#  }}} command line related # 
 
 #  power options {{{ # 
 alias s="systemctl suspend"
@@ -60,6 +69,8 @@ function 	aptr() { sudo apt remove $1 ; }
 
 # config files {{{ #
 alias lc="f ~/linux-config/"
+alias lci="f ~/Documents/coding/ideas/"
+alias vli="ni ~/Documents/coding/ideas/ideas.md"
 alias lca="f ~/linux-config/aliases"
 
 alias vv="ni ~/.vimrc"
@@ -74,7 +85,7 @@ alias v3b="ni ~/.config/i3blocks/i3blocks.conf"
 alias i3b="f ~/i3blocks"
 
 alias pipes="pipes.sh -t 2"
-alias bgs="nemo ~/Pictures/Backgrounds"
+alias bg="f ~/Pictures/Backgrounds"
 #  }}} i3 # 
 	
 # UltiSnips {{{ #
@@ -96,7 +107,7 @@ function ni() { nvim $1 ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
-alias vlm="alsamixer -c 1"
+alias vlm="alsamixer -c 2"
 alias rmsw="rm .sw*"
 
 function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
@@ -173,6 +184,7 @@ if [ "$(hostname)" = "NZXT" ]; then
 	alias cv="f ~/Documents/resume/examples"
 		alias cvf="f ~/Documents/resume/examples/cv"
 		alias vcv="ni ~/Documents/resume/examples/cv.tex"
+		alias cvn="ni ~/Documents/resume/resume-notes.md"
 		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
 		# https://stackoverflow.com/a/6605085/8811872
 		function pdftojpg() { 
@@ -247,6 +259,11 @@ alias gcam="git commit --amend"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 
+function gpsgst() { 
+	git add .
+	git commit -m '.'
+	git push
+} 
 alias gps="git push"
 alias gpsfrc="git push --force"
 alias gdwip="git push -d origin wip && git branch -d wip"
@@ -348,7 +365,7 @@ alias pr3="$cd_school/136/par/3"
 cd_209="f ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
-alias l7="$cd_209/mokkar/lab7"
+alias l8="$cd_209/mokkar/lab8"
 alias 9a="$cd_209/mokkar/a3"
 # }}}
 
