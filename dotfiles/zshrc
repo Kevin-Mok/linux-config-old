@@ -97,6 +97,7 @@ source ~/linux-config/aliases/zsh_aliases
 if [ "$(whoami)" = "kevin" ]; then
 	export PATH="${PATH}:${HOME}/.local/bin/"
 	(cat ~/.cache/wal/sequences &)
+	xset r rate 200 60
 fi
 # NZXT
 if [ "$(hostname)" = "NZXT" ];
@@ -106,9 +107,8 @@ then
 	xmodmap -e "keycode 66 = BackSpace"
 
 	# keyboard repeat rate
-	gsettings set org.gnome.desktop.peripherals.keyboard delay 25
-	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 200
+	# gsettings set org.gnome.desktop.peripherals.keyboard delay 25
+	# gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 200
 else
 	xrandr --dpi 150
-	xset r rate 200 60
 fi

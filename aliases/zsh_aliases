@@ -69,8 +69,6 @@ function 	aptr() { sudo apt remove $1 ; }
 
 # config files {{{ #
 alias lc="f ~/linux-config/"
-alias lci="f ~/Documents/coding/ideas/"
-alias vli="ni ~/Documents/coding/ideas/ideas.md"
 alias lca="f ~/linux-config/aliases"
 
 alias vv="ni ~/.vimrc"
@@ -248,6 +246,7 @@ alias gs="git status -u"
 alias gchm="git checkout master"
 alias gchnw="git checkout -b wip"
 alias gchw="git checkout wip"
+alias gheadm1="git reset --hard HEAD~1"
 
 #  push {{{ # 
 alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
@@ -259,7 +258,7 @@ alias gcam="git commit --amend"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 
-function gpsgst() { 
+function gpsg() { 
 	git add .
 	git commit -m '.'
 	git push
@@ -321,13 +320,25 @@ function gpla() {
 #  }}} git # 
 
 #  coding projs {{{ # 
-cd_coding_dir="f ~/Documents/coding"
-alias ans="f /usr/local/android-studio/bin && ./studio.sh"
+coding_dir="~/Documents/coding"
+cd_coding_dir="f $coding_dir"
 alias cdn="$cd_coding_dir"
+
+# ideas
+ideas_dir="$coding_dir""/ideas"
+alias ids="f $ideas_dir"
+alias lci="f $ideas_dir/general"
+alias vli="ni $ideas_dir/ideas.md"
+alias fyn="f $ideas_dir/yes-no"
+
+alias ans="f /usr/local/android-studio/bin && ./studio.sh"
+#  trapbot {{{ # 
 alias tb="$cd_coding_dir/trapbot"
 	alias vtb="$cd_coding_dir/trapbot && ni scan_reddit.py"
 	alias ptb="python scan_reddit.py"
 	alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
+#  }}} trapbot # 
+
 #  }}} coding projs # 
 
 #  school {{{ # 
@@ -403,7 +414,7 @@ function run() {
 #  }}} compile and run with input file # 
 
 #  temp {{{ # 
-alias m7="make childcreates && ./childcreates 3"
+alias m8="make checkpasswd && ./checkpasswd < passwd.in"
 alias m3="make pfact && ./pfact 10"
 alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
 #  }}} temp # 
