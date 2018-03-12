@@ -97,7 +97,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 
 #  applications {{{ # 
 alias rg="ranger"
-function ok() { okular $1 ; }
+function ok() { okular $1 & ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 	alias nisw="f ~/.local/share/nvim/swap"
@@ -265,7 +265,7 @@ function gpsg() {
 } 
 alias gps="git push"
 alias gpsfrc="git push --force"
-alias gdwip="git push -d origin wip && git branch -d wip"
+alias gdwip="git push -d origin wip && git branch -D wip"
 alias gclear="git stash clear"
 #  }}} push # 
 
@@ -287,6 +287,7 @@ alias crm="mrk README.md"
 # functions {{{
 function gcho() { git checkout $1 ; }
 function gcln() { git clone $1 ; }
+function gchp() { git cherry-pick $1 ; }
 
 function gremotes() {
 	git remote set-url --add --push origin $1
@@ -414,8 +415,8 @@ function run() {
 #  }}} compile and run with input file # 
 
 #  temp {{{ # 
-alias m8="make checkpasswd && ./checkpasswd < passwd.in"
-alias m3="make pfact && ./pfact 10"
+alias m8="make checkpasswd && ./checkpasswd  < passwd.in"
+alias m3="make pfact && ./pfact.out 14"
 alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
 #  }}} temp # 
 
