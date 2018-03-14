@@ -144,6 +144,7 @@ let mapleader="\<Space>"
 nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
 " delete line into system clipboard
 nnoremap <leader>D "+dd
+nnoremap <leader>DA "+ggdG
 " reload file
 nnoremap <leader>e :e<CR>
 " reload folds

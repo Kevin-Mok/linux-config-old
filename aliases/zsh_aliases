@@ -168,7 +168,7 @@ if [ "$(hostname)" = "NZXT" ]; then
 	alias sfa="f ~/Documents/self-authoring"
 	alias rcg="$cd_coding_dir/random-color-generator"
 	alias dcr="$cd_coding_dir/dcr-logger"
-	alias pf="$cd_coding_dir/ParsaFood"
+	alias prf="$cd_coding_dir/ParsaFood"
 
 	#  swbot {{{ # 
 	alias sb="$cd_coding_dir/swbot"
@@ -204,14 +204,6 @@ fi
 
 # laptop {{{
 if [[ "$(hostname)" = "X1-Carbon" ]]; then
-	#  key swaps {{{ # 
-	xmodmap -e "keycode 9 = Escape"
-	xmodmap -e "keycode 22 = Home"
-	xmodmap -e "keycode 119 = End"
-	xmodmap -e "keycode 110 = Delete"
-	xmodmap -e "keycode 115 = BackSpace"
-	#  }}} key swaps # 
-
 	alias gbl="xbacklight -get"
 	function bl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
 
@@ -258,7 +250,7 @@ alias gcam="git commit --amend"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 
-function gpsg() { 
+function psg() { 
 	git add .
 	git commit -m '.'
 	git push
@@ -329,7 +321,7 @@ alias cdn="$cd_coding_dir"
 ideas_dir="$coding_dir""/ideas"
 alias ids="f $ideas_dir"
 alias lci="f $ideas_dir/general"
-alias vli="ni $ideas_dir/ideas.md"
+alias vli="ni $ideas_dir/general/ideas.md"
 alias fyn="f $ideas_dir/yes-no"
 
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
@@ -417,6 +409,7 @@ function run() {
 #  temp {{{ # 
 alias m8="make checkpasswd && ./checkpasswd  < passwd.in"
 alias m3="make pfact && ./pfact.out 14"
+function pf() { make pfact && ./pfact.out $1 ; } 
 alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
 #  }}} temp # 
 

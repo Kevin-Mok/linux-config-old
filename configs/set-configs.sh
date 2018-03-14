@@ -1,12 +1,11 @@
 # Get directory variables from script.
 . ../dirs.sh
-# List of config files in system config dir that I want to link to.
-config_files="neofetch/config.conf i3/config i3blocks/i3blocks.conf "\
-"sam-i3blocks/sam-i3blocks.conf"
-for file in $config_files; do
+# List of config dirs in system config dir that I want to link to.
+# config_dirs=(neofetch i3 i3blocks sam-i3blocks ranger)
+config_dirs=(neofetch i3 i3blocks ranger)
+for cur_dir in $config_dirs; do
 	# Remove system file.
-	rm "$sys_config_dir"/"$file"
+	rm -rf "$sys_config_dir"/"$cur_dir"
 	# Link config file in repository to system config location.
-	ln -s "$config_dir"/"$pc"/$(echo "$file" | cut -d'/' -f 1).conf \
-	"$sys_config_dir"/"$file" 
+	ln -s "$config_dir"/"$pc"/"$cur_dir" "$sys_config_dir"/"$cur_dir"
 done

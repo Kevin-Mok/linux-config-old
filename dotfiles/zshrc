@@ -94,18 +94,13 @@ source ~/linux-config/aliases/zsh_aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ "$(whoami)" = "kevin" ]; then
-	export PATH="${PATH}:${HOME}/.local/bin/"
-	(cat ~/.cache/wal/sequences &)
-	# keyboard delay/rate
-	xset r rate 200 60
-fi
-# NZXT
-if [ "$(hostname)" = "NZXT" ];
-then
-	xmodmap -e "clear Lock"
-	xmodmap -e "keycode 22 = Caps_Lock"
-	xmodmap -e "keycode 66 = BackSpace"
-# else
-	# xrandr --dpi 150
+# pywal
+export PATH="${PATH}:${HOME}/.local/bin/"
+(cat ~/.cache/wal/sequences &)
+
+# keyboard delay/rate
+xset r rate 200 60
+# laptop
+if [ "$(hostname)" = "X1-Carbon" ];
+	xrandr --dpi 125
 fi
