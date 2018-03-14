@@ -33,7 +33,8 @@ function rgrp() { grep -r $1 * ; }
 function cpd() { cp -avr $1 $2 ; } 
 
 # extract tar archive
-function untar() { tar -xzvf $1 ; } 
+function untar() { tar -xzvf $1 && rm $1; } 
+function runzip() { unzip $1 && rm $1; } 
 #  }}} command line related # 
 
 #  directory-related {{{ # 
@@ -44,6 +45,7 @@ function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
 if [ -f ~/.last_dir ]
     then cd `cat ~/.last_dir`
 fi
+function rmr() { rm -rf $1 ; } 
 
 # todo: fix
 # function f.() { f $(printf "%0.s../" $(seq 1 $1 )) ; }
@@ -100,11 +102,12 @@ alias rg="ranger"
 function ok() { okular $1 & ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
+function sni() { sudo nvim $1 ; }
 	alias nisw="f ~/.local/share/nvim/swap"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 
-alias vbn="cvlc --loop --alsa-gain 1 ~/Downloads/brown-noise.mp3"
+alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias vlm="alsamixer -c 2"
 alias rmsw="rm .sw*"
 
@@ -409,7 +412,7 @@ function run() {
 #  temp {{{ # 
 alias m8="make checkpasswd && ./checkpasswd  < passwd.in"
 alias m3="make pfact && ./pfact.out 14"
-function pf() { make pfact && ./pfact.out $1 ; } 
+function pf() { ./pfact.out $1 ; } 
 alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
 #  }}} temp # 
 

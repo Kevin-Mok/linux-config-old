@@ -102,5 +102,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 xset r rate 200 60
 # laptop
 if [ "$(hostname)" = "X1-Carbon" ];
+then
 	xrandr --dpi 125
+	xinput disable "ELAN Touchscreen"
+	# enable horizontal scrolling
+	synclient HorizTwoFingerScroll=1
 fi

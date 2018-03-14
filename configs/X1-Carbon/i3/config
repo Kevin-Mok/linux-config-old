@@ -2,15 +2,10 @@
 
 #  startup {{{ # 
 exec redshift -O 4000 
-exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
 # exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/japan-street.jpg"
 exec imwheel
-# enable horizontal scrolling
-exec --no-startup-id synclient HorizTwoFingerScroll=1
-# disable touchscreen
-exec xinput disable 12
 exec $def_term
-reload
 #  }}} startup # 
 
 set $def_term "rxvt-unicode"
@@ -129,8 +124,10 @@ bindsym $mod+F10 workspace $ws10; exec $def_term
 
 #  ws bindings {{{ # 
 # switch to workspace
-bindsym $mod+plus workspace next
-bindsym $mod+minus workspace prev
+# bindsym $mod+plus workspace next
+# bindsym $mod+minus workspace prev
+bindsym $mod+minus move workspace to output left
+bindsym $mod+plus move workspace to output right
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2

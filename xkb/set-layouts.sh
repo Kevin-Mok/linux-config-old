@@ -5,6 +5,9 @@ xkb_config_file_name="pc"
 sys_layout_file="/usr/share/X11/xkb/symbols/$xkb_config_file_name"
 xkb_config_dir="$linux_config_dir/xkb"
 
+# Copy system file into xkb_config_dir.
+# cp "$sys_layout_file" ./"$pc"-"$xkb_config_file_name"
+
 # Remove system file.
 sudo rm -rf "$sys_layout_file"
 # Link config file in repository to system config location.

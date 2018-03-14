@@ -144,9 +144,12 @@ let mapleader="\<Space>"
 nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
 " delete line into system clipboard
 nnoremap <leader>D "+dd
+" delete entire buffer into system clipboard
 nnoremap <leader>DA "+ggdG
 " reload file
 nnoremap <leader>e :e<CR>
+" find merge conflicts
+nnoremap <leader>fc /[<>=]\{7\}<CR>
 " reload folds
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 " toggle search highlighting
