@@ -3,9 +3,7 @@
 set $def_term "rxvt-unicode"
 exec redshift -O 4000 
 # random bg
-# exec_always feh -z --bg-fill ~/Pictures/Backgrounds/*
-# exec_always feh --bg-fill ~/Pictures/Backgrounds/
-exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
+exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/vibrant"
 # exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/retro-mountains-pink.jpg"
 exec imwheel
 # exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
@@ -89,9 +87,9 @@ bindsym control+Shift+x kill
 
 #  container display {{{ # 
 # backgrounds
-# bindsym $mod+g exec feh -z --bg-fill ~/Pictures/Backgrounds/*
-bindsym $mod+g exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
-# bindsym $mod+z exec feh --bg-max ~/Pictures/Backgrounds/deadpool.png
+bindsym $mod+q exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/vibrant"
+bindsym $mod+w exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/dim"
+bindsym $mod+r exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
 bindsym $mod+z exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/sunset-2.jpg"
 
 # enter fullscreen mode for the focused container
@@ -147,6 +145,7 @@ assign [class="Slack"] $ws6
 
 set $ws7 "7 "
 workspace $ws7 output $samsung
+bindsym $mod+F7 workspace $ws7; exec $def_term
 
 set $ws8 "8 "
 assign [class="jetbrains-"] $ws8
@@ -213,10 +212,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #  }}} reload config # 
 
 #  resizing windows {{{ # 
-bindsym $mod+control+h resize grow width 10 px or 10 ppt
-bindsym $mod+control+k resize grow height 10 px or 10 ppt
-bindsym $mod+control+j resize shrink height 10 px or 10 ppt
-bindsym $mod+control+l resize shrink width 10 px or 10 ppt
+bindsym $mod+control+h resize grow width 3 px or 3 ppt
+bindsym $mod+control+k resize grow height 3 px or 3 ppt
+bindsym $mod+control+j resize shrink height 3 px or 3 ppt
+bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  }}} resizing windows # 
 
 #  gaps {{{ # 

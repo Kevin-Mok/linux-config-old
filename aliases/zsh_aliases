@@ -19,7 +19,8 @@ alias hst="history"
 alias nf="neofetch"
 alias rur="xrdb ~/.Xresources"
 function gvx() { urxvt --help 2>&1 | grep $1 ; } 
-alias dum="du -B M"
+# list file sizes in megabytes with depth 1
+alias dum="du -d 1 -B M"
 
 # install deb files
 function ideb() { sudo dpkg -i $1 ; } 
@@ -242,6 +243,7 @@ alias gchm="git checkout master"
 alias gchnw="git checkout -b wip"
 alias gchw="git checkout wip"
 alias gheadm1="git reset --hard HEAD~1"
+alias glstf="git ls-tree -r HEAD --name-only"
 
 #  push {{{ # 
 alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
@@ -249,7 +251,7 @@ alias gst="git stash"
 alias gstp="git stash pop"
 
 alias gc="git commit"
-alias gcam="git commit --amend"
+alias gcam="ga && git commit --amend"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 
@@ -259,8 +261,7 @@ function psg() {
 	git push
 } 
 alias gps="git push"
-alias gpsfrc="git push --force"
-alias gdwip="git push -d origin wip && git branch -D wip"
+alias gpsf="git push --force"
 alias gclear="git stash clear"
 #  }}} push # 
 
@@ -281,9 +282,12 @@ alias crm="mrk README.md"
 
 # functions {{{
 function gcho() { git checkout $1 ; }
+function gchon() { git checkout -b $1 ; }
 function gcln() { git clone $1 ; }
 function gchp() { git cherry-pick $1 ; }
+alias gchpc="git cherry-pick --continue"
 
+# add multiple push repos
 function gremotes() {
 	git remote set-url --add --push origin $1
 	git remote set-url --add --push origin $2
@@ -300,16 +304,10 @@ function gmrgr() {
 }
 #  }}} merge repos # 
 
+# assume file unchanged
 function gunc() { git update-index --assume-unchanged $1 ; } 
-
-#  pull all {{{ # 
-function gpla() { 
-	cmds="lc snp 9r sch"
-	for cmd in $cmds; do
-		eval $cmd && gst && gpl && gstp && gclear
-	done
-}
-#  }}} pull all # 
+# delete branch locally and on server
+function grmb() { git push -d origin $1 && git branch -D $1 ; }
 
 # functions }}}
 
@@ -372,7 +370,7 @@ alias pr3="$cd_school/136/par/3"
 cd_209="f ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
-alias l8="$cd_209/mokkar/lab8"
+alias l9="$cd_209/mokkar/lab9"
 alias 9a="$cd_209/mokkar/a3"
 # }}}
 
@@ -410,10 +408,12 @@ function run() {
 #  }}} compile and run with input file # 
 
 #  temp {{{ # 
-alias m8="make checkpasswd && ./checkpasswd  < passwd.in"
-alias m3="make pfact && ./pfact.out 14"
-function pf() { ./pfact.out $1 ; } 
-alias 35w="c9 3-5_wait.c && ./3-5_wait.out abc a"
+function m9() { 
+	c9 write_test_file.c 
+	./write_test_file.out test.txt
+	od -vtu1 test.txt
+}
+alias m92="c9 time_reads.c && ./time_reads.out 1 test.txt"
 #  }}} temp # 
 
 # }}}
