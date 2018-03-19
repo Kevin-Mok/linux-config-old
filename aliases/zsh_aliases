@@ -100,7 +100,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 
 #  applications {{{ # 
 alias rg="ranger"
-function ok() { okular $1 & ; }
+function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 function sni() { sudo nvim $1 ; }
@@ -211,6 +211,9 @@ if [[ "$(hostname)" = "X1-Carbon" ]]; then
 	alias gbl="xbacklight -get"
 	function bl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
 
+	alias labm="xrandr --auto && xrandr --output HDMI2 --right-of eDP1 --dpi 100"
+	alias vlm="alsamixer -c 1"
+
 	alias thn="thunar ."
 
 	alias plz="f ~/platterz2018/ocr-reader/app/src/main/java/com/google/android/gms/samples/vision/ocrreader"
@@ -222,7 +225,7 @@ fi
 
 #  git {{{ # 
 # aliases {{{
-alias gstore="git config credential.helper store"
+alias gstr="git config credential.helper store"
 
 #  add {{{ # 
 alias ga="git add -A . && gs"
@@ -283,6 +286,8 @@ alias crm="mrk README.md"
 # functions {{{
 function gcho() { git checkout $1 ; }
 function gchon() { git checkout -b $1 ; }
+function gchof() { git checkout $1 $2 ; }
+
 function gcln() { git clone $1 ; }
 function gchp() { git cherry-pick $1 ; }
 alias gchpc="git cherry-pick --continue"

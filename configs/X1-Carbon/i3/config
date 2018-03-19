@@ -1,8 +1,8 @@
 # applications {{{ # 
 
 #  startup {{{ # 
-exec redshift -O 4000 
-exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+# exec redshift -O 4000
+exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/vibrant"
 # exec_always /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/japan-street.jpg"
 exec imwheel
 exec $def_term
@@ -71,7 +71,6 @@ bindsym control+Shift+x kill
 #  }}} changing/focusing/moving windows # 
 
 #  container display {{{ # 
-bindsym $mod+g exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -95,6 +94,12 @@ bindsym $mod+a focus parent
 #  }}} container display # 
 
 #  workspace {{{ # 
+
+# wallpaper
+bindsym $mod+q exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/vibrant"
+bindsym $mod+w exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/dim"
+bindsym $mod+r exec /home/kevin/.local/bin/wal -i "/home/kevin/Pictures/Backgrounds/"
+
 #  ws names {{{ # 
 set $ws1 "1 "
 bindsym F1 workspace $ws1; exec $def_term
@@ -112,6 +117,8 @@ bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+l workspace $ws6; exec slack
 
 set $ws7 "7 ↥"
+bindsym $mod+F7 workspace $ws7; exec $def_term
+
 set $ws8 "8 𝅘𝅥𝅮"
 bindsym Mod4+s workspace $ws8; exec spotify
 
@@ -186,8 +193,8 @@ bindsym $mod+control+j resize shrink height 10 px or 10 ppt
 
 #  gaps {{{ # 
 for_window [class="^.*"] border pixel 0
-gaps inner 30
-gaps outer 2
+gaps inner 25
+gaps outer -3
 
 bindsym control+shift+plus gaps inner all plus 5;gaps outer all plus 5
 bindsym control+shift+0 gaps inner all minus 5;gaps outer all minus 5
@@ -236,7 +243,8 @@ bindsym $mod+control+q exec nmcli radio wifi off
 #  volume keys {{{ # 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset Master 5%-
-bindsym XF86AudioMute exec --no-startup-id amixer -c 1 amixer -D pulse set Master 1+ toggle
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 2+ toggle
+# bindsym XF86AudioMute exec --no-startup-id amixer -c 1 amixer -D pulse set Master 1+ toggle
 #  }}} volume keys # 
 
 #  media keys {{{ # 
