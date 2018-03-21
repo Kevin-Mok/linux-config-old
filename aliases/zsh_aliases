@@ -424,6 +424,6 @@ alias m92="c9 time_reads.c && ./time_reads.out 1 test.txt"
 # }}}
 # }}}
 
-alias 36a="$cd_school/236/a1"
+alias 6a="$cd_school/236/a2"
 alias 6t="ok ~/Documents/School/236-textbook.pdf"
 #  }}} school #

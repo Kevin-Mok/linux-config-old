@@ -196,6 +196,7 @@ nnoremap <leader>Y "+Y
 " Local Mappings {{{ "
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
+autocmd Filetype tex set tabstop=2 shiftwidth=2 expandtab
 
 " tex {{{ "
 autocmd Filetype tex inoremap <localleader>D \Delta
