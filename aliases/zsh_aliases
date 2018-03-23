@@ -14,6 +14,10 @@ export KEYTIMEOUT=1
 #  }}} vim mode # 
 
 #  command line related {{{ # 
+# search history
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
 alias cs='printf "\033c"'
 alias hst="history"
 alias nf="neofetch"
@@ -364,6 +368,7 @@ function cptp() {
 # 136 {{{ 
 alias clc="gcalccmd"
 alias mt="ok ~/Documents/School/calc-textbook.pdf"
+alias mt2="ok ~/Documents/School/calc-textbook-2.pdf"
 
 alias 136="$cd_school/136"
 alias 136l="$cd_school/136/lecture"
@@ -375,7 +380,7 @@ alias pr3="$cd_school/136/par/3"
 cd_209="f ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
-alias l9="$cd_209/mokkar/lab9"
+alias 9l="$cd_209/mokkar/lab10"
 alias 9a="$cd_209/mokkar/a3"
 # }}}
 
