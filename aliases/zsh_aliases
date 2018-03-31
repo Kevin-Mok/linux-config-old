@@ -58,6 +58,7 @@ alias "f."="f .."
 alias "f.2"="f ..."
 
 alias fd="f ~/Downloads"
+alias fds="f ~/Downloads/sch"
 alias doc="f ~/Documents"
 alias cfg="f ~/.config"
 
@@ -104,13 +105,21 @@ alias tm="ni $usnp_dir/texmath.snippets"
 
 #  applications {{{ # 
 alias rg="ranger"
+# okular
 function ok() { nohup okular $1 > /dev/null 2>&1& ; }
+# xviewer
+function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 function sni() { sudo nvim $1 ; }
 	alias nisw="f ~/.local/share/nvim/swap"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
+function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
+alias auc1="xdotool click --repeat 1000000 --delay 1 1"
+alias auc3="xdotool click --repeat 1000000 --delay 300 1"
+alias auc5="xdotool click --repeat 1000000 --delay 500 1"
+alias kauc="pkill -f xdotool"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias vlm="alsamixer -c 2"
@@ -300,6 +309,7 @@ alias gchpc="git cherry-pick --continue"
 function gremotes() {
 	git remote set-url --add --push origin $1
 	git remote set-url --add --push origin $2
+	git remote -v
 }
 
 # gmrgr: merge repos {{{ # 
@@ -355,6 +365,7 @@ alias rml="rm *.aux *.log *.pdf"
 
 #  LaTeX {{{ # 
 function pdl() { pdflatex $1 ; } 
+function pdlb() { pdflatex $1 && biber $1 && pdflatex $1 ; } 
 function cptp() { 
 	cp *template.tex cp-template.tex 
 	chmod 600 cp-template.tex 
@@ -381,7 +392,7 @@ cd_209="f ~/Documents/School/209";
 alias 209="$cd_209"
 alias 9r="$cd_209/mokkar"
 alias 9l="$cd_209/mokkar/lab10"
-alias 9a="$cd_209/mokkar/a3"
+alias 9a="$cd_209/mokkar/a4"
 # }}}
 
 alias ll="ls -la"

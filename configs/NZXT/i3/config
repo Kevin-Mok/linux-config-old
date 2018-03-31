@@ -15,10 +15,14 @@ set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts {{{ # 
 bindsym Mod4+a exec studio
+bindsym Mod4+1 exec xdotool click --repeat 5 --delay 100 1
+bindsym Mod4+2 exec xdotool click --repeat 10 --delay 100 1
+bindsym Mod4+3 exec xdotool click --repeat 20 --delay 100 1
 # bindsym $mod+control+Return exec i3-sensible-terminal
 bindsym $mod+control+Return exec $def_term
 bindsym Mod4+c exec google-chrome
 bindsym Mod4+e exec nemo
+bindsym Mod4+f exec firefox
 bindsym Mod4+o exec okular
 bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+p exec pycharm
@@ -157,6 +161,7 @@ bindsym $mod+F9 workspace $ws9; exec $def_term
 
 set $ws10 "10 "
 assign [class="VirtualBox"] $ws10
+workspace $ws10 output $samsung
 bindsym Mod4+s workspace $ws10; exec spotify
 
 set $ws11 "11 "
@@ -226,10 +231,8 @@ for_window [class="^.*"] border pixel 2
 gaps inner 25
 gaps outer 5
 
-# increase/decrease gaps
-bindsym control+shift+plus gaps inner all plus 2;gaps outer all plus 2
-# bindsym control+shift+plus gaps inner all plus 2
-bindsym control+shift+0 gaps inner all minus 2;gaps outer all minus 2
+bindsym control+shift+plus gaps inner all set 25;gaps outer all set 5
+bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 #  }}} gaps # 
 
 #  status bar {{{ # 

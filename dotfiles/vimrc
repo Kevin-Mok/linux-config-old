@@ -1,5 +1,5 @@
 " set x=y {{{ "
-set relativenumber
+au BufWinEnter * set relativenumber
 " set background=dark
 set background=light
 " set t_Co=256
@@ -57,10 +57,13 @@ Plug '907th/vim-auto-save'
 	let g:auto_save = 1
 	
 " compile LaTeX PDF while writing the file
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
+	au BufWritePost *.tex silent call Tex_RunLaTeX()
+	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
+	let g:vimtex_view_general_viewer = 'okular'
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
@@ -122,7 +125,8 @@ map <F4> :wqa<CR>
 map <F5> :qa!<CR>
 map <F6> :make -C ~/Documents/resume cv<CR>
 map <F7> :AutoSaveToggle<CR>
-map <F9> :LLPStartPreview<CR>
+" map <F9> :LLPStartPreview<CR>
+map <F9> :VimtexCompile<CR>:VimtexView<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
@@ -220,6 +224,9 @@ autocmd Filetype tex inoremap <localleader>w \wedge
 autocmd Filetype tex inoremap <localleader>x $x$-axis
 autocmd Filetype tex inoremap <localleader>y $y$-axis
 autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
+" par3
+autocmd Filetype tex inoremap <localleader>wx $w(x)$
+autocmd Filetype tex inoremap <localleader>tx $t(x)$
 " }}} tex "
 
 " }}} Local Mappings "
