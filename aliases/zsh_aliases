@@ -26,6 +26,11 @@ function gvx() { urxvt --help 2>&1 | grep $1 ; }
 # list file sizes in megabytes with depth 1
 alias dum="du -d 1 -B M"
 
+# pacman
+function pcs() { sudo pacman -S $1 ; } 
+function pcr() { sudo pacman -R $1 ; } 
+function mpk() { makepkg -si ; } 
+
 # install deb files
 function ideb() { sudo dpkg -i $1 ; } 
 
@@ -122,10 +127,11 @@ alias auc5="xdotool click --repeat 1000000 --delay 500 1"
 alias kauc="pkill -f xdotool"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
-alias vlm="alsamixer -c 2"
+alias vlm="alsamixer -c 0"
 alias rmsw="rm .sw*"
 
-function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
+# function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
+function rs(){ redshift -O $1 ; }
 alias rx="redshift -x"
 
 #  python related {{{ # 
@@ -140,6 +146,7 @@ function py() { python $1 ; }
 
 # NZXT {{{
 if [ "$(hostname)" = "NZXT" ]; then
+	
 	#  rotate monitor {{{ # 
 	function rt() {
 		output="HDMI-0"

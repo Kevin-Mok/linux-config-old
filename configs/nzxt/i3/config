@@ -1,14 +1,17 @@
+set $mod Mod1
+
 #  applications {{{ # 
 #  startup {{{ # 
-set $def_term "rxvt-unicode"
+set $browser "firefox"
+set $def_term "urxvt"
 exec redshift -O 4000 
 # random bg
-exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/vibrant"
+exec wal -i "$HOME/Pictures/Backgrounds/dim"
 # exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/retro-mountains-pink.jpg"
 exec imwheel
 # exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
-exec --no-startup-id i3-msg 'workspace 3 ; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 3 ; exec $browser'
 #  }}} startup # 
 
 set $sch_dir "$HOME/Documents/School"
@@ -20,7 +23,7 @@ bindsym Mod4+2 exec xdotool click --repeat 10 --delay 100 1
 bindsym Mod4+3 exec xdotool click --repeat 20 --delay 100 1
 # bindsym $mod+control+Return exec i3-sensible-terminal
 bindsym $mod+control+Return exec $def_term
-bindsym Mod4+c exec google-chrome
+bindsym Mod4+c exec $browser
 bindsym Mod4+e exec nemo
 bindsym Mod4+f exec firefox
 bindsym Mod4+o exec okular
@@ -91,10 +94,10 @@ bindsym control+Shift+x kill
 
 #  container display {{{ # 
 # backgrounds
-bindsym $mod+q exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/vibrant"
-bindsym $mod+w exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/dim"
-bindsym $mod+r exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/"
-bindsym $mod+z exec ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/sunset-2.jpg"
+bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/vibrant"
+bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim"
+bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"
+bindsym $mod+z exec wal -i "$HOME/Pictures/Backgrounds/sunset-2.jpg"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -132,14 +135,14 @@ bindsym $mod+F2 workspace $ws2; exec $def_term
 
 set $ws3 "3 "
 workspace $ws3 output $benq
-bindsym $mod+F3 workspace $ws3; exec google-chrome
+bindsym $mod+F3 workspace $ws3; exec $browser
 
 set $ws4 "4 "
 workspace $ws4 output $samsung
 
 set $ws5 "5 "
 workspace $ws5 output $benq
-bindsym $mod+F5 workspace $ws5; exec google-chrome
+bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec steam
 
 set $ws6 "6 "
@@ -228,8 +231,9 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 # remove window titlebars
 for_window [class="^.*"] border pixel 2
 # default gaps
-gaps inner 25
-gaps outer 5
+# gaps inner 25
+gaps inner 0
+gaps outer 0
 
 bindsym control+shift+plus gaps inner all set 25;gaps outer all set 5
 bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
@@ -274,9 +278,9 @@ font pango:Hack 11
 #  }}} mod key/font # 
 
 #  media keys {{{ # 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 sset Master 3+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 sset Master 3-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 2+ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
