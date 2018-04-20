@@ -17,6 +17,7 @@ export KEYTIMEOUT=1
 # search history
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+function src() { source $1 ; } 
 
 alias cs='printf "\033c"'
 alias hst="history"
@@ -63,6 +64,7 @@ alias "f."="f .."
 alias "f.2"="f ..."
 
 alias fd="f ~/Downloads"
+function mvd() { mv $1 ~/Downloads ; }
 alias fds="f ~/Downloads/sch"
 alias doc="f ~/Documents"
 alias cfg="f ~/.config"
@@ -145,7 +147,7 @@ function py() { python $1 ; }
 #  device specific {{{ # 
 
 # NZXT {{{
-if [ "$(hostname)" = "NZXT" ]; then
+if [ "$(hostname)" = "nzxt" ]; then
 	
 	#  rotate monitor {{{ # 
 	function rt() {
@@ -223,11 +225,10 @@ if [ "$(hostname)" = "NZXT" ]; then
 	#  }}} resume # 
 	
 	#  }}} various coding projs # 
-fi
 # NZXT }}}
 
 # laptop {{{
-if [[ "$(hostname)" = "X1-Carbon" ]]; then
+elif [[ "$(hostname)" = "X1-Carbon" ]]; then
 	alias gbl="xbacklight -get"
 	function bl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
 
@@ -238,8 +239,21 @@ if [[ "$(hostname)" = "X1-Carbon" ]]; then
 
 	alias plz="f ~/platterz2018/ocr-reader/app/src/main/java/com/google/android/gms/samples/vision/ocrreader"
 	alias ans="f /usr/local/android-studio/bin/"
-fi
 # laptop }}}
+
+# ubuntu {{{
+
+elif [ "$(hostname)" = "nzxt-ubuntu" ]; then
+	
+# Stardew Valley {{{
+	alias sdv="f ~/Documents/sdv-save"
+	function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
+	function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
+# }}}
+
+fi
+
+# }}}
 
 #  }}} device specific # 
 
@@ -255,6 +269,7 @@ alias gac="git add -A . && git commit"
 #  diff/log {{{ # 
 alias gd="git diff -w"
 alias gdc="git diff --cached"
+alias gds="git diff --stat"
 alias gl="git log"
 alias gsl="git shortlog"
 #  }}}  diff/log # 

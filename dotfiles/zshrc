@@ -108,4 +108,6 @@ then
 	xinput disable "ELAN Touchscreen"
 	# enable horizontal scrolling
 	synclient HorizTwoFingerScroll=1
+else
+	xmodmap ~/.Xmodmap
 fi
