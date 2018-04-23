@@ -98,9 +98,8 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
 " status bar displaying various info about the current buffer
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-	let g:airline_powerline_fonts = 1
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " continue Markdown lists when started
 Plug 'dkarter/bullets.vim'
@@ -233,6 +232,7 @@ autocmd Filetype tex inoremap <localleader>tx $t(x)$
 " }}} Local Mappings "
 
 " format XML {{{
+
 function! DoPrettyXML()
   " save the filetype so we can restore it later
   let l:origft = &ft
@@ -261,4 +261,5 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
-" }}}
+
+" format XML }}}

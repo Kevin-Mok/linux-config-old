@@ -30,7 +30,10 @@ alias dum="du -d 1 -B M"
 # pacman
 function pcs() { sudo pacman -S $1 ; } 
 function pcr() { sudo pacman -R $1 ; } 
+function aus() { aurman -S $1 ; } 
 function mpk() { makepkg -si ; } 
+
+alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # install deb files
 function ideb() { sudo dpkg -i $1 ; } 
