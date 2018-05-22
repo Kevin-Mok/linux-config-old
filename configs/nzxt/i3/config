@@ -7,9 +7,10 @@ set $browser "firefox"
 set $def_term "urxvt"
 exec redshift -O 4000 
 # random bg
-exec wal -i "$HOME/Pictures/Backgrounds/dim"
+exec wal -i "$HOME/Pictures/bg/mountains.jpg"
 # exec_always ~/.local/bin/wal -i "$HOME/Pictures/Backgrounds/retro-mountains-pink.jpg"
 exec imwheel
+exec --no-startup-id start-pulseaudio-x11
 # exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 3 ; exec $browser'
@@ -253,7 +254,7 @@ bar {
 
 bar {
 	output $samsung
-	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+ 	# status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
 	tray_output none
 	font pango:$sb_font 22
 	# font pango:monospace 22, FontAwesome 22

@@ -66,25 +66,25 @@ Plug 'lervag/vimtex'
 	let g:vimtex_view_general_viewer = 'okular'
 
 " auto-completion for various languages
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " wrote short bits of text that expand into whatever you want
 " demo: https://www.youtube.com/watch?v=Zik6u0klD40
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 	" better key bindings for UltiSnipsExpandTrigger
-	" let g:UltiSnipsExpandTrigger = "<tab>"
-	" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-	" let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
+	let g:UltiSnipsExpandTrigger = "<tab>"
+	let g:UltiSnipsJumpForwardTrigger = "<tab>"
+	let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
 
 " custom snippets
-" Plug 'Kevin-Mok/vim-snippets'
+Plug 'Kevin-Mok/vim-snippets'
 
 " to make YouCompleteMe work with UltiSnips (both use Tab)
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 	" make YCM compatible with UltiSnips (using supertab)
-	" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-	" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-	" let g:SuperTabDefaultCompletionType = '<C-n>'
+	let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+	let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+	let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " easily comment/uncomment lines
 Plug 'scrooloose/nerdcommenter'
@@ -200,7 +200,7 @@ nnoremap <leader>Y "+Y
 " Local Mappings {{{ "
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
-autocmd Filetype tex set tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype css,html,tex set tabstop=2 shiftwidth=2 expandtab
 
 " tex {{{ "
 autocmd Filetype tex inoremap <localleader>D \Delta

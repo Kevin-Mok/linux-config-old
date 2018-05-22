@@ -81,6 +81,31 @@ alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
 #  }}} power options # 
 
+#  rotate monitor {{{ # 
+function rt() {
+	output="HDMI-0"
+	if [ "$1" = "s" ]
+	# if [ "${1:0:1}" = "s" ]
+	then
+		output="DVI-I-1"
+	fi
+
+	dir="normal"
+	if [ "$2" = "r" ]
+	# if [ "${1:1:2}" = "r" ]
+	then
+		dir="right"
+	fi
+	if [ "$2" = "l" ]
+	then
+		dir="left"
+	fi
+
+	# echo "xrandr --output \"$output\" --rotate \"$dir\""
+	xrandr --output "$output" --rotate "$dir"
+}
+#  }}} rotate monitor # 
+
 function 	apti() { sudo apt install $1 ; } 
 function 	aptr() { sudo apt remove $1 ; } 
 #  }}} system # 
@@ -152,31 +177,6 @@ function py() { python $1 ; }
 # NZXT {{{
 if [ "$(hostname)" = "nzxt" ]; then
 	
-	#  rotate monitor {{{ # 
-	function rt() {
-		output="HDMI-0"
-		if [ "$1" = "s" ]
-		# if [ "${1:0:1}" = "s" ]
-		then
-			output="DVI-I-1"
-		fi
-
-		dir="normal"
-		if [ "$2" = "r" ]
-		# if [ "${1:1:2}" = "r" ]
-		then
-			dir="right"
-		fi
-		if [ "$2" = "l" ]
-		then
-			dir="left"
-		fi
-
-		# echo "xrandr --output \"$output\" --rotate \"$dir\""
-		xrandr --output "$output" --rotate "$dir"
-	}
-	#  }}} rotate monitor # 
-
 	#  audio {{{ # 
 	#  was for transferring sink inputs between DAC and speakers but not
 	#  necessary if not using
@@ -249,10 +249,16 @@ elif [[ "$(hostname)" = "X1-Carbon" ]]; then
 elif [ "$(hostname)" = "nzxt-ubuntu" ]; then
 	
 # Stardew Valley {{{
-	alias sdv="f ~/Documents/sdv-save"
+	sdv_save_dir=~/Documents/sdv-save
+	alias sdv="f $sdv_save_dir"
+	alias smp="~/Downloads/sdv/smapi/install\ on\ Linux.sh"
+	alias imc="sdv && source import-save.sh coop"
+	function ucf() { f ~/Documents/StardewMods/UncaughtFish ; } 
 	function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
 	function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
 # }}}
+
+alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
 
 fi
 
@@ -358,7 +364,7 @@ function grmb() { git push -d origin $1 && git branch -D $1 ; }
 #  }}} git # 
 
 #  coding projs {{{ # 
-coding_dir="~/Documents/coding"
+coding_dir="~/coding"
 cd_coding_dir="f $coding_dir"
 alias cdn="$cd_coding_dir"
 
@@ -370,12 +376,26 @@ alias vli="ni $ideas_dir/general/ideas.md"
 alias fyn="f $ideas_dir/yes-no"
 
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
+
 #  trapbot {{{ # 
 alias tb="$cd_coding_dir/trapbot"
 	alias vtb="$cd_coding_dir/trapbot && ni scan_reddit.py"
 	alias ptb="python scan_reddit.py"
 	alias rtb="$cd_coding_dir/trapbot && python scan_reddit.py"
 #  }}} trapbot # 
+
+#  spotify-lib-vis {{{ # 
+
+spv_dir="$coding_dir""/spotify-lib-vis"
+alias spv="f $spv_dir/src/spotifyvis"
+alias spvd="f $spv_dir/src"
+function sspv() {
+	source api-keys.sh
+	source ../bin/activate
+	python manage.py runserver
+}
+
+#  }}} spotify-lib-vis # 
 
 #  }}} coding projs # 
 
