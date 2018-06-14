@@ -27,12 +27,6 @@ function gvx() { urxvt --help 2>&1 | grep $1 ; }
 # list file sizes in megabytes with depth 1
 alias dum="du -d 1 -B M"
 
-# pacman
-function pcs() { sudo pacman -S $1 ; } 
-function pcr() { sudo pacman -R $1 ; } 
-function aus() { aurman -S $1 ; } 
-function mpk() { makepkg -si ; } 
-
 alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # install deb files
@@ -43,7 +37,7 @@ alias grep='grep --color=auto'
 # for finding files by name
 function rfnd() { find . -name "$1" ; } 
 # find text inside files
-function rgrp() { grep -r $1 * ; } 
+function rgrp() { grep -nr $1 * ; } 
 function cpd() { cp -avr $1 $2 ; } 
 
 # extract tar archive
@@ -112,6 +106,7 @@ function 	aptr() { sudo apt remove $1 ; }
 
 # config files {{{ #
 alias lc="f ~/linux-config/"
+function rlc() { grep -nr $1 ~/linux-config ; } 
 alias lca="f ~/linux-config/aliases"
 
 alias vv="ni ~/.vimrc"
@@ -151,10 +146,10 @@ function sni() { sudo nvim $1 ; }
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
-alias auc1="xdotool click --repeat 1000000 --delay 1 1"
-alias auc3="xdotool click --repeat 1000000 --delay 300 1"
-alias auc5="xdotool click --repeat 1000000 --delay 500 1"
-alias kauc="pkill -f xdotool"
+# alias auc1="xdotool click --repeat 1000000 --delay 1 1"
+# alias auc3="xdotool click --repeat 1000000 --delay 300 1"
+# alias auc5="xdotool click --repeat 1000000 --delay 500 1"
+# alias kauc="pkill -f xdotool"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias vlm="alsamixer -c 0"
@@ -171,100 +166,6 @@ function py() { python $1 ; }
 #  }}} python related # 
 
 #  }}} applications # 
-
-#  device specific {{{ # 
-
-# NZXT {{{
-if [ "$(hostname)" = "nzxt" ]; then
-	
-	#  audio {{{ # 
-	#  was for transferring sink inputs between DAC and speakers but not
-	#  necessary if not using
-	alias alsi="pactl list short sink-inputs"
-	alias als="pactl list short sinks"
-	function amsih() { pactl move-sink-input $1 0 ; } 
-	function amsis() { pactl move-sink-input $1 1 ; } 
-	#  }}} audio # 
-
-	#  apps {{{ # 
-	alias nem="nemo ."
-	alias spt="speedtest"
-	alias pg="ping -c 5 google.ca"
-	alias w7="VBoxManage startvm W7 --type headless"
-	#  }}} apps  # 
-
-	#  various coding projs {{{ # 
-	alias sfa="f ~/Documents/self-authoring"
-	alias rcg="$cd_coding_dir/random-color-generator"
-	alias dcr="$cd_coding_dir/dcr-logger"
-	alias prf="$cd_coding_dir/ParsaFood"
-
-	#  swbot {{{ # 
-	alias sb="$cd_coding_dir/swbot"
-		# alias psb="p3 create_skills_dict.py"
-		# alias psbo="p3 create_skills_dict.py > output.py"
-		alias psb="p3 create_monster_dict.py"
-		alias psbo="p3 create_monster_dict.py > output.py"
-	#  }}} swbot # 
-		
-	#  resume {{{ # 
-	alias cv="f ~/Documents/resume/examples"
-		alias cvf="f ~/Documents/resume/examples/cv"
-		alias vcv="ni ~/Documents/resume/examples/cv.tex"
-		alias cvn="ni ~/Documents/resume/resume-notes.md"
-		alias okcv="ok ~/Documents/resume/examples/cv.pdf"
-		# https://stackoverflow.com/a/6605085/8811872
-		function pdftojpg() { 
-			convert \
-				-verbose       \
-				-density 150   \
-				-trim          \
-				$1.pdf      \
-				-quality 100   \
-				-flatten       \
-				-sharpen 0x1.0 \
-				$1.jpg
-		} 
-	#  }}} resume # 
-	
-	#  }}} various coding projs # 
-# NZXT }}}
-
-# laptop {{{
-elif [[ "$(hostname)" = "X1-Carbon" ]]; then
-	alias gbl="xbacklight -get"
-	function bl() { xbacklight -set $(echo "scale=2;$1*10" | bc) ; } 
-
-	alias labm="xrandr --auto && xrandr --output HDMI2 --right-of eDP1 --dpi 100"
-	alias vlm="alsamixer -c 1"
-
-	alias thn="thunar ."
-
-	alias plz="f ~/platterz2018/ocr-reader/app/src/main/java/com/google/android/gms/samples/vision/ocrreader"
-	alias ans="f /usr/local/android-studio/bin/"
-# laptop }}}
-
-# ubuntu {{{
-
-elif [ "$(hostname)" = "nzxt-ubuntu" ]; then
-	
-# Stardew Valley {{{
-	sdv_save_dir=~/Documents/sdv-save
-	alias sdv="f $sdv_save_dir"
-	alias smp="~/Downloads/sdv/smapi/install\ on\ Linux.sh"
-	alias imc="sdv && source import-save.sh coop"
-	function ucf() { f ~/Documents/StardewMods/UncaughtFish ; } 
-	function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
-	function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
-# }}}
-
-alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
-
-fi
-
-# }}}
-
-#  }}} device specific # 
 
 #  git {{{ # 
 # aliases {{{
@@ -286,7 +187,7 @@ alias gsl="git shortlog"
 #  update {{{ # 
 
 alias gs="git status -u"
-alias gchm="git checkout master"
+alias gchom="git checkout master"
 alias gchnw="git checkout -b wip"
 alias gchw="git checkout wip"
 alias gheadm1="git reset --hard HEAD~1"
@@ -357,7 +258,7 @@ function gmrgr() {
 # assume file unchanged
 function gunc() { git update-index --assume-unchanged $1 ; } 
 # delete branch locally and on server
-function grmb() { git push -d origin $1 && git branch -D $1 ; }
+function grmb() { git push origin --delete $1 && git branch -D $1 ; }
 
 # functions }}}
 
@@ -368,14 +269,20 @@ coding_dir="~/coding"
 cd_coding_dir="f $coding_dir"
 alias cdn="$cd_coding_dir"
 
-# ideas
-ideas_dir="$coding_dir""/ideas"
-alias ids="f $ideas_dir"
-alias lci="f $ideas_dir/general"
-alias vli="ni $ideas_dir/general/ideas.md"
-alias fyn="f $ideas_dir/yes-no"
-
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
+alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
+alias jn="ni ~/Documents/journal/6.md"
+alias jnt="ni ~/Documents/journal/todo.md"
+
+#  ideas {{{ # 
+
+# ideas_dir="$coding_dir""/ideas"
+# alias ids="f $ideas_dir"
+# alias lci="f $ideas_dir/general"
+# alias vli="ni $ideas_dir/general/ideas.md"
+# alias fyn="f $ideas_dir/yes-no"
+
+#  }}} ideas # 
 
 #  trapbot {{{ # 
 alias tb="$cd_coding_dir/trapbot"
@@ -389,102 +296,28 @@ alias tb="$cd_coding_dir/trapbot"
 spv_dir="$coding_dir""/spotify-lib-vis"
 alias spv="f $spv_dir/src/spotifyvis"
 alias spvd="f $spv_dir/src"
+alias spvt="f $spv_dir/src/spotifyvis/templates/spotifyvis"
 function sspv() {
 	source api-keys.sh
 	source ../bin/activate
 	python manage.py runserver
 }
+alias spvdb="psql -d spotifyvis -U django"
+function mig() {
+	python manage.py makemigrations
+	python manage.py migrate
+}
 
 #  }}} spotify-lib-vis # 
 
+# Stardew Valley {{{
+	sdv_save_dir=~/Documents/sdv-save
+	alias sdv="f $sdv_save_dir"
+	alias smp="~/Downloads/sdv/smapi/install\ on\ Linux.sh"
+	alias imc="sdv && source import-save.sh coop"
+	function ucf() { f ~/Documents/StardewMods/UncaughtFish ; } 
+	function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
+	function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
+# }}}
+
 #  }}} coding projs # 
-
-#  school {{{ # 
-in_lab=false
-cd_school="f ~/Documents/School/notes"
-
-# general {{{ 
-alias sch="$cd_school"
-alias 236="$cd_school/236"
-alias rml="rm *.aux *.log *.pdf"
-
-#  LaTeX {{{ # 
-function pdl() { pdflatex $1 ; } 
-function pdlb() { pdflatex $1 && biber $1 && pdflatex $1 ; } 
-function cptp() { 
-	cp *template.tex cp-template.tex 
-	chmod 600 cp-template.tex 
-	date=`date +%-m-%d`
-	mv cp-template.tex "$date".tex
-} 
-#  }}} LaTeX # 
-
-# }}} 
-
-# 136 {{{ 
-alias clc="gcalccmd"
-alias mt="ok ~/Documents/School/calc-textbook.pdf"
-alias mt2="ok ~/Documents/School/calc-textbook-2.pdf"
-
-alias 136="$cd_school/136"
-alias 136l="$cd_school/136/lecture"
-alias pr3="$cd_school/136/par/3"
-# }}}
-
-# 209 {{{
-# dirs {{{
-cd_209="f ~/Documents/School/209";
-alias 209="$cd_209"
-alias 9r="$cd_209/mokkar"
-alias 9l="$cd_209/mokkar/lab10"
-alias 9a="$cd_209/mokkar/a4"
-# }}}
-
-alias ll="ls -la"
-alias cdf="echo \". ./.bashrc\"&& ssh mokkar@cdf.utoronto.ca"
-function mkex() { chmod 777 $1 ; }
-
-# {{{ Compilation Functions
-# compile without running
-function c9() { gcc -Wall -std=gnu99 -g -o "${1%.*}.out" "$1" -lm ; }
-
-#  compile all without running {{{ # 
-function c9a() { 
-	for file in *; do
-		if [[ $file = *.c ]]; then
-			gcc -Wall -std=gnu99 -g -o "${file%.*}".out "$file"
-		fi
-	done
-} 
-#  }}} compile all without running # 
-
-# compile and run
-function c9r() { c9 $1 && ./"${1%.*}.out" ; }
-
-# compile and run with input
-function c9i() { c9 $1 && ./"${1%.*}.out" < $2 ; }
-
-#  compile and run with input file {{{ # 
-function run() {
-	while read line; do 
-		# ./$1.out $line
-		echo ./$1.out $line
-	done < $1.in
-}
-#  }}} compile and run with input file # 
-
-#  temp {{{ # 
-function m9() { 
-	c9 write_test_file.c 
-	./write_test_file.out test.txt
-	od -vtu1 test.txt
-}
-alias m92="c9 time_reads.c && ./time_reads.out 1 test.txt"
-#  }}} temp # 
-
-# }}}
-# }}}
-
-alias 6a="$cd_school/236/a2"
-alias 6t="ok ~/Documents/School/236-textbook.pdf"
-#  }}} school #
