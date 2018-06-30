@@ -43,6 +43,9 @@ function cpd() { cp -avr $1 $2 ; }
 # extract tar archive
 function untar() { tar -xzvf $1 && rm $1; } 
 function runzip() { unzip $1 && rm $1; } 
+
+function mkex() { chmod 777 $1 ; }
+
 #  }}} command line related # 
 
 #  directory-related {{{ # 
@@ -153,6 +156,7 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias vlm="alsamixer -c 0"
+alias vlmh="alsamixer -c 3"
 alias rmsw="rm .sw*"
 
 # function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
@@ -180,6 +184,7 @@ alias gac="git add -A . && git commit"
 alias gd="git diff -w"
 alias gdc="git diff --cached"
 alias gds="git diff --stat"
+alias gdt="git difftool --tool=vimdiff"
 alias gl="git log"
 alias gsl="git shortlog"
 #  }}}  diff/log # 
@@ -294,10 +299,12 @@ alias tb="$cd_coding_dir/trapbot"
 #  spotify-lib-vis {{{ # 
 
 spv_dir="$coding_dir""/spotify-lib-vis"
-alias spv="f $spv_dir/src/spotifyvis"
-alias spvd="f $spv_dir/src"
-alias spvt="f $spv_dir/src/spotifyvis/templates/spotifyvis"
-function sspv() {
+alias sv="f $spv_dir/src"
+alias svl="f $spv_dir/src/login"
+alias sva="f $spv_dir/src/api"
+alias svg="f $spv_dir/src/graphs"
+alias ft="f templates"
+function ssv() {
 	source api-keys.sh
 	source ../bin/activate
 	python manage.py runserver
@@ -305,8 +312,11 @@ function sspv() {
 alias spvdb="psql -d spotifyvis -U django"
 function mig() {
 	python manage.py makemigrations
-	python manage.py migrate
+	python manage.py migrate --run-syncdb
+	ssv
 }
+alias cldb="python manage.py flush --no-input"
+alias djs="python manage.py shell"
 
 #  }}} spotify-lib-vis # 
 

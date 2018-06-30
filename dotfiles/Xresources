@@ -1,5 +1,5 @@
 ! URxvt.font: xft:hack:size=14
-URxvt.font: xft:hack:size=12
+URxvt.font: xft:hack:size=13
 
 URxvt*inheritPixmap: true
 URxvt*transparent: true

@@ -25,6 +25,9 @@ set hlsearch
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
+autocmd Filetype css,html,tex,txt set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd Filetype markdown set textwidth=0
 
 " vim-plug {{{ "
 " plug auto-install
@@ -156,7 +159,7 @@ nnoremap <leader>DA "+ggdG
 " reload file
 nnoremap <leader>e :e<CR>
 " find merge conflicts
-nnoremap <leader>fc /[<>=]\{7\}<CR>
+nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 " toggle search highlighting
@@ -204,7 +207,6 @@ nnoremap <leader>Y "+Y
 " Local Mappings {{{ "
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
-autocmd Filetype css,html,tex set tabstop=2 shiftwidth=2 expandtab
 
 " tex {{{ "
 autocmd Filetype tex inoremap <localleader>D \Delta
@@ -232,5 +234,7 @@ autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
 " }}} tex "
+
+autocmd Filetype md inoremap <localleader>x 0f[lRX
 
 " }}} Local Mappings "
