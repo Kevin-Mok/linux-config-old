@@ -25,7 +25,7 @@ alias nf="neofetch"
 alias rur="xrdb ~/.Xresources"
 function gvx() { urxvt --help 2>&1 | grep $1 ; } 
 # list file sizes in megabytes with depth 1
-alias dum="du -d 1 -B M"
+alias dum="sudo du -d 1 -B M"
 
 alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
@@ -67,6 +67,7 @@ alias fd="f ~/Downloads"
 function mvd() { mv $1 ~/Downloads ; }
 alias fds="f ~/Downloads/sch"
 alias doc="f ~/Documents"
+alias wo="f ~/Documents/workout-logs/9"
 alias cfg="f ~/.config"
 
 #  }}}  directory-related # 
@@ -153,6 +154,7 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 # alias auc3="xdotool click --repeat 1000000 --delay 300 1"
 # alias auc5="xdotool click --repeat 1000000 --delay 500 1"
 # alias kauc="pkill -f xdotool"
+alias rsl="java -jar ~/Downloads/RuneLite.jar"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias vlm="alsamixer -c 0"
@@ -160,7 +162,7 @@ alias vlmh="alsamixer -c 3"
 alias rmsw="rm .sw*"
 
 # function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
-function rs(){ redshift -O $1 ; }
+function rds(){ redshift -O $1 ; }
 alias rx="redshift -x"
 
 #  python related {{{ # 
@@ -214,6 +216,7 @@ function psg() {
 	git push
 } 
 alias gps="git push"
+alias gpsi="git push --set-upstream origin master"
 alias gpsf="git push --force"
 alias gclear="git stash clear"
 #  }}} push # 
@@ -276,8 +279,9 @@ alias cdn="$cd_coding_dir"
 
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
-alias jn="ni ~/Documents/journal/6.md"
+alias jn="ni ~/Documents/journal/9.md"
 alias jnt="ni ~/Documents/journal/todo.md"
+alias rs="f ~/Documents/runescape"
 
 #  ideas {{{ # 
 

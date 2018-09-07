@@ -199,6 +199,8 @@ nnoremap <leader>z za
 " copy next thing to system clipboard
 nnoremap <leader>y "+
 nnoremap <leader>Y "+Y
+" yank entire buffer
+nnoremap <leader>yg ggyG
 
 " }}} leader mappings "
 

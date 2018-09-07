@@ -1,6 +1,7 @@
 #  startup {{{ # 
 set $browser "firefox"
 set $def_term "urxvt"
+set $runelite "java -jar ~/Downloads/RuneLite.jar"
 exec redshift -O 3000 
 # random bg
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
@@ -9,6 +10,7 @@ exec --no-startup-id start-pulseaudio-x11
 # exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
 exec --no-startup-id i3-msg 'workspace 3 ; exec $browser'
+# exec --no-startup-id i3-msg 'workspace 5 ; exec $runelite'
 exec_always --no-startup-id numlockx on
 #  }}} startup # 
 
@@ -31,7 +33,8 @@ bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+n exec nemo
 bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
-bindsym Mod4+r exec urxvt -e ranger
+# bindsym Mod4+r exec urxvt -e ranger
+bindsym Mod4+r exec $runelite
 bindsym Print exec ksnapshot
 #  }}} app shortcuts # 
 
@@ -141,6 +144,7 @@ bindsym $mod+F3 workspace $ws3; exec $browser
 
 set $ws4 "4 "
 workspace $ws4 output $samsung
+bindsym $mod+F4 workspace $ws4; exec $def_term
 
 set $ws5 "5 "
 workspace $ws5 output $benq
