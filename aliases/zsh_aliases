@@ -104,6 +104,11 @@ function rt() {
 }
 #  }}} rotate monitor # 
 
+# sound
+alias vlm="alsamixer -c 0"
+alias vlmh="alsamixer -c 3"
+
+# apt
 function 	apti() { sudo apt install $1 ; } 
 function 	aptr() { sudo apt remove $1 ; } 
 #  }}} system # 
@@ -157,8 +162,6 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 alias rsl="java -jar ~/Downloads/RuneLite.jar"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
-alias vlm="alsamixer -c 0"
-alias vlmh="alsamixer -c 3"
 alias rmsw="rm .sw*"
 
 # function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
@@ -335,3 +338,11 @@ alias djs="python manage.py shell"
 # }}}
 
 #  }}} coding projs # 
+
+#  school {{{ # 
+
+alias sch="f ~/Documents/school"
+alias sta="f ~/Documents/school/sta"
+alias 236="f ~/Documents/school/236"
+
+#  }}} school # 

@@ -154,7 +154,7 @@ bindsym Mod4+g workspace $ws5; layout stacking; exec steam
 set $ws6 "6 "
 workspace $ws6 output $samsung
 bindsym Mod4+d workspace $ws6; exec discord
-bindsym Mod4+l workspace $ws6; exec slack
+bindsym Mod4+k workspace $ws6; exec slack
 assign [class="Slack"] $ws6
 
 set $ws7 "7 "
@@ -305,6 +305,9 @@ font pango:Hack 11
 #  }}} mod key/font # 
 
 #  media keys {{{ # 
+bindsym $mod+d exec ~/linux-config/change-sink.sh dac
+bindsym $mod+o exec ~/linux-config/change-sink.sh line-out
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
