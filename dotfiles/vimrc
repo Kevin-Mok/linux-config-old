@@ -194,6 +194,8 @@ nnoremap <leader>s :set syn=sh<CR>
 nnoremap <leader>w Vgq
 " format this and next line
 nnoremap <leader>ww Vjgq
+" format current 3 lines
+nnoremap <leader>www V2jgq
 " toggle fold
 nnoremap <leader>z za
 " copy next thing to system clipboard

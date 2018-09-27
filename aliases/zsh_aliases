@@ -37,7 +37,7 @@ alias grep='grep --color=auto'
 # for finding files by name
 function rfnd() { find . -name "$1" ; } 
 # find text inside files
-function rgrp() { grep -nr $1 * ; } 
+function rg() { grep -nr $1 * ; } 
 function cpd() { cp -avr $1 $2 ; } 
 
 # extract tar archive
@@ -115,7 +115,7 @@ function 	aptr() { sudo apt remove $1 ; }
 
 # config files {{{ #
 alias lc="f ~/linux-config/"
-function rlc() { grep -nr $1 ~/linux-config ; } 
+function glc() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
 alias lca="f ~/linux-config/aliases"
 
 alias vv="ni ~/.vimrc"
@@ -143,7 +143,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 # }}} config files #
 
 #  applications {{{ # 
-alias rg="ranger"
+alias ran="ranger"
 # okular
 function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 # xviewer
@@ -282,8 +282,9 @@ alias cdn="$cd_coding_dir"
 
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
-alias jn="ni ~/Documents/journal/9.md"
-alias jnt="ni ~/Documents/journal/todo.md"
+alias jnd="f ~/Documents/journal"
+alias jn="ni ~/Documents/journal/todo/9.md"
+alias jnt="ni ~/Documents/journal/todo/todo.md"
 alias rs="f ~/Documents/runescape"
 
 #  ideas {{{ # 
@@ -343,6 +344,9 @@ alias djs="python manage.py shell"
 
 alias sch="f ~/Documents/school"
 alias sta="f ~/Documents/school/sta"
+
+# 236
 alias 236="f ~/Documents/school/236"
+alias a1="f ~/Documents/school/latex-notes/236/a1"
 
 #  }}} school # 

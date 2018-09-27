@@ -161,7 +161,7 @@ set $ws7 "7 "
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
 
-set $ws8 "8 "
+set $ws8 "8 🕮"
 # assign [class="jetbrains-"] $ws8
 bindsym $mod+F8 workspace $ws8; exec $def_term
 
@@ -175,7 +175,7 @@ workspace $ws10 output $samsung
 bindsym $mod+F10 workspace $ws10; exec $def_term
 bindsym Mod4+s workspace $ws10; exec spotify
 
-set $ws11 "11 "
+set $ws11 "11 "
 workspace $ws11 output $benq
 bindsym $mod+F11 workspace $ws11; exec $def_term
 
