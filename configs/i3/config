@@ -139,7 +139,7 @@ workspace $ws2 output $samsung
 bindsym $mod+F2 workspace $ws2; exec $def_term
 
 set $ws3 "3 "
-workspace $ws3 output $samsung
+workspace $ws3 output $benq
 bindsym $mod+F3 workspace $ws3; exec $browser
 
 set $ws4 "4 "
@@ -147,15 +147,16 @@ workspace $ws4 output $samsung
 bindsym $mod+F4 workspace $ws4; exec $def_term
 
 set $ws5 "5 "
-workspace $ws5 output $benq
+workspace $ws5 output $samsung
 bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec steam
 
 set $ws6 "6 "
 workspace $ws6 output $samsung
+assign [class="Slack"] $ws6
+assign [class="discord"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
-assign [class="Slack"] $ws6
 
 set $ws7 "7 "
 workspace $ws7 output $samsung
@@ -170,7 +171,7 @@ workspace $ws9 output $samsung
 bindsym $mod+F9 workspace $ws9; exec $def_term
 
 set $ws10 "10 🎵"
-assign [class="VirtualBox"] $ws10
+assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 bindsym $mod+F10 workspace $ws10; exec $def_term
 bindsym Mod4+s workspace $ws10; exec spotify

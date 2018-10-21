@@ -35,7 +35,7 @@ function ideb() { sudo dpkg -i $1 ; }
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
 # for finding files by name
-function rfnd() { find . -name "$1" ; } 
+function rf() { find . -name "$1" ; } 
 # find text inside files
 function rg() { grep -nr $1 * ; } 
 function cpd() { cp -avr $1 $2 ; } 
@@ -67,7 +67,7 @@ alias fd="f ~/Downloads"
 function mvd() { mv $1 ~/Downloads ; }
 alias fds="f ~/Downloads/sch"
 alias doc="f ~/Documents"
-alias wo="f ~/Documents/workout-logs/9"
+alias wo="f ~/Documents/workout-logs/10"
 alias cfg="f ~/.config"
 
 #  }}}  directory-related # 
@@ -106,7 +106,7 @@ function rt() {
 
 # sound
 alias vlm="alsamixer -c 0"
-alias vlmh="alsamixer -c 3"
+alias vlh="alsamixer -c 1"
 
 # apt
 function 	apti() { sudo apt install $1 ; } 
@@ -283,7 +283,7 @@ alias cdn="$cd_coding_dir"
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
 alias jnd="f ~/Documents/journal"
-alias jn="ni ~/Documents/journal/todo/9.md"
+alias jn="ni ~/Documents/journal/todo/10.md"
 alias jnt="ni ~/Documents/journal/todo/todo.md"
 alias rs="f ~/Documents/runescape"
 
@@ -347,6 +347,10 @@ alias sta="f ~/Documents/school/sta"
 
 # 236
 alias 236="f ~/Documents/school/236"
-alias a1="f ~/Documents/school/latex-notes/236/a1"
+# alias a1="f ~/Documents/school/latex-notes/236/a1"
+
+# 343
+alias 343="f ~/Documents/school/343"
+alias a1="f ~/Documents/school/latex-notes/343/a1"
 
 #  }}} school # 
