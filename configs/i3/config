@@ -44,6 +44,7 @@ bindsym $mod+Mod4+2 exec redshift -O 2000
 bindsym $mod+Mod4+3 exec redshift -O 2500
 bindsym $mod+Mod4+4 exec redshift -O 3000
 bindsym $mod+Mod4+5 exec redshift -O 4000
+bindsym $mod+Mod4+6 exec redshift -O 5000
 bindsym $mod+Mod4+0 exec redshift -x
 #  }}} redshift # 
 
@@ -154,7 +155,6 @@ bindsym Mod4+g workspace $ws5; layout stacking; exec steam
 set $ws6 "6 "
 workspace $ws6 output $samsung
 assign [class="Slack"] $ws6
-assign [class="discord"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
 
@@ -177,6 +177,7 @@ bindsym $mod+F10 workspace $ws10; exec $def_term
 bindsym Mod4+s workspace $ws10; exec spotify
 
 set $ws11 "11 "
+assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $benq
 bindsym $mod+F11 workspace $ws11; exec $def_term
 
@@ -311,6 +312,8 @@ bindsym $mod+o exec ~/linux-config/change-sink.sh line-out
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
+bindsym control+$mod+plus exec --no-startup-id amixer -c 1 sset PCM 3+
+bindsym control+$mod+minus exec --no-startup-id amixer -c 1 sset PCM 3-
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
 
 # Media player controls

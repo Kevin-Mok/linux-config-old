@@ -25,7 +25,7 @@ set hlsearch
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd Filetype css,html,tex,txt set tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype css,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
@@ -102,6 +102,7 @@ Plug 'easymotion/vim-easymotion'
 
 " status bar displaying various info about the current buffer
 Plug 'vim-airline/vim-airline'
+	let g:airline_section_c = '%F'
 Plug 'vim-airline/vim-airline-themes'
 
 " continue Markdown lists when started
@@ -115,6 +116,10 @@ Plug 'tpope/vim-repeat'
 
 " better Django support
 Plug 'tweekmonster/django-plus.vim'
+
+" auto-close brackets
+Plug 'jiangmiao/auto-pairs'
+	let g:AutoPairsMapSpace = 0
 
 call plug#end()
 
@@ -230,7 +235,8 @@ autocmd Filetype tex inoremap <localleader>q \qquad
 autocmd Filetype tex inoremap <localleader>R \Rightarrow
 autocmd Filetype tex inoremap <localleader>st such that
 autocmd Filetype tex inoremap <localleader>t \times
-autocmd Filetype tex inoremap <localleader>T $T$
+" autocmd Filetype tex inoremap <localleader>T $T$
+autocmd Filetype tex inoremap <localleader>T \Theta
 " replace bars/underscores in URL
 autocmd Filetype tex inoremap <localleader>url :.s/\([-_]\)/\\\1/g<CR>
 autocmd Filetype tex inoremap <localleader>v \vee

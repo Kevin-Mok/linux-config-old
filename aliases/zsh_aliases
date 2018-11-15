@@ -67,7 +67,7 @@ alias fd="f ~/Downloads"
 function mvd() { mv $1 ~/Downloads ; }
 alias fds="f ~/Downloads/sch"
 alias doc="f ~/Documents"
-alias wo="f ~/Documents/workout-logs/10"
+alias wo="f ~/Documents/workout-logs/11"
 alias cfg="f ~/.config"
 
 #  }}}  directory-related # 
@@ -159,13 +159,14 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 # alias auc3="xdotool click --repeat 1000000 --delay 300 1"
 # alias auc5="xdotool click --repeat 1000000 --delay 500 1"
 # alias kauc="pkill -f xdotool"
-alias rsl="java -jar ~/Downloads/RuneLite.jar"
+# alias rsl="java -jar ~/Downloads/RuneLite.jar"
+alias swex="sudo nohup ~/Downloads/swex.appimage > /dev/null 2>&1&"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias rmsw="rm .sw*"
 
-# function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
-function rds(){ redshift -O $1 ; }
+function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
+# function rds(){ redshift -O $1 ; }
 alias rx="redshift -x"
 
 #  python related {{{ # 
@@ -283,9 +284,9 @@ alias cdn="$cd_coding_dir"
 alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
 alias jnd="f ~/Documents/journal"
-alias jn="ni ~/Documents/journal/todo/10.md"
+alias jn="ni ~/Documents/journal/todo/11.md"
 alias jnt="ni ~/Documents/journal/todo/todo.md"
-alias rs="f ~/Documents/runescape"
+# alias rs="f ~/Documents/runescape"
 
 #  ideas {{{ # 
 
@@ -311,9 +312,12 @@ alias sv="f $spv_dir/src"
 alias svl="f $spv_dir/src/login"
 alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
-alias ft="f templates"
+alias slh="f ~/Music/spotify-history"
+# removes all but newest file
+alias rmol="ls -t | tail -n +2 | xargs rm -- &&"
+source ~/coding/spotify-lib-vis/src/api-keys.sh
+# source "$spv_dir""/src/api-keys.sh"
 function ssv() {
-	source api-keys.sh
 	source ../bin/activate
 	python manage.py runserver
 }
@@ -323,7 +327,7 @@ function mig() {
 	python manage.py migrate --run-syncdb
 	ssv
 }
-alias cldb="python manage.py flush --no-input"
+alias cldb="python manage.py flush --no-input && ssv"
 alias djs="python manage.py shell"
 
 #  }}} spotify-lib-vis # 
@@ -347,10 +351,18 @@ alias sta="f ~/Documents/school/sta"
 
 # 236
 alias 236="f ~/Documents/school/236"
-# alias a1="f ~/Documents/school/latex-notes/236/a1"
+# alias a2="f ~/Documents/school/latex-notes/236/a2"
 
 # 343
 alias 343="f ~/Documents/school/343"
-alias a1="f ~/Documents/school/latex-notes/343/a1"
+# alias a1="f ~/Documents/school/latex-notes/343/a1"
+
+alias ij="sudo ~/Downloads/idea/bin/idea.sh"
+alias a2="f ~/Documents/school/343/a2"
+alias a2j="f ~/Documents/school/343/a2/java/src"
+alias q2="psql -U postgres -d 343-a2 -f q2-test.sql"
+alias q2a="psql -U postgres -d 343-a2 -f q2.sql"
+alias q4="psql -U postgres -d 343-a2 -f q4-test.sql"
+alias q4a="psql -U postgres -d 343-a2 -f q4.sql"
 
 #  }}} school # 
