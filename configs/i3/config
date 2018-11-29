@@ -1,16 +1,16 @@
 #  startup {{{ # 
-set $browser "firefox"
+set $browser "google-chrome"
 set $def_term "urxvt"
-set $runelite "java -jar ~/Downloads/RuneLite.jar"
-exec redshift -O 3000 
+# set $runelite "java -jar ~/Downloads/RuneLite.jar"
+set $swex "sudo ~/Downloads/swex.appimage"
+exec redshift -O 2000 
 # random bg
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
 exec imwheel
 exec --no-startup-id start-pulseaudio-x11
-# exec --no-startup-id i3-msg 'workspace 1 ; exec $def_term'
-exec --no-startup-id i3-msg 'workspace 2 ; exec $def_term'
-exec --no-startup-id i3-msg 'workspace 3 ; exec $browser'
-# exec --no-startup-id i3-msg 'workspace 5 ; exec $runelite'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $def_term'
+exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
+# exec --no-startup-id i3-msg 'workspace $ws11; exec $swex'
 exec_always --no-startup-id numlockx on
 #  }}} startup # 
 
@@ -35,17 +35,20 @@ bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
 # bindsym Mod4+r exec urxvt -e ranger
 bindsym Mod4+r exec $runelite
+bindsym Mod4+x exec $swex
 bindsym Print exec ksnapshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
-bindsym $mod+Mod4+1 exec redshift -O 1500
-bindsym $mod+Mod4+2 exec redshift -O 2000
-bindsym $mod+Mod4+3 exec redshift -O 2500
-bindsym $mod+Mod4+4 exec redshift -O 3000
-bindsym $mod+Mod4+5 exec redshift -O 4000
-bindsym $mod+Mod4+6 exec redshift -O 5000
-bindsym $mod+Mod4+0 exec redshift -x
+bindsym $mod+Mod4+1 exec redshift -O 1000
+bindsym $mod+Mod4+2 exec redshift -O 1250
+bindsym $mod+Mod4+3 exec redshift -O 1500
+bindsym $mod+Mod4+4 exec redshift -O 2000
+bindsym $mod+Mod4+5 exec redshift -O 2500
+bindsym $mod+Mod4+6 exec redshift -O 3000
+bindsym $mod+Mod4+7 exec redshift -O 4000
+bindsym $mod+Mod4+8 exec redshift -O 5000
+bindsym $mod+Mod4+grave exec redshift -x
 #  }}} redshift # 
 
 #  menu {{{ # 
@@ -312,8 +315,8 @@ bindsym $mod+o exec ~/linux-config/change-sink.sh line-out
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
-bindsym control+$mod+plus exec --no-startup-id amixer -c 1 sset PCM 3+
-bindsym control+$mod+minus exec --no-startup-id amixer -c 1 sset PCM 3-
+bindsym control+$mod+plus exec --no-startup-id amixer -c 2 sset PCM 3+
+bindsym control+$mod+minus exec --no-startup-id amixer -c 2 sset PCM 3-
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
 
 # Media player controls

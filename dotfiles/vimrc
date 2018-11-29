@@ -15,17 +15,22 @@ set mouse=c
 set clipboard+=unnamedplus
 set foldmethod=marker
 set linespace=5
+" cursor indicator {{{ "
+
 " set listchars=tab:\|\
 " set list
 " set cursorcolumn
 " set cursorline
+
+" }}} cursor indicator "
+
 set timeoutlen=500
 set hlsearch
 " }}} set x=y "
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd Filetype css,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
@@ -120,6 +125,8 @@ Plug 'tweekmonster/django-plus.vim'
 " auto-close brackets
 Plug 'jiangmiao/auto-pairs'
 	let g:AutoPairsMapSpace = 0
+
+Plug 'henrik/vim-indexed-search'
 
 call plug#end()
 
@@ -221,6 +228,7 @@ autocmd Filetype c inoremap <localleader>s struct pixel
 
 " tex {{{ "
 autocmd Filetype tex inoremap <localleader>bt \bowtie
+autocmd Filetype tex inoremap <localleader>d \delta
 autocmd Filetype tex inoremap <localleader>D \Delta
 autocmd Filetype tex inoremap <localleader>e \exists
 autocmd Filetype tex inoremap <localleader>ep \epsilon
@@ -234,6 +242,7 @@ autocmd Filetype tex inoremap <localleader>N \mathbb{N}
 autocmd Filetype tex inoremap <localleader>q \qquad
 autocmd Filetype tex inoremap <localleader>R \Rightarrow
 autocmd Filetype tex inoremap <localleader>st such that
+autocmd Filetype tex inoremap <localleader>S \Sigma
 autocmd Filetype tex inoremap <localleader>t \times
 " autocmd Filetype tex inoremap <localleader>T $T$
 autocmd Filetype tex inoremap <localleader>T \Theta

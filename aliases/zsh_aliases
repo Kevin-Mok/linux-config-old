@@ -35,14 +35,15 @@ function ideb() { sudo dpkg -i $1 ; }
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
 # for finding files by name
-function rf() { find . -name "$1" ; } 
+function rf() { find . -name '$1' ; } 
 # find text inside files
 function rg() { grep -nr $1 * ; } 
 function cpd() { cp -avr $1 $2 ; } 
 
 # extract tar archive
 function untar() { tar -xzvf $1 && rm $1; } 
-function runzip() { unzip $1 && rm $1; } 
+function rzip() { unzip $1 && rm $1; } 
+function lzip() { unzip -l $1 | less; } 
 
 function mkex() { chmod 777 $1 ; }
 
@@ -61,7 +62,7 @@ function rmr() { rm -rf $1 ; }
 # todo: fix
 # function f.() { f $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "f."="f .."
-alias "f.2"="f ..."
+alias "f.."="f ..."
 
 alias fd="f ~/Downloads"
 function mvd() { mv $1 ~/Downloads ; }
@@ -106,11 +107,12 @@ function rt() {
 
 # sound
 alias vlm="alsamixer -c 0"
-alias vlh="alsamixer -c 1"
+alias vlh="alsamixer -c 2"
 
 # apt
-function 	apti() { sudo apt install $1 ; } 
-function 	aptr() { sudo apt remove $1 ; } 
+function apti() { sudo apt install $1 ; } 
+function aptr() { sudo apt remove $1 ; } 
+alias aptu="sudo apt upgrade"
 #  }}} system # 
 
 # config files {{{ #
@@ -143,6 +145,8 @@ alias tm="ni $usnp_dir/texmath.snippets"
 # }}} config files #
 
 #  applications {{{ # 
+silent="> /dev/null 2>&1& "
+
 alias ran="ranger"
 # okular
 function ok() { nohup okular $1 > /dev/null 2>&1& ; }
@@ -160,7 +164,7 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 # alias auc5="xdotool click --repeat 1000000 --delay 500 1"
 # alias kauc="pkill -f xdotool"
 # alias rsl="java -jar ~/Downloads/RuneLite.jar"
-alias swex="sudo nohup ~/Downloads/swex.appimage > /dev/null 2>&1&"
+alias swex="sudo nohup ~/Downloads/swex.appimage $silent"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias rmsw="rm .sw*"
@@ -312,9 +316,8 @@ alias sv="f $spv_dir/src"
 alias svl="f $spv_dir/src/login"
 alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
-alias slh="f ~/Music/spotify-history"
-# removes all but newest file
-alias rmol="ls -t | tail -n +2 | xargs rm -- &&"
+alias svscs="f $spv_dir/src/static/scss"
+alias svcss="f $spv_dir/src/spotifyvis/static/scss"
 source ~/coding/spotify-lib-vis/src/api-keys.sh
 # source "$spv_dir""/src/api-keys.sh"
 function ssv() {
@@ -329,6 +332,17 @@ function mig() {
 }
 alias cldb="python manage.py flush --no-input && ssv"
 alias djs="python manage.py shell"
+alias upip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias ureq="pip freeze > requirements.txt"
+
+# scan history
+alias slh="f ~/Music/spotify-history"
+alias hlg="cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+alias hlgf="ni $spv_dir/src/api/management/commands/update-history.log"
+alias crnl="grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
+alias hs="$spv_dir/src/update-history.sh && hlg"
+# removes all but newest file
+# alias rmol="ls -t | tail -n +2 | xargs rm -- && l"
 
 #  }}} spotify-lib-vis # 
 
@@ -351,16 +365,17 @@ alias sta="f ~/Documents/school/sta"
 
 # 236
 alias 236="f ~/Documents/school/236"
-# alias a2="f ~/Documents/school/latex-notes/236/a2"
+alias a3="f ~/Documents/school/latex-notes/236/a3"
 
 # 343
 alias 343="f ~/Documents/school/343"
 # alias a1="f ~/Documents/school/latex-notes/343/a1"
 
-alias ij="sudo ~/Downloads/idea/bin/idea.sh"
+alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"
 alias a2="f ~/Documents/school/343/a2"
 alias a2j="f ~/Documents/school/343/a2/java/src"
 alias q2="psql -U postgres -d 343-a2 -f q2-test.sql"
+alias q2o="psql -U postgres -d 343-a2 -f q2-test.sql -o q2.out"
 alias q2a="psql -U postgres -d 343-a2 -f q2.sql"
 alias q4="psql -U postgres -d 343-a2 -f q4-test.sql"
 alias q4a="psql -U postgres -d 343-a2 -f q4.sql"
