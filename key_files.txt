@@ -1,14 +1,16 @@
 # sys {{{ *
 
-kd ~/.key_directories
-kf ~/.key_files
 3 ~/.config/i3/config
 3b ~/.config/i3blocks/i3blocks.conf
+d ~/linux-config/key_dirs.txt
+f ~/linux-config/key_files.txt
 r ~/.config/ranger/rc.conf
+sr ~/linux-config/configs/ranger/shortcuts.conf
+ss ~/.shortcuts
 u ~/.Xresources
 v ~/.vimrc
-z ~/linux-config/aliases/zsh_aliases
 y ~/.zshrc
+z ~/linux-config/aliases/zsh_aliases
 
 # }}} sys *
 

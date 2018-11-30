@@ -203,3 +203,5 @@ then
 else
 	xrandr --dpi 150
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -111,3 +111,5 @@ then
 	synclient HorizTwoFingerScroll=1
 fi
 source /home/kevin/.shortcuts
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
