@@ -115,24 +115,13 @@ function glc() { grep $1 ~/linux-config/aliases/zsh_aliases ; }
 alias lca="f ~/linux-config/aliases"
 
 source ~/.shortcuts
-alias vv="ni ~/.vimrc"
-alias vu="ni ~/.Xresources"
-alias vzb="ni ~/.zshrc"
-alias vz="ni ~/linux-config/aliases/zsh_aliases"
-alias vr="ni ~/.config/ranger/rc.conf"
-	
-#  i3 {{{ # 
-alias v3="ni ~/.config/i3/config"
-alias v3b="ni ~/.config/i3blocks/i3blocks.conf"
+#  i3 
 alias i3b="f ~/i3blocks"
-
 alias pipes="pipes.sh -t 2"
-#  }}} i3 # 
 	
 # UltiSnips {{{ #
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
 function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
-alias tm="ni $usnp_dir/texmath.snippets"
 # }}} #
 
 # }}} config files #
@@ -140,7 +129,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias rn="ranger"
+alias r="ranger"
 # okular
 # function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 # zathura
@@ -231,7 +220,6 @@ alias grbc="git rebase --continue"
 #  }}} update # 
 
 #  edit {{{ # 
-alias vig="ni .gitignore"
 alias vir="ni README.md"
 alias crm="mrk README.md"
 #  }}} edit # 
@@ -279,8 +267,6 @@ coding_dir="~/coding"
 alias cdn="$cd_coding_dir"
 
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
-alias jn="ni ~/Documents/journal/todo/11.md"
-alias jnt="ni ~/Documents/journal/todo/todo.md"
 
 #  trapbot {{{ # 
 alias tb="$cd_coding_dir/trapbot"
@@ -316,7 +302,6 @@ alias ureq="pip freeze > requirements.txt"
 
 # scan history
 alias hlg="cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
-alias hlgf="ni $spv_dir/src/api/management/commands/update-history.log"
 alias crnl="grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
 alias hs="$spv_dir/src/update-history.sh && hlg"
 # removes all but newest file

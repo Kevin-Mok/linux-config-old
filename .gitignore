@@ -1,8 +1,13 @@
-cp-*
-*.sw*
 *.html
-temp.sh
-konsole.shortcuts
+*.sw*
 commit-msg.txt
 core
+cp-*
 ideas.md
+temp.sh
+
+# ranger
+bookmarks
+history
+tagged
+shortcuts.conf

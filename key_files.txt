@@ -1,0 +1,24 @@
+# sys {{{ *
+
+kd ~/.key_directories
+kf ~/.key_files
+3 ~/.config/i3/config
+3b ~/.config/i3blocks/i3blocks.conf
+r ~/.config/ranger/rc.conf
+u ~/.Xresources
+v ~/.vimrc
+z ~/linux-config/aliases/zsh_aliases
+y ~/.zshrc
+
+# }}} sys *
+
+# cdn {{{ *
+
+hlg ~/coding/spotify-lib-vis/src/api/management/commands/update-history.log
+jn ~/Documents/journal/todo/11.md
+jnt ~/Documents/journal/todo/todo.md
+tm ~/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
+ig ./.gitignore
+
+# }}} cdn *
+

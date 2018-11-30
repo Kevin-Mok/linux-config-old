@@ -28,11 +28,17 @@ set timeoutlen=500
 set hlsearch
 " }}} set x=y "
 
+" commands for file types {{{ "
+
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
 autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
+
+autocmd BufWritePost key_*.txt !bash ~/linux-config/shortcuts.sh
+
+" }}} commands for file types "
 
 " vim-plug {{{ "
 " plug auto-install
@@ -202,8 +208,10 @@ nnoremap <leader>rl q:i.s///g<left><left><left>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
+" sort lines
+nnoremap <leader>s q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
-nnoremap <leader>s :set syn=sh<CR>
+nnoremap <leader>sh :set syn=sh<CR>
 " format current line
 nnoremap <leader>w Vgq
 " format this and next line
