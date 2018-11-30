@@ -64,12 +64,7 @@ function rmr() { rm -rf $1 ; }
 alias "f."="f .."
 alias "f.."="f ..."
 
-alias fd="f ~/Downloads"
 function mvd() { mv $1 ~/Downloads ; }
-alias fds="f ~/Downloads/sch"
-alias doc="f ~/Documents"
-alias wo="f ~/Documents/workout-logs/11"
-alias cfg="f ~/.config"
 
 #  }}}  directory-related # 
 
@@ -116,7 +111,6 @@ alias aptu="sudo apt upgrade"
 #  }}} system # 
 
 # config files {{{ #
-alias lc="f ~/linux-config/"
 function glc() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
 alias lca="f ~/linux-config/aliases"
 
@@ -133,12 +127,10 @@ alias v3b="ni ~/.config/i3blocks/i3blocks.conf"
 alias i3b="f ~/i3blocks"
 
 alias pipes="pipes.sh -t 2"
-alias bg="f ~/Pictures/Backgrounds"
 #  }}} i3 # 
 	
 # UltiSnips {{{ #
 usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
-alias snp="f $usnp_dir"
 function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 alias tm="ni $usnp_dir/texmath.snippets"
 # }}} #
@@ -148,7 +140,7 @@ alias tm="ni $usnp_dir/texmath.snippets"
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias ran="ranger"
+alias rn="ranger"
 # okular
 # function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 # zathura
@@ -158,7 +150,6 @@ function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 function sni() { sudo nvim $1 ; }
-	alias nisw="f ~/.local/share/nvim/swap"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
@@ -285,25 +276,11 @@ function grmb() { git push origin --delete $1 && git branch -D $1 ; }
 
 #  coding projs {{{ # 
 coding_dir="~/coding"
-cd_coding_dir="f $coding_dir"
 alias cdn="$cd_coding_dir"
 
-alias ans="f /usr/local/android-studio/bin && ./studio.sh"
 alias gx="ni ~/Documents/csgo-config/autoexec.cfg"
-alias jnd="f ~/Documents/journal"
 alias jn="ni ~/Documents/journal/todo/11.md"
 alias jnt="ni ~/Documents/journal/todo/todo.md"
-# alias rs="f ~/Documents/runescape"
-
-#  ideas {{{ # 
-
-# ideas_dir="$coding_dir""/ideas"
-# alias ids="f $ideas_dir"
-# alias lci="f $ideas_dir/general"
-# alias vli="ni $ideas_dir/general/ideas.md"
-# alias fyn="f $ideas_dir/yes-no"
-
-#  }}} ideas # 
 
 #  trapbot {{{ # 
 alias tb="$cd_coding_dir/trapbot"
@@ -315,7 +292,6 @@ alias tb="$cd_coding_dir/trapbot"
 #  spotify-lib-vis {{{ # 
 
 spv_dir="$coding_dir""/spotify-lib-vis"
-alias sv="f $spv_dir/src"
 alias svl="f $spv_dir/src/login"
 alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
@@ -339,7 +315,6 @@ alias upip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1
 alias ureq="pip freeze > requirements.txt"
 
 # scan history
-alias slh="f ~/Music/spotify-history"
 alias hlg="cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 alias hlgf="ni $spv_dir/src/api/management/commands/update-history.log"
 alias crnl="grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
@@ -363,17 +338,7 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 
 #  school {{{ # 
 
-alias sch="f ~/Documents/school"
-alias sta="f ~/Documents/school/sta"
-
-# 236
-alias 236="f ~/Documents/school/236"
-alias a3="f ~/Documents/school/latex-notes/236/a3"
-
 # 343
-alias 343="f ~/Documents/school/343"
-# alias a1="f ~/Documents/school/latex-notes/343/a1"
-
 alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"
 alias a2="f ~/Documents/school/343/a2"
 alias a2j="f ~/Documents/school/343/a2/java/src"

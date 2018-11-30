@@ -1,3 +1,31 @@
-D	~/Documents
-d 	~/Downloads
-ho  ~/
+# sys {{{ *
+
+bg ~/Pictures/Backgrounds
+d  ~/Downloads
+D  ~/Documents
+ho ~/
+lc ~/linux-config/
+
+# }}} sys *
+
+# cdn {{{ *
+
+cd ~/coding
+jnd ~/Documents/journal
+lh ~/Music/spotify-history
+snp ~/.vim/plugged/vim-snippets/UltiSnips
+sv ~/coding/spotify-lib-vis/src
+swa ~/.local/share/nvim/swap
+wo ~/Documents/workout-logs/11
+
+# }}} cdn *
+
+# sch {{{ *
+
+sc ~/Documents/school
+st ~/Documents/school/sta
+2 ~/Documents/school/236
+a3 ~/Documents/school/latex-notes/236/a3
+3 ~/Documents/school/343
+
+# }}} sch *
