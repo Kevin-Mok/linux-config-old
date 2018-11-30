@@ -120,6 +120,7 @@ alias lc="f ~/linux-config/"
 function glc() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
 alias lca="f ~/linux-config/aliases"
 
+source ~/.shortcuts
 alias vv="ni ~/.vimrc"
 alias vu="ni ~/.Xresources"
 alias vzb="ni ~/.zshrc"
@@ -149,7 +150,9 @@ silent="> /dev/null 2>&1& "
 
 alias ran="ranger"
 # okular
-function ok() { nohup okular $1 > /dev/null 2>&1& ; }
+# function ok() { nohup okular $1 > /dev/null 2>&1& ; }
+# zathura
+function za() { nohup zathura $1 > /dev/null 2>&1& ; }
 # xviewer
 function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }

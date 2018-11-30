@@ -71,7 +71,7 @@ Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 	au BufWritePost *.tex silent call Tex_RunLaTeX()
 	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
-	let g:vimtex_view_general_viewer = 'okular'
+	let g:vimtex_view_general_viewer = 'zathura'
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
@@ -237,10 +237,11 @@ autocmd Filetype tex inoremap <localleader>g \geq
 autocmd Filetype tex inoremap <localleader>i \in
 autocmd Filetype tex inoremap <localleader>l \leq
 autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
-autocmd Filetype tex inoremap <localleader>n \neg
+" autocmd Filetype tex inoremap <localleader>n \neg
+autocmd Filetype tex inoremap <localleader>n \neq
 autocmd Filetype tex inoremap <localleader>N \mathbb{N}
 autocmd Filetype tex inoremap <localleader>q \qquad
-autocmd Filetype tex inoremap <localleader>R \Rightarrow
+autocmd Filetype tex inoremap <localleader>r \Rightarrow
 autocmd Filetype tex inoremap <localleader>st such that
 autocmd Filetype tex inoremap <localleader>S \Sigma
 autocmd Filetype tex inoremap <localleader>t \times

@@ -110,3 +110,4 @@ then
 	# enable horizontal scrolling
 	synclient HorizTwoFingerScroll=1
 fi
+source /home/kevin/.shortcuts

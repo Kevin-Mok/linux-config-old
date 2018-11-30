@@ -35,6 +35,7 @@ bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
 # bindsym Mod4+r exec urxvt -e ranger
 bindsym Mod4+r exec $runelite
+bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+x exec $swex
 bindsym Print exec ksnapshot
 #  }}} app shortcuts # 
