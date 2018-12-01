@@ -120,7 +120,7 @@ alias i3b="f ~/i3blocks"
 alias pipes="pipes.sh -t 2"
 	
 # UltiSnips {{{ #
-usnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
+urnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
 function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 # }}} #
 
@@ -130,6 +130,7 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 silent="> /dev/null 2>&1& "
 
 alias r="ranger"
+alias mr="man ranger"
 # okular
 # function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 # zathura

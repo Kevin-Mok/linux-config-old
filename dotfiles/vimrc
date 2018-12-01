@@ -1,6 +1,7 @@
 " set x=y {{{ "
 au BufWinEnter * set relativenumber
 " set background=dark
+set encoding=utf-8
 set background=light
 " set t_Co=256
 filetype plugin on

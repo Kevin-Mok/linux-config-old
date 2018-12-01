@@ -135,7 +135,7 @@ bindsym $mod+a focus parent
 set $samsung "DVI-I-1"
 set $benq "HDMI-0"
 
-set $ws1 "1 "
+set $ws1 "1 "
 workspace $ws1 output $benq
 bindsym $mod+F1 workspace $ws1; exec $def_term
 
@@ -143,11 +143,11 @@ set $ws2 "2 "
 workspace $ws2 output $samsung
 bindsym $mod+F2 workspace $ws2; exec $def_term
 
-set $ws3 "3 "
+set $ws3 "3 "
 workspace $ws3 output $benq
 bindsym $mod+F3 workspace $ws3; exec $browser
 
-set $ws4 "4 "
+set $ws4 "4 "
 workspace $ws4 output $samsung
 bindsym $mod+F4 workspace $ws4; exec $def_term
 
@@ -156,17 +156,17 @@ workspace $ws5 output $samsung
 bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec steam
 
-set $ws6 "6 "
+set $ws6 "6 "
 workspace $ws6 output $samsung
 assign [class="Slack"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
 
-set $ws7 "7 "
+set $ws7 "7 "
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
 
-set $ws8 "8 🕮"
+set $ws8 "8 "
 # assign [class="jetbrains-"] $ws8
 bindsym $mod+F8 workspace $ws8; exec $def_term
 
@@ -174,13 +174,13 @@ set $ws9 "9 "
 workspace $ws9 output $samsung
 bindsym $mod+F9 workspace $ws9; exec $def_term
 
-set $ws10 "10 🎵"
+set $ws10 "10 "
 assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 bindsym $mod+F10 workspace $ws10; exec $def_term
 bindsym Mod4+s workspace $ws10; exec spotify
 
-set $ws11 "11 "
+set $ws11 "11 "
 assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $benq
 bindsym $mod+F11 workspace $ws11; exec $def_term
@@ -188,7 +188,7 @@ bindsym $mod+F11 workspace $ws11; exec $def_term
 set $ws12 "12 "
 bindsym $mod+F12 workspace $ws12; exec $def_term
 
-set $ws13 "13 🕮"
+set $ws13 "13 "
 bindsym Mod4+F3 workspace $ws13; exec $def_term
 
 set $ws14 "14"
@@ -257,6 +257,7 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  }}} resizing windows # 
 
 #  gaps {{{ # 
+
 # remove window titlebars
 for_window [class="^.*"] border pixel 5
 # default gaps
@@ -266,14 +267,15 @@ gaps outer 0
 
 bindsym control+shift+plus gaps inner all set 25;gaps outer all set 5
 bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
+
 #  }}} gaps # 
 
 #  status bar {{{ # 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-set $sb_font Hack Bold
+set $sb_font Hack NF Bold
 bar {
-	font pango:$sb_font 17
+	font pango:$sb_font 20
 	tray_output none
 	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	output HDMI-0
@@ -285,7 +287,7 @@ bar {
 	output $samsung
 	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
 	tray_output none
-	font pango:$sb_font 22
+	font pango:$sb_font 23
 	# font pango:monospace 22, FontAwesome 22
 	wheel_up_cmd nop
 	wheel_down_cmd nop
