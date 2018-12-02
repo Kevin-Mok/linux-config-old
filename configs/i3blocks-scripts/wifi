@@ -33,7 +33,7 @@ W_name=$(nmcli d | grep "$W_inter" | awk '{print $4}')
 
 #------------------------------------------------------------------------
 
-echo $QUALITY% "$W_name" # full text
+# echo $QUALITY% "$W_name" # full text
 echo $QUALITY% # short text
 
 # color

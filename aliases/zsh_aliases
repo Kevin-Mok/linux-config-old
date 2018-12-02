@@ -1,5 +1,8 @@
 #  system {{{ # 
-setopt extendedglob
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch notify
 
 # vim mode {{{ # 
 bindkey -v
@@ -107,6 +110,7 @@ alias vlh="alsamixer -c 2"
 # apt
 function apti() { sudo apt install $1 ; } 
 function aptr() { sudo apt remove $1 ; } 
+function pac() { sudo pacman -S $1 ; } 
 alias aptu="sudo apt upgrade"
 #  }}} system # 
 
@@ -284,7 +288,7 @@ alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
 alias svscs="f $spv_dir/src/static/scss"
 alias svcss="f $spv_dir/src/spotifyvis/static/scss"
-source ~/coding/spotify-lib-vis/src/api-keys.sh
+# source ~/coding/spotify-lib-vis/src/api-keys.sh
 # source "$spv_dir""/src/api-keys.sh"
 function ssv() {
 	source ../bin/activate

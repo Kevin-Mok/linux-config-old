@@ -1,12 +1,15 @@
 #  startup {{{ # 
-set $browser "google-chrome"
+set $browser "chromium"
 set $def_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
 exec redshift -O 2000 
 # random bg
-exec wal -i "$HOME/Pictures/Backgrounds/dim"
+# exec wal -i "$HOME/Pictures/Backgrounds/dim"
+exec wal -i "~/Pictures/van.png"
 exec imwheel
+exec xmodmap ~/.Xmodmap
+exec xrdb ~/.Xresources
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id i3-msg 'workspace $ws2; exec $def_term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
@@ -275,20 +278,10 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # finds out, if available)
 set $sb_font Hack NF Bold
 bar {
-	font pango:$sb_font 20
+	font pango:$sb_font 27
 	tray_output none
 	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	output HDMI-0
-	wheel_up_cmd nop
-	wheel_down_cmd nop
-}
-
-bar {
-	output $samsung
-	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-	tray_output none
-	font pango:$sb_font 23
-	# font pango:monospace 22, FontAwesome 22
+	output eDP1
 	wheel_up_cmd nop
 	wheel_down_cmd nop
 }

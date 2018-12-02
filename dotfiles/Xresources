@@ -1,16 +1,16 @@
-! URxvt.font: xft:hack:size=14
-URxvt.font: xft:hack:size=13
+URxvt.font: xft:Hack Nerd Font:size=17
 
 URxvt*inheritPixmap: true
+! URxvt*transparent: false
 URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
-! URxvt*shading: 30
-URxvt*shading: 25
+URxvt*shading: 30
+! URxvt*shading: 200
 
 URxvt.scrollBar: false
 
-/* Clickable URLs {{{ */
+! Clickable URLs {{{ */
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-/* }}} Clickable URLs */
+! }}} Clickable URLs */
