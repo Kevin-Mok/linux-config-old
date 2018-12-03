@@ -114,6 +114,7 @@ function aptr() { sudo apt remove $1 ; }
 function pac() { sudo pacman -S $1 ; } 
 function pcr() { sudo pacman -Rs $1 ; } 
 alias aptu="sudo apt upgrade"
+
 #  }}} system # 
 
 # config files {{{ #
@@ -135,7 +136,7 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias r="ranger"
+alias rg="ranger"
 alias mr="man ranger"
 # okular
 # function ok() { nohup okular $1 > /dev/null 2>&1& ; }
@@ -155,6 +156,7 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 # alias kauc="pkill -f xdotool"
 # alias rsl="java -jar ~/Downloads/RuneLite.jar"
 alias swex="sudo nohup ~/Downloads/swex.appimage $silent"
+alias h="htop"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias rmsw="rm .sw*"

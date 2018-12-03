@@ -150,7 +150,7 @@ bindsym $mod+a focus parent
 #  workspace {{{ # 
 #  ws names {{{ # 
 set $samsung "DVI-I-1"
-set $benq "HDMI-0"
+set $benq "HDMI-1"
 
 set $ws1 "1 "
 workspace $ws1 output $benq
@@ -292,14 +292,24 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # finds out, if available)
 set $sb_font Hack NF Bold
 bar {
-	font pango:$sb_font 27
-	tray_output none
-	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	output eDP1
-	wheel_up_cmd nop
-	wheel_down_cmd nop
+        font pango:$sb_font 20
+        tray_output none
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+        output $benq
+        wheel_up_cmd nop
+        wheel_down_cmd nop
 }
-#  }}} status bar # 
+
+bar {
+        output $samsung
+        status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+        tray_output none
+        font pango:$sb_font 23
+        # font pango:monospace 22, FontAwesome 22
+        wheel_up_cmd nop
+        wheel_down_cmd nop
+}
+#  }}} status bar #
 
 #  mod key/font {{{ # 
 set $mod Mod1
