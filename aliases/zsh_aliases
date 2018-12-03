@@ -70,6 +70,7 @@ alias "f.."="f ..."
 
 function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
+alias ds="df -h | grep sd"
 
 #  }}}  directory-related # 
 
@@ -148,6 +149,7 @@ function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 function sni() { sudo nvim $1 ; }
+alias spt="spotify $silent"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 

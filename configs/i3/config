@@ -277,8 +277,8 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  gaps {{{ # 
 
 # remove window titlebars
-# for_window [class="^.*"] border pixel 5
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
+# for_window [class="^.*"] border pixel 2
 
 gaps inner 30
 gaps outer 10
@@ -296,7 +296,7 @@ gaps outer 10
 
 #  }}} other gaps # 
 
-bindsym control+shift+plus gaps inner all set 25;gaps outer all set 5
+bindsym control+shift+plus gaps inner all set 30;gaps outer all set 10
 bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 
 #  }}} gaps # 
@@ -305,33 +305,47 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $sb_font Hack NF Bold
+
+#  benq bar {{{ # 
+
+bar {
+		font pango:$sb_font 20
+		tray_output none
+		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+		output $benq
+		wheel_up_cmd nop
+		wheel_down_cmd nop
+}
+
+#  }}} benq bar # 
+
+# #  display {{{ #
+
 # bar {
-        # font pango:$sb_font 20
+        # font pango:$sb_font 24
         # tray_output none
-        # status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-        # output $benq
+        # status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
+        # output $samsung
         # wheel_up_cmd nop
         # wheel_down_cmd nop
 # }
-# display
-bar {
-        font pango:$sb_font 24
-        tray_output none
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
-        output $samsung
-        wheel_up_cmd nop
-        wheel_down_cmd nop
-}
+
+# #  }}}  display #
+
+#  samsung bar {{{ # 
 
 bar {
-		# output $samsung
-		output $benq
+		output $samsung
+		# output $benq
 		status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
 		tray_output none
 		font pango:$sb_font 23
 		wheel_up_cmd nop
 		wheel_down_cmd nop
 }
+
+#  }}} samsung bar # 
+
 #  }}} status bar #
 
 #  mod key/font {{{ # 
