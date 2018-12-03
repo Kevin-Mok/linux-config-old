@@ -5,11 +5,10 @@ set $def_term "urxvt"
 set $swex "sudo ~/Downloads/swex.appimage"
 exec redshift -O 2000 
 # random bg
-# exec wal -i "$HOME/Pictures/Backgrounds/dim"
+exec wal -i "$HOME/Pictures/Backgrounds/dim"
 exec imwheel
 exec xmodmap ~/.Xmodmap
 exec xrdb ~/.Xresources
-exec wal -i "$HOME/Pictures/van.png"
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id i3-msg 'workspace $ws2; exec $def_term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
