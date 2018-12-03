@@ -71,7 +71,7 @@ bindsym Shift+F0 exec xbacklight -set 100
 
 #  menu {{{ # 
 # start dmenu (a program launcher)
-bindsym Mod4+Return exec dmenu_run
+# bindsym Mod4+Return exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -145,6 +145,31 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+#  change container colors from pywal {{{ # 
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+# PROTIP: You can also dynamically set dmenu's colors this way:
+bindsym Mod4+Return exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+
+#  }}} change container colors from pywal # 
+
 #  }}} container display # 
 
 #  workspace {{{ # 
@@ -276,15 +301,14 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  gaps {{{ # 
 
 # remove window titlebars
-for_window [class="^.*"] border pixel 5
-# for_window [class="^.*"] border pixel 2
-
+for_window [class="^.*"] border pixel 4
 set $inner_gaps 30
 set $outer_gaps 5
-# gaps inner $inner_gaps
-# gaps outer $outer_gaps
-gaps inner 0
-gaps outer 0
+
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+# gaps inner 0
+# gaps outer 0
 
 #  other gaps {{{ # 
 
@@ -322,30 +346,30 @@ bar {
 
 # #  display {{{ #
 
-# bar {
-        # font pango:$sb_font 24
-        # tray_output none
-        # status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
-        # output $samsung
-        # wheel_up_cmd nop
-        # wheel_down_cmd nop
-# }
-
-# #  }}}  display #
-
-#  samsung bar {{{ # 
-
 bar {
-		output $samsung
-		# output $benq
-		status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-		tray_output none
 		font pango:$sb_font 23
+		tray_output none
+		status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
+		output $samsung
 		wheel_up_cmd nop
 		wheel_down_cmd nop
 }
 
-#  }}} samsung bar # 
+#  }}}  display #
+
+# #  samsung bar {{{ #
+
+# bar {
+		# output $samsung
+		# # output $benq
+		# status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+		# tray_output none
+		# font pango:$sb_font 23
+		# wheel_up_cmd nop
+		# wheel_down_cmd nop
+# }
+
+# #  }}} samsung bar #
 
 #  }}} status bar #
 

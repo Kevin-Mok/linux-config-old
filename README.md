@@ -1,8 +1,10 @@
 <!---  Intro {{{ --> 
 # Kevin's Linux Setup
 
-![desktop-screenshot](https://i.imgur.com/DivyfTu.png)
-*Screenshot from my desktop config.*
+![desktop-screenshot](https://i.imgur.com/lkicLP5.png)
+
+![desktop-screenshot-2](https://i.imgur.com/DivyfTu.png)
+*Screenshots from my desktop config.*
 
 This repository contains the dotfiles to increase my workflow efficiency. They
 are also for my Linux
@@ -30,15 +32,11 @@ they should be in the system.
 
 <!-- History {{{ -->
 ## History
-
 ### 3/7
-![laptop-screenshot](https://i.imgur.com/UpdX90A.png)
-*Laptop.*
+* [laptop](https://i.imgur.com/UpdX90A.png)
 
 ### 3/5
-![desktop-screenshot](https://i.imgur.com/mbu9aYf.png)
-*Dual-monitor desktop.*
+* [dual-monitor desktop](https://i.imgur.com/mbu9aYf.png)
+* [laptop](https://i.imgur.com/hrSnXmV.png)
 
-![laptop-screenshot](https://i.imgur.com/hrSnXmV.png)
-*Laptop.*
 <!-- }}} History -->
