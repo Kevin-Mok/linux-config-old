@@ -11,23 +11,19 @@ are also for my Linux
 
 <!---  Basic Info {{{ --> 
 ## Basic Info
-* **OS**: [Arch Linux](https://www.archlinux.org/)
-* **Terminal**: [urxvt](https://www.wikiwand.com/en/Rxvt) 
-* **Shell**: [Zsh](http://zsh.sourceforge.net/)
-* **WM**: [i3-gaps](https://github.com/Airblader/i3)
-* **Editor**: [Neovim](https://github.com/neovim/neovim)
-* **File Explorer**: [ranger](https://ranger.github.io/)
-* [Packages I Use](https://github.com/Kevin-Mok/linux-config/blob/master/pacman-pkgs.txt)
-
+* **OS**: [Arch Linux](https://www.archlinux.org/) ([packages](https://github.com/Kevin-Mok/linux-config/blob/master/txt/pacman-pkgs/auto-pacman-pkgs.txt))
+* **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
+* **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* **Window Manager**: [i3wm](https://i3wm.org/) + [i3-gaps](https://github.com/Airblader/i3)
+* **Editor**: [Neovim](https://github.com/neovim/neovim) ([plugins](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/vimrc#L51))
+* **File Manager**: [ranger](https://ranger.github.io/)
 <!---  }}} Basic Info --> 
 
 <!---  Setup {{{ --> 
 
 ## Setup
-I wrote a couple simple scripts
-([`set-configs.sh`](https://github.com/Kevin-Mok/linux-config/blob/master/configs/set-configs.sh) &
-[`set-dotfiles.sh`](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/set-dotfiles.sh))
-to symbolically link the files/directories in the repository to the locations
+I wrote [a script](https://github.com/Kevin-Mok/linux-config/blob/master/setup.sh) to
+symbolically link the files/directories in the repository to the locations
 they should be in the system.
 
 <!---  }}} Setup --> 
