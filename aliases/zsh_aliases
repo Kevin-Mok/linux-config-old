@@ -71,7 +71,7 @@ alias "f.."="f ..."
 function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
 alias ds="df -h | grep sd"
-alias nbu="ll /run/media/kevin/pc-backup/backups/nzxt | grep tgz"
+alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 
 #  }}}  directory-related # 
 
