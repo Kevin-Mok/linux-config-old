@@ -11,11 +11,11 @@ are also for my Linux
 
 <!---  Basic Info {{{ --> 
 ## Basic Info
-* **OS**: [Arch Linux](https://www.archlinux.org/) ([my packages](https://github.com/Kevin-Mok/linux-config/blob/master/txt/pacman-pkgs/auto-pacman-pkgs.txt))
+* **OS**: [Arch Linux](https://www.archlinux.org/) ([packages](https://github.com/Kevin-Mok/linux-config/blob/master/txt/pacman-pkgs/auto-pacman-pkgs.txt))
 * **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
 * **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * **Window Manager**: [i3wm](https://i3wm.org/) + [i3-gaps](https://github.com/Airblader/i3)
-* **Editor**: [Neovim](https://github.com/neovim/neovim) ([Plugins](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/vimrc#L51))
+* **Editor**: [Neovim](https://github.com/neovim/neovim) ([plugins](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/vimrc#L51))
 * **File Manager**: [ranger](https://ranger.github.io/)
 <!---  }}} Basic Info --> 
 
