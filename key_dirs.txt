@@ -6,7 +6,7 @@ D  ~/Documents
 ho ~/
 lc ~/linux-config/
 m /run/media
-ro /
+o /
 
 # }}} sys *
 

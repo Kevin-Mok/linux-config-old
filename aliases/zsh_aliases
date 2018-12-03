@@ -139,7 +139,7 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias rg="ranger"
+alias r="ranger"
 alias mr="man ranger"
 # okular
 # function ok() { nohup okular $1 > /dev/null 2>&1& ; }
@@ -165,7 +165,7 @@ alias h="htop"
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias rmsw="rm .sw*"
 
-function rs(){ redshift -O $(echo "scale=2;$1*1000" | bc) ; }
+function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }
 # function rds(){ redshift -O $1 ; }
 alias rx="redshift -x"
 
