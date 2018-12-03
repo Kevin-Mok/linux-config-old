@@ -37,7 +37,7 @@ autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
-autocmd BufWritePost key_*.txt !bash ~/linux-config/shortcuts.sh
+autocmd BufWritePost key_*.txt !bash ~/linux-config/scripts/shortcuts.sh
 
 " }}} commands for file types "
 

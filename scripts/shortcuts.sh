@@ -4,8 +4,8 @@
 shellrc="$HOME/.zshrc"
 
 # Config locations
-folders="$HOME/linux-config/key_dirs.txt"
-configs="$HOME/linux-config/key_files.txt"
+folders="$HOME/linux-config/txt/key_dirs.txt"
+configs="$HOME/linux-config/txt/key_files.txt"
 
 # Output locations
 shell_shortcuts="$HOME/.shortcuts"
