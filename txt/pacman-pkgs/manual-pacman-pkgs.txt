@@ -1,0 +1,4 @@
+gscreenshot
+rxvt-unicode-pixbuf
+rxvt-unicode-pixbuf
+Hack NF
