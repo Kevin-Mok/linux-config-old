@@ -2,12 +2,18 @@ URxvt.font: xft:Hack Nerd Font:size=14
 ! URxvt.font: xft:Hack NF:size=18
 ! URxvt.font: xft:Hack:size=18
 
+/* transparency {{{ */
+
 URxvt*inheritPixmap: true
+!
 ! URxvt*transparent: false
 URxvt*transparent: true
+!
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt*shading: 30
 ! URxvt*shading: 200
+
+/* }}} transparency */
 
 URxvt.scrollBar: false
 
