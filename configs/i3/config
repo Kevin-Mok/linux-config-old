@@ -40,7 +40,7 @@ bindsym Mod4+r exec $runelite
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
 bindsym Mod4+x exec $swex
-bindsym Print exec ksnapshot
+bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
@@ -277,11 +277,24 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  gaps {{{ # 
 
 # remove window titlebars
-for_window [class="^.*"] border pixel 5
-# default gaps
-# gaps inner 25
-gaps inner 0
-gaps outer 0
+# for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
+
+gaps inner 30
+gaps outer 10
+# gaps inner 0
+# gaps outer 0
+
+#  other gaps {{{ # 
+
+# gaps horizontal 20
+# gaps vertical 10
+# gaps top
+# gaps left 20
+# gaps right 20
+# gaps bottom
+
+#  }}} other gaps # 
 
 bindsym control+shift+plus gaps inner all set 25;gaps outer all set 5
 bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
@@ -292,23 +305,32 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $sb_font Hack NF Bold
+# bar {
+        # font pango:$sb_font 20
+        # tray_output none
+        # status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+        # output $benq
+        # wheel_up_cmd nop
+        # wheel_down_cmd nop
+# }
+# display
 bar {
-        font pango:$sb_font 20
+        font pango:$sb_font 24
         tray_output none
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-        output $benq
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
+        output $samsung
         wheel_up_cmd nop
         wheel_down_cmd nop
 }
 
 bar {
-        output $samsung
-        status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-        tray_output none
-        font pango:$sb_font 23
-        # font pango:monospace 22, FontAwesome 22
-        wheel_up_cmd nop
-        wheel_down_cmd nop
+		# output $samsung
+		output $benq
+		status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+		tray_output none
+		font pango:$sb_font 23
+		wheel_up_cmd nop
+		wheel_down_cmd nop
 }
 #  }}} status bar #
 

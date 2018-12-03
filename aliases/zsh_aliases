@@ -47,6 +47,7 @@ function cpd() { cp -avr $1 $2 ; }
 function untar() { tar -xzvf $1 && rm $1; } 
 function rzip() { unzip $1 && rm $1; } 
 function lzip() { unzip -l $1 | less; } 
+alias mkpk="makepkg -sri"
 
 function mkex() { chmod 777 $1 ; }
 
