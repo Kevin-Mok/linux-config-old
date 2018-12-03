@@ -24,7 +24,7 @@ function src() { source $1 ; }
 
 alias cs='printf "\033c"'
 alias hst="history"
-alias nf="neofetch"
+alias nf="neofetch | lolcat"
 alias rur="xrdb ~/.Xresources"
 function gvx() { urxvt --help 2>&1 | grep $1 ; } 
 # list file sizes in megabytes with depth 1
@@ -71,6 +71,7 @@ alias "f.."="f ..."
 function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
 alias ds="df -h | grep sd"
+alias nbu="ll /run/media/kevin/pc-backup/backups/nzxt | grep tgz"
 
 #  }}}  directory-related # 
 
@@ -120,7 +121,7 @@ alias aptu="sudo apt upgrade"
 #  }}} system # 
 
 # config files {{{ #
-function glc() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
+function gz() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
 alias lca="f ~/linux-config/aliases"
 
 source ~/.shortcuts
@@ -209,7 +210,8 @@ alias gst="git stash"
 alias gstp="git stash pop"
 
 alias gc="git commit"
-alias gcam="ga && git commit --amend"
+alias gcam="ga && git commit --amend --no-edit"
+alias gcamp="ga && git commit --amend --no-edit && gpsf"
 # todo: fix
 function gcm(){ echo git commit -m \""$1"\" ; }
 

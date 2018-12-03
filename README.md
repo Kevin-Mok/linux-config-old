@@ -17,30 +17,20 @@ are also for my Linux
 * **WM**: [i3-gaps](https://github.com/Airblader/i3)
 * **Editor**: [Neovim](https://github.com/neovim/neovim)
 * **File Explorer**: [ranger](https://ranger.github.io/)
+* [Packages I Use](https://github.com/Kevin-Mok/linux-config/blob/master/pacman-pkgs.txt)
+
 <!---  }}} Basic Info --> 
 
 <!---  Setup {{{ --> 
+
 ## Setup
 I wrote a couple simple scripts
 ([`set-configs.sh`](https://github.com/Kevin-Mok/linux-config/blob/master/configs/set-configs.sh) &
 [`set-dotfiles.sh`](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/set-dotfiles.sh))
 to symbolically link the files/directories in the repository to the locations
-they should be in the system. `set-configs.sh` sets different config files for
-my PC and laptop as they have slightly different needs (multiple monitors,
-screen size, etc.).
-<!---  }}} Setup --> 
+they should be in the system.
 
-<!---  Programs Used {{{ --> 
-## Programs Used
-* [i3blocks](https://github.com/vivien/i3blocks) - Alternative status bar for
-  i3wm.
-* [Various Vim plug-ins](https://github.com/Kevin-Mok/linux-config/blob/master/dotfiles/vimrc#L54)
-* [Neofetch](https://github.com/dylanaraps/neofetch) - CLI-based app to display
-  system information.
-* [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - For Zsh config and
-  themes.
-* [pywal](https://github.com/dylanaraps/pywal) - Color scheme coordinator.
-<!---  }}} Programs Used --> 
+<!---  }}} Setup --> 
 
 <!-- History {{{ -->
 ## History

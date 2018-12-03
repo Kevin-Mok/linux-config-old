@@ -35,8 +35,7 @@ bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+n exec nemo
 bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
-# bindsym Mod4+r exec urxvt -e ranger
-bindsym Mod4+r exec $runelite
+bindsym Mod4+r exec urxvt -e ranger
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
 bindsym Mod4+x exec $swex
@@ -280,10 +279,12 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 for_window [class="^.*"] border pixel 5
 # for_window [class="^.*"] border pixel 2
 
-gaps inner 30
-gaps outer 10
-# gaps inner 0
-# gaps outer 0
+set $inner_gaps 30
+set $outer_gaps 5
+# gaps inner $inner_gaps
+# gaps outer $outer_gaps
+gaps inner 0
+gaps outer 0
 
 #  other gaps {{{ # 
 
@@ -296,7 +297,7 @@ gaps outer 10
 
 #  }}} other gaps # 
 
-bindsym control+shift+plus gaps inner all set 30;gaps outer all set 10
+bindsym control+shift+plus gaps inner all set $inner_gaps;gaps outer all set $outer_gaps
 bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 
 #  }}} gaps # 
