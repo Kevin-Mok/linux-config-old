@@ -1,5 +1,7 @@
+#!/bin/bash
+
 # Get directory variables from script.
-. ../dirs.sh
+. ../scripts/dirs.sh
 # List of config dirs in system config dir that I want to link to.
 config_dirs=(neofetch i3 i3blocks sam-i3blocks ranger)
 # config_dirs=(neofetch i3 i3blocks ranger)

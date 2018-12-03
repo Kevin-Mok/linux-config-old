@@ -9,6 +9,7 @@ eog
 fakeroot
 feh
 findutils
+fzf
 git
 grep
 grub

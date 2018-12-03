@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # Get directory variables from script.
-. ../../dirs.sh
+. ../../scripts/dirs.sh
 
 config_file_name="10-evdev.conf"
 sys_layout_file="/etc/X11/xorg.conf.d/$config_file_name"
