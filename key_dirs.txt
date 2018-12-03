@@ -13,7 +13,6 @@ ro /
 
 cd ~/coding
 jnd ~/Documents/journal
-lh ~/Music/spotify-history
 snp ~/.vim/plugged/vim-snippets/UltiSnips
 sv ~/coding/spotify-lib-vis/src
 swa ~/.local/share/nvim/swap

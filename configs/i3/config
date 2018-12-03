@@ -6,10 +6,10 @@ set $swex "sudo ~/Downloads/swex.appimage"
 exec redshift -O 2000 
 # random bg
 # exec wal -i "$HOME/Pictures/Backgrounds/dim"
-exec wal -i "~/Pictures/van.png"
 exec imwheel
 exec xmodmap ~/.Xmodmap
 exec xrdb ~/.Xresources
+exec wal -i "$HOME/Pictures/van.png"
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id i3-msg 'workspace $ws2; exec $def_term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
@@ -44,16 +44,31 @@ bindsym Print exec ksnapshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
-bindsym $mod+Mod4+1 exec redshift -O 1000
-bindsym $mod+Mod4+2 exec redshift -O 1250
-bindsym $mod+Mod4+3 exec redshift -O 1500
-bindsym $mod+Mod4+4 exec redshift -O 2000
-bindsym $mod+Mod4+5 exec redshift -O 2500
-bindsym $mod+Mod4+6 exec redshift -O 3000
-bindsym $mod+Mod4+7 exec redshift -O 4000
-bindsym $mod+Mod4+8 exec redshift -O 5000
+bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1000
+bindsym $mod+Mod4+2 exec redshift -x && redshift -O 1250
+bindsym $mod+Mod4+3 exec redshift -x && redshift -O 1500
+bindsym $mod+Mod4+4 exec redshift -x && redshift -O 2000
+bindsym $mod+Mod4+5 exec redshift -x && redshift -O 2500
+bindsym $mod+Mod4+6 exec redshift -x && redshift -O 3000
+bindsym $mod+Mod4+7 exec redshift -x && redshift -O 4000
+bindsym $mod+Mod4+8 exec redshift -x && redshift -O 5000
 bindsym $mod+Mod4+grave exec redshift -x
 #  }}} redshift # 
+
+#  backlight {{{ # 
+
+bindsym Shift+F1 exec xbacklight -set 10
+bindsym Shift+F2 exec xbacklight -set 20
+bindsym Shift+F3 exec xbacklight -set 30
+bindsym Shift+F4 exec xbacklight -set 40
+bindsym Shift+F5 exec xbacklight -set 50
+bindsym Shift+F6 exec xbacklight -set 60
+bindsym Shift+F7 exec xbacklight -set 70
+bindsym Shift+F8 exec xbacklight -set 80
+bindsym Shift+F9 exec xbacklight -set 90
+bindsym Shift+F0 exec xbacklight -set 100
+
+#  }}} backlight #
 
 #  menu {{{ # 
 # start dmenu (a program launcher)

@@ -54,7 +54,7 @@ function mkex() { chmod 777 $1 ; }
 
 #  directory-related {{{ # 
 alias l='ls -a'
-alias ll='ls -alF'
+alias ll='ls -alFh'
 function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
 # restore last dir
 if [ -f ~/.last_dir ]
@@ -111,6 +111,7 @@ alias vlh="alsamixer -c 2"
 function apti() { sudo apt install $1 ; } 
 function aptr() { sudo apt remove $1 ; } 
 function pac() { sudo pacman -S $1 ; } 
+function pcr() { sudo pacman -Rs $1 ; } 
 alias aptu="sudo apt upgrade"
 #  }}} system # 
 

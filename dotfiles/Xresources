@@ -1,4 +1,6 @@
-URxvt.font: xft:Hack Nerd Font:size=17
+URxvt.font: xft:Hack Nerd Font:size=18
+! URxvt.font: xft:Hack NF:size=18
+! URxvt.font: xft:Hack:size=18
 
 URxvt*inheritPixmap: true
 ! URxvt*transparent: false
