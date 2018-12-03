@@ -1,7 +1,7 @@
 #  system {{{ # 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt appendhistory autocd extendedglob nomatch notify
 
 # vim mode {{{ # 
@@ -202,7 +202,7 @@ alias gchom="git checkout master"
 alias gchnw="git checkout -b wip"
 alias gchw="git checkout wip"
 alias gheadm1="git reset --hard HEAD~1"
-alias glstf="git ls-tree -r HEAD --name-only"
+alias gls="git ls-tree -r HEAD --name-only"
 
 #  push {{{ # 
 alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"

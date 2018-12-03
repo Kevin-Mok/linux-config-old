@@ -1,7 +1,9 @@
+#!/bin/zsh
+
 # Get directory variables from script.
 . ../dirs.sh
 # List of dotfiles I want to link to system.
-dotfiles=(bashrc gitconfig inputrc vimrc Xresources zshrc)
+dotfiles=(bashrc gitconfig inputrc imwheelrc vimrc xinitrc Xmodmap Xresources zshrc)
 # cd $dot_dir
 for dotfile in $dotfiles; do
 	# Remove system dotfile.
