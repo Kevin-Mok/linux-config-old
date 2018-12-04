@@ -134,6 +134,7 @@ Plug 'jiangmiao/auto-pairs'
 	let g:AutoPairsMapSpace = 0
 
 Plug 'henrik/vim-indexed-search'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
 

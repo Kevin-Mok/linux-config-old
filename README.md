@@ -32,7 +32,7 @@ they should be in the system.
 <!---  }}} Setup --> 
 
 <!-- History {{{ -->
-## History
+## Old Screenshots
 ### 3/7
 * [laptop](https://i.imgur.com/UpdX90A.png)
 

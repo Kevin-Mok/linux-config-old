@@ -24,6 +24,7 @@ bindkey '\e[B' history-beginning-search-forward
 alias cs='printf "\033c"'
 alias hst="history"
 alias nf="cs && neofetch | lolcat"
+# nf
 alias rur="xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
 alias dum="sudo du -d 1 -B M"
@@ -114,6 +115,7 @@ alias vlh="alsamixer -c 2"
 # alias aptu="sudo apt upgrade"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
+alias tri="trizen -S --noconfirm"
 
 #  }}} system # 
 
@@ -136,9 +138,10 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias h="htop"
+alias h="htop -s PERCENT_CPU"
 alias r="ranger"
 alias mr="man ranger"
+alias clc="cloc ."
 # zathura
 function za() { nohup zathura $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
@@ -164,6 +167,8 @@ alias rmsw="rm .sw*"
 
 function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }
 alias rx="redshift -x"
+
+alias kd="pkill discord"
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 

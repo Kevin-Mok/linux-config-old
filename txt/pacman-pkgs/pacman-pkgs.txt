@@ -1,6 +1,7 @@
 alsa-utils
 bc
 chromium
+cloc
 dhcpcd
 dialog
 dmenu
