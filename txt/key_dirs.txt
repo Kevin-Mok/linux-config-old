@@ -1,10 +1,10 @@
 # sys {{{ *
 
-bg ~/Pictures/Backgrounds
-d  ~/Downloads
-D  ~/Documents
-ho ~/
-lc ~/linux-config/
+bg /home/kevin/Pictures/Backgrounds
+d  /home/kevin/Downloads
+D  /home/kevin/Documents
+ho /home/kevin/
+lc /home/kevin/linux-config/
 m /run/media
 o /
 
@@ -12,23 +12,23 @@ o /
 
 # cdn {{{ *
 
-cd ~/coding
-jnd ~/Documents/journal
-ib ~/linux-config/configs/i3blocks-scripts
-ra ~/linux-config/configs/ranger
-snp ~/.vim/plugged/vim-snippets/UltiSnips
-sv ~/coding/spotify-lib-vis/src
-swa ~/.local/share/nvim/swap
-wo ~/Documents/workout-logs/11
+cd /home/kevin/coding
+jnd /home/kevin/Documents/journal
+ib /home/kevin/linux-config/configs/i3blocks-scripts
+ra /home/kevin/linux-config/configs/ranger
+snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
+sv /home/kevin/coding/spotify-lib-vis/src
+swa /home/kevin/.local/share/nvim/swap
+wo /home/kevin/Documents/workout-logs/11
 
 # }}} cdn *
 
 # sch {{{ *
 
-sc ~/school
-st ~/school/sta
-2 ~/school/236
-a3 ~/school/latex-notes/236/a3
-3 ~/school/343
+sc /home/kevin/school
+st /home/kevin/school/sta
+2 /home/kevin/school/236
+a3 /home/kevin/school/latex-notes/236/a3
+3 /home/kevin/school/343
 
 # }}} sch *

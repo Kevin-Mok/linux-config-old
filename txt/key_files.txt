@@ -1,28 +1,29 @@
 # sys {{{ *
 
-3 ~/.config/i3/config
-d ~/linux-config/txt/key_dirs.txt
-f ~/linux-config/txt/key_files.txt
-i ~/.config/i3blocks/i3blocks.conf
-p ~/linux-config/txt/pacman-pkgs/pacman-pkgs.txt
-r ~/.config/ranger/rc.conf
-sr ~/linux-config/configs/ranger/shortcuts.conf
-ss ~/.shortcuts
-u ~/.Xresources
-v ~/.vimrc
-y ~/.zshrc
-z ~/linux-config/aliases/zsh_aliases
+3 /home/kevin/.config/i3/config
+d /home/kevin/linux-config/txt/key_dirs.txt
+f /home/kevin/linux-config/txt/key_files.txt
+i /home/kevin/.config/i3blocks/i3blocks.conf
+p /home/kevin/linux-config/txt/pacman-pkgs/pacman-pkgs.txt
+r /home/kevin/.config/ranger/rc.conf
+sr /home/kevin/linux-config/configs/ranger/shortcuts.conf
+ss /home/kevin/.shortcuts
+u /home/kevin/.Xresources
+v /home/kevin/.vimrc
+y /home/kevin/.zshrc
+z /home/kevin/linux-config/aliases/zsh_aliases
 
 # }}} sys *
 
 # cdn {{{ *
 
-hlg ~/coding/spotify-lib-vis/src/api/management/commands/update-history.log
-jn ~/Documents/journal/todo/11.md
-jnt ~/Documents/journal/todo/todo.md
+hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
+jn /home/kevin/Documents/journal/todo/11.md
+jnt /home/kevin/Documents/journal/todo/todo.md
 no ./.gitignore
-ne ~/linux-config/configs/neofetch/config.conf
-tm ~/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
+ne /home/kevin/linux-config/configs/neofetch/config.conf
+tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
+tr /home/kevin/linux-config/txt/pacman-pkgs/aur-pkgs.txt
 
 # }}} cdn *
 

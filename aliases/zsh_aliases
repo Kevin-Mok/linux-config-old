@@ -38,11 +38,13 @@ function rf() { find . -name '$1' ; }
 # find text inside files
 function rg() { grep -nr $1 * ; } 
 function cpd() { cp -avr $1 $2 ; } 
+alias pk="pkill -f"
 
 # extract tar archive
 function utar() { tar -xzvf $1 && rm $1; } 
 function rzip() { unzip $1 && rm $1; } 
 function lzip() { unzip -l $1 | less; } 
+
 alias mkpk="makepkg -sri"
 alias mkex="chmod 777"
 alias udm="udisksctl mount -b"
@@ -116,6 +118,7 @@ alias vlh="alsamixer -c 2"
 # alias aptu="sudo apt upgrade"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
+alias spc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/pacman-pkgs.txt"
 alias tri="trizen -S --noconfirm"
 
 #  }}} system # 
@@ -140,11 +143,12 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 silent="> /dev/null 2>&1& "
 
 alias h="htop -s PERCENT_CPU"
+alias hm="htop -s PERCENT_MEM"
 alias r="ranger"
 alias mr="man ranger"
 alias clc="cloc ."
-# zathura
 function za() { nohup zathura $1 > /dev/null 2>&1& ; }
+function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 alias ni="nvim"
 alias sni="sudo nvim"
@@ -168,8 +172,6 @@ alias rmsw="rm .sw*"
 
 function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }
 alias rx="redshift -x"
-
-alias kd="pkill discord"
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 
