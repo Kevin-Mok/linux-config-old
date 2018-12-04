@@ -24,7 +24,7 @@ function src() { source $1 ; }
 
 alias cs='printf "\033c"'
 alias hst="history"
-alias nf="neofetch | lolcat"
+alias nf="cs && neofetch | lolcat"
 alias rur="xrdb ~/.Xresources"
 function gvx() { urxvt --help 2>&1 | grep $1 ; } 
 # list file sizes in megabytes with depth 1
@@ -127,7 +127,7 @@ alias lca="f ~/linux-config/aliases"
 source ~/.shortcuts
 #  i3 
 alias i3b="f ~/i3blocks"
-alias pipes="pipes.sh -t 2"
+alias pipes="pipes.sh -t 3"
 	
 # UltiSnips {{{ #
 urnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
@@ -150,7 +150,6 @@ function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 function ni() { nvim $1 ; }
 function sni() { sudo nvim $1 ; }
-alias spt="spotify $silent"
 # function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
@@ -234,7 +233,7 @@ alias grbc="git rebase --continue"
 #  }}} update # 
 
 #  edit {{{ # 
-alias vir="ni README.md"
+alias vre="ni README.md"
 alias crm="mrk README.md"
 #  }}} edit # 
 
