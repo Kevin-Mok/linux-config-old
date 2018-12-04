@@ -25,7 +25,7 @@ alias cs='printf "\033c"'
 alias hst="history"
 alias nf="cs && neofetch | lolcat"
 # nf
-alias rur="xrdb ~/.Xresources"
+alias ru="xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
 alias dum="sudo du -d 1 -B M"
 
@@ -62,6 +62,7 @@ if [ -f ~/.last_dir ]
     then cd `cat ~/.last_dir`
 fi
 alias rmr="rm -rf"
+alias mdp="mkdir -p"
 
 alias "f."="f .."
 alias "f.."="f ..."

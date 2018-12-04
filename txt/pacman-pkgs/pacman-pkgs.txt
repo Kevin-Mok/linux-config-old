@@ -2,6 +2,7 @@ alsa-utils
 bc
 chromium
 cloc
+compton
 dhcpcd
 dialog
 dmenu

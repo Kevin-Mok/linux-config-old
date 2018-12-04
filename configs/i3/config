@@ -5,6 +5,7 @@ set $def_term "urxvt"
 set $swex "sudo ~/Downloads/swex.appimage"
 exec redshift -O 2000 
 # random bg
+exec compton
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
 exec imwheel
 exec xmodmap ~/.Xmodmap
@@ -281,13 +282,19 @@ bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
 #  }}} workspace # 
 
 #  reload config/computer {{{ #
+
 bindsym $mod+Shift+s exec systemctl suspend
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+control+r restart
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
+# bindsym $mod+control+r reload
+bindsym $mod+control+u exec xrdb ~/.Xresources
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 #  }}} reload config # 
 
 #  resizing windows {{{ # 
@@ -300,14 +307,14 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 #  gaps {{{ # 
 
 # remove window titlebars
-for_window [class="^.*"] border pixel 4
-set $inner_gaps 30
+for_window [class="^.*"] border pixel 3
+set $inner_gaps 35
 set $outer_gaps 5
 
-# gaps inner $inner_gaps
-# gaps outer $outer_gaps
-gaps inner 0
-gaps outer 0
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+# gaps inner 0
+# gaps outer 0
 
 #  other gaps {{{ # 
 
@@ -329,11 +336,17 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $sb_font Hack NF Bold
+# 0 (transparent) -> 255 (opaque) in hex, 
 
 #  benq bar {{{ # 
 
+set $benq_transparency 64
 bar {
+	i3bar_command i3bar -t 
 	font pango:$sb_font 20
+	colors {
+		background #000000$benq_transparency
+	}
 	tray_output none
 	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	output $benq
@@ -343,9 +356,30 @@ bar {
 
 #  }}} benq bar # 
 
+#  samsung bar {{{ #
+
+# a0 = 160
+set $samsung_transparency 99
+bar {
+	output $samsung
+	font pango:$sb_font 25
+	# output $benq
+	i3bar_command i3bar -t
+	colors {
+		background #000000$samsung_transparency
+	}
+	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+	tray_output none
+	wheel_up_cmd nop
+	wheel_down_cmd nop
+}
+
+#  }}} samsung bar #
+
 # # #  display {{{ #
 
 # bar {
+	# i3bar_command i3bar -t
 	# font pango:$sb_font 23
 	# tray_output none
 	# status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
@@ -355,20 +389,6 @@ bar {
 # }
 
 # #  }}}  display #
-
-#  samsung bar {{{ #
-
-bar {
-	output $samsung
-	# output $benq
-	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-	tray_output none
-	font pango:$sb_font 23
-	wheel_up_cmd nop
-	wheel_down_cmd nop
-}
-
-#  }}} samsung bar #
 
 #  }}} status bar #
 

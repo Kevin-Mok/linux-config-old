@@ -4,7 +4,7 @@
 d ~/linux-config/txt/key_dirs.txt
 f ~/linux-config/txt/key_files.txt
 i ~/.config/i3blocks/i3blocks.conf
-p ~/linux-config/txt/pacman-pkgs/auto-pacman-pkgs.txt
+p ~/linux-config/txt/pacman-pkgs/pacman-pkgs.txt
 r ~/.config/ranger/rc.conf
 sr ~/linux-config/configs/ranger/shortcuts.conf
 ss ~/.shortcuts

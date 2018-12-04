@@ -23,10 +23,10 @@ wo ~/Documents/workout-logs/11
 
 # sch {{{ *
 
-sc ~/Documents/school
-# st ~/Documents/school/sta
-2 ~/Documents/school/236
-a3 ~/Documents/school/latex-notes/236/a3
-3 ~/Documents/school/343
+sc ~/school
+st ~/school/sta
+2 ~/school/236
+a3 ~/school/latex-notes/236/a3
+3 ~/school/343
 
 # }}} sch *

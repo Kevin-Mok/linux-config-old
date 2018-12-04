@@ -9,9 +9,8 @@ URxvt*inheritPixmap: true
 ! URxvt*transparent: false
 URxvt*transparent: true
 !
-! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*shading: 30
-! URxvt*shading: 200
+! URxvt*shading: 0 (blackest) to 99 black, 101 to 200 (whitest) white
+URxvt*shading: 40
 
 /* }}} transparency */
 
