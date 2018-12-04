@@ -3,7 +3,8 @@ set $browser "chromium"
 set $def_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
-exec redshift -O 2000 
+# exec redshift -O 2000
+exec redshift -O 3000 
 # random bg
 exec compton
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
@@ -44,15 +45,19 @@ bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
-bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1000
-bindsym $mod+Mod4+2 exec redshift -x && redshift -O 1250
-bindsym $mod+Mod4+3 exec redshift -x && redshift -O 1500
-bindsym $mod+Mod4+4 exec redshift -x && redshift -O 2000
-bindsym $mod+Mod4+5 exec redshift -x && redshift -O 2500
-bindsym $mod+Mod4+6 exec redshift -x && redshift -O 3000
-bindsym $mod+Mod4+7 exec redshift -x && redshift -O 4000
-bindsym $mod+Mod4+8 exec redshift -x && redshift -O 5000
+
+bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1250
+bindsym $mod+Mod4+2 exec redshift -x && redshift -O 2000
+bindsym $mod+Mod4+3 exec redshift -x && redshift -O 3000
+bindsym $mod+Mod4+4 exec redshift -x && redshift -O 4000
+bindsym $mod+Mod4+5 exec redshift -x && redshift -O 5000
 bindsym $mod+Mod4+grave exec redshift -x
+
+# old
+# bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1000
+# bindsym $mod+Mod4+3 exec redshift -x && redshift -O 1500
+# bindsym $mod+Mod4+3 exec redshift -x && redshift -O 2500
+
 #  }}} redshift # 
 
 #  backlight {{{ # 
@@ -219,7 +224,9 @@ bindsym $mod+F9 workspace $ws9; exec $def_term
 set $ws10 "10 "
 assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
-bindsym $mod+F10 workspace $ws10; exec $def_term
+set $hp 2
+bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
+bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 
 set $ws11 "11 "
@@ -309,10 +316,11 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 # remove window titlebars
 for_window [class="^.*"] border pixel 3
 set $inner_gaps 35
-set $outer_gaps 5
+set $outer_gaps -3
 
 gaps inner $inner_gaps
 gaps outer $outer_gaps
+gaps bottom 0
 # gaps inner 0
 # gaps outer 0
 
@@ -336,25 +344,34 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 set $sb_font Hack NF Bold
-set $grey #acc0cd
 set $black #000000
 set $white #ffffff
-# border color
-set $dark_grey #444c52
+
+set $inactive_ws_bg #444c52
+# set $inactive_ws_bg $white
+
+# set $inactive_ws_text #bcccd7
+set $inactive_ws_text #838e96
+# set $inactive_ws_trans c8
+set $inactive_ws_trans 96
+
+# set $active_ws_text $white
+set $active_ws_text #ffffff
 
 #  benq bar {{{ # 
 
-set $benq_bar_trans 64
+# set $bar_trans 64
+set $bar_trans 00
 set $benq_ws_trans aa
 bar {
 	i3bar_command i3bar -t 
 	font pango:$sb_font 20
 	colors {
 		# 0 (transparent) -> 255 (opaque) in hex
-		background $black$benq_bar_trans
+		background $black$bar_trans
 		# border, bg, text color
-		focused_workspace $dark_grey $bg$benq_bar_trans $white 
-		inactive_workspace $dark_grey $black$benq_ws_trans $grey
+		focused_workspace $inactive_ws_bg $bg $active_ws_text 
+		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
 	}
 	tray_output none
 	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
@@ -367,17 +384,16 @@ bar {
 
 #  sam bar {{{ #
 
-set $sam_bar_trans 99
-set $sam_ws_trans b4
 bar {
 	output $samsung
 	font pango:$sb_font 25
 	# output $benq
 	i3bar_command i3bar -t
 	colors {
-		background $black$sam_bar_trans
-		focused_workspace $dark_grey $bg$sam_bar_trans $white 
-		inactive_workspace $dark_grey $black$sam_ws_trans $grey
+		background $black$bar_trans
+		# border, bg, text color
+		focused_workspace $inactive_ws_bg $bg $active_ws_text 
+		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
 	}
 	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
 	tray_output none

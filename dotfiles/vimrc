@@ -38,6 +38,10 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
 autocmd BufWritePost key_*.txt !bash ~/linux-config/scripts/shortcuts.sh
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 " }}} commands for file types "
 
@@ -157,7 +161,8 @@ nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
-vnoremap <C-X> <Esc>`.``gvP``P
+" swap text visually
+vnoremap <C-P> <Esc>`.``gvP``P
 
 " splits {{{ "
 nnoremap <C-Down> <C-W><C-J>
@@ -207,6 +212,8 @@ nnoremap <leader>py :set tw=0<CR>
 nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
 " replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
+" replace in visual selection
+vnoremap <leader>r q:is///g<ESC>3ha
 " reload vim config
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file

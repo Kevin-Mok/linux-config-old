@@ -1,9 +1,9 @@
 <!---  Intro {{{ --> 
 # Kevin's Linux Setup
 
-![desktop-screenshot](https://i.imgur.com/lkicLP5.png)
-
 ![desktop-screenshot-2](https://i.imgur.com/DivyfTu.png)
+
+![desktop-screenshot](https://i.imgur.com/lkicLP5.png)
 *Screenshots from my desktop config.*
 
 This repository contains the dotfiles to increase my workflow efficiency. They
