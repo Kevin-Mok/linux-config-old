@@ -39,12 +39,16 @@ function rg() { grep -nr $1 * ; }
 function cpd() { cp -avr $1 $2 ; } 
 
 # extract tar archive
-function untar() { tar -xzvf $1 && rm $1; } 
+function utar() { tar -xzvf $1 && rm $1; } 
 function rzip() { unzip $1 && rm $1; } 
 function lzip() { unzip -l $1 | less; } 
 alias mkpk="makepkg -sri"
-
 alias mkex="chmod 777"
+alias udm="udisksctl mount -b"
+alias udu="udisksctl unmount -b"
+alias mkex="chmod 777"
+alias ctle="systemctl enable"
+alias ctls="systemctl start"
 
 #  }}} command line related # 
 

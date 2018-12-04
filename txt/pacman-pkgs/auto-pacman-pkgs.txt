@@ -39,7 +39,7 @@ redshift
 sed
 sudo
 tar
-udiskie
+udisks2
 unzip
 vi
 wireless_tools
