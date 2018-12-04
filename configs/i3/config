@@ -303,10 +303,10 @@ for_window [class="^.*"] border pixel 4
 set $inner_gaps 30
 set $outer_gaps 5
 
-gaps inner $inner_gaps
-gaps outer $outer_gaps
-# gaps inner 0
-# gaps outer 0
+# gaps inner $inner_gaps
+# gaps outer $outer_gaps
+gaps inner 0
+gaps outer 0
 
 #  other gaps {{{ # 
 

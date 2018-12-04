@@ -20,20 +20,15 @@ export KEYTIMEOUT=1
 # search history
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
-function src() { source $1 ; } 
 
 alias cs='printf "\033c"'
 alias hst="history"
 alias nf="cs && neofetch | lolcat"
 alias rur="xrdb ~/.Xresources"
-function gvx() { urxvt --help 2>&1 | grep $1 ; } 
 # list file sizes in megabytes with depth 1
 alias dum="sudo du -d 1 -B M"
 
 alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
-# install deb files
-function ideb() { sudo dpkg -i $1 ; } 
 
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
@@ -49,7 +44,7 @@ function rzip() { unzip $1 && rm $1; }
 function lzip() { unzip -l $1 | less; } 
 alias mkpk="makepkg -sri"
 
-function mkex() { chmod 777 $1 ; }
+alias mkex="chmod 777"
 
 #  }}} command line related # 
 
@@ -61,10 +56,8 @@ function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
 if [ -f ~/.last_dir ]
     then cd `cat ~/.last_dir`
 fi
-function rmr() { rm -rf $1 ; } 
+alias rmr="rm -rf"
 
-# todo: fix
-# function f.() { f $(printf "%0.s../" $(seq 1 $1 )) ; }
 alias "f."="f .."
 alias "f.."="f ..."
 
@@ -112,11 +105,11 @@ alias vlm="alsamixer -c 0"
 alias vlh="alsamixer -c 2"
 
 # apt
-function apti() { sudo apt install $1 ; } 
-function aptr() { sudo apt remove $1 ; } 
-function pac() { sudo pacman -S $1 ; } 
-function pcr() { sudo pacman -Rs $1 ; } 
-alias aptu="sudo apt upgrade"
+# function apti() { sudo apt install $1 ; }
+# function aptr() { sudo apt remove $1 ; }
+# alias aptu="sudo apt upgrade"
+alias pc="sudo pacman -S"
+alias pcr="sudo pacman -Rs"
 
 #  }}} system # 
 
@@ -139,39 +132,39 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
+alias h="htop"
 alias r="ranger"
 alias mr="man ranger"
-# okular
-# function ok() { nohup okular $1 > /dev/null 2>&1& ; }
 # zathura
 function za() { nohup zathura $1 > /dev/null 2>&1& ; }
-# xviewer
-function xv() { nohup xviewer $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
-function ni() { nvim $1 ; }
-function sni() { sudo nvim $1 ; }
-# function mrk() { pandoc -o ${1%.*}.html $1 && chr ${1%.*}.html ; }
+alias ni="nvim"
+alias sni="sudo nvim"
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
+
+#  auto-clicker {{{ # 
+
 function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
 # alias auc1="xdotool click --repeat 1000000 --delay 1 1"
 # alias auc3="xdotool click --repeat 1000000 --delay 300 1"
 # alias auc5="xdotool click --repeat 1000000 --delay 500 1"
 # alias kauc="pkill -f xdotool"
+
+#  }}} auto-clicker # 
+
 # alias rsl="java -jar ~/Downloads/RuneLite.jar"
 alias swex="sudo nohup ~/Downloads/swex.appimage $silent"
-alias h="htop"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
 alias rmsw="rm .sw*"
 
 function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }
-# function rds(){ redshift -O $1 ; }
 alias rx="redshift -x"
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 
-function p3() { python3 $1 ; } 
-function py() { python $1 ; } 
+alias p3="python3"
+alias py="python"
 #  }}} python related # 
 
 #  }}} applications # 
@@ -240,12 +233,12 @@ alias crm="mrk README.md"
 # aliases }}}
 
 # functions {{{
-function gcho() { git checkout $1 ; }
-function gchon() { git checkout -b $1 ; }
+alias gcho="git checkout"
+alias gchon="git checkout -b"
 function gchof() { git checkout $1 $2 ; }
 
-function gcln() { git clone $1 ; }
-function gchp() { git cherry-pick $1 ; }
+alias gcln="git clone"
+alias gchp="git cherry-pick"
 alias gchpc="git cherry-pick --continue"
 
 # add multiple push repos
@@ -267,7 +260,7 @@ function gmrgr() {
 #  }}} merge repos # 
 
 # assume file unchanged
-function gunc() { git update-index --assume-unchanged $1 ; } 
+alias gunc="git update-index --assume-unchanged"
 # delete branch locally and on server
 function grmb() { git push origin --delete $1 && git branch -D $1 ; }
 
@@ -322,15 +315,15 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 
 #  }}} spotify-lib-vis # 
 
-# Stardew Valley {{{
-	sdv_save_dir=~/Documents/sdv-save
-	alias sdv="f $sdv_save_dir"
-	alias smp="~/Downloads/sdv/smapi/install\ on\ Linux.sh"
-	alias imc="sdv && source import-save.sh coop"
-	function ucf() { f ~/Documents/StardewMods/UncaughtFish ; } 
-	function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
-	function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; } 
-# }}}
+# # Stardew Valley {{{
+	# sdv_save_dir=~/Documents/sdv-save
+	# alias sdv="f $sdv_save_dir"
+	# alias smp="~/Downloads/sdv/smapi/install\ on\ Linux.sh"
+	# # alias imc="sdv && source import-save.sh coop"
+	# function ucf() { f ~/Documents/StardewMods/UncaughtFish ; }
+	# function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
+	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
+# # }}}
 
 #  }}} coding projs # 
 
