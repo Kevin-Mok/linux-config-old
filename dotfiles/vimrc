@@ -157,6 +157,7 @@ nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
+vnoremap <C-X> <Esc>`.``gvP``P
 
 " splits {{{ "
 nnoremap <C-Down> <C-W><C-J>
