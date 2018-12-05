@@ -38,9 +38,10 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
 autocmd BufWritePost key_*.txt !bash ~/linux-config/scripts/shortcuts.sh
+" auto-reload vimrc when saved
 augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+	au!
+	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
 " }}} commands for file types "
@@ -118,8 +119,9 @@ Plug 'easymotion/vim-easymotion'
 
 " status bar displaying various info about the current buffer
 Plug 'vim-airline/vim-airline'
-	let g:airline_section_c = '%F'
+	" let g:airline_section_c = '%F'
 Plug 'vim-airline/vim-airline-themes'
+	let g:airline_powerline_fonts = 1
 
 " continue Markdown lists when started
 Plug 'dkarter/bullets.vim'

@@ -49,6 +49,7 @@ alias mkpk="makepkg -sri"
 alias mkex="chmod 777"
 alias udm="udisksctl mount -b"
 alias udu="udisksctl unmount -b"
+alias udub="udisksctl unmount -b /dev/sdc2"
 alias mkex="chmod 777"
 alias ctle="systemctl enable"
 alias ctls="systemctl start"
@@ -119,7 +120,8 @@ alias vlh="alsamixer -c 2"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
 alias spc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/pacman-pkgs.txt"
-alias tri="trizen -S --noconfirm"
+# alias tri="trizen -S --noconfirm"
+alias tri="trizen -S"
 
 #  }}} system # 
 
@@ -142,8 +144,8 @@ function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 #  applications {{{ # 
 silent="> /dev/null 2>&1& "
 
-alias h="htop -s PERCENT_CPU"
-alias hm="htop -s PERCENT_MEM"
+alias h="htop -s PERCENT_MEM"
+alias hc="htop -s PERCENT_CPU"
 alias r="ranger"
 alias mr="man ranger"
 alias clc="cloc ."

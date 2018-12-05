@@ -215,7 +215,7 @@ bindsym $mod+F7 workspace $ws7; exec $def_term
 set $ws8 "8 "
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $samsung
-bindsym $mod+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_CPU 
+bindsym $mod+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_MEM 
 
 set $ws9 "9 "
 workspace $ws9 output $samsung
@@ -347,16 +347,33 @@ set $sb_font Hack NF Bold
 set $black #000000
 set $white #ffffff
 
-set $inactive_ws_bg #444c52
+#  inactive vars {{{ # 
+
 # set $inactive_ws_bg $white
+set $inactive_ws_bg #444c52
 
 # set $inactive_ws_text #bcccd7
-set $inactive_ws_text #838e96
-# set $inactive_ws_trans c8
-set $inactive_ws_trans 96
+# set $inactive_ws_text #838e96
+set $inactive_ws_text #cbe4ff
 
-# set $active_ws_text $white
-set $active_ws_text #ffffff
+# set $inactive_ws_trans c8
+# set $inactive_ws_trans 96
+set $inactive_ws_trans 00
+
+#  }}} inactive # 
+
+#  active vars {{{ # 
+
+set $active_ws_bg #444c52
+# set $active_ws_bg #566066
+
+# set $active_ws_trans c8
+set $active_ws_trans 91
+
+#  }}} active # 
+
+# set $focused_ws_text $white
+set $focused_ws_text #ffffff
 
 #  benq bar {{{ # 
 
@@ -370,7 +387,9 @@ bar {
 		# 0 (transparent) -> 255 (opaque) in hex
 		background $black$bar_trans
 		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $active_ws_text 
+		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
+		# active = focused on other screen
+		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
 	}
 	tray_output none
@@ -392,7 +411,8 @@ bar {
 	colors {
 		background $black$bar_trans
 		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $active_ws_text 
+		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
+		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
 	}
 	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf

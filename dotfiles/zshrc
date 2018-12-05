@@ -1,5 +1,6 @@
-# ZSH_THEME="miloshadzic"
 ZSH_THEME="bira"
+# ZSH_THEME="miloshadzic"
+# ZSH_THEME="agnoster"
 
 #  default {{{ # 
 

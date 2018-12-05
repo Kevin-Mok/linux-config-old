@@ -1,6 +1,8 @@
 # sys {{{ *
 
 bg /home/kevin/Pictures/Backgrounds
+co /home/kevin/.config
+lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
 ho /home/kevin/
