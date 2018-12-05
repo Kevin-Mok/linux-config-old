@@ -316,7 +316,7 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 # remove window titlebars
 for_window [class="^.*"] border pixel 3
 set $inner_gaps 35
-set $outer_gaps -3
+set $outer_gaps 0
 
 gaps inner $inner_gaps
 gaps outer $outer_gaps

@@ -1,0 +1,11 @@
+algorithm
+algorithmicx
+enumitem
+hyperref
+numprint
+pgfplots
+tkz-base
+tkz-euclide
+
+# manual
+gensymb

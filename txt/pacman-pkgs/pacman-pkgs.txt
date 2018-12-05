@@ -75,6 +75,7 @@ nvidia
 pacman
 patch
 pciutils
+pdfgrep
 perl
 pipes.sh
 pkgconf

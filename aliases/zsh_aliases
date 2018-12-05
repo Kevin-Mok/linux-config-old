@@ -33,6 +33,9 @@ alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
+function gpdf() {
+	pdfgrep -n -e $1 $2
+}
 # for finding files by name
 function rf() { find . -name '$1' ; } 
 # find text inside files
@@ -342,6 +345,8 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 #  }}} coding projs # 
 
 #  school {{{ # 
+
+alias pdl="pdflatex"
 
 # 343
 alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"

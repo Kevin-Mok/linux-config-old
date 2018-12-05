@@ -15,7 +15,7 @@ o /
 # cdn {{{ *
 
 cd /home/kevin/coding
-jnd /home/kevin/Documents/journal
+j /home/kevin/Documents/journal
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 ra /home/kevin/linux-config/configs/ranger
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
