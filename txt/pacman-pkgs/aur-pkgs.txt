@@ -1,3 +1,5 @@
+discord
+texlive-localmanager-git
 gscreenshot
 rxvt-unicode-pixbuf
 Hack NF

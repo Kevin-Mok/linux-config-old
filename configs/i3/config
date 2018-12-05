@@ -458,8 +458,8 @@ font pango:Hack 11
 #  }}} mod key/font # 
 
 #  media keys {{{ # 
-bindsym $mod+d exec ~/linux-config/scripts/change-sink.sh dac
-bindsym $mod+o exec ~/linux-config/scripts/change-sink.sh line-out
+bindsym $mod+d exec ~/linux-config/scripts/change-sink dac
+bindsym $mod+o exec ~/linux-config/scripts/change-sink line-out
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-

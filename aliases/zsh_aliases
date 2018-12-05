@@ -39,7 +39,7 @@ function gpdf() {
 # for finding files by name
 function rf() { find . -name '$1' ; } 
 # find text inside files
-function rg() { grep -nr $1 * ; } 
+function rg() { grep -nr $1 ; }
 function cpd() { cp -avr $1 $2 ; } 
 alias pk="pkill -f"
 
@@ -122,7 +122,7 @@ alias vlh="alsamixer -c 2"
 # alias aptu="sudo apt upgrade"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
-alias spc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/pacman-pkgs.txt"
+alias xpc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/nzxt-pkgs.txt"
 # alias tri="trizen -S --noconfirm"
 alias tri="trizen -S"
 
@@ -342,11 +342,14 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
 # # }}}
 
+alias shc="cs && shellcheck"
+
 #  }}} coding projs # 
 
 #  school {{{ # 
 
 alias pdl="pdflatex"
+alias tcl="texclear"
 
 # 343
 alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"

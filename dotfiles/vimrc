@@ -37,12 +37,17 @@ autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
-autocmd BufWritePost key_*.txt !bash ~/linux-config/scripts/shortcuts.sh
-" auto-reload vimrc when saved
-augroup myvimrc
-	au!
-	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+autocmd BufWritePost key_*.txt !sync-shortcuts
+autocmd VimLeave *.tex !texclear %
+
+" " auto-reload vimrc {{{ "
+
+" augroup myvimrc
+	" au!
+	" au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+" augroup END
+
+" " }}} auto-reload vimrc "
 
 " }}} commands for file types "
 
@@ -75,15 +80,18 @@ Plug 'xolox/vim-misc'
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
-	
-" compile LaTeX PDF while writing the file
-" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
 	au BufWritePost *.tex silent call Tex_RunLaTeX()
 	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
 	let g:vimtex_view_general_viewer = 'zathura'
+    let g:vimtex_quickfix_latexlog = {
+          \ 'overfull' : 0,
+          \ 'underfull' : 0,
+          \ 'global' : 0,
+          \ 'unused' : 0,
+          \}
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
@@ -159,6 +167,7 @@ map <F6> :make -C ~/Documents/resume cv<CR>
 map <F7> :AutoSaveToggle<CR>
 " map <F9> :LLPStartPreview<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
+" map <F9> :VimtexCompile<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
@@ -221,7 +230,7 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 " sort lines
-nnoremap <leader>s q:i.,.+sort<ESC>Fsi
+nnoremap <leader>so q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
 nnoremap <leader>sh :set syn=sh<CR>
 " format current line
