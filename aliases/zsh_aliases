@@ -33,7 +33,7 @@ function gpdf() {
 	pdfgrep -n -e $1 $2
 }
 # for finding files by name
-function rf() { find . -name '$1' ; } 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # find text inside files
 function rg() { grep -nr $1 ; }
 function cpd() { cp -avr $1 $2 ; } 
@@ -357,7 +357,7 @@ alias s="cs && shellcheck"
 #  school {{{ # 
 
 alias pdl="pdflatex"
-alias tcl="texclear"
+alias tcl="tex-clean"
 
 # 343
 alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"

@@ -1,7 +1,7 @@
 # sys {{{ *
 
 bg /home/kevin/Pictures/Backgrounds
-cn /home/kevin/.config
+co /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
@@ -14,7 +14,7 @@ o /
 
 # cdn {{{ *
 
-co /home/kevin/coding
+cn /home/kevin/coding
 j /home/kevin/Documents/journal
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 ra /home/kevin/linux-config/configs/ranger

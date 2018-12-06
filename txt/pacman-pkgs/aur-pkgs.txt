@@ -3,4 +3,5 @@ texlive-localmanager-git
 gscreenshot
 rxvt-unicode-pixbuf
 Hack NF
+the_silver_searcher
 trizen
