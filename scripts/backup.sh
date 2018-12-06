@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # Backup destination
-backup_dest=/run/media/kevin/pc-backup/backups/nzxt
+backup_dest="/run/media/kevin/pc-backup/backups/nzxt"
+exclude_dirs_list="/home/kevin/linux-config/txt/exlude-dirs-backup.txt"
 
 # Labels for backup name
-distro=arch
+distro="arch"
 datetime=$(date "+%m.%d-%H.%M")
-backupfile="$backup_dest/$datetime-$distro.tar.gz"
+backup_file="$backup_dest/$datetime-$distro.tar.gz"
 
-sudo tar -czpvf "$backupfile" --exclude=/lost+found --exclude=/mnt --exclude=/proc --exclude=/run --exclude=/sys /
+sudo tar -czpvf "$backup_file" --exclude-from="$exclude_dirs_list" /

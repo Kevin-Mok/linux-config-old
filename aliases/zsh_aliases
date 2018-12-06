@@ -46,12 +46,18 @@ function lzip() { unzip -l $1 | less; }
 
 alias mkpk="makepkg -sri"
 alias mkex="chmod 777"
-alias udm="udisksctl mount -b"
-alias udu="udisksctl unmount -b"
-alias udub="udisksctl unmount -b /dev/sdc2"
-alias mkex="chmod 777"
 alias ctle="systemctl enable"
 alias ctls="systemctl start"
+
+
+#  mounting {{{ # 
+
+alias udm="udisksctl mount -b"
+alias udmb="udisksctl mount -b /dev/sdc2"
+alias udu="udisksctl unmount -b"
+alias udub="udisksctl unmount -b /dev/sdc2"
+
+#  }}} mounting # 
 
 #  }}} command line related # 
 

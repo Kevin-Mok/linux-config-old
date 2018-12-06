@@ -128,7 +128,7 @@ Plug 'easymotion/vim-easymotion'
 
 " status bar displaying various info about the current buffer
 Plug 'vim-airline/vim-airline'
-	" let g:airline_section_c = '%F'
+	let g:airline_section_c = '%F'
 Plug 'vim-airline/vim-airline-themes'
 	let g:airline_powerline_fonts = 1
 
@@ -210,6 +210,8 @@ nnoremap <leader>ht :set tabstop=2 shiftwidth=2 expandtab<CR>
 nnoremap <leader>vhe :vert help 
 " move cursor to middle of line
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
+" apply normal command to selection
+vnoremap <leader>n q:anorm 
 " don't wrap lines
 nnoremap <leader>nw :set nowrap<CR>
 " check if in neovim

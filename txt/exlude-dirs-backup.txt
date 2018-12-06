@@ -1,0 +1,6 @@
+/home/kevin/.cache/spotify/Storage
+/lost+found
+/mnt
+/proc
+/run
+/sys

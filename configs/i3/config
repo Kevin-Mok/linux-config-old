@@ -37,6 +37,7 @@ bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+n exec nemo
 bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
+bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
