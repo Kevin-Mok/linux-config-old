@@ -1,70 +1,69 @@
 #!/bin/bash
 
-# setup_marble=true
-
 # vars {{{ #
 
-linux_config_dir=/home/kevin/linux-config
-dot_dir=$linux_config_dir/dotfiles
-config_dir=$linux_config_dir/configs
-sys_config_dir=~/.config
+shopt -s dotglob
+
+lc_dir="/home/kevin/linux-config"
+
+link_to_lc () {
+	echo "Linking $1 from $3 to $2."
+	sys_dir="$2"
+	config_dir="$3"
+	case "$1" in
 
 # }}} vars #
 
-# dotfiles {{{ #
+		# files {{{ #
+		
+		files)
+			for file in "$config_dir"/*; do
+				file_name=$(basename -- "$file")
+				# echo "$file_name"
+				# Remove system file and link config in repository to system.
+				rm -f "${sys_dir:?}"/"$file_name"
+				ln -s "$config_dir"/"$file_name" "$sys_dir"/"$file_name" && echo "Linked $file_name."
+			done ;;
+		
+		# }}} files #
 
-#  link files {{{ # 
+		# dirs {{{ #
+		
+		dirs)
+			for dir in "$config_dir"/*/; do
+				dir_name=$(basename -- "$dir")
+				# echo "$dir_name"
+				rm -f "${sys_dir:?}"/"$dir_name"
+				ln -s "$config_dir"/"$dir_name" "$sys_dir"/"$dir_name" && echo "Linked $dir_name."
+			done ;;
+		
+		# }}} dirs  #
 
-# Get directory variables from script.
-# List of dotfiles I want to link to system.
-dotfiles=(bashrc gitconfig inputrc imwheelrc vimrc xinitrc Xmodmap Xresources zshrc)
-cd $dot_dir || exit
-for dotfile in "${dotfiles[@]}"; do
-	# Remove system dotfile.
-    rm ~/."$dotfile"
-	# Link dotfile in repository to system dotfile.
-    ln -s "$dot_dir"/"$dotfile" ~/."$dotfile" && echo "Linked .$dotfile."
-done
+# run commands {{{ #
 
-#  }}} link files # 
+	esac
+}
 
-#  setup nvim config  {{{ # 
+link_to_lc "files" "$HOME" "$lc_dir/dotfiles"
+link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
+link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
 
-orig_file="$sys_config_dir"/nvim/init.vim
-# Remove system dotfile.
-rm "$orig_file"
-# Link dotfile in repository to system dotfile.
-ln -s "$dot_dir"/nvim "$orig_file" && echo "Setup Neovim config."
+# }}} run #
 
-#  }}} setup nvim config  # 
+# setup nvim config {{{ #
 
-# }}} dotfiles #
+# nvim_file="/home/kevin/lc-test/init.vim"
+nvim_file="$HOME/.config/nvim/init.vim"
+rm "$nvim_file"
+ln -s "$HOME/.nvim" "$nvim_file" && echo "Setup Neovim config."
 
-# configs {{{ #
+# }}} setup nvim config #
 
-cd $linux_config_dir || exit
-# List of config dirs in system config dir that I want to link to.
-config_dirs=(neofetch i3 i3blocks sam-i3blocks ranger)
-for cur_dir in "${config_dirs[@]}"; do
-	# Remove system file.
-	rm -rf ${sys_config_dir:?}/"$cur_dir"
-	# Link config file in repository to system config location.
-	ln -s "$config_dir"/"$cur_dir" "$sys_config_dir"/"$cur_dir" && echo "Linked $cur_dir config."
-done
+# testing {{{ #
 
-# }}} configs #
+# link_to_lc "files" "/home/kevin/lc-test" "$lc_dir/dotfiles"
+# link_to_lc "dirs" "/home/kevin/lc-test" "$lc_dir/configs"
+# link_to_lc "dirs" "/home/kevin/lc-test" "$lc_dir/gtk/themes"
 
-# #  marble mouse {{{ #
+# }}} testing #
 
-# if [[ "$setup_marble" = true ]]; then
-	# config_file_name="10-evdev.conf"
-	# sys_layout_file="/etc/X11/xorg.conf.d/$config_file_name"
-	# config_dir="$linux_config_dir/x/marble-mouse"
-
-	# # Remove system file.
-	# sudo rm -rf "$sys_layout_file"
-	# # Link config file in repository to system config location.
-	# sudo ln -s "$config_dir"/"$config_file_name" "$sys_layout_file" && echo "Setup Marble mouse config."
-# fi
-
-# #  }}} marble mouse #

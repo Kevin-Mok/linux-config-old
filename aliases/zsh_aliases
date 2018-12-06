@@ -1,8 +1,4 @@
 #  system {{{ # 
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory autocd extendedglob nomatch notify
 
 # vim mode {{{ # 
 bindkey -v
@@ -62,10 +58,14 @@ alias ctls="systemctl start"
 #  directory-related {{{ # 
 alias l='ls -a'
 alias ll='ls -alFh'
-function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
+# alias f="cd"
+function f() { cd $1 && pwd > ~/.last_dir ; }
+# function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
+
 # restore last dir
 if [ -f ~/.last_dir ]
-    then cd `cat ~/.last_dir`
+    # then cd `cat ~/.last_dir`
+    then f `cat ~/.last_dir`
 fi
 alias rmr="rm -rf"
 alias mdp="mkdir -p"
@@ -81,7 +81,7 @@ alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 #  }}}  directory-related # 
 
 #  power options {{{ # 
-alias s="systemctl suspend"
+alias p="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
@@ -130,16 +130,17 @@ alias tri="trizen -S"
 
 # config files {{{ #
 function gz() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
+alias rz="source ~/linux-config/aliases/zsh_aliases"
+alias tst="echo a"
 alias lca="f ~/linux-config/aliases"
 
-source ~/.shortcuts
 #  i3 
 alias i3b="f ~/i3blocks"
 alias pipes="pipes.sh -t 3"
 	
 # UltiSnips {{{ #
 urnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
-function vsnp() { ni ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+function vsnp() { nvim ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 # }}} #
 
 # }}} config files #
@@ -197,6 +198,7 @@ alias gac="git add -A . && git commit"
 
 #  diff/log {{{ # 
 alias gd="git diff -w"
+function gde() { git diff --cached -- ':(exclude)'$1 ; }
 alias gdc="git diff --cached"
 alias gds="git diff --stat"
 alias gdt="git difftool --tool=vimdiff"
@@ -342,7 +344,7 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
 # # }}}
 
-alias shc="cs && shellcheck"
+alias s="cs && shellcheck"
 
 #  }}} coding projs # 
 

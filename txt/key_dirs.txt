@@ -1,11 +1,11 @@
 # sys {{{ *
 
 bg /home/kevin/Pictures/Backgrounds
-co /home/kevin/.config
+cn /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
-ho /home/kevin/
+k /home/kevin/
 lc /home/kevin/linux-config/
 m /run/media
 o /
@@ -14,7 +14,7 @@ o /
 
 # cdn {{{ *
 
-cd /home/kevin/coding
+co /home/kevin/coding
 j /home/kevin/Documents/journal
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 ra /home/kevin/linux-config/configs/ranger
