@@ -28,14 +28,11 @@ link_to_lc "files" "$HOME" "$lc_dir/dotfiles"
 link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
 link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
 
-# setup nvim config {{{ #
-
+# setup nvim config
 # nvim_file="/home/kevin/lc-test/init.vim"
 nvim_file="$HOME/.config/nvim/init.vim"
 rm "$nvim_file"
 ln -s "$HOME/.nvim" "$nvim_file" && echo "Setup Neovim config."
-
-# }}} setup nvim config #
 
 # testing {{{ #
 

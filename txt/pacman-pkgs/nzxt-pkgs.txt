@@ -43,7 +43,7 @@ gscreenshot
 gzip
 htop-vim-git
 i3-gaps
-i3blocks
+i3blocks-git
 i3status
 imwheel
 inetutils
@@ -61,6 +61,7 @@ logrotate
 lolcat
 lsof
 lvm2
+lxappearance
 make
 man-db
 man-pages
@@ -114,8 +115,10 @@ texlive-local-pgfplots
 texlive-local-tkz-base
 texlive-local-tkz-euclide
 texlive-localmanager-git
+the_silver_searcher
 trizen
 ttf-dejavu
+ttf-emojione
 udisks2
 unzip
 usbutils

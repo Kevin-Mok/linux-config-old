@@ -2,7 +2,7 @@
 
 #Device name variable
 if [ "$1" = "dac" ]; then
-	devicename="alsa_output.usb-FiiO_DigiHug_USB_Audio-01.analog-stereo"
+	devicename="alsa_output.usb-1852_DigiHug_USB_Audio-01.analog-stereo"
 elif [ "$1" = "line-out" ]; then
 	devicename="alsa_output.pci-0000_00_14.2.analog-stereo"
 fi

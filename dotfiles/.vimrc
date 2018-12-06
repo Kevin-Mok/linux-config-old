@@ -273,7 +273,9 @@ autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
 autocmd Filetype tex inoremap <localleader>n \neq
 autocmd Filetype tex inoremap <localleader>N \mathbb{N}
 autocmd Filetype tex inoremap <localleader>q \qquad
-autocmd Filetype tex inoremap <localleader>r \Rightarrow
+autocmd Filetype tex inoremap <localleader>r \rightarrow
+autocmd Filetype tex inoremap <localleader>R \Rightarrow
+autocmd Filetype tex inoremap <localleader>s \subset
 autocmd Filetype tex inoremap <localleader>st such that
 autocmd Filetype tex inoremap <localleader>S \Sigma
 autocmd Filetype tex inoremap <localleader>t \times

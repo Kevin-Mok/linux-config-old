@@ -1,5 +1,5 @@
-! URxvt.font: xft:DejaVu Sans Mono:size=14
-URxvt.font: xft:Hack Nerd Font:size=14
+URxvt.font: xft:DejaVuSansMono Nerd Font Mono:size=14
+! URxvt.font: xft:Hack Nerd Font:size=14
 ! URxvt.font: xft:Hack NF:size=18
 ! URxvt.font: xft:Hack:size=18
 

@@ -1,1 +1,7 @@
+#!/bin/bash
+
+. "/home/kevin/.cache/wal/colors.sh"
+
 echo "Kevin"
+# echo "<span foreground=\"$foreground\">Kevin</span>"
+# echo "<span foreground=\"$color2\">Kevin</span>"

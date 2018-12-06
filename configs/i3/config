@@ -47,7 +47,7 @@ bindsym Print exec gscreenshot
 
 #  redshift {{{ # 
 
-bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1250
+bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1000
 bindsym $mod+Mod4+2 exec redshift -x && redshift -O 2000
 bindsym $mod+Mod4+3 exec redshift -x && redshift -O 3000
 bindsym $mod+Mod4+4 exec redshift -x && redshift -O 4000
@@ -198,7 +198,8 @@ set $ws4 "4 "
 workspace $ws4 output $samsung
 bindsym $mod+F4 workspace $ws4; exec $def_term
 
-set $ws5 "5 "
+# set $ws5 "5 "
+set $ws5 "5 🎥"
 workspace $ws5 output $samsung
 bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec steam
@@ -209,20 +210,24 @@ assign [class="Slack"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
 
-set $ws7 "7 "
+# set $ws7 "7 "
+set $ws7 "7 📤"
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
 
-set $ws8 "8 "
+# set $ws8 "8 "
+set $ws8 "8 📊"
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $samsung
 bindsym $mod+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_MEM 
 
-set $ws9 "9 "
+# set $ws9 "9 "
+set $ws9 "9 🔧"
 workspace $ws9 output $samsung
 bindsym $mod+F9 workspace $ws9; exec $def_term
 
-set $ws10 "10 "
+# set $ws10 "10 "
+set $ws10 "10 🎵"
 assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 set $hp 2
@@ -344,7 +349,9 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 #  status bar {{{ # 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-set $sb_font Hack NF Bold
+set $sb_font DejaVuSansMono Nerd Font Mono Bold
+# set $sb_font Hack NF Bold
+# set $sb_font EmojiOne
 set $black #000000
 set $white #ffffff
 
@@ -356,6 +363,7 @@ set $inactive_ws_bg #444c52
 # set $inactive_ws_text #bcccd7
 # set $inactive_ws_text #838e96
 set $inactive_ws_text #cbe4ff
+# set $inactive_ws_text $bg
 
 # set $inactive_ws_trans c8
 # set $inactive_ws_trans 96
@@ -394,7 +402,8 @@ bar {
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
 	}
 	tray_output none
-	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	# status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
 	output $benq
 	wheel_up_cmd nop
 	wheel_down_cmd nop

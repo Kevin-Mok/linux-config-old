@@ -1,6 +1,6 @@
-ZSH_THEME="bira"
+# ZSH_THEME="bira"
 # ZSH_THEME="miloshadzic"
-# ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 
 #  default {{{ # 
 
@@ -153,6 +153,8 @@ add-zsh-hook precmd reload_aliases
 #  }}} autoreload zsh aliases #
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export pywal colors
+source ~/.cache/wal/colors.sh
 
 # autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ ls -a; }
