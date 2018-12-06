@@ -391,7 +391,7 @@ set $bar_trans 00
 set $benq_ws_trans aa
 bar {
 	i3bar_command i3bar -t 
-	font pango:$sb_font 20
+	font pango:$sb_font 21
 	colors {
 		# 0 (transparent) -> 255 (opaque) in hex
 		background $black$bar_trans

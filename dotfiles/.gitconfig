@@ -1,6 +1,7 @@
 [user]
 	email = kevin.mok@live.ca
 	name = Kevin Mok
+	signingkey = AEA75288DC135CF5
 [color]
 	ui = auto
 [core]
@@ -14,3 +15,5 @@
 	prompt = false
 [diff]
 	tool = vimdiff
+[commit]
+	gpgsign = true

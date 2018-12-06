@@ -27,6 +27,7 @@ set linespace=5
 
 set timeoutlen=500
 set hlsearch
+set noswapfile
 " }}} set x=y "
 
 " commands for file types {{{ "
@@ -34,7 +35,7 @@ set hlsearch
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
 autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
-autocmd BufRead commit-msg.txt set filetype=gitcommit
+autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
@@ -254,12 +255,12 @@ nnoremap <leader>yg ggyG
 
 " }}} Mappings "
 
-" Local Mappings {{{ "
+" (tex) Local Mappings {{{ "
 let maplocalleader="-"
 autocmd Filetype c inoremap <localleader>s struct pixel
 
-" tex {{{ "
 autocmd Filetype tex inoremap <localleader>bt \bowtie
+autocmd Filetype tex inoremap <localleader>c \checkmark
 autocmd Filetype tex inoremap <localleader>d \delta
 autocmd Filetype tex inoremap <localleader>D \Delta
 autocmd Filetype tex inoremap <localleader>e \exists
@@ -291,7 +292,6 @@ autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 " par3
 autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
-" }}} tex "
 
 autocmd Filetype md inoremap <localleader>x 0f[lRX
 

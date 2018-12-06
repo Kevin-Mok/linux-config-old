@@ -25,8 +25,8 @@ link_to_lc () {
 }
 
 link_to_lc "files" "$HOME" "$lc_dir/dotfiles"
-link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
-link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
+# link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
+# link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
 
 # setup nvim config
 # nvim_file="/home/kevin/lc-test/init.vim"

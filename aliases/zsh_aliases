@@ -199,7 +199,7 @@ alias gstr="git config credential.helper store"
 
 #  add {{{ # 
 alias ga="git add -A . && gs"
-alias gac="git add -A . && git commit"
+alias gac="git add -A . && git commit -S"
 #  }}} add # 
 
 #  diff/log {{{ # 
@@ -222,11 +222,11 @@ alias gheadm1="git reset --hard HEAD~1"
 alias gls="git ls-tree -r HEAD --name-only"
 
 #  push {{{ # 
-alias egc="nvim -c \"set syn=gitcommit\" -c \"set tw=72\" commit-msg.txt"
+alias vgc="ni commit-msg.txt"
 alias gst="git stash"
 alias gstp="git stash pop"
 
-alias gc="git commit"
+alias gc="git commit -S"
 alias gcam="ga && git commit --amend --no-edit"
 alias gcamp="ga && git commit --amend --no-edit && gpsf"
 # todo: fix

@@ -115,18 +115,22 @@ fi
 # pywal
 export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/linux-config/scripts"
 (cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors.sh
+
+xset r rate 200 60
+
+#  laptop specific {{{ # 
 
 # keyboard delay/rate
-xset r rate 200 60
-# laptop
-if [ "$(hostname)" = "X1-Carbon" ];
+if [ "$(hostname)" = "x1-carbon" ];
 then
 	xrandr --dpi 125
 	xinput disable "ELAN Touchscreen"
 	# enable horizontal scrolling
 	synclient HorizTwoFingerScroll=1
 fi
-source /home/kevin/.shortcuts
+
+#  }}}  laptop specific # 
 
 #  autoreload zsh aliases {{{ #
 
@@ -152,10 +156,10 @@ add-zsh-hook precmd reload_aliases
 
 #  }}} autoreload zsh aliases #
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/kevin/.shortcuts
 # export pywal colors
-source ~/.cache/wal/colors.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ ls -a; }
 
+export GPG_TTY=$(tty)
