@@ -1,7 +1,3 @@
-# ZSH_THEME="bira"
-# ZSH_THEME="miloshadzic"
-ZSH_THEME="agnoster"
-
 #  default {{{ # 
 
 HISTFILE=~/.histfile
@@ -13,12 +9,7 @@ setopt appendhistory autocd extendedglob nomatch notify
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/kevin/.oh-my-zsh
-  export EDITOR=/usr/bin/nvim
-  export VISUAL=/usr/bin/nvim
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+  export EDITOR=/usr/bin/nvim export VISUAL=/usr/bin/nvim # Set name of the theme to load. Optionally, if you set this to "random" it'll load a random theme each time that oh-my-zsh is loaded.  See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -73,11 +64,6 @@ plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
-source ~/linux-config/aliases/zsh_aliases
-
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -109,6 +95,21 @@ source ~/linux-config/aliases/zsh_aliases
 
 #  }}}  default # 
 
+source $ZSH/oh-my-zsh.sh
+source ~/linux-config/aliases/zsh_aliases
+
+# ZSH_THEME="bira"
+# ZSH_THEME="miloshadzic"
+# ZSH_THEME="agnoster"
+
+source $ZSH/custom/antigen.zsh
+antigen bundle hlissner/zsh-autopair
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle softmoth/zsh-vim-mode
+
+antigen theme molovo/filthy
+antigen apply
+
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
@@ -133,45 +134,45 @@ fi
 
 #  }}}  laptop specific # 
 
-#  autoreload zsh aliases {{{ #
+# #  autoreload zsh aliases {{{ #
 
-# File containing aliases;
-ALIAS_FILE="$HOME/linux-config/aliases/zsh_aliases"
+# # File containing aliases;
+# ALIAS_FILE="$HOME/linux-config/aliases/zsh_aliases"
 
-reload_aliases () {
-	# do nothing if there is no $ALIAS_FILE
-	[[ -e ALIAS_FILE ]] || return 1
-	# check if $ALIAS_FILE has been modified since last reload
-	# the modifier `(:A)` resolves any symbolic links
-	if [[ $LAST_ALIAS_RELOAD < $(stat -c %Y ${ALIAS_FILE}(:A)) ]]; then
-		# load aliases
-		source $ALIAS_FILE
-		# update date of last reload
-		LAST_ALIAS_RELOAD=$(date +%s)
-	fi
-}
+# reload_aliases () {
+	# # do nothing if there is no $ALIAS_FILE
+	# [[ -e ALIAS_FILE ]] || return 1
+	# # check if $ALIAS_FILE has been modified since last reload
+	# # the modifier `(:A)` resolves any symbolic links
+	# if [[ $LAST_ALIAS_RELOAD < $(stat -c %Y ${ALIAS_FILE}(:A)) ]]; then
+		# # load aliases
+		# source $ALIAS_FILE
+		# # update date of last reload
+		# LAST_ALIAS_RELOAD=$(date +%s)
+	# fi
+# }
 
-# make reload_aliases to be run before each prompt
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd reload_aliases
+# # make reload_aliases to be run before each prompt
+# autoload -Uz add-zsh-hook
+# add-zsh-hook precmd reload_aliases
 
-#  }}} autoreload zsh aliases #
+# #  }}} autoreload zsh aliases #
 
 source /home/kevin/.shortcuts
 # export pywal colors
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-add-zsh-hook -Uz chpwd (){ ls -a; }
+# add-zsh-hook -Uz chpwd (){ ls -a; }
 
 export GPG_TTY=$(tty)
 export PASSWORD_STORE_CLIP_TIME=120
 
-#  perl {{{ # 
+# #  perl {{{ #
 
-PATH="/home/kevin/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/kevin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/kevin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/kevin/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/kevin/perl5"; export PERL_MM_OPT;
+# PATH="/home/kevin/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/kevin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/kevin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/kevin/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/kevin/perl5"; export PERL_MM_OPT;
 
-#  }}} perl # 
+# #  }}} perl #
