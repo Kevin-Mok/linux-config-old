@@ -10,6 +10,7 @@ use strict;
 use warnings;
 use utf8;
 use Getopt::Long;
+# use Env::Modify qw(:ksh source);
 
 # default values
 my $t_warn = 50;
@@ -44,6 +45,10 @@ $cpu_usage eq -1 and die 'Can\'t find CPU information';
 printf "%.0f%%\n", $cpu_usage;
 printf "%.0f%%\n", $cpu_usage;
 
+system("source \"/home/kevin/.cache/wal/colors.sh\"");
+# printf "%s", $ENV{'SHELL'};
+printf "%s", $ENV{'color2'};
+# printf "%s", $ENV{'bg'};
 # Print color, if needed
 if ($cpu_usage >= $t_crit) {
     print "#FF0000\n";

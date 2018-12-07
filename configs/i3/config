@@ -34,12 +34,13 @@ bindsym Mod4+c exec $browser
 bindsym Mod4+f exec firefox
 bindsym Mod4+o exec okular
 bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
-bindsym Mod4+n exec nemo
+bindsym Mod4+n exec urxvt -e nvim
 bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
-bindsym control+$mod+s exec systemctl suspend
+# bindsym control+$mod+s exec systemctl suspend
+bindsym control+$mod+p exec systemctl suspend
 bindsym Mod4+t exec st
 bindsym Mod4+x exec $swex
 bindsym Print exec gscreenshot
@@ -128,9 +129,10 @@ bindsym control+Shift+x kill
 
 #  container display {{{ # 
 # backgrounds
-bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/vibrant"
-bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim"
-bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"
+# set $colors_sh "~/.cache/wal/colors.sh"
+bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/vibrant"; exec ~/.cache/wal/colors.sh
+bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim"; exec ~/.cache/wal/colors.sh
+bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"; exec ~/.cache/wal/colors.sh
 bindsym $mod+z exec feh --bg-fill ~/Pictures/Backgrounds/dim/black.jpg
 
 # enter fullscreen mode for the focused container
@@ -198,8 +200,8 @@ set $ws4 "4 "
 workspace $ws4 output $samsung
 bindsym $mod+F4 workspace $ws4; exec $def_term
 
-# set $ws5 "5 "
-set $ws5 "5 🎥"
+set $ws5 "5 "
+# set $ws5 "5 🎥"
 workspace $ws5 output $samsung
 bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec steam
@@ -210,24 +212,24 @@ assign [class="Slack"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
 
-# set $ws7 "7 "
-set $ws7 "7 📤"
+set $ws7 "7 "
+# set $ws7 "7 📤"
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
 
-# set $ws8 "8 "
-set $ws8 "8 📊"
+set $ws8 "8 "
+# set $ws8 "8 📊"
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $samsung
 bindsym $mod+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_MEM 
 
-# set $ws9 "9 "
-set $ws9 "9 🔧"
+set $ws9 "9 "
+# set $ws9 "9 🔧"
 workspace $ws9 output $samsung
 bindsym $mod+F9 workspace $ws9; exec $def_term
 
-# set $ws10 "10 "
-set $ws10 "10 🎵"
+set $ws10 "10 "
+# set $ws10 "10 🎵"
 assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 set $hp 2
@@ -298,7 +300,9 @@ bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
 
 bindsym $mod+Shift+s exec systemctl suspend
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+control+r restart
+# bindsym $mod+control+r exec ~/.cache/wal/colors.sh; restart
+bindsym $mod+control+r exec restart
+# bindsym $mod+control+r exec $colors_sh && i3-msg restart
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -324,11 +328,11 @@ for_window [class="^.*"] border pixel 3
 set $inner_gaps 35
 set $outer_gaps 0
 
-gaps inner $inner_gaps
-gaps outer $outer_gaps
-gaps bottom 0
-# gaps inner 0
-# gaps outer 0
+# gaps inner $inner_gaps
+# gaps outer $outer_gaps
+# gaps bottom 0
+gaps inner 0
+gaps outer 0
 
 #  other gaps {{{ # 
 
@@ -391,7 +395,8 @@ set $bar_trans 00
 set $benq_ws_trans aa
 bar {
 	i3bar_command i3bar -t 
-	font pango:$sb_font 21
+	# font pango:$sb_font 21
+	font pango:$sb_font 14
 	colors {
 		# 0 (transparent) -> 255 (opaque) in hex
 		background $black$bar_trans
@@ -415,7 +420,8 @@ bar {
 
 bar {
 	output $samsung
-	font pango:$sb_font 25
+	# font pango:$sb_font 25
+	font pango:$sb_font 15
 	# output $benq
 	i3bar_command i3bar -t
 	colors {
@@ -454,7 +460,8 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack 11
+# font pango:Hack 11
+font pango:$sb_font 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8

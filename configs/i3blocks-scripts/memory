@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 TYPE="${BLOCK_INSTANCE:-mem}"
+. "/home/kevin/.cache/wal/colors.sh"
 
 awk -v type=$TYPE '
 /^MemTotal:/ {
@@ -47,3 +48,4 @@ END {
 	# TODO: color (if less than X%)
 }
 ' /proc/meminfo
+printf "\n%s\n" "$color7"

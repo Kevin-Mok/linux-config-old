@@ -151,6 +151,9 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'henrik/vim-indexed-search'
 Plug 'PotatoesMaster/i3-vim-syntax'
+" vim file explorer
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -165,9 +168,8 @@ colorscheme wal
 " map <F3> :wa<CR>
 map <F4> :wqa<CR>
 map <F5> :qa!<CR>
-map <F6> :make -C ~/Documents/resume cv<CR>
-map <F7> :AutoSaveToggle<CR>
-" map <F9> :LLPStartPreview<CR>
+" map <F6> :make -C ~/Documents/resume cv<CR>
+" map <F7> :AutoSaveToggle<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
 " map <F9> :VimtexCompile<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>

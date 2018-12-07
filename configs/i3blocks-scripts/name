@@ -2,6 +2,7 @@
 
 . "/home/kevin/.cache/wal/colors.sh"
 
-echo "Kevin"
+# echo "Kevin"
+printf "Kevin\n\n%s\n" "$color7"
 # echo "<span foreground=\"$foreground\">Kevin</span>"
 # echo "<span foreground=\"$color2\">Kevin</span>"
