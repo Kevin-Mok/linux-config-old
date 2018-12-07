@@ -126,6 +126,7 @@ Plug 'tpope/vim-surround'
 
 " navigate around file easily and precisely
 Plug 'easymotion/vim-easymotion'
+	map <Space> <Plug>(easymotion-prefix)
 
 " status bar displaying various info about the current buffer
 Plug 'vim-airline/vim-airline'
@@ -154,7 +155,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 " vim file explorer
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
-	let g:multi_cursor_select_all_word_key='<C-a>'
+	" let g:multi_cursor_select_all_word_key='<C-a>'
 
 call plug#end()
 
@@ -166,9 +167,8 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
-" map <F3> :wa<CR>
-map <F4> :wqa<CR>
-map <F5> :qa!<CR>
+map <F4> :xa<CR>
+map <F5> :q!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>
 " map <F7> :AutoSaveToggle<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
@@ -200,8 +200,6 @@ nnoremap <leader>dg ggdG
 nnoremap <leader>D "+dd
 " delete entire buffer into system clipboard
 nnoremap <leader>DA "+ggdG
-" reload file
-nnoremap <leader>e :e<CR>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
@@ -228,6 +226,8 @@ nnoremap <leader>plu :PlugUpdate<CR>
 nnoremap <leader>py :set tw=0<CR>
 " replace in next x lines
 nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
+" reload file
+nnoremap <leader>rf :e<CR>
 " replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
 " replace in visual selection
@@ -240,19 +240,19 @@ nnoremap <leader>R q:i%s///g<ESC>2F/i
 nnoremap <leader>so q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
 nnoremap <leader>sh :set syn=sh<CR>
+" open vimrc in vertical split
+nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " format current line
-nnoremap <leader>w Vgq
+nnoremap <leader>ww Vgq
 " format this and next line
-nnoremap <leader>ww Vjgq
-" format current 3 lines
-nnoremap <leader>www V2jgq
-" toggle fold
-nnoremap <leader>z za
+nnoremap <leader>www Vjgq
 " copy next thing to system clipboard
 nnoremap <leader>y "+
 nnoremap <leader>Y "+Y
 " yank entire buffer
 nnoremap <leader>yg ggyG
+" toggle fold
+nnoremap <leader>z za
 
 " }}} leader mappings "
 

@@ -93,7 +93,7 @@ alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 #  }}}  directory-related # 
 
 #  power options {{{ # 
-alias p="systemctl suspend"
+alias su="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
@@ -200,6 +200,7 @@ alias psi="pass insert -m"
 alias psg="pass generate -c"
 alias yh="echo 'kevin.mok@live.ca' | xclip -selection clipboard"
 alias yg="xclip -selection clipboard ~/.password-store/social/gmail"
+alias yu="echo 'kevin.mok@mai.utoronto.ca' | xclip -selection clipboard"
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 

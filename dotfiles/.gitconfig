@@ -15,5 +15,5 @@
 	prompt = false
 [diff]
 	tool = vimdiff
-; [commit]
-	; gpgsign = true
+[commit]
+	gpgsign = true

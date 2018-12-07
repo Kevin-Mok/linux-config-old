@@ -106,6 +106,7 @@ source $ZSH/custom/antigen.zsh
 antigen bundle hlissner/zsh-autopair
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle softmoth/zsh-vim-mode
+antigen bundle desyncr/auto-ls
 
 antigen theme molovo/filthy
 antigen apply
