@@ -164,6 +164,7 @@ source /home/kevin/.shortcuts
 add-zsh-hook -Uz chpwd (){ ls -a; }
 
 export GPG_TTY=$(tty)
+export PASSWORD_STORE_CLIP_TIME=120
 
 #  perl {{{ # 
 

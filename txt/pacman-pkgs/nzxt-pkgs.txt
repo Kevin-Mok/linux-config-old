@@ -45,6 +45,7 @@ htop-vim-git
 i3-gaps
 i3blocks-git
 i3status
+imv
 imwheel
 inetutils
 iniparser
@@ -73,7 +74,9 @@ netctl
 noto-fonts
 ntfs-3g
 nvidia
+openssh
 pacman
+pass
 patch
 pciutils
 pdfgrep
@@ -88,6 +91,7 @@ python-pip
 python-pywal
 python-setuptools
 qdirstat
+qrencode
 ranger
 redshift
 reiserfsprogs
@@ -110,6 +114,7 @@ texlive-local-algorithmicx
 texlive-local-algorithms
 texlive-local-enumitem
 texlive-local-hyperref
+texlive-local-multirow
 texlive-local-numprint
 texlive-local-pgfplots
 texlive-local-tkz-base
@@ -183,4 +188,5 @@ xorg-xwininfo
 xorg-xwud
 zathura
 zathura-pdf-poppler
+zbar
 zsh

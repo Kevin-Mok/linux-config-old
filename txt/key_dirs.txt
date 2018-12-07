@@ -9,6 +9,7 @@ k /home/kevin/
 lc /home/kevin/linux-config/
 m /run/media
 o /
+p /home/kevin/.password-store
 
 # }}} sys *
 

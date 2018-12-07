@@ -154,6 +154,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 " vim file explorer
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
+	let g:multi_cursor_select_all_word_key='<C-a>'
 
 call plug#end()
 

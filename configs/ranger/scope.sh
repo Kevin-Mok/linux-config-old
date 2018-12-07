@@ -83,6 +83,13 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}" && exit 5
             elinks -dump "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
+
+        # htm|html|xhtml)
+            # # Preview as text conversion
+            # w3m -dump "${FILE_PATH}" && exit 5
+            # lynx -dump -- "${FILE_PATH}" && exit 5
+            # elinks -dump "${FILE_PATH}" && exit 5
+            # ;; # Continue with next handler on failure
     esac
 }
 
