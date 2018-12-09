@@ -16,8 +16,9 @@ p /home/kevin/.password-store
 # cdn {{{ *
 
 cn /home/kevin/coding
-j /home/kevin/Documents/journal
 ib /home/kevin/linux-config/configs/i3blocks-scripts
+j /home/kevin/Documents/journal
+lh /home/kevin/Documents/listening-history
 ra /home/kevin/linux-config/configs/ranger
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sv /home/kevin/coding/spotify-lib-vis/src

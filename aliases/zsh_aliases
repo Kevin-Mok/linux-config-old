@@ -46,6 +46,7 @@ function lzip() { unzip -l $1 | less; }
 
 alias mkpk="makepkg -sri"
 alias mkex="chmod 777"
+alias ctl="systemctl"
 alias ctle="systemctl enable"
 alias ctls="systemctl start"
 
@@ -70,15 +71,10 @@ shrm() {
 #  directory-related {{{ # 
 alias l='ls -a'
 alias ll='ls -alFh'
-# alias f="cd"
-function f() { cd $1 && pwd > ~/.last_dir ; }
-# function f() { cd $1 && pwd > ~/.last_dir && ls -a ; }
+alias f="cd"
+f `cat /home/kevin/.oh-my-zsh/cache/last-working-dir`
+# alias w="cd $(cat /home/kevin/.oh-my-zsh/cache/last-working-dir)"
 
-# restore last dir
-if [ -f ~/.last_dir ]
-    # then cd `cat ~/.last_dir`
-    then f `cat ~/.last_dir`
-fi
 alias rmr="rm -rf"
 alias mdp="mkdir -p"
 
@@ -88,6 +84,7 @@ alias "f.."="f ..."
 function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
 alias ds="df -h | grep sd"
+alias chownw="sudo chown -R kevin:wheel"
 alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 
 #  }}}  directory-related # 
@@ -164,7 +161,7 @@ alias hc="htop -s PERCENT_CPU"
 alias r="ranger"
 alias mr="man ranger"
 alias clc="cloc ."
-function za() { nohup zathura $1 > /dev/null 2>&1& ; }
+function z() { nohup zathura $1 > /dev/null 2>&1& ; }
 function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 alias ni="nvim"
@@ -253,7 +250,7 @@ function gcm(){ echo git commit -m \""$1"\" ; }
 
 function psgi() { 
 	git add .
-	git commit -m '.'
+	git commit -m -S '.'
 	git push
 } 
 alias gps="git push"
@@ -333,12 +330,12 @@ alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
 alias svscs="f $spv_dir/src/static/scss"
 alias svcss="f $spv_dir/src/spotifyvis/static/scss"
-# source ~/coding/spotify-lib-vis/src/api-keys.sh
-# source "$spv_dir""/src/api-keys.sh"
+source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 function ssv() {
 	source ../bin/activate
 	python manage.py runserver
 }
+alias sssv="sv && ssv"
 alias spvdb="psql -d spotifyvis -U django"
 function mig() {
 	python manage.py makemigrations

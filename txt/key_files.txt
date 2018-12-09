@@ -20,6 +20,7 @@ z /home/kevin/linux-config/aliases/zsh_aliases
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 jn /home/kevin/Documents/journal/todo/12.md
 jt /home/kevin/Documents/journal/todo/todo.md
+lh /home/kevin/Documents/listening-history/polarbier.csv
 no ./.gitignore
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets

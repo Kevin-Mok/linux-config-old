@@ -71,13 +71,13 @@ Plug 'vim-scripts/L9'
 " Gotham color scheme
 " Plug 'whatyouhide/vim-gotham'
 
-" collection of Vim color schemes
-Plug 'flazz/vim-colorschemes'
+" " collection of Vim color schemes
+" Plug 'flazz/vim-colorschemes'
 
-" preview Vim color scheme easily within Vim
-Plug 'xolox/vim-colorscheme-switcher'
-" prerequisite for above plugin
-Plug 'xolox/vim-misc'
+" " preview Vim color scheme easily within Vim
+" Plug 'xolox/vim-colorscheme-switcher'
+" " prerequisite for above plugin
+" Plug 'xolox/vim-misc'
 
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
@@ -224,10 +224,10 @@ nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
 " don't break lines
 nnoremap <leader>py :set tw=0<CR>
-" replace in next x lines
-nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
 " reload file
-nnoremap <leader>rf :e<CR>
+nnoremap <leader>r :e<CR>
+" replace in next x lines
+nnoremap <leader>re q:i.,.+s///g<ESC>Fsi
 " replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
 " replace in visual selection

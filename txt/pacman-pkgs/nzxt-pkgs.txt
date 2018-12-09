@@ -79,6 +79,7 @@ pacman
 pass
 patch
 pciutils
+pcmanfm
 pdfgrep
 perl
 pipes.sh
@@ -189,4 +190,5 @@ xorg-xwud
 zathura
 zathura-pdf-poppler
 zbar
+zip
 zsh

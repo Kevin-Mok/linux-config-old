@@ -240,7 +240,7 @@ bindsym Mod4+s workspace $ws10; exec spotify
 set $ws11 "11 "
 # assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $samsung
-bindsym $mod+F11 workspace $ws8; exec $def_term
+bindsym $mod+F11 workspace $ws11; exec $def_term
 
 set $ws12 "12 "
 bindsym $mod+F12 workspace $ws12; exec $def_term

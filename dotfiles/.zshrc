@@ -103,6 +103,9 @@ source ~/linux-config/aliases/zsh_aliases
 # ZSH_THEME="agnoster"
 
 source $ZSH/custom/antigen.zsh
+antigen bundle last-working-dir 
+antigen bundle pass 
+
 antigen bundle hlissner/zsh-autopair
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle softmoth/zsh-vim-mode
@@ -116,7 +119,7 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 fi
 
 # pywal
-export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/linux-config/scripts"
+export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/linux-config/scripts:/opt/pycharm-2018.3.1/bin"
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors.sh
 
@@ -160,6 +163,7 @@ fi
 # #  }}} autoreload zsh aliases #
 
 source /home/kevin/.shortcuts
+source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 # export pywal colors
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

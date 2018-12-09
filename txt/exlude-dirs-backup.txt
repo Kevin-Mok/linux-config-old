@@ -1,4 +1,4 @@
-/home/kevin/.cache/spotify/Storage
+/home/kevin/.cache
 /lost+found
 /mnt
 /proc
