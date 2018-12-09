@@ -354,8 +354,8 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 #  status bar {{{ # 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-set $sb_font DejaVuSansMono Nerd Font Mono Bold
-# set $sb_font Hack NF Bold
+# set $sb_font DejaVuSansMono Nerd Font Mono Bold
+set $sb_font Hack NF Bold
 # set $sb_font EmojiOne
 set $black #000000
 set $white #ffffff
@@ -396,63 +396,12 @@ set $bar_trans 00
 set $benq_ws_trans aa
 bar {
 	i3bar_command i3bar -t 
-	font pango:$sb_font 21
-	# font pango:$sb_font 14
-	colors {
-		# 0 (transparent) -> 255 (opaque) in hex
-		background $black$bar_trans
-		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
-		# active = focused on other screen
-		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
-		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
-	}
+	font pango:$sb_font 24
 	tray_output none
-	# status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
-	output $benq
-	wheel_up_cmd nop
-	wheel_down_cmd nop
+	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	# status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
+	output eDP1
 }
-
-#  }}} benq bar # 
-
-#  sam bar {{{ #
-
-bar {
-	output $samsung
-	font pango:$sb_font 25
-	# font pango:$sb_font 15
-	# output $benq
-	i3bar_command i3bar -t
-	colors {
-		background $black$bar_trans
-		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
-		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
-		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
-	}
-	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-	tray_output none
-	wheel_up_cmd nop
-	wheel_down_cmd nop
-}
-
-#  }}} samsung bar #
-
-# # #  display {{{ #
-
-# bar {
-	# i3bar_command i3bar -t
-	# font pango:$sb_font 23
-	# tray_output none
-	# status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
-	# output $samsung
-	# wheel_up_cmd nop
-	# wheel_down_cmd nop
-# }
-
-# #  }}}  display #
 
 #  }}} status bar #
 
@@ -476,19 +425,19 @@ font pango:$sb_font 11
 # font, it doesn’t scale on retina/hidpi displays.
 #  }}} mod key/font # 
 
-#  media keys {{{ # 
-bindsym $mod+d exec ~/linux-config/scripts/change-sink dac
-bindsym $mod+o exec ~/linux-config/scripts/change-sink line-out
+# #  media keys {{{ #
+# bindsym $mod+d exec ~/linux-config/scripts/change-sink dac
+# bindsym $mod+o exec ~/linux-config/scripts/change-sink line-out
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
-bindsym control+$mod+plus exec --no-startup-id amixer -c 2 sset PCM 3+
-bindsym control+$mod+minus exec --no-startup-id amixer -c 2 sset PCM 3-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
+# bindsym control+$mod+plus exec --no-startup-id amixer -c 2 sset PCM 3+
+# bindsym control+$mod+minus exec --no-startup-id amixer -c 2 sset PCM 3-
+# bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
 
-# Media player controls
-bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
-bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-#  }}} media keys # 
+# # Media player controls
+# bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+# bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+# #  }}} media keys #

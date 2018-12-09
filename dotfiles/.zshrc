@@ -1,3 +1,7 @@
+ZSH_THEME="bira"
+# ZSH_THEME="miloshadzic"
+# ZSH_THEME="agnoster"
+
 #  default {{{ # 
 
 HISTFILE=~/.histfile
@@ -103,6 +107,7 @@ source ~/linux-config/aliases/zsh_aliases
 # ZSH_THEME="agnoster"
 
 source $ZSH/custom/antigen.zsh
+antigen use oh-my-zsh
 antigen bundle last-working-dir 
 antigen bundle pass 
 
@@ -133,7 +138,7 @@ then
 	xrandr --dpi 125
 	xinput disable "ELAN Touchscreen"
 	# enable horizontal scrolling
-	synclient HorizTwoFingerScroll=1
+	# synclient HorizTwoFingerScroll=1
 fi
 
 #  }}}  laptop specific # 
@@ -163,7 +168,7 @@ fi
 # #  }}} autoreload zsh aliases #
 
 source /home/kevin/.shortcuts
-source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
+# source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 # export pywal colors
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

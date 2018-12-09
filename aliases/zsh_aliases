@@ -90,7 +90,7 @@ alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 #  }}}  directory-related # 
 
 #  power options {{{ # 
-alias su="systemctl suspend"
+alias s="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
@@ -330,7 +330,6 @@ alias sva="f $spv_dir/src/api"
 alias svg="f $spv_dir/src/graphs"
 alias svscs="f $spv_dir/src/static/scss"
 alias svcss="f $spv_dir/src/spotifyvis/static/scss"
-source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 function ssv() {
 	source ../bin/activate
 	python manage.py runserver
