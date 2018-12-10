@@ -1,12 +1,24 @@
 #!/bin/bash
 
 #Device name variable
-if [ "$1" = "dac" ]; then
-	devicename="alsa_output.usb-1852_DigiHug_USB_Audio-01.analog-stereo"
+case $1 in
+	dac )
+		devicename="alsa_output.usb-FiiO_DigiHug_USB_Audio-01.analog-stereo"
+		;;
+	dac2 )
+		devicename="alsa_output.usb-1852_DigiHug_USB_Audio-01.analog-stereo"
+		;;
+	line-out )
+		devicename="alsa_output.pci-0000_00_14.2.analog-stereo"
+		;;
+esac
+# if [ "$1" = "dac" ]; then
 	# devicename="alsa_output.usb-FiiO_DigiHug_USB_Audio-01.analog-stereo"
-elif [ "$1" = "line-out" ]; then
-	devicename="alsa_output.pci-0000_00_14.2.analog-stereo"
-fi
+# elif [ "$1" = "dac2" ]; then
+	# devicename="alsa_output.usb-1852_DigiHug_USB_Audio-01.analog-stereo"
+# elif [ "$1" = "line-out" ]; then
+	# devicename="alsa_output.pci-0000_00_14.2.analog-stereo"
+# fi
 echo "$devicename"
 
 #change the default sink

@@ -48,7 +48,10 @@ alias mkpk="makepkg -sri"
 alias mkex="chmod 777"
 alias ctl="systemctl"
 alias ctle="systemctl enable"
+alias ctld="systemctl disable"
 alias ctls="systemctl start"
+
+alias wm="sudo wifi-menu"
 
 #  mounting {{{ # 
 
@@ -85,6 +88,7 @@ function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
 alias ds="df -h | grep sd"
 alias chownw="sudo chown -R kevin:wheel"
+alias chwnm="sudo chown -R kevin:wheel /run/media/kevin"
 alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 
 #  }}}  directory-related # 

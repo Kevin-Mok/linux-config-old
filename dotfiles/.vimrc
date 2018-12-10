@@ -171,6 +171,7 @@ map <F4> :xa<CR>
 map <F5> :q!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>
 " map <F7> :AutoSaveToggle<CR>
+map <F8> :!clear && shellcheck %<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
 " map <F9> :VimtexCompile<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
@@ -236,10 +237,12 @@ vnoremap <leader>r q:is///g<ESC>3ha
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
+" run current file in shell
+nnoremap <leader>sh :!%:p<CR>
 " sort lines
 nnoremap <leader>so q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
-nnoremap <leader>sh :set syn=sh<CR>
+nnoremap <leader>sys :set syn=sh<CR>
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " format current line
@@ -247,8 +250,9 @@ nnoremap <leader>ww Vgq
 " format this and next line
 nnoremap <leader>www Vjgq
 " copy next thing to system clipboard
-nnoremap <leader>y "+
-nnoremap <leader>Y "+Y
+" nnoremap <leader>y "+
+" nnoremap <leader>Y "+Y
+nnoremap <leader>y y$
 " yank entire buffer
 nnoremap <leader>yg ggyG
 " toggle fold
