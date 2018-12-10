@@ -167,7 +167,7 @@ set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-# client.unfocused        $bg     $bg     $fg  $bg       $bg
+# client.unfocused        $fg     $bg     $fg  $bg       $fg
 # client.urgent           $bg     $bg     $fg  $bg       $bg
 # client.placeholder      $bg     $bg     $fg  $bg       $bg
 # client.background       $bg
@@ -365,28 +365,14 @@ set $white #ffffff
 # set $inactive_ws_bg $white
 set $inactive_ws_bg #444c52
 
-# set $inactive_ws_text #bcccd7
-# set $inactive_ws_text #838e96
-set $inactive_ws_text #cbe4ff
-# set $inactive_ws_text $bg
-
-# set $inactive_ws_trans c8
 # set $inactive_ws_trans 96
 set $inactive_ws_trans 00
 
 #  }}} inactive # 
 
-#  active vars {{{ # 
+# set $active_ws_trans 91
+set $active_ws_trans 4b
 
-set $active_ws_bg #444c52
-# set $active_ws_bg #566066
-
-# set $active_ws_trans c8
-set $active_ws_trans 91
-
-#  }}} active # 
-
-# set $focused_ws_text $white
 set $focused_ws_text #ffffff
 
 #  benq bar {{{ # 
@@ -402,10 +388,11 @@ bar {
 		# 0 (transparent) -> 255 (opaque) in hex
 		background $black$bar_trans
 		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
+		# focused_workspace $inactive_ws_bg $bg $focused_ws_text
+		focused_workspace $inactive_ws_bg $bg $fg
 		# active = focused on other screen
-		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
-		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
+		active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
+		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
 	}
 	tray_output none
 	# status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
@@ -428,11 +415,13 @@ bar {
 	colors {
 		background $black$bar_trans
 		# border, bg, text color
-		focused_workspace $inactive_ws_bg $bg $focused_ws_text 
-		active_workspace $inactive_ws_bg $active_ws_bg$active_ws_trans $focused_ws_text
-		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $inactive_ws_text
+		# focused_workspace $inactive_ws_bg $bg $focused_ws_text
+		focused_workspace $inactive_ws_bg $bg $fg 
+		active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
+		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
 	}
-	status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+	# status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
+	status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/sam-i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
 	tray_output none
 	wheel_up_cmd nop
 	wheel_down_cmd nop

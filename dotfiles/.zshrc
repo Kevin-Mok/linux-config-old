@@ -121,8 +121,9 @@ fi
 # pywal
 export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/linux-config/scripts:/opt/pycharm-2018.3.1/bin"
 (cat ~/.cache/wal/sequences &)
+# export pywal colors
 source ~/.cache/wal/colors.sh
-export COLOR7="${color7}"
+export COLOR7=$color7
 
 xset r rate 200 60
 
@@ -165,7 +166,6 @@ fi
 
 source /home/kevin/.shortcuts
 source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
-# export pywal colors
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # add-zsh-hook -Uz chpwd (){ ls -a; }
