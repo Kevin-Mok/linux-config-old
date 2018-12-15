@@ -1,4 +1,4 @@
 #!/bin/bash
 
 . "/home/kevin/.cache/wal/colors.sh"
-printf "$(spotify-now -i '%artist - %title')\n\n%s\n" "$color7"
+printf "$(spotify-now -i '%artist - %title' -p '' -e '')\n\n%s\n" "$color7"

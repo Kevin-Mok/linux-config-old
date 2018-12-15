@@ -239,8 +239,10 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 " run current file in shell
 nnoremap <leader>sh :!%:p<CR>
+" sort lines until end of file
+nnoremap <leader>so q:i.,$sort<CR>
 " sort lines
-nnoremap <leader>so q:i.,.+sort<ESC>Fsi
+nnoremap <leader>sol q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
 nnoremap <leader>sys :set syn=sh<CR>
 " open vimrc in vertical split

@@ -94,10 +94,13 @@ alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 #  }}}  directory-related # 
 
 #  power options {{{ # 
-alias su="systemctl suspend"
+
+alias s="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
+alias x="xmodmap ~/.Xmodmap"
+
 #  }}} power options # 
 
 #  rotate monitor {{{ # 
@@ -370,23 +373,9 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
 # # }}}
 
-alias s="cs && shellcheck"
-
-#  }}} coding projs # 
-
-#  school {{{ # 
-
+alias sc="cs && shellcheck"
 alias pdl="pdflatex"
 alias tcl="tex-clean"
 
-# 343
-alias ij="sudo ~/Downloads/idea/bin/idea.sh $silent"
-alias a2="f ~/Documents/school/343/a2"
-alias a2j="f ~/Documents/school/343/a2/java/src"
-alias q2="psql -U postgres -d 343-a2 -f q2-test.sql"
-alias q2o="psql -U postgres -d 343-a2 -f q2-test.sql -o q2.out"
-alias q2a="psql -U postgres -d 343-a2 -f q2.sql"
-alias q4="psql -U postgres -d 343-a2 -f q4-test.sql"
-alias q4a="psql -U postgres -d 343-a2 -f q4.sql"
+#  }}} coding projs # 
 
-#  }}} school # 

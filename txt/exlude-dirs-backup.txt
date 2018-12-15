@@ -1,4 +1,5 @@
 /home/kevin/.cache
+/home/kevin/.local/share/Steam
 /lost+found
 /mnt
 /proc

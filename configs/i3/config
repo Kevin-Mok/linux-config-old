@@ -42,13 +42,14 @@ bindsym Mod4+r exec urxvt -e ranger
 # bindsym control+$mod+s exec systemctl suspend
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
-bindsym Mod4+x exec $swex
+# bindsym Mod4+x exec $swex
+# bindsym Mod4+x exec xmodmap ~/.Xmodmap
 bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
 
-bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1000
+bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1250
 bindsym $mod+Mod4+2 exec redshift -x && redshift -O 2000
 bindsym $mod+Mod4+3 exec redshift -x && redshift -O 3000
 bindsym $mod+Mod4+4 exec redshift -x && redshift -O 4000
@@ -329,11 +330,11 @@ for_window [class="^.*"] border pixel 3
 set $inner_gaps 35
 set $outer_gaps 0
 
-# gaps inner $inner_gaps
-# gaps outer $outer_gaps
-# gaps bottom 0
-gaps inner 0
-gaps outer 0
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+gaps bottom 0
+# gaps inner 0
+# gaps outer 0
 
 #  other gaps {{{ # 
 
@@ -466,9 +467,9 @@ font pango:$sb_font 11
 #  }}} mod key/font # 
 
 #  media keys {{{ # 
-bindsym $mod+d exec ~/linux-config/scripts/change-sink dac1
-bindsym $mod+shift+d exec ~/linux-config/scripts/change-sink dac2
-bindsym $mod+o exec ~/linux-config/scripts/change-sink line-out
+bindsym control+d exec ~/linux-config/scripts/change-sink dac
+bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
+bindsym control+o exec ~/linux-config/scripts/change-sink line-out
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
