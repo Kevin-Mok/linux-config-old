@@ -33,5 +33,6 @@ wo /home/kevin/Documents/workout-logs/11
 sc /home/kevin/school
 st /home/kevin/school/sta
 2 /home/kevin/school/236
+lt /home/kevin/school/latex-notes
 
 # }}} sch *

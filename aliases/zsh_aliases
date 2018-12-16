@@ -204,7 +204,7 @@ alias psi="pass insert -m"
 alias psg="pass generate -c"
 alias yh="echo 'kevin.mok@live.ca' | xclip -selection clipboard"
 alias yg="xclip -selection clipboard ~/.password-store/social/gmail"
-alias yu="echo 'kevin.mok@mai.utoronto.ca' | xclip -selection clipboard"
+alias yu="echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 

@@ -5,9 +5,11 @@ bash
 bc
 bison
 broadcom-wl
+browserpass
 bzip2
 chromium
 chromium-widevine
+cliqz
 cloc
 cmake
 cmatrix
@@ -22,7 +24,9 @@ diffutils
 discord
 dmenu
 e2fsprogs
+electrum
 evince
+evolution
 fakeroot
 feh
 file
@@ -69,6 +73,7 @@ man-pages
 mdadm
 nano
 neofetch
+neomutt
 neovim
 netctl
 noto-fonts
@@ -82,8 +87,10 @@ pciutils
 pcmanfm
 pdfgrep
 perl
+pgadmin4
 pipes.sh
 pkgconf
+postgresql
 procps-ng
 psmisc
 pulseaudio
@@ -102,7 +109,9 @@ sed
 shadow
 shellcheck
 spotify
+spotify-now-git
 st
+steam
 sudo
 sysfsutils
 sysstat
@@ -122,6 +131,9 @@ texlive-local-tkz-base
 texlive-local-tkz-euclide
 texlive-localmanager-git
 the_silver_searcher
+tor
+tor-browser
+transmission-gtk
 trizen
 ttf-dejavu
 ttf-emojione
@@ -133,7 +145,9 @@ vi
 w3m
 which
 wireless_tools
+wpa_actiond
 wpa_supplicant
+xboxdrv
 xclip
 xf86-input-evdev
 xf86-input-keyboard

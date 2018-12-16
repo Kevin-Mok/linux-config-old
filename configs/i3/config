@@ -3,8 +3,8 @@ set $browser "chromium"
 set $def_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
-# exec redshift -O 2000
-exec redshift -O 3000 
+exec redshift -O 2000
+# exec redshift -O 3000
 # random bg
 exec compton
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
@@ -327,7 +327,7 @@ bindsym $mod+control+l resize shrink width 3 px or 3 ppt
 # remove window titlebars
 for_window [class="^.*"] border pixel 3
 # for_window [class="^.*"] border pixel 1
-set $inner_gaps 35
+set $inner_gaps 40
 set $outer_gaps 0
 
 gaps inner $inner_gaps
@@ -471,11 +471,9 @@ bindsym control+d exec ~/linux-config/scripts/change-sink dac
 bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
 bindsym control+o exec ~/linux-config/scripts/change-sink line-out
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 sset Master 3+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 sset Master 3-
-bindsym control+$mod+plus exec --no-startup-id amixer -c 2 sset PCM 3+
-bindsym control+$mod+minus exec --no-startup-id amixer -c 2 sset PCM 3-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 0+ toggle
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
 # Media player controls
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
