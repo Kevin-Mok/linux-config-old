@@ -29,6 +29,7 @@ evince
 evolution
 fakeroot
 feh
+ffcast
 file
 filesystem
 findutils
@@ -71,6 +72,7 @@ make
 man-db
 man-pages
 mdadm
+mpv
 nano
 neofetch
 neomutt
@@ -78,6 +80,7 @@ neovim
 netctl
 noto-fonts
 ntfs-3g
+numlockx
 nvidia
 openssh
 pacman
@@ -112,6 +115,7 @@ spotify
 spotify-now-git
 st
 steam
+steamos-xpad-dkms
 sudo
 sysfsutils
 sysstat
@@ -137,12 +141,15 @@ transmission-gtk
 trizen
 ttf-dejavu
 ttf-emojione
+ttf-ubuntu-font-family
 udisks2
 unzip
 usbutils
 util-linux
 vi
+vlc
 w3m
+wego
 which
 wireless_tools
 wpa_actiond
@@ -160,7 +167,6 @@ xf86-video-ati
 xf86-video-dummy
 xf86-video-fbdev
 xf86-video-intel
-xf86-video-nouveau
 xf86-video-openchrome
 xf86-video-qxl
 xf86-video-vesa
@@ -201,6 +207,7 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+youtube-viewer
 zathura
 zathura-pdf-poppler
 zbar

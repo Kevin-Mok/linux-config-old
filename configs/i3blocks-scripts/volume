@@ -17,8 +17,6 @@ AUDIO_LOW_SYMBOL=${AUDIO_LOW_SYMBOL:-''}
 
 AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-''}
 
-AUDIO_DELTA=${AUDIO_DELTA:-5}
-
 . "/home/kevin/.cache/wal/colors.sh"
 # DEFAULT_COLOR=${DEFAULT_COLOR:-"#ffffff"}
 DEFAULT_COLOR="$color7"
@@ -33,6 +31,8 @@ MIXER=${MIXER:-""}
 SCONTROL=${SCONTROL:-""}
 
 # }}} default vars #
+
+AUDIO_DELTA=${AUDIO_DELTA:-5}
 
 # LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}% [${INDEX}:${NAME}]'}
 LONG_FORMAT=${SHORT_FORMAT:-'${SINK_SYMB} ${VOL}%'}
@@ -145,7 +145,7 @@ function print_format {
 			SINK_SYMB=""
 			;;
 		*"hdmi"*)
-			SINK_SYMB=""
+			SINK_SYMB=""
 			;;
 		*"pci"*)
 			SINK_SYMB=""

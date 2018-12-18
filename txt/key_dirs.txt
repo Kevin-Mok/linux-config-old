@@ -1,7 +1,7 @@
 # sys {{{ *
 
 bg /home/kevin/Pictures/Backgrounds
-co /home/kevin/.config
+cf /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
@@ -10,6 +10,7 @@ lc /home/kevin/linux-config/
 m /run/media/kevin
 o /
 p /home/kevin/.password-store
+P /home/kevin/Pictures
 
 # }}} sys *
 
@@ -24,6 +25,7 @@ sr /home/kevin/linux-config/scripts
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
+tt /home/kevin/linux-config/txt
 wo /home/kevin/Documents/workout-logs/11
 
 # }}} cdn *
@@ -31,7 +33,6 @@ wo /home/kevin/Documents/workout-logs/11
 # sch {{{ *
 
 sc /home/kevin/school
-st /home/kevin/school/sta
 2 /home/kevin/school/236
 lt /home/kevin/school/latex-notes
 

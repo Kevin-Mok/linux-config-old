@@ -220,6 +220,7 @@ nnoremap <leader>nw :set nowrap<CR>
 " check if in neovim
 nnoremap <leader>nv :echo has('nvim')<CR>
 " Plug commands
+nnoremap <leader>p "*p
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>

@@ -74,12 +74,16 @@ shrm() {
 #  directory-related {{{ # 
 alias l='ls -a'
 alias ll='ls -alFh'
+alias smv="sudo mv"
 alias f="cd"
+alias fz="fzf"
+alias fnd="find . -type f -name"
 f `cat /home/kevin/.oh-my-zsh/cache/last-working-dir`
 # alias w="cd $(cat /home/kevin/.oh-my-zsh/cache/last-working-dir)"
 
 alias rmr="rm -rf"
 alias mdp="mkdir -p"
+alias rsy="rsync -Pr"
 
 alias "f."="f .."
 alias "f.."="f ..."
@@ -99,7 +103,7 @@ alias s="systemctl suspend"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
-alias x="xmodmap ~/.Xmodmap"
+alias x="xmodmap ~/.Xmodmap && xset r rate 200 60"
 
 #  }}} power options # 
 
@@ -189,6 +193,7 @@ function auc() { xdotool click --repeat 1000000 --delay $1 1 ; }
 alias swex="sudo nohup ~/Downloads/swex.appimage $silent"
 
 alias vbn="cvlc --loop --alsa-gain 1 ~/Music/brown-noise.mp3"
+alias cv="cava"
 alias rmsw="rm .sw*"
 
 function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }

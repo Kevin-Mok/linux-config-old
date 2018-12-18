@@ -44,7 +44,7 @@ bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
 # bindsym Mod4+x exec $swex
 # bindsym Mod4+x exec xmodmap ~/.Xmodmap
-bindsym Print exec gscreenshot
+# bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
@@ -183,7 +183,7 @@ bindsym Mod4+Return exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 #  workspace {{{ # 
 #  ws names {{{ # 
 set $samsung "DVI-I-1"
-set $benq "HDMI-1"
+set $benq "HDMI-0"
 
 set $ws1 "1 "
 workspace $ws1 output $benq
@@ -204,8 +204,9 @@ bindsym $mod+F4 workspace $ws4; exec $def_term
 set $ws5 "5 "
 # set $ws5 "5 🎥"
 workspace $ws5 output $samsung
+assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
-bindsym Mod4+g workspace $ws5; layout stacking; exec steam
+bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
 
 set $ws6 "6 "
 workspace $ws6 output $samsung
@@ -234,7 +235,8 @@ set $ws10 "10 "
 assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 set $hp 2
-bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
+# bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
+bindsym Mod4+v workspace $ws10; exec urxvt -e cava
 bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 
