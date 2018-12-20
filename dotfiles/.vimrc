@@ -193,8 +193,8 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
-" replace vim-commentary Markdown comments with HTML
-nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
+" replace until end of line
+nnoremap <leader>c c$
 " delete entire buffer
 nnoremap <leader>dg ggdG
 " delete line into system clipboard

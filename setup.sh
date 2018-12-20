@@ -19,14 +19,14 @@ link_to_lc () {
 		item_name=$(basename -- "$item")
 		# echo "$item_name"
 		# Remove system item and link config in repository to system.
-		rm -f "${sys_dir:?}"/"$item_name"
+		rm -rf "${sys_dir:?}"/"$item_name"
 		ln -s "$config_dir"/"$item_name" "$sys_dir"/"$item_name" && echo "Linked $item_name."
 	done
 }
 
 link_to_lc "files" "$HOME" "$lc_dir/dotfiles"
-# link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
-# link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
+link_to_lc "dirs" "$HOME/.config" "$lc_dir/configs"
+link_to_lc "dirs" "$HOME/.themes" "$lc_dir/gtk/themes"
 
 # setup nvim config
 # nvim_file="/home/kevin/lc-test/init.vim"

@@ -16,7 +16,7 @@ are also for my Linux
 * **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
 * **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * **Window Manager**: [i3-gaps](https://github.com/Airblader/i3)
-* **Editor**: [Neovim](https://github.com/neovim/neovim) ([plugins](dotfiles/vimrc#L51))
+* **Editor**: [Neovim](https://github.com/neovim/neovim) ([plugins](dotfiles/.vimrc#L51))
 * **File Manager**: [ranger](https://ranger.github.io/)
 <!---  }}} Basic Info --> 
 
