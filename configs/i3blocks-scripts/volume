@@ -141,7 +141,7 @@ esac
 function print_format {
 	# echo $NAME
 	case $NAME in
-		*"FiiO"*)
+		*"USB"*)
 			SINK_SYMB=""
 			;;
 		*"hdmi"*)

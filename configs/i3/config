@@ -32,18 +32,21 @@ bindsym Mod4+a exec studio
 bindsym $mod+control+Return exec $def_term
 bindsym Mod4+c exec $browser
 bindsym Mod4+f exec firefox
-bindsym Mod4+o exec okular
-bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
+bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
 bindsym Mod4+n exec urxvt -e nvim
-bindsym Mod4+p workspace $ws4; exec pgadmin3
+bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
+# bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
+bindsym Mod4+p exec passmenu
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
 # bindsym control+$mod+s exec systemctl suspend
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
+bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 # bindsym Mod4+x exec $swex
 # bindsym Mod4+x exec xmodmap ~/.Xmodmap
+bindsym Mod4+z exec cliqz
 # bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
@@ -219,11 +222,11 @@ set $ws7 "7 "
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
 
-set $ws8 "8 "
+set $ws8 "8 "
 # set $ws8 "8 📊"
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $samsung
-bindsym $mod+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_MEM 
+bindsym $mod+F8 workspace $ws8; exec $def_term
 
 set $ws9 "9 "
 # set $ws9 "9 🔧"
@@ -237,13 +240,14 @@ workspace $ws10 output $samsung
 set $hp 2
 # bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
 bindsym Mod4+v workspace $ws10; exec urxvt -e cava
-bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
+# bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 
-set $ws11 "11 "
+set $ws11 "11 "
+# set $ws11 "11 📊"
 # assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $samsung
-bindsym $mod+F11 workspace $ws11; exec $def_term
+bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_MEM 
 
 set $ws12 "12 "
 bindsym $mod+F12 workspace $ws12; exec $def_term
@@ -332,11 +336,11 @@ for_window [class="^.*"] border pixel 3
 set $inner_gaps 40
 set $outer_gaps 0
 
-gaps inner $inner_gaps
-gaps outer $outer_gaps
-gaps bottom 0
-# gaps inner 0
-# gaps outer 0
+# gaps inner $inner_gaps
+# gaps outer $outer_gaps
+# gaps bottom 0
+gaps inner 0
+gaps outer 0
 
 #  other gaps {{{ # 
 

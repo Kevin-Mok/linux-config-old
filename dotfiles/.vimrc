@@ -196,6 +196,8 @@ let mapleader="\<Space>"
 " replace until end of line
 nnoremap <leader>c c$
 " delete entire buffer
+nnoremap <leader>d d$
+" delete entire buffer
 nnoremap <leader>dg ggdG
 " delete line into system clipboard
 nnoremap <leader>D "+dd

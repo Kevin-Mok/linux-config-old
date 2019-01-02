@@ -262,7 +262,7 @@ function gcm(){ echo git commit -m \""$1"\" ; }
 
 function psgi() { 
 	git add .
-	git commit -mS '.'
+	git commit -m '.' -S
 	git push
 } 
 alias gps="git push"
