@@ -137,6 +137,8 @@ if [ "$(hostname)" = "x1-carbon" ];
 then
 	xrandr --dpi 125
 	xinput disable "ELAN Touchscreen"
+	# kb-light.py - 100 > /dev/null 2>&1&
+	kb-light.py - 100
 	# enable horizontal scrolling
 	# synclient HorizTwoFingerScroll=1
 fi

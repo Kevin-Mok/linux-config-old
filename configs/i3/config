@@ -35,7 +35,8 @@ bindsym Mod4+f exec firefox
 bindsym Mod4+o exec okular
 bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+n exec urxvt -e nvim
-bindsym Mod4+p workspace $ws4; exec pgadmin3
+# bindsym Mod4+p workspace $ws4; exec pgadmin3
+bindsym Mod4+p exec passmenu
 # bindsym Mod4+p exec pycharm
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger

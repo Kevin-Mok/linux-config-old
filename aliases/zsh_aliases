@@ -90,7 +90,7 @@ alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
 #  }}}  directory-related # 
 
 #  power options {{{ # 
-alias s="systemctl suspend"
+alias s="systemctl suspend -i"
 alias sd="sudo shutdown 0"
 alias reb="sudo shutdown -r 0"
 alias lo="i3-msg exit"
@@ -154,7 +154,7 @@ function vsnp() { nvim ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 # }}} config files #
 
 #  applications {{{ # 
-silent="> /dev/null 2>&1& "
+silent="> /dev/null 1>&1& "
 
 alias h="htop -s PERCENT_MEM"
 alias hc="htop -s PERCENT_CPU"
@@ -365,7 +365,7 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
 # # }}}
 
-alias s="cs && shellcheck"
+alias shc="cs && shellcheck"
 
 #  }}} coding projs # 
 
