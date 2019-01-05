@@ -10,5 +10,5 @@
 - Adata (16) = Windows files
 - Lexar (32) = 
 - Kingston (16) = Ubuntu
-- Kingston (yellow, 8) = Manjaro
+- Kingston (yellow, 8) = Ubuntu Server
 - Kingston (purple, 4) = Arch

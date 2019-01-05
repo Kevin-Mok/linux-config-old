@@ -25,7 +25,6 @@ lh /home/kevin/Documents/listening-history/polarbier.csv
 no ./.gitignore
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
-tr /home/kevin/linux-config/txt/pacman-pkgs/aur-pkgs.txt
 
 # }}} cdn *
 

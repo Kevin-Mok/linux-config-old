@@ -25,7 +25,7 @@ sr /home/kevin/linux-config/scripts
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
-tt /home/kevin/linux-config/txt
+tx /home/kevin/linux-config/txt
 wo /home/kevin/Documents/workout-logs/11
 
 # }}} cdn *

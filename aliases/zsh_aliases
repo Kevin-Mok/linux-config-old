@@ -25,7 +25,8 @@ alias ru="xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
 alias dum="sudo du -d 1 -B M"
 
-alias grbm="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias vgb="sni /etc/default/grub"
+alias mkgb="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
 alias grep='grep --color=auto'
@@ -207,8 +208,11 @@ alias psc="pass -c"
 alias pse="pass edit"
 alias psi="pass insert -m"
 alias psg="pass generate -c"
+
+alias xclip="xclip -selection clipboard"
 alias yh="echo 'kevin.mok@live.ca' | xclip -selection clipboard"
 alias yg="xclip -selection clipboard ~/.password-store/social/gmail"
+alias yt="xclip -selection clipboard ~/.password-store/social/trapbot"
 alias yu="echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 
 #  python related {{{ # 
