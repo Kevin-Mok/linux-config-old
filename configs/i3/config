@@ -48,6 +48,7 @@ bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboa
 # bindsym Mod4+x exec xmodmap ~/.Xmodmap
 bindsym Mod4+z exec cliqz
 # bindsym Print exec gscreenshot
+bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 
@@ -366,6 +367,7 @@ set $sb_font DejaVuSansMono Nerd Font Mono Bold
 # set $sb_font EmojiOne
 set $black #000000
 set $white #ffffff
+for_window [class="Yad"] floating enable
 
 #  inactive vars {{{ # 
 
