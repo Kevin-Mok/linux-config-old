@@ -382,7 +382,7 @@ alias hs="$spv_dir/src/update-history.sh && hlg"
 	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
 # # }}}
 
-alias sc="cs && shellcheck"
+alias sc="shellcheck"
 alias pdl="pdflatex"
 alias tcl="tex-clean"
 

@@ -33,7 +33,8 @@ wo /home/kevin/Documents/workout-logs/11
 # sch {{{ *
 
 sc /home/kevin/school
-2 /home/kevin/school/236
+8a /home/kevin/school/latex-notes/318
+8r /home/kevin/school/318
 lt /home/kevin/school/latex-notes
 
 # }}} sch *
