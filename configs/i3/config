@@ -7,7 +7,7 @@ exec redshift -O 2000
 # exec redshift -O 3000
 # random bg
 exec compton
-exec wal -i "$HOME/Pictures/Backgrounds/dim"
+exec wal -i "$HOME/Pictures/Backgrounds/dim/non-editing"
 exec imwheel
 exec xmodmap ~/.Xmodmap
 exec xrdb ~/.Xresources
@@ -44,6 +44,8 @@ bindsym Mod4+r exec urxvt -e ranger
 bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec st
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
+bindsym Mod4+$mod+u exec pass -c uoft/acorn
+
 # bindsym Mod4+x exec $swex
 # bindsym Mod4+x exec xmodmap ~/.Xmodmap
 bindsym Mod4+z exec cliqz

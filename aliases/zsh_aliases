@@ -143,6 +143,7 @@ alias vlh="alsamixer -c 2"
 # alias aptu="sudo apt upgrade"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
+alias pcu="sudo pacman -Sy"
 alias xpc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/nzxt-pkgs.txt"
 # alias tri="trizen -S --noconfirm"
 alias tri="trizen -S"
@@ -176,9 +177,10 @@ alias clc="cloc ."
 function z() { nohup zathura $1 > /dev/null 2>&1& ; }
 function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
-alias ni="nvim"
+alias n="nvim"
 alias sni="sudo nvim"
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
+alias wp="grep wallpaper ~/.cache/wal/colors.sh"
 
 #  auto-clicker {{{ # 
 
@@ -203,6 +205,8 @@ alias rx="redshift -x"
 alias gpe="gpg --encrypt --recipient"
 alias gpd="gpg --decrypt"
 
+#  pass {{{ # 
+
 alias ps="pass"
 alias psc="pass -c"
 alias pse="pass edit"
@@ -215,11 +219,11 @@ alias yg="xclip -selection clipboard ~/.password-store/social/gmail"
 alias yt="xclip -selection clipboard ~/.password-store/social/trapbot"
 alias yu="echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 
-#  python related {{{ # 
+#  }}} pass # 
+
 function grpy() { grep $1 *.py ; } 
 alias p3="python3"
 alias py="python"
-#  }}} python related # 
 
 #  }}} applications # 
 
@@ -253,7 +257,6 @@ alias gheadm1="git reset --hard HEAD~1"
 alias gls="git ls-tree -r HEAD --name-only"
 
 #  push {{{ # 
-alias vcm="ni commit-msg.txt"
 alias gst="git stash"
 alias gstp="git stash pop"
 

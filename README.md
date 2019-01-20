@@ -12,7 +12,6 @@ are also for my Linux
 <!---  Main Programs {{{ --> 
 ## Main Programs
 * **OS**: [Arch Linux](https://www.archlinux.org/) ([packages](txt/nzxt-pkgs.txt)) 
-  * 15s boot time, 25s restart time on an SSD. :smiley:
 * **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
 * **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * **Window Manager**: [i3-gaps](https://github.com/Airblader/i3)

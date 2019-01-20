@@ -12,7 +12,8 @@ set linebreak
 " set colorcolumn=80
 set shiftwidth=4
 set autoindent
-set mouse=c
+" set mouse=c
+set mouse=a
 set clipboard+=unnamedplus
 set foldmethod=marker
 set linespace=5

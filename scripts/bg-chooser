@@ -3,7 +3,7 @@
 base_bg_path="/home/kevin/Pictures/Backgrounds"
 
 brightness_choice=$(echo -e "dim\nbright" | dmenu -i)
-EDITING_CHOICES=("editing" "non-editing")
+EDITING_CHOICES=("non-editing" "editing")
 editing_choice=$(echo -e "${EDITING_CHOICES[0]}\n${EDITING_CHOICES[1]}" | dmenu -i)
 
 if [[ "$editing_choice" = "${EDITING_CHOICES[1]}" ]]; then

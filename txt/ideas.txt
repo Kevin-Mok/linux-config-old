@@ -1,1 +1,2 @@
 - nnn
+- set (control+)alt+w to choose brightness/editing

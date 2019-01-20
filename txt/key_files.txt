@@ -17,12 +17,13 @@ z /home/kevin/linux-config/aliases/zsh_aliases
 
 # cdn {{{ *
 
+cm ./commit-msg.txt
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 id /home/kevin/coding/project-ideas/ideas.md
+ig ./.gitignore
 jn /home/kevin/Documents/journal/todo/1.md
 jt /home/kevin/Documents/journal/todo/todo.md
 lh /home/kevin/Documents/listening-history/polarbier.csv
-no ./.gitignore
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
 
