@@ -192,8 +192,12 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
+" replace rest of line
+nnoremap <leader>c c$
 " replace vim-commentary Markdown comments with HTML
 nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
+" delete rest of line
+nnoremap <leader>d d$
 " delete entire buffer
 nnoremap <leader>dg ggdG
 " delete line into system clipboard
@@ -247,7 +251,9 @@ nnoremap <leader>ww Vgq
 " format this and next line
 nnoremap <leader>www Vjgq
 " copy next thing to system clipboard
-nnoremap <leader>y "+
+" nnoremap <leader>y "+
+" yank rest of line
+nnoremap <leader>y y$
 nnoremap <leader>Y "+Y
 " yank entire buffer
 nnoremap <leader>yg ggyG

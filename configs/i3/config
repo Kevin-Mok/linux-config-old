@@ -4,7 +4,6 @@ set $def_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
 # exec redshift -O 2000
-exec redshift -O 3000 
 # random bg
 exec compton
 exec wal -i "$HOME/Pictures/Backgrounds/dim"
@@ -65,16 +64,19 @@ bindsym $mod+Mod4+grave exec redshift -x
 
 #  backlight {{{ # 
 
-bindsym Shift+F1 exec xbacklight -set 10
-bindsym Shift+F2 exec xbacklight -set 20
-bindsym Shift+F3 exec xbacklight -set 30
-bindsym Shift+F4 exec xbacklight -set 40
-bindsym Shift+F5 exec xbacklight -set 50
-bindsym Shift+F6 exec xbacklight -set 60
-bindsym Shift+F7 exec xbacklight -set 70
-bindsym Shift+F8 exec xbacklight -set 80
-bindsym Shift+F9 exec xbacklight -set 90
-bindsym Shift+F0 exec xbacklight -set 100
+bindsym Shift+F1 exec xbacklight -set 5
+bindsym Shift+F2 exec xbacklight -set 10
+bindsym Shift+F3 exec xbacklight -set 20
+bindsym Shift+F4 exec xbacklight -set 30
+bindsym Shift+F5 exec xbacklight -set 40
+bindsym Shift+F6 exec xbacklight -set 50
+bindsym Shift+F7 exec xbacklight -set 60
+bindsym Shift+F8 exec xbacklight -set 70
+bindsym Shift+F9 exec xbacklight -set 80
+bindsym Shift+F0 exec xbacklight -set 90
+
+bindsym control+$mod+plus exec xbacklight -inc 2
+bindsym control+$mod+minus exec xbacklight -dec 2
 
 #  }}} backlight #
 

@@ -164,7 +164,7 @@ alias clc="cloc ."
 function z() { nohup zathura $1 > /dev/null 2>&1& ; }
 function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
-alias ni="nvim"
+alias n="nvim"
 alias sni="sudo nvim"
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 
@@ -190,6 +190,8 @@ alias rx="redshift -x"
 alias gpe="gpg --encrypt --recipient"
 alias gpd="gpg --decrypt"
 
+#  pass {{{ # 
+
 alias ps="pass"
 alias psc="pass -c"
 alias pse="pass edit"
@@ -197,13 +199,19 @@ alias psi="pass insert -m"
 alias psg="pass generate -c"
 alias yh="echo 'kevin.mok@live.ca' | xclip -selection clipboard"
 alias yg="xclip -selection clipboard ~/.password-store/social/gmail"
-alias yu="echo 'kevin.mok@mai.utoronto.ca' | xclip -selection clipboard"
+alias yu="echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
+
+#  }}} pass # 
 
 #  python related {{{ # 
 function grpy() { grep $1 *.py ; } 
 alias p3="python3"
 alias py="python"
 #  }}} python related # 
+
+alias pg="ping -c 5 8.8.8.8"
+alias won="ctl start netctl-auto@wlp3s0.service"
+alias wof="ctl stop netctl-auto@wlp3s0.service"
 
 #  }}} applications # 
 
