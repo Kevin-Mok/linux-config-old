@@ -17,6 +17,7 @@ z /home/kevin/linux-config/aliases/zsh_aliases
 
 # cdn {{{ *
 
+cm commit-msg.txt
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 jn /home/kevin/Documents/journal/todo/12.md
 id /home/kevin/coding/project-ideas/ideas.md

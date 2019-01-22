@@ -210,8 +210,8 @@ alias py="python"
 #  }}} python related # 
 
 alias pg="ping -c 5 8.8.8.8"
-alias won="ctl start netctl-auto@wlp3s0.service"
-alias wof="ctl stop netctl-auto@wlp3s0.service"
+alias wo="ctl start netctl-auto@wlp3s0.service"
+alias wf="ctl stop netctl-auto@wlp3s0.service"
 
 #  }}} applications # 
 
@@ -245,7 +245,6 @@ alias gheadm1="git reset --hard HEAD~1"
 alias gls="git ls-tree -r HEAD --name-only"
 
 #  push {{{ # 
-alias vcm="ni commit-msg.txt"
 alias gst="git stash"
 alias gstp="git stash pop"
 
