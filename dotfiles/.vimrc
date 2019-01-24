@@ -35,7 +35,10 @@ set noswapfile
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
+filetype plugin on
+filetype indent on
+autocmd FileType css,htmldjango,html,tex,markdown set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
@@ -168,6 +171,7 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
+map <F1> :silent !scp %:p kevin@192.168.0.21:/home/kevin/a1<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>

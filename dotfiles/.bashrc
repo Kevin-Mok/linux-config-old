@@ -203,5 +203,6 @@ then
 else
 	xrandr --dpi 150
 fi
+# Both PC/Laptop }}}
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

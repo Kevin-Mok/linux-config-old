@@ -148,6 +148,11 @@ alias xpc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/nzxt-pkgs.txt"
 # alias tri="trizen -S --noconfirm"
 alias tri="trizen -S"
 
+# internet
+alias pg="ping -c 3 8.8.8.8"
+alias dh="sudo dhcpcd"
+alias rdh="sudo killall dhcpcd && sudo dhcpcd"
+
 #  }}} system # 
 
 # config files {{{ #
@@ -179,6 +184,7 @@ function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 alias n="nvim"
 alias sni="sudo nvim"
+alias fh="feh --bg $wallpaper"
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 alias wp="grep wallpaper ~/.cache/wal/colors.sh"
 
@@ -391,3 +397,13 @@ alias tcl="tex-clean"
 
 #  }}} coding projs # 
 
+#  school {{{ # 
+
+# 369
+alias vm6="VBoxHeadless --startvm 369-a1"
+alias sha="ssh kevin@192.168.0.21"
+alias cpi="scp interceptor.c kevin@192.168.0.21:/home/kevin/a1"
+alias ma="make"
+alias mc="make clean"
+
+#  }}} school # 
