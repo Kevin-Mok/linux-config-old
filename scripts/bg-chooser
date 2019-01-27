@@ -1,0 +1,16 @@
+#!/bin/bash
+
+base_bg_path="/home/kevin/Pictures/Backgrounds"
+
+brightness_choice=$(echo -e "dim\nbright" | dmenu -i)
+EDITING_CHOICES=("non-editing" "editing")
+editing_choice=$(echo -e "${EDITING_CHOICES[0]}\n${EDITING_CHOICES[1]}" | dmenu -i)
+
+if [[ "$editing_choice" = "${EDITING_CHOICES[1]}" ]]; then
+	rand=$(( RANDOM % 2 ))
+	editing_choice=${EDITING_CHOICES[$rand]}
+fi
+bg_path="$base_bg_path/$brightness_choice/$editing_choice"
+wal_cmd="wal -i $bg_path"
+eval "$wal_cmd"
+# echo "$wal_cmd"

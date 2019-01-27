@@ -1,3 +1,7 @@
 clear Lock
 
 keycode 115 = BackSpace
+keycode 110 = Delete
+
+keycode 22 = Home
+keycode 119 = End

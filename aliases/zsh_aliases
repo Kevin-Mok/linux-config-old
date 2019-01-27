@@ -130,6 +130,7 @@ alias vlh="alsamixer -c 2"
 # function aptr() { sudo apt remove $1 ; }
 # alias aptu="sudo apt upgrade"
 alias pc="sudo pacman -S"
+alias pcu="sudo pacman -Sy"
 alias pcr="sudo pacman -Rs"
 alias xpc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/nzxt-pkgs.txt"
 # alias tri="trizen -S --noconfirm"
@@ -213,6 +214,8 @@ alias pg="ping -c 5 8.8.8.8"
 alias wo="ctl start netctl-auto@wlp3s0.service"
 alias wf="ctl stop netctl-auto@wlp3s0.service"
 
+alias wt="watson"
+
 #  }}} applications # 
 
 #  git {{{ # 
@@ -267,6 +270,7 @@ alias gclear="git stash clear"
 #  }}} push # 
 
 #  pull {{{ # 
+alias gfe="git fetch"
 alias gpl="git pull --rebase"
 alias grbc="git rebase --continue"
 #  }}} pull # 

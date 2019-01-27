@@ -1,5 +1,5 @@
 ! URxvt.font: xft:DejaVuSansMono Nerd Font Mono:size=14
-URxvt.font: xft:Hack Nerd Font:size=16
+URxvt.font: xft:Hack Nerd Font:size=11
 ! URxvt.font: xft:Hack NF:size=18
 ! URxvt.font: xft:Hack:size=18
 
@@ -23,3 +23,15 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 ! }}} Clickable URLs */
+
+/* HiDPI {{{ */
+
+Xft.dpi: 210
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+/* }}} HiDPI */

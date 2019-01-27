@@ -21,9 +21,9 @@ j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
 ra /home/kevin/linux-config/configs/ranger
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
+sr /home/kevin/linux-config/scripts
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
-wo /home/kevin/Documents/workout-logs/11
 
 # }}} cdn *
 
@@ -32,5 +32,7 @@ wo /home/kevin/Documents/workout-logs/11
 sc /home/kevin/school
 0 /home/kevin/school/309
 e1 /home/kevin/school/309/e1
+6 /home/kevin/school/369
+a1 /home/kevin/school/369/a1
 
 # }}} sch *
