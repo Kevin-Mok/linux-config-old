@@ -25,6 +25,7 @@ jn /home/kevin/Documents/journal/todo/1.md
 jt /home/kevin/Documents/journal/todo/todo.md
 lh /home/kevin/Documents/listening-history/polarbier.csv
 ne /home/kevin/linux-config/configs/neofetch/config.conf
+re README.md
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
 
 # }}} cdn *

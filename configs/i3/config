@@ -1,5 +1,5 @@
 #  startup {{{ # 
-set $browser "chromium"
+set $browser "firefox"
 set $def_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
@@ -34,6 +34,7 @@ bindsym Mod4+c exec $browser
 bindsym Mod4+f exec firefox
 bindsym Mod4+$mod+f exec echo 'Kevin@fosstodon.org' | xclip -selection clipboard
 bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
+bindsym Mod4+$mod+m exec pass -c uoft/markus
 bindsym Mod4+n exec urxvt -e nvim
 bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
 # bindsym Mod4+p workspace $ws4; exec pgadmin3
@@ -47,7 +48,6 @@ bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
-
 # bindsym Mod4+x exec $swex
 # bindsym Mod4+x exec xmodmap ~/.Xmodmap
 bindsym Mod4+z exec cliqz
@@ -140,10 +140,10 @@ bindsym control+Shift+x kill
 #  container display {{{ # 
 # backgrounds
 # set $colors_sh "~/.cache/wal/colors.sh"
-bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/vibrant"; exec ~/.cache/wal/colors.sh
+bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"; exec ~/.cache/wal/colors.sh
 # bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim"; exec ~/.cache/wal/colors.sh
-bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"; exec ~/.cache/wal/colors.sh
 bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
+bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"; exec ~/.cache/wal/colors.sh
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -202,7 +202,7 @@ set $ws2 "2 "
 workspace $ws2 output $samsung
 bindsym $mod+F2 workspace $ws2; exec $def_term
 
-set $ws3 "3 "
+set $ws3 "3 "
 workspace $ws3 output $benq
 bindsym $mod+F3 workspace $ws3; exec $browser
 
@@ -227,6 +227,7 @@ set $ws7 "7 "
 # set $ws7 "7 📤"
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
+bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
 
 set $ws8 "8 "
 # set $ws8 "8 📊"
@@ -245,7 +246,7 @@ assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 set $hp 2
 # bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
-bindsym Mod4+v workspace $ws10; exec urxvt -e cava
+# bindsym Mod4+v workspace $ws10; exec urxvt -e cava
 # bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 

@@ -1,0 +1,108 @@
+alias "f."="f .."
+alias "f.."="f ..."
+
+function cld() { colordiff -y --suppress-common-lines $1 $2 ; } 
+function gpdf() {
+	pdfgrep -n -e $1 $2
+}
+
+function cpd() { cp -avr $1 $2 ; } 
+
+# extract tar archive
+function utar() { tar -xzvf $1 && rm $1; } 
+function rzip() { unzip $1 && rm $1; } 
+function lzip() { unzip -l $1 | less; } 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+shrm() { 
+	for file in "$@"; do
+		shred "$file" && rm "$file"
+	done
+}
+f `cat /home/kevin/.oh-my-zsh/cache/last-working-dir`
+function mvd() { mv $1 ~/Downloads ; }
+
+#  rewrite in dmenu if really need
+#  rotate monitor {{{ # 
+function rt() {
+	output="HDMI-0"
+	if [ "$1" = "s" ]
+	# if [ "${1:0:1}" = "s" ]
+	then
+		output="DVI-I-1"
+	fi
+
+	dir="normal"
+	if [ "$2" = "r" ]
+	# if [ "${1:1:2}" = "r" ]
+	then
+		dir="right"
+	fi
+	if [ "$2" = "l" ]
+	then
+		dir="left"
+	fi
+
+	# echo "xrandr --output \"$output\" --rotate \"$dir\""
+	xrandr --output "$output" --rotate "$dir"
+}
+#  }}} rotate monitor # 
+
+function gz() { grep $1 ~/linux-config/aliases/zsh_aliases ; } 
+function vsnp() { nvim ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
+silent="> /dev/null 2>&1& "
+function z() { nohup zathura $1 > /dev/null 2>&1& ; }
+function ev() { nohup evince $1 > /dev/null 2>&1& ; }
+function mrk() { pandoc -o ${1%.*}.html $1 ; } 
+
+#  auto-clicker {{{ # 
+
+function auc() { xdotool click --repeat 1000000 --delay $1 1 ; } 
+# auc1 "xdotool click --repeat 1000000 --delay 1 1"
+# auc3 "xdotool click --repeat 1000000 --delay 300 1"
+# auc5 "xdotool click --repeat 1000000 --delay 500 1"
+# kauc "pkill -f xdotool"
+
+#  }}} auto-clicker # 
+
+function rs(){ redshift -P -O $(echo "scale=2;$1*1000" | bc) ; }
+function grpy() { grep $1 *.py ; } 
+
+#  git {{{ # 
+
+function gde() { git diff --cached -- ':(exclude)'$1 ; }
+# todo: fix
+function gcm(){ echo git commit -m \""$1"\" ; }
+function gchof() { git checkout $1 $2 ; }
+
+# add multiple push repos
+function gremotes() {
+	git remote set-url --add --push origin $1
+	git remote set-url --add --push origin $2
+	git remote -v
+}
+
+# merge repos
+function gmrgr() { 
+	# 1 = remote name, 2 = remote path
+	git remote add $1 $2
+	git fetch $1
+	# whichever branch you want to merge
+	git merge --allow-unrelated-histories $1/master 
+	git remote remove $1
+}
+# delete branch locally and on server
+function grmb() { git push origin --delete $1 && git branch -D $1 ; }
+
+#  }}} git # 
+
+# # Stardew Valley {{{
+	# sdv_save_dir=~/Documents/sdv-save
+	# sdv "f $sdv_save_dir"
+	# smp "~/Downloads/sdv/smapi/install\ on\ Linux.sh"
+	# # imc "sdv && source import-save.sh coop"
+	# function ucf() { f ~/Documents/StardewMods/UncaughtFish ; }
+	# function svmd() { f ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
+	# function svm() { mv $1 ~/.local/share/Steam/steamapps/common/Stardew\ Valley/Mods ; }
+# # }}}
+
+source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh

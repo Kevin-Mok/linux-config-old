@@ -172,3 +172,4 @@ source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 
 export GPG_TTY=$(tty)
 export PASSWORD_STORE_CLIP_TIME=120
+source /home/kevin/.aliases

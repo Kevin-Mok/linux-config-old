@@ -171,7 +171,10 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
-map <F1> :silent !scp %:p kevin@192.168.0.21:/home/kevin/a1<CR>
+" map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
+" map <F2> :silent !gcc -m32 -o test_full test_full.c && scp test_full k@192.168.0.17:/home/k/a1<CR>
+" map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
+" map <F3> :silent !gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>

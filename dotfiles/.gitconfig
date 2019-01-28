@@ -17,3 +17,16 @@
 	tool = vimdiff
 [commit]
 	gpgsign = true
+[alias]
+	a = add
+	c = commit
+	ch = checkout
+	d = diff
+	f = fetch
+	l = log
+	m = merge
+	pl = pull
+	ps = push
+	s = status
+	st = stash
+	r = remote

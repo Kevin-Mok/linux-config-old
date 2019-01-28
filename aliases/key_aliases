@@ -1,0 +1,295 @@
+#  system {{{ # 
+
+# clear screen
+cs "printf '\033c'"
+hst "history"
+nf "cs && neofetch | lolcat"
+# reload urxvt
+ru "xrdb ~/.Xresources"
+# list file sizes in megabytes with depth 1
+dum "sudo du -d 1 -B M"
+
+vgb "sni /etc/default/grub"
+mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+grep "grep --color=auto"
+rg "grep -nr"
+# pk "pkill -f"
+
+mkpk "makepkg -sri"
+mkex "chmod 777"
+
+# systemctl
+ctl "systemctl"
+ctle "systemctl enable"
+ctld "systemctl disable"
+ctls "systemctl start"
+
+wm "sudo wifi-menu"
+
+#  mounting
+udm "udisksctl mount -b"
+udmb "udisksctl mount -b /dev/sdc2"
+udu "udisksctl unmount -b"
+udub "udisksctl unmount -b /dev/sdc2"
+
+tc "touch"
+
+#  }}} command line related # 
+
+#  directory-related {{{ # 
+l "ls -a"
+ll "ls -alFh"
+smv "sudo mv"
+f "cd"
+fz "fzf"
+fnd "find . -type f -name"
+
+rmr "rm -rf"
+mdp "mkdir -p"
+rsy "rsync -Pr"
+
+# list all (un)mounted drives
+lhd "sudo fdisk -l"
+# get disc space for mounted drives
+ds "df -h | grep sd"
+chownw "sudo chown -R kevin:wheel"
+chwnm "sudo chown -R kevin:wheel /run/media/kevin"
+# cd into backup folder and show backup sizes
+nbu "f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
+
+#  }}}  directory-related # 
+
+#  power options {{{ # 
+
+s "systemctl suspend"
+sd "sudo shutdown 0"
+reb "sudo shutdown -r 0"
+lo "i3-msg exit"
+x "xmodmap ~/.Xmodmap && xset r rate 200 60"
+
+#  }}} power options # 
+
+
+# sound
+vlm "alsamixer -c 0"
+vlh "alsamixer -c 2"
+
+# apt
+# apti "sudo apt install"
+# aptr "sudo apt remove"
+# aptu "sudo apt upgrade"
+
+# pacman
+pc "sudo pacman -S"
+pcr "sudo pacman -Rs"
+pcu "sudo pacman -Sy"
+xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
+# tri "trizen -S --noconfirm"
+tri "trizen -S"
+
+# internet
+pg "ping -c 3 8.8.8.8"
+dh "sudo dhcpcd"
+rdh "sudo killall dhcpcd && sudo dhcpcd"
+
+id "identify"
+
+#  }}} system # 
+
+# config files {{{ #
+rz "source ~/linux-config/aliases/zsh_aliases"
+lca "f ~/linux-config/aliases"
+
+pipes "pipes.sh -t 3"
+	
+# }}} config files #
+
+#  applications {{{ # 
+
+# silent="> /dev/null 2>&1& "
+
+chr "google-chrome"
+h "htop -s PERCENT_MEM"
+hc "htop -s PERCENT_CPU"
+r "ranger"
+mr "man ranger"
+clc "cloc ."
+n "nvim"
+sni "sudo nvim"
+fh "feh"
+sx "sxiv"
+wp "grep wallpaper ~/.cache/wal/colors.sh"
+
+# rsl "java -jar ~/Downloads/RuneLite.jar"
+# swex "sudo nohup ~/Downloads/swex.appimage $silent"
+
+cv "cava"
+
+rx "redshift -x"
+
+gpe "gpg --encrypt --recipient"
+gpd "gpg --decrypt"
+
+#  pass {{{ # 
+
+ps "pass"
+psc "pass -c"
+pse "pass edit"
+psi "pass insert -m"
+psg "pass generate -c"
+
+xclip "xclip -selection clipboard"
+yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
+yg "xclip -selection clipboard ~/.password-store/social/gmail"
+yt "xclip -selection clipboard ~/.password-store/social/trapbot"
+yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
+
+#  }}} pass # 
+
+p3 "python3"
+py "python"
+
+wt "watson"
+wt "watson"
+wta "watson start"
+wte "watson edit"
+wtl "watson log"
+wts "watson stop"
+wtt "watson status"
+
+#  }}} applications # 
+
+#  git {{{ # 
+# aliases {{{
+gstr "git config credential.helper store"
+g "git"
+
+#  add {{{ # 
+ga "git add -A . && gs"
+gac "git add -A . && git commit -S"
+# unsigned commt
+gacu "git add -A . && git commit"
+#  }}} add # 
+
+#  diff/log {{{ # 
+gd "git diff -w"
+gdc "git diff --cached"
+gds "git diff --stat"
+gdt "git difftool --tool=vimdiff"
+gl "git log"
+gsl "git shortlog"
+#  }}}  diff/log # 
+
+#  update {{{ # 
+
+gs "git status -u"
+gchom "git checkout master"
+gchnw "git checkout -b wip"
+gchw "git checkout wip"
+gheadm1 "git reset --hard HEAD~1"
+# show files in git repo
+gls "git ls-tree -r HEAD --name-only"
+
+#  push {{{ # 
+gst "git stash"
+gstp "git stash pop"
+
+gc "git commit -S"
+gcu "git commit"
+gcam "ga && git commit --amend --no-edit -S"
+gcamp "ga && git commit --amend --no-edit -S && gpsf"
+
+psgi "git add . && git commit -m '.' -S && git push"
+gps "git push"
+gpsn "git push --set-upstream origin master"
+gpsf "git push --force"
+gclear "git stash clear"
+
+gpl "git pull --rebase"
+grbc "git rebase --continue"
+
+#  }}} push # 
+
+#  }}} update # 
+
+crm "mrk README.md"
+
+# aliases }}}
+
+gcho "git checkout"
+gchon "git checkout -b"
+
+gcln "git clone"
+gchp "git cherry-pick"
+gchpc "git cherry-pick --continue"
+
+#  }}} merge repos # 
+
+# assume file unchanged
+gunc "git update-index --assume-unchanged"
+
+#  }}} git # 
+
+#  coding projs {{{ # 
+# coding_dir="~/coding"
+
+#  trapbot {{{ # 
+# tb "$cd_coding_dir/trapbot"
+	# vtb "$cd_coding_dir/trapbot && ni scan_reddit.py"
+	# ptb "python scan_reddit.py"
+	# rtb "$cd_coding_dir/trapbot && python scan_reddit.py"
+#  }}} trapbot # 
+
+#  spotify-lib-vis {{{ # 
+
+# spv_dir="$coding_dir""/spotify-lib-vis"
+# svl "f $spv_dir/src/login"
+# sva "f $spv_dir/src/api"
+# svg "f $spv_dir/src/graphs"
+# svscs "f $spv_dir/src/static/scss"
+# svcss "f $spv_dir/src/spotifyvis/static/scss"
+# start spv server from dir
+ssv "source ../bin/activate && python manage.py runserver"
+# start spv server outside dir
+sssv "sv && ssv"
+# open spv db in psql
+spvdb "psql -d spotifyvis -U django"
+mig "python manage.py makemigrations && python manage.py migrate --run-syncdb && ssv"
+cldb "python manage.py flush --no-input && ssv"
+# django shell
+djs "python manage.py shell"
+# update pip
+upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+# update pip req's.
+ureq "pip freeze > requirements.txt"
+
+# scan history
+hs "$spv_dir/src/update-history.sh && hlg"
+# show last history scan
+hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan cron log for hs cmd
+crnl "grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
+# removes all but newest file
+# rmol "ls -t | tail -n +2 | xargs rm -- && l"
+
+#  }}} spotify-lib-vis # 
+
+sc "shellcheck"
+pdl "pdflatex"
+tcl "tex-clean"
+
+mfs "nvim /home/kevin/coding/best-mf-site-personal/index.html"
+
+#  }}} coding projs # 
+
+#  school {{{ # 
+
+# 369
+# sa "ssh k@192.168.0.17"
+# cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
+# cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
+ma "make"
+mc "make clean"
+
+#  }}} school # 

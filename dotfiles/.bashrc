@@ -206,3 +206,4 @@ fi
 # Both PC/Laptop }}}
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /home/kevin/.aliases

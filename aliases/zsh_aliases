@@ -144,7 +144,7 @@ alias vlh="alsamixer -c 2"
 alias pc="sudo pacman -S"
 alias pcr="sudo pacman -Rs"
 alias pcu="sudo pacman -Sy"
-alias xpc="pacman -Qqe > ~/linux-config/txt/pacman-pkgs/nzxt-pkgs.txt"
+alias xpc="pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
 # alias tri="trizen -S --noconfirm"
 alias tri="trizen -S"
 
@@ -152,6 +152,8 @@ alias tri="trizen -S"
 alias pg="ping -c 3 8.8.8.8"
 alias dh="sudo dhcpcd"
 alias rdh="sudo killall dhcpcd && sudo dhcpcd"
+
+alias id="identify"
 
 #  }}} system # 
 
@@ -184,7 +186,8 @@ function ev() { nohup evince $1 > /dev/null 2>&1& ; }
 function chr() { google-chrome $1 ; }
 alias n="nvim"
 alias sni="sudo nvim"
-alias fh="feh --bg $wallpaper"
+alias fh="feh"
+alias sx="sxiv"
 function mrk() { pandoc -o ${1%.*}.html $1 ; } 
 alias wp="grep wallpaper ~/.cache/wal/colors.sh"
 
@@ -231,11 +234,20 @@ function grpy() { grep $1 *.py ; }
 alias p3="python3"
 alias py="python"
 
+# watson
+alias wt="watson"
+alias wta="watson start"
+alias wte="watson edit"
+alias wtl="watson log"
+alias wts="watson stop"
+alias wtt="watson status"
+
 #  }}} applications # 
 
 #  git {{{ # 
 # aliases {{{
 alias gstr="git config credential.helper store"
+alias g="git"
 
 #  add {{{ # 
 alias ga="git add -A . && gs"
@@ -395,14 +407,17 @@ alias sc="shellcheck"
 alias pdl="pdflatex"
 alias tcl="tex-clean"
 
+alias mfs="nvim /home/kevin/coding/best-mf-site-personal/index.html"
+
 #  }}} coding projs # 
 
 #  school {{{ # 
 
 # 369
 alias vm6="VBoxHeadless --startvm 369-a1"
-alias sha="ssh kevin@192.168.0.21"
-alias cpi="scp interceptor.c kevin@192.168.0.21:/home/kevin/a1"
+alias sa="ssh k@192.168.0.17"
+alias cpi="scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
+alias cpti="gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
 alias ma="make"
 alias mc="make clean"
 
