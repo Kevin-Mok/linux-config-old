@@ -1,7 +1,7 @@
 # sys {{{ *
 
 bg /home/kevin/Pictures/Backgrounds
-co /home/kevin/.config
+cf /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
@@ -26,7 +26,7 @@ sr /home/kevin/linux-config/scripts
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
 tx /home/kevin/linux-config/txt
-w /home/kevin/.config/watson
+wd /home/kevin/.config/watson
 
 # }}} cdn *
 
@@ -34,7 +34,7 @@ w /home/kevin/.config/watson
 
 sc /home/kevin/school
 0 /home/kevin/school/309
-e1 /home/kevin/school/309/e1
+e2 /home/kevin/school/309/e2
 6 /home/kevin/school/369
 a1 /home/kevin/school/369/a1
 

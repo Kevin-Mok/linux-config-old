@@ -2,6 +2,7 @@
 
 . "/home/kevin/.cache/wal/colors.sh"
 # printf "$(date '+%H:%M.%a-%m-%d')\n\n%s\n" "$color7"
-printf "$(date '+%H:%M')\n\n%s\n" "$color7"
+printf "$(date '+%H:%M.%m-%d')\n\n%s\n" "$color7"
+# printf "$(date '+%H:%M')\n\n%s\n" "$color7"
 # echo "<span foreground=\"%s\">$(date '+%H:%M.%a-%m-%d')%s</span>" "$color2"
 # printf "%s" "$color2"
