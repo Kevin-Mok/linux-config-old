@@ -37,6 +37,8 @@ bindsym Mod4+m exec okular $sch_dir/calc-textbook.pdf
 bindsym Mod4+n exec urxvt -e nvim
 # bindsym Mod4+p workspace $ws4; exec pgadmin3
 bindsym Mod4+p exec passmenu
+bindsym $mod+p --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym control+$mod+p --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # bindsym Mod4+p exec pycharm
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
@@ -46,7 +48,6 @@ bindsym Mod4+t exec st
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
 bindsym Mod4+x exec $swex
-bindsym Print exec gscreenshot
 #  }}} app shortcuts # 
 
 #  redshift {{{ # 

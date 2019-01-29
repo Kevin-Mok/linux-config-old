@@ -10,6 +10,7 @@ lc /home/kevin/linux-config/
 m /run/media
 o /
 p /home/kevin/.password-store
+P /home/kevin/Pictures
 
 # }}} sys *
 
@@ -24,6 +25,8 @@ snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sr /home/kevin/linux-config/scripts
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
+tx /home/kevin/linux-config/txt
+w /home/kevin/.config/watson
 
 # }}} cdn *
 

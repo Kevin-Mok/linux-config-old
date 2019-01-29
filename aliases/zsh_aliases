@@ -120,6 +120,8 @@ function rt() {
 	xrandr --output "$output" --rotate "$dir"
 }
 #  }}} rotate monitor # 
+alias xrl="xrandr --output HDMI2 --left-of eDP1"
+alias xrr="xrandr --output HDMI2 --right-of eDP1"
 
 # sound
 alias vlm="alsamixer -c 0"
@@ -151,6 +153,8 @@ alias pipes="pipes.sh -t 3"
 urnp_dir="~/.vim/plugged/vim-snippets/UltiSnips"
 function vsnp() { nvim ~/.vim/plugged/vim-snippets/UltiSnips/"$1".snippets ; }
 # }}} #
+
+alias wp="grep wallpaper ~/.cache/wal/colors.sh"
 
 # }}} config files #
 
@@ -214,7 +218,13 @@ alias pg="ping -c 5 8.8.8.8"
 alias wo="ctl start netctl-auto@wlp3s0.service"
 alias wf="ctl stop netctl-auto@wlp3s0.service"
 
-alias wt="watson"
+# watson
+alias w="watson"
+alias wa="watson start"
+alias we="watson edit"
+alias wl="watson log"
+alias ws="watson stop"
+alias wt="watson status"
 
 #  }}} applications # 
 
@@ -260,7 +270,7 @@ function gcm(){ echo git commit -m \""$1"\" ; }
 
 function psgi() { 
 	git add .
-	git commit -m -S '.'
+	git commit -m '.'
 	git push
 } 
 alias gps="git push"
