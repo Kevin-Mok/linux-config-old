@@ -91,7 +91,7 @@ alias "f.."="f ..."
 
 function mvd() { mv $1 ~/Downloads ; }
 alias lhd="sudo fdisk -l"
-alias ds="df -h | grep sd"
+alias ds="df -h | tee >(head -n 1) >(grep sd) >/dev/null"
 alias chownw="sudo chown -R kevin:wheel"
 alias chwnm="sudo chown -R kevin:wheel /run/media/kevin"
 alias nbu="f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"

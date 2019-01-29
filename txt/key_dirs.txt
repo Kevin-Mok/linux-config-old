@@ -5,6 +5,7 @@ cf /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
+fi /home/kevin/.config/fish
 k /home/kevin/
 lc /home/kevin/linux-config/
 me /run/media/kevin

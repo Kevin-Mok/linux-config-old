@@ -71,6 +71,7 @@ linux-headers
 logrotate
 lolcat
 lsof
+lua-cjson
 lutris
 lvm2
 lxappearance
@@ -167,6 +168,8 @@ vi
 virtualbox
 vlc
 w3m
+watson
+weechat-vimode-git
 wego
 which
 wine

@@ -1,30 +1,65 @@
 #!/bin/bash
 
-# Shell rc file (i.e. bash vs. zsh, etc.)
-shellrc="$HOME/.zshrc"
-
-# Config locations
-folders="$HOME/linux-config/txt/key_dirs.txt"
-configs="$HOME/linux-config/txt/key_files.txt"
-
-# Output locations
-shell_shortcuts="$HOME/.shortcuts"
-ranger_shortcuts="$HOME/.config/ranger/shortcuts.conf"
-
-# Remove
-rm -f "$ranger_shortcuts" 2>/dev/null
-echo "alias \\" > "$shell_shortcuts"
+# ensure {{{ #
 
 # Ensure text of argument 1 exists in the file argument 2
-ensure() { (grep "$1" "$2")>/dev/null 2>&1 || echo "$1" >> "$2" ;}
+ensure() {
+	if [[ ! -e "$2" ]]; then
+		touch "$2"
+	fi
+	(grep "$1" "$2")>/dev/null 2>&1 || echo "$1" >> "$2"
+}
 
-ensure "source $shell_shortcuts" "$shellrc"
-ensure "source $HOME/.config/ranger/shortcuts.conf" "$HOME/.config/ranger/rc.conf"
+# }}} ensure #
 
-# Format the `folders` file in the correct syntax and sent it to all three configs.
-sed "s/#.*$//;/^$/d" "$folders" | tee >(awk '{print $1"=\"f "$2"\" \\"}' >> "$shell_shortcuts") \
-	| awk '{print "map f"$1" cd "$2"\nmap t"$1" tab_new "$2"\nmap m"$1" shell mv -v %s "$2"\nmap Y"$1" shell cp -rv %s "$2}' >> "$ranger_shortcuts"
+# config files
+bashrc="$HOME/.bashrc"
+zshrc="$HOME/.zshrc"
+fish_config="$HOME/.config/fish/config.fish"
+ranger_config="$HOME/.config/ranger/rc.conf"
 
-# Format the `configs` file in the correct syntax and sent it to both configs.
-sed "s/#.*$//;/^$/d"  "$configs" | tee >(awk '{print "v"$1"=\"$EDITOR "$2"\" \\"}' >> "$shell_shortcuts") \
-	| awk '{print "map v"$1" shell $EDITOR "$2}' >> "$ranger_shortcuts"
+# Output locations
+aliases="$HOME/.key_aliases"
+fish_abbr="$HOME/.config/fish/key_abbr.fish"
+ranger_mappings="$HOME/.config/ranger/key_mappings.conf"
+
+# ensure sourcing new file in orig. config file
+ensure "source $aliases" "$bashrc"
+ensure "source $aliases" "$zshrc"
+ensure "source $fish_abbr" "$fish_config"
+ensure "source $ranger_mappings" "$ranger_config"
+
+# key files
+key_dirs="$HOME/linux-config/txt/key_dirs.txt"
+key_files="$HOME/linux-config/txt/key_files.txt"
+key_aliases="$HOME/linux-config/aliases/key_aliases"
+
+# Remove, prepare files
+rm -f "$ranger_mappings" 2>/dev/null
+printf "# vim: filetype=sh\\n" > "$fish_abbr"
+printf "# vim: filetype=sh\\nalias " > "$aliases"
+
+# Format the key file in the correct syntax and sent it to all configs.
+sed "s/\s*#.*$//;/^\s*$/d" "$key_dirs" | tee \
+	>(awk '{print $1"=\"cd "$2" && ls -a\" \\"}' >> "$aliases") \
+	>(awk '{print "abbr", $1, "\"cd " $2 "; and ls -a\""}' >> "$fish_abbr") \
+	| awk '{print "map f"$1, "cd", $2;
+		print "map t"$1, "tab_new", $2;
+		print "map m"$1, "shell mv -v", $2;
+		print "map Y"$1, "shell cp -rv", $2;
+	}' >> "$ranger_mappings"
+
+sed "s/\s*#.*$//;/^\s*$/d"  "$key_files" | tee \
+	>(awk '{print v$1"=\"$EDITOR "$2"\" \\"}' >> "$aliases") \
+	>(awk '{print "abbr v"$1, "\"$EDITOR "$2"\""}' >> "$fish_abbr") \
+	| awk '{print "map v"$1" shell $EDITOR "$2}' >> "$ranger_mappings"
+
+sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort | tee \
+	>(awk '{printf "abbr " $1; $1 = ""; print $0; }' >> "$fish_abbr") \
+	| awk '{
+		printf $1;
+		$1 = "";
+		printf "=";
+		printf gensub(" ", "", 1, $0);
+		print " \\";
+	}' >> "$aliases"

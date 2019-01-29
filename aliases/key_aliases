@@ -52,7 +52,7 @@ rsy "rsync -Pr"
 # list all (un)mounted drives
 lhd "sudo fdisk -l"
 # get disc space for mounted drives
-ds "df -h | grep sd"
+ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
 chownw "sudo chown -R kevin:wheel"
 chwnm "sudo chown -R kevin:wheel /run/media/kevin"
 # cd into backup folder and show backup sizes
@@ -69,7 +69,6 @@ lo "i3-msg exit"
 x "xmodmap ~/.Xmodmap && xset r rate 200 60"
 
 #  }}} power options # 
-
 
 # sound
 vlm "alsamixer -c 0"

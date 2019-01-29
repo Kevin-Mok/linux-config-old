@@ -1,30 +1,23 @@
 #!/bin/bash
 
-# key_aliases="$HOME/Downloads/sync-aliases/key_aliases"
 key_aliases="$HOME/linux-config/aliases/key_aliases"
-# tmp_aliases="/tmp/sync-aliases.tmp"
-
-# create temp file with no comments/blank lines
-# sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort > "$tmp_aliases"
 
 # Ensure text of argument 1 exists in the file argument 2
-ensure() {
+ensure() {{{
 	if [[ ! -e "$2" ]]; then
 		touch "$2"
 	fi
 	(grep "$1" "$2")>/dev/null 2>&1 || echo "$1" >> "$2"
-}
+}}}
 
 # fish
 fish_config="$HOME/.config/fish/config.fish"
-# fish_abbr="$HOME/Downloads/sync-aliases/key_aliases.fish"
 fish_abbr="$HOME/.config/fish/key_aliases.fish"
 ensure "source $fish_abbr" "$fish_config"
 
-# bash
+# bash/zsh
 bashrc="$HOME/.bashrc"
 zshrc="$HOME/.zshrc"
-# fish_abbr="$HOME/Downloads/sync-aliases/key_aliases.fish"
 aliases="$HOME/.aliases"
 ensure "source $aliases" "$bashrc"
 ensure "source $aliases" "$zshrc"
@@ -33,9 +26,6 @@ ensure "source $aliases" "$zshrc"
 printf "# vim: filetype=sh\\n" > "$fish_abbr"
 printf "# vim: filetype=sh\\n" > "$aliases"
 
-# # sed -e 's/\([a-z0-9]\+\) \(".\+"\)$/abbr \1 \2/g' "$tmp_aliases"
-# # awk '{printf "abbr " $1; $1 = ""; print $0; }' "$tmp_aliases"
-# awk '{printf "abbr " $1; $1 = ""; print $0; }' "$tmp_aliases" > "$fish_abbr"
 sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort | tee \
 	>(awk '{printf "abbr " $1; $1 = ""; print $0; }' >> "$fish_abbr") \
 	| awk '{
@@ -44,11 +34,3 @@ sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort | tee \
 		printf "=";
 		print gensub(" ", "", 1, $0);
 	}' >> "$aliases"
-
-# # sed -e 's/^\([a-z]\+\) \(".\+"\)$/alias \1=\2/g' "$tmp_aliases"
-# awk '{
-	# printf "alias " $1;
-	# $1 = "";
-	# printf "=";
-	# print gensub(" ", "", 1, $0);
-# }' "$tmp_aliases" > "$bash_aliases"
