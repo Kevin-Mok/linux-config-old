@@ -254,7 +254,7 @@ set $ws11 "11 "
 # set $ws11 "11 📊"
 # assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $samsung
-bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_MEM 
+bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_CPU 
 
 set $ws12 "12 "
 bindsym $mod+F12 workspace $ws12; exec $def_term

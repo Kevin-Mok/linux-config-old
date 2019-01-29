@@ -11,7 +11,8 @@ sr /home/kevin/linux-config/configs/ranger/shortcuts.conf
 ss /home/kevin/.shortcuts
 u /home/kevin/.Xresources
 v /home/kevin/.vimrc
-# y /home/kevin/.zshrc
+x /home/kevin/.config/fish/config.fish
+y /home/kevin/.zshrc
 z /home/kevin/linux-config/aliases/zsh_aliases
 
 # }}} sys *

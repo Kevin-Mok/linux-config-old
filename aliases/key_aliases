@@ -3,7 +3,7 @@
 # clear screen
 cs "printf '\033c'"
 hst "history"
-nf "cs && neofetch | lolcat"
+nf "printf '\033c' && neofetch | lolcat"
 fi "fish"
 # reload urxvt
 ru "xrdb ~/.Xresources"
@@ -83,7 +83,9 @@ vlh "alsamixer -c 2"
 # pacman
 pc "sudo pacman -S"
 pcr "sudo pacman -Rs"
-pcu "sudo pacman -Sy"
+pcud "sudo pacman -Sy"
+pcug "sudo pacman -Syu"
+pcv "sudo pacman -Q"
 xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
 # tri "trizen -S --noconfirm"
 tri "trizen -S"
@@ -120,6 +122,7 @@ n "nvim"
 sni "sudo nvim"
 fh "feh"
 sx "sxiv"
+sxg "sxiv -a"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
 
 # rsl "java -jar ~/Downloads/RuneLite.jar"
@@ -151,13 +154,12 @@ yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 p3 "python3"
 py "python"
 
-wt "watson"
-wt "watson"
-wta "watson start"
-wte "watson edit"
-wtl "watson log"
-wts "watson stop"
-wtt "watson status"
+w "watson"
+wa "watson start"
+we "watson edit"
+wl "watson log"
+ws "watson stop"
+wt "watson status"
 
 #  }}} applications # 
 
@@ -266,14 +268,16 @@ upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xa
 # update pip req's.
 ureq "pip freeze > requirements.txt"
 
-# scan history
-hs "$spv_dir/src/update-history.sh && hlg"
 # show last history scan
 hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan history
+hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 # scan cron log for hs cmd
 crnl "grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
 # removes all but newest file
 # rmol "ls -t | tail -n +2 | xargs rm -- && l"
+
+snw "spotify-now -i '%artist - %title'"
 
 #  }}} spotify-lib-vis # 
 
