@@ -22,7 +22,7 @@ ib /home/kevin/linux-config/configs/i3blocks-scripts
 j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
 ms /home/kevin/coding/best-mf-site-personal
-ra /home/kevin/linux-config/configs/ranger
+ra /home/kevin/.config/ranger
 sr /home/kevin/linux-config/scripts
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sv /home/kevin/coding/spotify-lib-vis/src

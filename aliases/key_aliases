@@ -98,6 +98,7 @@ id "identify"
 #  }}} system # 
 
 # config files {{{ #
+rf "source ~/.config/fish/config.fish"
 rz "source ~/linux-config/aliases/zsh_aliases"
 lca "f ~/linux-config/aliases"
 
@@ -189,7 +190,8 @@ gchnw "git checkout -b wip"
 gchw "git checkout wip"
 gheadm1 "git reset --hard HEAD~1"
 # show files in git repo
-gls "git ls-tree -r HEAD --name-only"
+# gls "git ls-tree -r HEAD --name-only"
+gls "git ls-tree HEAD --name-only"
 
 #  push {{{ # 
 gst "git stash"

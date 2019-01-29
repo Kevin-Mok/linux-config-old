@@ -12,6 +12,11 @@ are also for my Linux
 <!---  Main Programs {{{ --> 
 ## Main Programs
 * **OS**: [Arch Linux](https://www.archlinux.org/) ([packages](txt/nzxt-pkgs.txt)) 
+```
+> systemd-analyze
+Startup finished in 2.341s (kernel) + 1.085s (userspace) = 3.426s 
+graphical.target reached after 1.085s in userspace
+```
 * **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
 * **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * **Window Manager**: [i3-gaps](https://github.com/Airblader/i3)
@@ -22,8 +27,8 @@ are also for my Linux
 <!---  Setup {{{ --> 
 
 ## Setup
-I wrote [a script](setup.sh) to
-symbolically link the files/directories in the repository to the locations
-they should be in the system.
+I use
+[Stow](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html)
+to symbolically link the configs/dotfiles.
 
 <!---  }}} Setup --> 
