@@ -166,7 +166,7 @@ gstr "git config credential.helper store"
 g "git"
 
 #  add {{{ # 
-ga "git add -A . && gs"
+ga "git add -A . && git status -u"
 gac "git add -A . && git commit -S"
 # unsigned commt
 gacu "git add -A . && git commit"
