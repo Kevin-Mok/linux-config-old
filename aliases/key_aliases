@@ -4,6 +4,7 @@
 cs "printf '\033c'"
 hst "history"
 nf "cs && neofetch | lolcat"
+fi "fish"
 # reload urxvt
 ru "xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1

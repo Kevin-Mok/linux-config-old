@@ -102,8 +102,10 @@ source ~/linux-config/aliases/zsh_aliases
 # ZSH_THEME="miloshadzic"
 # ZSH_THEME="agnoster"
 
+#  antigen {{{ # 
+
 source $ZSH/custom/antigen.zsh
-antigen bundle last-working-dir 
+# antigen bundle last-working-dir
 antigen bundle pass 
 
 antigen bundle hlissner/zsh-autopair
@@ -114,16 +116,21 @@ antigen bundle desyncr/auto-ls
 antigen theme molovo/filthy
 antigen apply
 
+#  }}} antigen # 
+
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
-# pywal
+#  pywal {{{ # 
+
 export PATH="${PATH}:${HOME}/.local/bin/:${HOME}/linux-config/scripts:/opt/pycharm-2018.3.1/bin:${HOME}/linux-config/scripts/colors"
 (cat ~/.cache/wal/sequences &)
 # export pywal colors
 source ~/.cache/wal/colors.sh
 export COLOR7=$color7
+
+#  }}} pywal # 
 
 xset r rate 200 60
 
@@ -168,8 +175,8 @@ source /home/kevin/.shortcuts
 source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# add-zsh-hook -Uz chpwd (){ ls -a; }
-
 export GPG_TTY=$(tty)
 export PASSWORD_STORE_CLIP_TIME=120
 source /home/kevin/.key_aliases
+
+exec fish
