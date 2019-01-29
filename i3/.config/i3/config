@@ -431,12 +431,12 @@ bar {
 		background $black$bar_trans
 		# border, bg, text color
 		# focused_workspace $inactive_ws_bg $bg $focused_ws_text
-		focused_workspace $inactive_ws_bg $bg $fg 
+		focused_workspace $inactive_ws_bg $bg $fg
 		active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
 	}
 	# status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-	status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/sam-i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
+	status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
 	tray_output none
 	wheel_up_cmd nop
 	wheel_down_cmd nop
