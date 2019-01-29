@@ -233,7 +233,7 @@ set $ws8 "8 "
 # set $ws8 "8 📊"
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $samsung
-bindsym Mod4+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_MEM 
+bindsym Mod4+F8 workspace $ws8; exec urxvt -e htop -s PERCENT_CPU 
 
 set $ws9 "9 "
 # set $ws9 "9 🔧"
