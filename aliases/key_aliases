@@ -53,7 +53,8 @@ rsy "rsync -Pr"
 # list all (un)mounted drives
 lhd "sudo fdisk -l"
 # get disc space for mounted drives
-ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
+# ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
+ds "df -h | head -n 1 && df -h | grep sd"
 chownw "sudo chown -R kevin:wheel"
 chwnm "sudo chown -R kevin:wheel /run/media/kevin"
 # cd into backup folder and show backup sizes
@@ -91,7 +92,7 @@ xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
 tri "trizen -S"
 
 # internet
-pg "ping -c 3 8.8.8.8"
+pgo "ping -c 3 8.8.8.8"
 dh "sudo dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
 
@@ -201,8 +202,8 @@ gstp "git stash pop"
 
 gc "git commit -S"
 gcu "git commit"
-gcam "ga && git commit --amend --no-edit -S"
-gcamp "ga && git commit --amend --no-edit -S && gpsf"
+gcam "git add -A . && git commit --amend --no-edit -S"
+# gcamp "git add -A . && git commit --amend --no-edit -S && gpsf"
 
 psgi "git add . && git commit -m '.' -S && git push"
 gps "git push"
@@ -254,7 +255,8 @@ gunc "git update-index --assume-unchanged"
 # svscs "f $spv_dir/src/static/scss"
 # svcss "f $spv_dir/src/spotifyvis/static/scss"
 # start spv server from dir
-ssv "source ../bin/activate && python manage.py runserver"
+pg "sudo systemctl start postgresql.service && systemctl status postgresql.service"
+ssv "bash ../bin/activate && python manage.py runserver"
 # start spv server outside dir
 sssv "sv && ssv"
 # open spv db in psql
@@ -271,7 +273,7 @@ ureq "pip freeze > requirements.txt"
 # show last history scan
 hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 # scan history
-hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 # scan cron log for hs cmd
 crnl "grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
 # removes all but newest file
@@ -286,6 +288,8 @@ pdl "pdflatex"
 tcl "tex-clean"
 
 mfs "nvim /home/kevin/coding/best-mf-site-personal/index.html"
+
+ss "ssh kevin@192.168.0.100"
 
 #  }}} coding projs # 
 

@@ -5,7 +5,8 @@ cf /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
-ff /home/kevin/.config/fish
+fc /home/kevin/.config/fish
+ff /home/kevin/linux-config/fish/.config/fish/functions
 fs /home/kevin/linux-config/fish/.config/fish
 k /home/kevin/
 lc /home/kevin/linux-config/
@@ -29,7 +30,7 @@ snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sv /home/kevin/coding/spotify-lib-vis/src
 swa /home/kevin/.local/share/nvim/swap
 tx /home/kevin/linux-config/txt
-wa /home/kevin/.config/watson
+wd /home/kevin/.config/watson
 wo /home/kevin/Documents/workout-logs/11
 
 # }}} cdn *
@@ -42,7 +43,6 @@ e1 /home/kevin/school/309/e1
 6 /home/kevin/school/369
 a1 /home/kevin/school/369/a1/
 hp /home/kevin/school/hps
-ph /home/kevin/school/phl
 lt /home/kevin/school/latex-notes
 
 # }}} sch *

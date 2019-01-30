@@ -5,15 +5,15 @@ if status is-login
         exec startx -- -keeptty
     end
 end
-set -x GPG_TTY=$(tty)
+set -x GPG_TTY (tty)
 
 # }}} login to X #
 
 # input
 xset r rate 200 60
 fish_vi_key_bindings
-set -x EDITOR /usr/bin/nvim 
-set -x VISUAL /usr/bin/nvim 
+set -x EDITOR nvim 
+set -x VISUAL nvim 
 
 builtin cd $last_dir
 
@@ -30,3 +30,10 @@ source $spv_dir/src/api-keys.sh
 # set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
 set -x PATH $PATH /home/kevin/linux-config/scripts
 set -x PASSWORD_STORE_CLIP_TIME 120
+
+# fxn abbr's
+abbr ag "grep-aliases"
+abbr gcamp "git-amend-push"
+abbr hs "scan-history"
+abbr ut "unix-timestamp"
+abbr z "zathura-silent"

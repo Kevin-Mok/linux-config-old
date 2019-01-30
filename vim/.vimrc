@@ -316,4 +316,6 @@ autocmd Filetype tex inoremap <localleader>tx $t(x)$
 
 autocmd Filetype md inoremap <localleader>x 0f[lRX
 
+autocmd Filetype fish inoremap <localleader>1 $argv[1]
+
 " }}} Local Mappings "
