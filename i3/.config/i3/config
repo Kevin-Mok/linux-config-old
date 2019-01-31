@@ -221,7 +221,8 @@ set $ws6 "6 "
 workspace $ws6 output $samsung
 assign [class="Slack"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
-bindsym Mod4+k workspace $ws6; exec slack
+bindsym Mod4+i workspace $ws6; exec firefox -new-window https://riot.im/app/#/home
+# bindsym Mod4+k workspace $ws6; exec slack
 
 set $ws7 "7 "
 # set $ws7 "7 📤"

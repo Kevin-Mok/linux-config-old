@@ -21,10 +21,13 @@ mkpk "makepkg -sri"
 mkex "chmod 777"
 
 # systemctl
-ctl "systemctl"
-ctle "systemctl enable"
-ctld "systemctl disable"
-ctls "systemctl start"
+ctl "sudo systemctl"
+ctle "sudo systemctl enable"
+ctld "sudo systemctl disable"
+ctla "sudo systemctl start"
+ctls "sudo systemctl stop"
+ctlt "sudo systemctl status"
+ctlr "sudo systemctl restart"
 
 wm "sudo wifi-menu"
 
@@ -120,7 +123,7 @@ r "ranger"
 mr "man ranger"
 clc "cloc ."
 n "nvim"
-sni "sudo nvim"
+sn "sudo nvim"
 fh "feh"
 sx "sxiv"
 sxg "sxiv -a"
@@ -287,7 +290,11 @@ sc "shellcheck"
 pdl "pdflatex"
 tcl "tex-clean"
 
+# mfs
 mfs "nvim /home/kevin/coding/best-mf-site-personal/index.html"
+hps "python3 -m http.server"
+j "jekyll"
+js "jekyll serve"
 
 ss "ssh kevin@192.168.0.100"
 

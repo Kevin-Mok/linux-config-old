@@ -28,7 +28,7 @@ set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 source $spv_dir/src/api-keys.sh
 
 # set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
-set -x PATH $PATH /home/kevin/linux-config/scripts
+set -x PATH $PATH /home/kevin/linux-config/scripts (ruby -e 'print Gem.user_dir')/bin
 set -x PASSWORD_STORE_CLIP_TIME 120
 
 # fxn abbr's
