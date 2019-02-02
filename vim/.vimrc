@@ -42,6 +42,7 @@ autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
+" autocmd Filetype html set foldmarker=0
 
 autocmd BufWritePost key_* !sync-shortcuts
 autocmd VimLeave *.tex !tex-clean %
@@ -212,6 +213,8 @@ nnoremap <leader>dg ggdG
 nnoremap <leader>D "+dd
 " delete entire buffer into system clipboard
 nnoremap <leader>DA "+ggdG
+" find alias
+nnoremap <leader>fa /^ <Left>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
@@ -317,5 +320,6 @@ autocmd Filetype tex inoremap <localleader>tx $t(x)$
 autocmd Filetype md inoremap <localleader>x 0f[lRX
 
 autocmd Filetype fish inoremap <localleader>1 $argv[1]
+autocmd Filetype fish inoremap <localleader>2 $argv[2]
 
 " }}} Local Mappings "

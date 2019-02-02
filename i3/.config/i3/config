@@ -140,10 +140,11 @@ bindsym control+Shift+x kill
 #  container display {{{ # 
 # backgrounds
 # set $colors_sh "~/.cache/wal/colors.sh"
-bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"; exec ~/.cache/wal/colors.sh
-# bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim"; exec ~/.cache/wal/colors.sh
-bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
-bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"; exec ~/.cache/wal/colors.sh
+bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"
+bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim/non-editing"
+# bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
+bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"
+bindsym $mod+y exec wal -i "$HOME/Pictures/Backgrounds/bright/non-editing"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

@@ -19,10 +19,12 @@ P /home/kevin/Pictures
 
 # cdn {{{ *
 
+b1 /home/kevin/coding/mf-site/themes/base16
 cn /home/kevin/coding
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
+mh /home/kevin/coding/mf-site
 ms /home/kevin/coding/best-mf-site-personal
 ra /home/kevin/.config/ranger
 sr /home/kevin/linux-config/scripts
@@ -41,7 +43,7 @@ sc /home/kevin/school
 0 /home/kevin/school/309
 e1 /home/kevin/school/309/e1
 6 /home/kevin/school/369
-a1 /home/kevin/school/369/a1/
+a2 /home/kevin/school/369/a2/a2
 hp /home/kevin/school/hps
 lt /home/kevin/school/latex-notes
 
