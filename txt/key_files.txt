@@ -23,12 +23,14 @@ cm ./commit-msg.txt
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 id /home/kevin/coding/project-ideas/ideas.md
 ig ./.gitignore
-jn /home/kevin/Documents/journal/todo/1.md
+jn /home/kevin/Documents/journal/todo/2.md
 jt /home/kevin/Documents/journal/todo/todo.md
 lh /home/kevin/Documents/listening-history/polarbier.csv
+mc /home/kevin/coding/mf-site/assets/sass/main.scss
+mi /home/kevin/coding/mf-site/ideas.md
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 re README.md
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
+wt /home/kevin/.config/watson/state.tmp
 
 # }}} cdn *
-

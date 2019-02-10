@@ -5,7 +5,7 @@ cf /home/kevin/.config
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
-fc /home/kevin/.config/fish
+fo /home/kevin/.config/fish
 ff /home/kevin/linux-config/fish/.config/fish/functions
 fs /home/kevin/linux-config/fish/.config/fish
 k /home/kevin/
@@ -14,6 +14,7 @@ me /run/media/kevin
 o /
 p /home/kevin/.password-store
 P /home/kevin/Pictures
+t /tmp
 
 # }}} sys *
 
@@ -24,8 +25,9 @@ cn /home/kevin/coding
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
-mh /home/kevin/coding/mf-site
-ms /home/kevin/coding/best-mf-site-personal
+ms /home/kevin/coding/mf-site
+mh /home/kevin/coding/mf-site/layouts
+# mg /home/kevin/coding/best-mf-site-personal
 ra /home/kevin/.config/ranger
 sr /home/kevin/linux-config/scripts
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
@@ -41,7 +43,7 @@ wo /home/kevin/Documents/workout-logs/11
 
 sc /home/kevin/school
 0 /home/kevin/school/309
-e1 /home/kevin/school/309/e1
+e2 /home/kevin/school/309/e2
 6 /home/kevin/school/369
 a2 /home/kevin/school/369/a2/a2
 hp /home/kevin/school/hps

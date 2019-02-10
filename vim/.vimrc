@@ -26,9 +26,11 @@ set linespace=5
 
 " }}} cursor indicator "
 
-set timeoutlen=500
+" set timeoutlen=500
+set timeoutlen=350
 set hlsearch
 set noswapfile
+let maplocalleader="-"
 " }}} set x=y "
 
 " commands for file types {{{ "
@@ -37,12 +39,14 @@ autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
 filetype plugin on
 filetype indent on
-autocmd FileType css,htmldjango,html,tex,markdown set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType *css,htmldjango,html,tex,markdown,yaml set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
+autocmd Filetype c let maplocalleader="\\"
 
 autocmd BufWritePost key_* !sync-shortcuts
 autocmd VimLeave *.tex !tex-clean %
@@ -165,10 +169,10 @@ Plug 'dag/vim-fish'
 
 call plug#end()
 
+" }}} vim-plug "
+
 " colorscheme gotham256
 colorscheme wal
-
-" }}} vim-plug "
 
 " Mappings {{{ "
 
@@ -213,12 +217,16 @@ nnoremap <leader>dg ggdG
 nnoremap <leader>D "+dd
 " delete entire buffer into system clipboard
 nnoremap <leader>DA "+ggdG
+" find copied text
+nnoremap <leader>f q/p<CR>
 " find alias
 nnoremap <leader>fa /^ <Left>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
+" find copied text
+nnoremap <leader>ft /TODO<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -252,6 +260,8 @@ vnoremap <leader>r q:is///g<ESC>3ha
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
+" sort lines until end of file
+vnoremap <leader>s :sort<CR>
 " run current file in shell
 nnoremap <leader>sh :!%:p<CR>
 " sort lines until end of file
@@ -279,9 +289,17 @@ nnoremap <leader>z za
 
 " }}} Mappings "
 
-" (tex) Local Mappings {{{ "
-let maplocalleader="-"
-autocmd Filetype c inoremap <localleader>s struct pixel
+" Local Mappings {{{ "
+
+autocmd Filetype c nnoremap <localleader>g :YcmCompleter GoTo<CR>
+
+autocmd Filetype fish inoremap <localleader>1 $argv[1]
+autocmd Filetype fish inoremap <localleader>2 $argv[2]
+
+autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
+" nnoremap <localleader>x 0f[lrx
+
+" tex {{{ "
 
 autocmd Filetype tex inoremap <localleader>bt \bowtie
 autocmd Filetype tex inoremap <localleader>c \checkmark
@@ -317,9 +335,6 @@ autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
 
-autocmd Filetype md inoremap <localleader>x 0f[lRX
-
-autocmd Filetype fish inoremap <localleader>1 $argv[1]
-autocmd Filetype fish inoremap <localleader>2 $argv[2]
+" }}} tex "
 
 " }}} Local Mappings "

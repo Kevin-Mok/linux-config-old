@@ -1,7 +1,7 @@
 #  system {{{ # 
 
 # clear screen
-cs "printf '\033c'"
+c "printf '\033c'"
 hst "history"
 nf "printf '\033c' && neofetch | lolcat"
 fi "fish"
@@ -9,18 +9,21 @@ fi "fish"
 ru "xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
 dum "sudo du -d 1 -B M"
+tl "tldr"
 
 vgb "sni /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-grep "grep --color=auto"
-rg "grep -nr"
+grep "grep --color=auto -n"
+rg "grep -r"
 # pk "pkill -f"
+cld "colordiff -y --suppress-common-lines"
 
 mkpk "makepkg -sri"
 mkex "chmod 777"
 
-# systemctl
+#  systemctl {{{ # 
+
 ctl "sudo systemctl"
 ctle "sudo systemctl enable"
 ctld "sudo systemctl disable"
@@ -28,6 +31,8 @@ ctla "sudo systemctl start"
 ctls "sudo systemctl stop"
 ctlt "sudo systemctl status"
 ctlr "sudo systemctl restart"
+
+#  }}} systemctl # 
 
 wm "sudo wifi-menu"
 
@@ -37,9 +42,7 @@ udmb "udisksctl mount -b /dev/sdc2"
 udu "udisksctl unmount -b"
 udub "udisksctl unmount -b /dev/sdc2"
 
-tc "touch"
-
-#  }}} command line related # 
+to "touch"
 
 #  directory-related {{{ # 
 l "ls -a"
@@ -71,7 +74,8 @@ s "systemctl suspend"
 sd "sudo shutdown 0"
 reb "sudo shutdown -r 0"
 lo "i3-msg exit"
-x "xmodmap ~/.Xmodmap && xset r rate 200 60"
+x "xmodmap ~/.Xmodmap && xset r rate 200 70"
+X "xmodmap ~/.Xmodmap && xset r rate 200 70"
 
 #  }}} power options # 
 
@@ -84,7 +88,8 @@ vlh "alsamixer -c 2"
 # aptr "sudo apt remove"
 # aptu "sudo apt upgrade"
 
-# pacman
+#  pacman {{{ # 
+
 pc "sudo pacman -S"
 pcr "sudo pacman -Rs"
 pcud "sudo pacman -Sy"
@@ -93,6 +98,8 @@ pcv "sudo pacman -Q"
 xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
 # tri "trizen -S --noconfirm"
 tri "trizen -S"
+
+#  }}} pacman # 
 
 # internet
 pgo "ping -c 3 8.8.8.8"
@@ -120,13 +127,14 @@ chr "google-chrome"
 # h "htop -s PERCENT_MEM"
 # hc "htop -s PERCENT_CPU"
 r "ranger"
-mr "man ranger"
+mra "man ranger"
 clc "cloc ."
 n "nvim"
 sn "sudo nvim"
 fh "feh"
 sx "sxiv"
-sxg "sxiv -a"
+sxa "sxiv -a"
+wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
 
 # rsl "java -jar ~/Downloads/RuneLite.jar"
@@ -158,25 +166,50 @@ yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 p3 "python3"
 py "python"
 
+#  watson {{{ # 
+
 w "watson"
 wa "watson start"
 we "watson edit"
 wl "watson log"
+# wlm "watson log --project coding --tag mfs"
+wr "watson report"
 ws "watson stop"
+wse "watson stop && watson edit"
+wsl "watson stop && watson log"
 wt "watson status"
+
+#  }}} watson # 
 
 #  }}} applications # 
 
 #  git {{{ # 
-# aliases {{{
 gstr "git config credential.helper store"
 g "git"
 
-#  add {{{ # 
+#  branch {{{ # 
+
+gb "git branch"
+gba "git branch --no-merged && echo '' && git branch --merged"
+gbu "git branch --no-merged"
+gbm "git branch --merged"
+
+#  }}} branch # 
+
+gr "git remote"
+
+#  add/remove {{{ # 
+
 ga "git add -A . && git status -u"
 gac "git add -A . && git commit -S"
 # unsigned commt
 gacu "git add -A . && git commit"
+
+grm "git rm"
+grmf "git rm -f"
+grmc "git rm --cached"
+grmfc "git rm -f --cached"
+
 #  }}} add # 
 
 #  diff/log {{{ # 
@@ -201,16 +234,19 @@ gls "git ls-tree HEAD --name-only"
 
 #  push {{{ # 
 gst "git stash"
+gstl "git stash list"
 gstp "git stash pop"
 
 gc "git commit -S"
 gcu "git commit"
-gcam "git add -A . && git commit --amend --no-edit -S"
+gca "git add -A . && git commit --amend --no-edit -S"
+gcam "git add -A . && git commit --amend -S"
 # gcamp "git add -A . && git commit --amend --no-edit -S && gpsf"
 
 psgi "git add . && git commit -m 'Update' -S && git push"
 gps "git push"
-gpsn "git push --set-upstream origin master"
+# gpsn "git push --set-upstream origin master"
+gpsn "eval (git push 2>&1 | tail -n 2)"
 gpsf "git push --force"
 gclear "git stash clear"
 
@@ -223,16 +259,13 @@ grbc "git rebase --continue"
 
 crm "mrk README.md"
 
-# aliases }}}
-
 gcho "git checkout"
 gchon "git checkout -b"
+gf "git fetch"
 
 gcln "git clone"
 gchp "git cherry-pick"
 gchpc "git cherry-pick --continue"
-
-#  }}} merge repos # 
 
 # assume file unchanged
 gunc "git update-index --assume-unchanged"
@@ -296,7 +329,7 @@ hps "python3 -m http.server"
 # j "jekyll"
 # js "jekyll serve"
 h "hugo"
-he "hugo serve --disableFastRender"
+he "hugo serve -D --disableFastRender"
 
 ss "ssh kevin@192.168.0.100"
 
@@ -305,10 +338,17 @@ ss "ssh kevin@192.168.0.100"
 #  school {{{ # 
 
 # 369
+# a2
+m "printf '\033c' && bear make"
+mc "bear make clean"
+mcr "bear make clean && printf '\033c' && bear make && ./carsim light 10 50"
+mr "printf '\033c' && make && ./carsim stop 1 4"
+# mr "printf '\033c' && bear make && ./carsim light 1 50"
+hl "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind --tool=helgrind ./carsim light 10 50 >> helgrind.txt 2>&1"
+
+# a1
 # sa "ssh k@192.168.0.17"
 # cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
 # cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
-m "printf '\033c' && make"
-mc "make clean"
 
 #  }}} school # 
