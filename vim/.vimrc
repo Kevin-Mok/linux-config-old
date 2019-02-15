@@ -39,7 +39,7 @@ autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 
-autocmd BufWritePost key_*.txt !sync-shortcuts
+autocmd BufWritePost key_* !sync-shortcuts
 autocmd VimLeave *.tex !tex-clean %
 
 " " auto-reload vimrc {{{ "

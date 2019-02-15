@@ -1,6 +1,7 @@
 # sys {{{ *
 
 3 /home/kevin/.config/i3/config
+a /home/kevin/linux-config/aliases/key_aliases
 d /home/kevin/linux-config/txt/key_dirs.txt
 f /home/kevin/linux-config/txt/key_files.txt
 i /home/kevin/.config/i3blocks/i3blocks.conf
@@ -10,6 +11,7 @@ sr /home/kevin/linux-config/configs/ranger/shortcuts.conf
 ss /home/kevin/.shortcuts
 u /home/kevin/.Xresources
 v /home/kevin/.vimrc
+x /home/kevin/linux-config/fish/.config/fish/config.fish
 y /home/kevin/.zshrc
 z /home/kevin/linux-config/aliases/zsh_aliases
 
@@ -23,7 +25,7 @@ jn /home/kevin/Documents/journal/todo/12.md
 id /home/kevin/coding/project-ideas/ideas.md
 jt /home/kevin/Documents/journal/todo/todo.md
 lh /home/kevin/Documents/listening-history/polarbier.csv
-no ./.gitignore
+ig ./.gitignore
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
 tr /home/kevin/linux-config/txt/pacman-pkgs/aur-pkgs.txt

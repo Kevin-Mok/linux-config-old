@@ -1,0 +1,354 @@
+#  system {{{ # 
+
+# clear screen
+c "printf '\033c'"
+hst "history"
+nf "printf '\033c' && neofetch | lolcat"
+fi "fish"
+# reload urxvt
+ru "xrdb ~/.Xresources"
+# list file sizes in megabytes with depth 1
+dum "sudo du -d 1 -B M"
+tl "tldr"
+
+vgb "sni /etc/default/grub"
+mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+grep "grep --color=auto -n"
+rg "grep -r"
+# pk "pkill -f"
+cld "colordiff -y --suppress-common-lines"
+
+mkpk "makepkg -sri"
+mkex "chmod 777"
+
+#  systemctl {{{ # 
+
+ctl "sudo systemctl"
+ctle "sudo systemctl enable"
+ctld "sudo systemctl disable"
+ctla "sudo systemctl start"
+ctls "sudo systemctl stop"
+ctlt "sudo systemctl status"
+ctlr "sudo systemctl restart"
+
+#  }}} systemctl # 
+
+wm "sudo wifi-menu"
+
+#  mounting
+udm "udisksctl mount -b"
+udmb "udisksctl mount -b /dev/sdc2"
+udu "udisksctl unmount -b"
+udub "udisksctl unmount -b /dev/sdc2"
+
+to "touch"
+
+#  directory-related {{{ # 
+l "ls -a"
+ll "ls -alFh"
+smv "sudo mv"
+f "cd"
+fz "fzf"
+fnd "find . -type f -name"
+
+rmr "rm -rf"
+mdp "mkdir -p"
+rsy "rsync -Pr"
+
+# list all (un)mounted drives
+lhd "sudo fdisk -l"
+# get disc space for mounted drives
+# ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
+ds "df -h | head -n 1 && df -h | grep sd"
+chownw "sudo chown -R kevin:wheel"
+chwnm "sudo chown -R kevin:wheel /run/media/kevin"
+# cd into backup folder and show backup sizes
+nbu "f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
+
+#  }}}  directory-related # 
+
+#  power options {{{ # 
+
+s "systemctl suspend"
+sd "sudo shutdown 0"
+reb "sudo shutdown -r 0"
+lo "i3-msg exit"
+x "xmodmap ~/.Xmodmap && xset r rate 200 70"
+X "xmodmap ~/.Xmodmap && xset r rate 200 70"
+
+#  }}} power options # 
+
+# sound
+vlm "alsamixer -c 0"
+vlh "alsamixer -c 2"
+
+# apt
+# apti "sudo apt install"
+# aptr "sudo apt remove"
+# aptu "sudo apt upgrade"
+
+#  pacman {{{ # 
+
+pc "sudo pacman -S"
+pcr "sudo pacman -Rs"
+pcud "sudo pacman -Sy"
+pcug "sudo pacman -Syu"
+pcv "sudo pacman -Q"
+xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
+# tri "trizen -S --noconfirm"
+tri "trizen -S"
+
+#  }}} pacman # 
+
+# internet
+pgo "ping -c 3 8.8.8.8"
+dh "sudo dhcpcd"
+rdh "sudo killall dhcpcd && sudo dhcpcd"
+
+id "identify"
+
+#  }}} system # 
+
+# config files {{{ #
+rf "source ~/.config/fish/config.fish"
+rz "source ~/linux-config/aliases/zsh_aliases"
+lca "f ~/linux-config/aliases"
+
+pipes "pipes.sh -t 3"
+	
+# }}} config files #
+
+#  applications {{{ # 
+
+# silent="> /dev/null 2>&1& "
+
+chr "google-chrome"
+# h "htop -s PERCENT_MEM"
+# hc "htop -s PERCENT_CPU"
+r "ranger"
+mra "man ranger"
+clc "cloc ."
+n "nvim"
+sn "sudo nvim"
+fh "feh"
+sx "sxiv"
+sxa "sxiv -a"
+wg "wego"
+wp "grep wallpaper ~/.cache/wal/colors.sh"
+
+# rsl "java -jar ~/Downloads/RuneLite.jar"
+# swex "sudo nohup ~/Downloads/swex.appimage $silent"
+
+cv "cava"
+
+rx "redshift -x"
+
+gpe "gpg --encrypt --recipient"
+gpd "gpg --decrypt"
+
+#  pass {{{ # 
+
+ps "pass"
+psc "pass -c"
+pse "pass edit"
+psi "pass insert -m"
+psg "pass generate -c"
+
+xclip "xclip -selection clipboard"
+yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
+yg "xclip -selection clipboard ~/.password-store/social/gmail"
+yt "xclip -selection clipboard ~/.password-store/social/trapbot"
+yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
+
+#  }}} pass # 
+
+p3 "python3"
+py "python"
+
+#  watson {{{ # 
+
+w "watson"
+wa "watson start"
+we "watson edit"
+wl "watson log"
+# wlm "watson log --project coding --tag mfs"
+wr "watson report"
+ws "watson stop"
+wse "watson stop && watson edit"
+wsl "watson stop && watson log"
+wt "watson status"
+
+#  }}} watson # 
+
+#  }}} applications # 
+
+#  git {{{ # 
+gstr "git config credential.helper store"
+g "git"
+
+#  branch {{{ # 
+
+gb "git branch"
+gba "git branch --no-merged && echo '' && git branch --merged"
+gbu "git branch --no-merged"
+gbm "git branch --merged"
+
+#  }}} branch # 
+
+gr "git remote"
+
+#  add/remove {{{ # 
+
+ga "git add -A . && git status -u"
+gac "git add -A . && git commit -S"
+# unsigned commt
+gacu "git add -A . && git commit"
+
+grm "git rm"
+grmf "git rm -f"
+grmc "git rm --cached"
+grmfc "git rm -f --cached"
+
+#  }}} add # 
+
+#  diff/log {{{ # 
+gd "git diff -w"
+gdc "git diff --cached"
+gds "git diff --stat"
+gdt "git difftool --tool=vimdiff"
+gl "git log"
+gsl "git shortlog"
+#  }}}  diff/log # 
+
+#  update {{{ # 
+
+gs "git status -u"
+gchom "git checkout master"
+gchnw "git checkout -b wip"
+gchw "git checkout wip"
+gheadm1 "git reset --hard HEAD~1"
+# show files in git repo
+# gls "git ls-tree -r HEAD --name-only"
+gls "git ls-tree HEAD --name-only"
+
+#  push {{{ # 
+gst "git stash"
+gstl "git stash list"
+gstp "git stash pop"
+
+gc "git commit -S"
+gcu "git commit"
+gca "git add -A . && git commit --amend --no-edit -S"
+gcam "git add -A . && git commit --amend -S"
+# gcamp "git add -A . && git commit --amend --no-edit -S && gpsf"
+
+psgi "git add . && git commit -m 'Update' -S && git push"
+gps "git push"
+# gpsn "git push --set-upstream origin master"
+gpsn "eval (git push 2>&1 | tail -n 2)"
+gpsf "git push --force"
+gclear "git stash clear"
+
+gpl "git pull --rebase"
+grbc "git rebase --continue"
+
+#  }}} push # 
+
+#  }}} update # 
+
+crm "mrk README.md"
+
+gcho "git checkout"
+gchon "git checkout -b"
+gf "git fetch"
+
+gcln "git clone"
+gchp "git cherry-pick"
+gchpc "git cherry-pick --continue"
+
+# assume file unchanged
+gunc "git update-index --assume-unchanged"
+
+#  }}} git # 
+
+#  coding projs {{{ # 
+# coding_dir="~/coding"
+
+#  trapbot {{{ # 
+# tb "$cd_coding_dir/trapbot"
+	# vtb "$cd_coding_dir/trapbot && ni scan_reddit.py"
+	# ptb "python scan_reddit.py"
+	# rtb "$cd_coding_dir/trapbot && python scan_reddit.py"
+#  }}} trapbot # 
+
+#  spotify-lib-vis {{{ # 
+
+# spv_dir="$coding_dir""/spotify-lib-vis"
+# svl "f $spv_dir/src/login"
+# sva "f $spv_dir/src/api"
+# svg "f $spv_dir/src/graphs"
+# svscs "f $spv_dir/src/static/scss"
+# svcss "f $spv_dir/src/spotifyvis/static/scss"
+# start spv server from dir
+pg "sudo systemctl start postgresql.service && systemctl status postgresql.service"
+ssv "bash ../bin/activate && python manage.py runserver"
+# start spv server outside dir
+sssv "sv && ssv"
+# open spv db in psql
+spvdb "psql -d spotifyvis -U django"
+mig "python manage.py makemigrations && python manage.py migrate --run-syncdb && ssv"
+cldb "python manage.py flush --no-input && ssv"
+# django shell
+djs "python manage.py shell"
+# update pip
+upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+# update pip req's.
+ureq "pip freeze > requirements.txt"
+
+# show last history scan
+hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan history
+# hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan cron log for hs cmd
+crnl "grep \"(kevin) CMD\" /var/log/syslog | tail -n 1 && hlg"
+# removes all but newest file
+# rmol "ls -t | tail -n +2 | xargs rm -- && l"
+
+snw "spotify-now -i '%artist - %title'"
+
+#  }}} spotify-lib-vis # 
+
+sc "shellcheck"
+pdl "pdflatex"
+tcl "tex-clean"
+
+# mfs
+mfs "nvim /home/kevin/coding/best-mf-site-personal/index.html"
+hps "python3 -m http.server"
+# j "jekyll"
+# js "jekyll serve"
+h "hugo"
+he "hugo serve -D --disableFastRender"
+
+ss "ssh kevin@192.168.0.100"
+
+#  }}} coding projs # 
+
+#  school {{{ # 
+
+# 369
+# a2
+m "printf '\033c' && bear make"
+mc "bear make clean"
+mcr "bear make clean && printf '\033c' && bear make && ./carsim light 10 50"
+mr "printf '\033c' && make && ./carsim stop 1 4"
+# mr "printf '\033c' && bear make && ./carsim light 1 50"
+hl "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind --tool=helgrind ./carsim light 10 50 >> helgrind.txt 2>&1"
+
+# a1
+# sa "ssh k@192.168.0.17"
+# cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
+# cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
+
+#  }}} school # 

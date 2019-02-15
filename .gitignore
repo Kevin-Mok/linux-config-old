@@ -1,5 +1,6 @@
 *.html
 *.sw*
+
 commit-msg.txt
 core
 cp-*
@@ -11,4 +12,4 @@ temp.sh
 bookmarks
 history
 tagged
-shortcuts.conf
+*.conf

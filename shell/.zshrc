@@ -179,4 +179,5 @@ source /home/kevin/.shortcuts
 export GPG_TTY=$(tty)
 export PASSWORD_STORE_CLIP_TIME=120
 
-xrandr --output HDMI2 --left-of eDP1
+# xrandr --output HDMI2 --left-of eDP1
+source /home/kevin/.key_aliases

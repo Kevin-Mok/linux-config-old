@@ -205,3 +205,4 @@ else
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /home/kevin/.key_aliases
