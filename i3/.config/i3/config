@@ -2,11 +2,12 @@
 # set $browser "firefox"
 set $browser "chromium"
 set $def_term "urxvt"
+set $scripts_path "/home/kevin/linux-config/scripts"
 exec redshift -O 2000
 # exec redshift -O 3000
 # random bg
 exec compton
-exec wal -i "$HOME/Pictures/Backgrounds/dim/non-editing"
+exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
 exec imwheel
 exec xmodmap ~/.Xmodmap
 exec xset r rate 200 70
@@ -145,11 +146,11 @@ bindsym shift+x kill
 #  container display {{{ # 
 # backgrounds
 # set $colors_sh "~/.cache/wal/colors.sh"
-bindsym $mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"
-bindsym $mod+w exec wal -i "$HOME/Pictures/Backgrounds/dim/non-editing"
+bindsym $mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing")
+bindsym $mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
 # bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
-bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"
-bindsym $mod+y exec wal -i "$HOME/Pictures/Backgrounds/bright/non-editing"
+bindsym $mod+r exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/editing")
+bindsym $mod+y exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/non-editing")
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

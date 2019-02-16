@@ -16,6 +16,7 @@ set -x VISUAL nvim
 
 builtin cd $last_dir
 bind \ce edit_command_buffer
+bind \cr forward-word
 
 # fish-specific
 source /home/kevin/.config/fish/key_abbr.fish

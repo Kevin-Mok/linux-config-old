@@ -97,7 +97,7 @@ pcug "sudo pacman -Syu"
 pcv "sudo pacman -Q"
 xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
 # tri "trizen -S --noconfirm"
-tri "trizen -S"
+tri "trizen -S --noedit"
 
 #  }}} pacman # 
 
@@ -171,7 +171,7 @@ py "python"
 w "watson"
 wa "watson start"
 we "watson edit"
-wl "watson log"
+wl "watson log --day"
 # wlm "watson log --project coding --tag mfs"
 wr "watson report"
 ws "watson stop"
@@ -319,7 +319,7 @@ snw "spotify-now -i '%artist - %title'"
 
 #  }}} spotify-lib-vis # 
 
-sc "shellcheck"
+shc "shellcheck"
 pdl "pdflatex"
 tcl "tex-clean"
 
@@ -341,10 +341,14 @@ ss "ssh kevin@192.168.0.100"
 # a2
 m "printf '\033c' && bear make"
 mc "bear make clean"
-mcr "bear make clean && printf '\033c' && bear make && ./carsim light 10 50"
-mr "printf '\033c' && make && ./carsim stop 1 4"
-# mr "printf '\033c' && bear make && ./carsim light 1 50"
-hl "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind --tool=helgrind ./carsim light 10 50 >> helgrind.txt 2>&1"
+mcr "bear make clean && printf '\033c' && bear make && ./carsim light 1 20"
+# mr "printf '\033c' && make && ./carsim stop 10 20"
+mr "printf '\033c' && bear make && ./carsim light 1 20"
+# "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind --tool=helgrind ./carsim light 10 50 >> helgrind.txt 2>&1"
+# lk "valgrind --leak-check=yes ./carsim stop 10 20"
+lk "valgrind --leak-check=yes ./carsim light 1 1"
+# hl "valgrind --tool=helgrind ./carsim stop 10 20"
+hl "valgrind --tool=helgrind ./carsim light 10 20"
 
 # a1
 # sa "ssh k@192.168.0.17"

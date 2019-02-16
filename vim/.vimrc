@@ -30,7 +30,8 @@ set linespace=5
 set timeoutlen=350
 set hlsearch
 set noswapfile
-let maplocalleader="-"
+" let maplocalleader="-"
+let maplocalleader="\\"
 " }}} set x=y "
 
 " commands for file types {{{ "
@@ -46,7 +47,6 @@ autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
-autocmd Filetype c let maplocalleader="\\"
 
 autocmd BufWritePost key_* !sync-shortcuts
 autocmd VimLeave *.tex !tex-clean %
@@ -106,6 +106,16 @@ Plug 'lervag/vimtex'
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'qf': 1,
+      \ 'notes': 1,
+      \ 'unite': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'mail': 1
+      \}
 
 " wrote short bits of text that expand into whatever you want
 " demo: https://www.youtube.com/watch?v=Zik6u0klD40
@@ -227,6 +237,7 @@ nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
 " find copied text
 nnoremap <leader>ft /TODO<CR>
+nnoremap <leader>g :YcmCompleter GoTo<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -290,8 +301,6 @@ nnoremap <leader>z za
 " }}} Mappings "
 
 " Local Mappings {{{ "
-
-autocmd Filetype c nnoremap <localleader>g :YcmCompleter GoTo<CR>
 
 autocmd Filetype fish inoremap <localleader>1 $argv[1]
 autocmd Filetype fish inoremap <localleader>2 $argv[2]

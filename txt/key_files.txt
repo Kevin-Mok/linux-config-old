@@ -30,6 +30,7 @@ mc /home/kevin/coding/mf-site/assets/sass/main.scss
 mi /home/kevin/coding/mf-site/ideas.md
 ne /home/kevin/linux-config/configs/neofetch/config.conf
 re README.md
+td todo.md
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
 wt /home/kevin/.config/watson/state.tmp
 
