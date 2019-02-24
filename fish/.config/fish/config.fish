@@ -36,6 +36,7 @@ set -x PASSWORD_STORE_CLIP_TIME 120
 
 # fxn abbr's
 abbr ag "grep-aliases"
+abbr bq "benq-brightness"
 abbr ev "evince-silent"
 # git {{{ #
 

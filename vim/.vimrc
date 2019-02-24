@@ -29,7 +29,7 @@ set linespace=5
 " set timeoutlen=500
 set timeoutlen=350
 set hlsearch
-set noswapfile
+" set noswapfile
 " let maplocalleader="-"
 let maplocalleader="\\"
 " }}} set x=y "
@@ -40,15 +40,11 @@ autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
 filetype plugin on
 filetype indent on
-autocmd FileType *css,htmldjango,html,tex,markdown,yaml set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType *css,htmldjango,html,javascript,markdown,tex,yaml set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
-autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
-autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
-
-autocmd BufWritePost key_* !sync-shortcuts
 autocmd VimLeave *.tex !tex-clean %
 
 " " auto-reload vimrc {{{ "
@@ -61,6 +57,19 @@ autocmd VimLeave *.tex !tex-clean %
 " " }}} auto-reload vimrc "
 
 " }}} commands for file types "
+
+" commands for specific files {{{ "
+
+autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
+autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
+autocmd BufWritePost key_* !sync-shortcuts
+
+autocmd BufNewFile,BufRead main.scss map <F1> :silent !sass main.scss main.css<CR>
+" map <leader><F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
+autocmd BufNewFile,BufRead main.scss map <F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
+autocmd BufNewFile,BufRead main.scss map <F3> :autocmd! BufWritePost main.scss<CR>
+
+" }}} commands for specific files "
 
 " vim-plug {{{ "
 " plug auto-install
@@ -124,6 +133,11 @@ Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = "<tab>"
 	let g:UltiSnipsJumpForwardTrigger = "<tab>"
 	let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
+	let g:ultisnips_javascript = {
+		 \ 'keyword-spacing': 'always',
+		 \ 'semi': 'never',
+		 \ 'space-before-function-paren': 'never',
+		 \ }
 
 " custom snippets
 Plug 'Kevin-Mok/vim-snippets'
@@ -176,6 +190,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
 	" let g:multi_cursor_select_all_word_key='<C-a>'
 Plug 'dag/vim-fish'
+Plug 'shime/vim-livedown'
 
 call plug#end()
 
@@ -187,10 +202,12 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
+" map <F1> silent !sass main.scss main.css<CR>
+" " map <leader><F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
+" map <C-F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
+" map <F2> :autocmd! BufWritePost main.scss<CR>
 " map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
-" map <F2> :silent !gcc -m32 -o test_full test_full.c && scp test_full k@192.168.0.17:/home/k/a1<CR>
 " map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
-" map <F3> :silent !gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>
@@ -199,6 +216,7 @@ map <F8> :!clear && shellcheck %<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
 " map <F9> :VimtexCompile<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
+map <F11> :LivedownPreview<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
@@ -273,8 +291,9 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 " sort lines until end of file
 vnoremap <leader>s :sort<CR>
+nnoremap <leader>sc :set spell spelllang=en_us<CR>
 " run current file in shell
-nnoremap <leader>sh :!%:p<CR>
+nnoremap <leader>sh :!%:p
 " sort lines until end of file
 nnoremap <leader>so q:i.,$sort<CR>
 " sort lines
@@ -301,12 +320,6 @@ nnoremap <leader>z za
 " }}} Mappings "
 
 " Local Mappings {{{ "
-
-autocmd Filetype fish inoremap <localleader>1 $argv[1]
-autocmd Filetype fish inoremap <localleader>2 $argv[2]
-
-autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
-" nnoremap <localleader>x 0f[lrx
 
 " tex {{{ "
 
@@ -345,5 +358,11 @@ autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
 
 " }}} tex "
+
+autocmd Filetype fish inoremap <localleader>1 $argv[1]
+autocmd Filetype fish inoremap <localleader>2 $argv[2]
+
+autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
+" nnoremap <localleader>x 0f[lrx
 
 " }}} Local Mappings "

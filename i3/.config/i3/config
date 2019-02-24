@@ -12,6 +12,7 @@ exec imwheel
 exec xmodmap ~/.Xmodmap
 exec xset r rate 200 70
 exec xrdb ~/.Xresources
+exec --no-startup-id dunst
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id i3-msg 'workspace $ws2; exec $def_term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
@@ -50,6 +51,7 @@ bindsym control+$mod+s exec systemctl suspend
 bindsym Mod4+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
+bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
 # bindsym Mod4+x exec $swex
 bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate 200 70
 bindsym Mod4+z exec cliqz
@@ -236,7 +238,7 @@ set $ws7 "7 "
 # set $ws7 "7 📤"
 workspace $ws7 output $samsung
 bindsym $mod+F7 workspace $ws7; exec $def_term
-bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
+# bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
 
 set $ws8 "8 "
 # set $ws8 "8 📊"
@@ -255,7 +257,7 @@ assign [class="spotify"] $ws10
 workspace $ws10 output $samsung
 set $hp 2
 # bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
-# bindsym Mod4+v workspace $ws10; exec urxvt -e cava
+bindsym Mod4+v workspace $ws10; exec urxvt -e cava
 # bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 

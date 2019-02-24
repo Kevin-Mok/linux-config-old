@@ -14,7 +14,7 @@ me /run/media/kevin
 o /
 p /home/kevin/.password-store
 P /home/kevin/Pictures
-t /tmp
+tm /tmp
 
 # }}} sys *
 
@@ -42,7 +42,8 @@ wo /home/kevin/Documents/workout-logs/11
 # sch {{{ *
 
 sc /home/kevin/school
-0 /home/kevin/school/309
+0d /home/kevin/school/309
+0p /home/kevin/school/309-proj
 e2 /home/kevin/school/309/e2
 6 /home/kevin/school/369
 a2 /home/kevin/school/369/a2/a2

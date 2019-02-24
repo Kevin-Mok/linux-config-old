@@ -11,6 +11,8 @@ ru "xrdb ~/.Xresources"
 dum "sudo du -d 1 -B M"
 tl "tldr"
 
+nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
+
 vgb "sni /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
@@ -53,7 +55,7 @@ fz "fzf"
 fnd "find . -type f -name"
 
 rmr "rm -rf"
-mdp "mkdir -p"
+md "mkdir -p"
 rsy "rsync -Pr"
 
 # list all (un)mounted drives
@@ -101,9 +103,13 @@ tri "trizen -S --noedit"
 
 #  }}} pacman # 
 
+py "python"
+pipi "sudo pip install"
+
 # internet
 pgo "ping -c 3 8.8.8.8"
 dh "sudo dhcpcd"
+kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
 
 id "identify"
@@ -125,7 +131,7 @@ pipes "pipes.sh -t 3"
 
 chr "google-chrome"
 # h "htop -s PERCENT_MEM"
-# hc "htop -s PERCENT_CPU"
+hc "htop -s PERCENT_CPU"
 r "ranger"
 mra "man ranger"
 clc "cloc ."
@@ -136,6 +142,8 @@ sx "sxiv"
 sxa "sxiv -a"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
+
+kd "killall Discord && killall Discord"
 
 # rsl "java -jar ~/Downloads/RuneLite.jar"
 # swex "sudo nohup ~/Downloads/swex.appimage $silent"
@@ -172,11 +180,12 @@ w "watson"
 wa "watson start"
 we "watson edit"
 wl "watson log --day"
+wlw "watson log"
 # wlm "watson log --project coding --tag mfs"
 wr "watson report"
 ws "watson stop"
 wse "watson stop && watson edit"
-wsl "watson stop && watson log"
+wsl "watson stop && watson log --day"
 wt "watson status"
 
 #  }}} watson # 
@@ -261,7 +270,7 @@ crm "mrk README.md"
 
 gcho "git checkout"
 gchon "git checkout -b"
-gf "git fetch"
+gf "git fetch origin"
 
 gcln "git clone"
 gchp "git cherry-pick"
@@ -325,19 +334,21 @@ tcl "tex-clean"
 
 # mfs
 mfs "nvim /home/kevin/coding/best-mf-site-personal/index.html"
-hps "python3 -m http.server"
+ht "python3 -m http.server"
 # j "jekyll"
 # js "jekyll serve"
 h "hugo"
 he "hugo serve -D --disableFastRender"
 
 ss "ssh kevin@192.168.0.100"
+ssb "ssh-bandit"
 
 #  }}} coding projs # 
 
 #  school {{{ # 
 
-# 369
+#  369 {{{ # 
+
 # a2
 m "printf '\033c' && bear make"
 mc "bear make clean"
@@ -354,5 +365,10 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 # sa "ssh k@192.168.0.17"
 # cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
 # cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
+
+#  }}} 369 # 
+
+# 309
+0ht "cd ~/school/309-proj && python3 -m http.server"
 
 #  }}} school # 
