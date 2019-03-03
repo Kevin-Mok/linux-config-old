@@ -49,21 +49,23 @@ end
 function __fish_watson_get_projects -d "return a list of projects"
   __fish_watson_set_cache_vars
   __fish_watson_check_if_refresh_cache $_watson_projects_cache
-  if test $status -eq 1
-    command watson projects | tee $_watson_projects_cache
-  else
-    cat $_watson_projects_cache
-  end
+  # if test $status -eq 1
+    # command watson projects | tee $_watson_projects_cache
+  # else
+    # cat $_watson_projects_cache
+  # end
+  cat $_watson_projects_cache
 end
 
 function __fish_watson_get_tags -d "return a list of tags"
   __fish_watson_set_cache_vars
   __fish_watson_check_if_refresh_cache $_watson_tags_cache
-  if test $status -eq 1
-    command watson tags | tee $_watson_tags_cache
-  else
-    cat $_watson_tags_cache
-  end
+  # if test $status -eq 1
+    # command watson tags | tee $_watson_tags_cache
+  # else
+    # cat $_watson_tags_cache
+  # end
+  cat $_watson_tags_cache
 end
 
 function __fish_watson_get_frames -d "return a list of frames" #TODO, use watson logs to get more info

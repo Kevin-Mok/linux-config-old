@@ -64,9 +64,9 @@ autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufWritePost key_* !sync-shortcuts
 
-autocmd BufNewFile,BufRead main.scss map <F1> :silent !sass main.scss main.css<CR>
+autocmd BufNewFile,BufRead main.scss map <F1> :silent !sass %:p %:p:h/main.css<CR>
 " map <leader><F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
-autocmd BufNewFile,BufRead main.scss map <F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
+autocmd BufNewFile,BufRead main.scss map <F2> :autocmd BufWritePost main.scss silent !sass %:p %:p:h/main.css<CR>
 autocmd BufNewFile,BufRead main.scss map <F3> :autocmd! BufWritePost main.scss<CR>
 
 " }}} commands for specific files "
@@ -235,6 +235,9 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
+
+" find alias
+nnoremap <leader>a /^ <Left>
 " replace until end of line
 nnoremap <leader>c c$
 " delete entire buffer
@@ -247,8 +250,6 @@ nnoremap <leader>D "+dd
 nnoremap <leader>DA "+ggdG
 " find copied text
 nnoremap <leader>f q/p<CR>
-" find alias
-nnoremap <leader>fa /^ <Left>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
@@ -289,7 +290,6 @@ vnoremap <leader>r q:is///g<ESC>3ha
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
-" sort lines until end of file
 vnoremap <leader>s :sort<CR>
 nnoremap <leader>sc :set spell spelllang=en_us<CR>
 " run current file in shell

@@ -17,7 +17,7 @@ vgb "sni /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 grep "grep --color=auto -n"
-rg "grep -r"
+grr "grep -r"
 # pk "pkill -f"
 cld "colordiff -y --suppress-common-lines"
 
@@ -47,8 +47,9 @@ udub "udisksctl unmount -b /dev/sdc2"
 to "touch"
 
 #  directory-related {{{ # 
-l "ls -a"
-ll "ls -alFh"
+ls "lsd"
+l "lsd -a"
+ll "lsd -al"
 smv "sudo mv"
 f "cd"
 fz "fzf"
@@ -130,30 +131,29 @@ pipes "pipes.sh -t 3"
 # silent="> /dev/null 2>&1& "
 
 chr "google-chrome"
-# h "htop -s PERCENT_MEM"
-hc "htop -s PERCENT_CPU"
-r "ranger"
-mra "man ranger"
 clc "cloc ."
-n "nvim"
-sn "sudo nvim"
+cv "cava"
 fh "feh"
+gpd "gpg --decrypt"
+gpe "gpg --encrypt --recipient"
+hc "htop -s PERCENT_CPU"
+# h "htop -s PERCENT_MEM"
+kd "killall Discord && killall Discord"
+mra "man ranger"
+n "nvim"
+nd "node"
+p3 "python3"
+py "python"
+r "ranger"
+rx "redshift -x"
+sn "sudo nvim"
 sx "sxiv"
 sxa "sxiv -a"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
 
-kd "killall Discord && killall Discord"
-
 # rsl "java -jar ~/Downloads/RuneLite.jar"
 # swex "sudo nohup ~/Downloads/swex.appimage $silent"
-
-cv "cava"
-
-rx "redshift -x"
-
-gpe "gpg --encrypt --recipient"
-gpd "gpg --decrypt"
 
 #  pass {{{ # 
 
@@ -171,19 +171,19 @@ yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 
 #  }}} pass # 
 
-p3 "python3"
-py "python"
-
 #  watson {{{ # 
 
 w "watson"
 wa "watson start"
+wae "watson start && watson edit"
 we "watson edit"
 wl "watson log --day"
-wlw "watson log"
+ww "watson log"
 # wlm "watson log --project coding --tag mfs"
-wr "watson report"
-ws "watson stop"
+wr "watson report --day"
+wrw "watson report"
+wre "watson restart"
+ws "watson status && watson stop"
 wse "watson stop && watson edit"
 wsl "watson stop && watson log --day"
 wt "watson status"
@@ -206,6 +206,7 @@ gbm "git branch --merged"
 #  }}} branch # 
 
 gr "git remote"
+gro "git remote show origin"
 
 #  add/remove {{{ # 
 
@@ -223,7 +224,7 @@ grmfc "git rm -f --cached"
 
 #  diff/log {{{ # 
 gd "git diff -w"
-gdc "git diff --cached"
+gdc "git diff --cached -w"
 gds "git diff --stat"
 gdt "git difftool --tool=vimdiff"
 gl "git log"
@@ -370,5 +371,6 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 
 # 309
 0ht "cd ~/school/309-proj && python3 -m http.server"
+v0c "cd /home/kevin/school/309-proj/css && nvim main.scss"
 
 #  }}} school # 

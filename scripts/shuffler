@@ -53,8 +53,7 @@ fi
 
 # rebuild shuffle cache if regen_flag, doesn't exist or file empty
 if [[ "$regen_flag" -eq 1 ]] || [[ ! -f "$dir"/"$shuffle_cache" ]] || \
-  [[ $(wc -l "$dir"/"$shuffle_cache" | awk '{print $1}') -eq 0 ]]; then
-# if [[ "$regen_flag" -eq 1 ]]; then
+  [[ "$(head -n 1 "$dir"/"$shuffle_cache")" = "" ]]; then
 	find "$dir"/* ! -name "$shuffle_cache" -type f | shuf > "$dir"/"$shuffle_cache"
 fi
 head -n 1 "$dir"/"$shuffle_cache"

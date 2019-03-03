@@ -52,6 +52,8 @@ bindsym Mod4+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
 bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
+bindsym Mod4+$mod+w exec notify-send "watson stop" "$(watson status && watson stop)"
+bindsym control+$mod+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
 # bindsym Mod4+x exec $swex
 bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate 200 70
 bindsym Mod4+z exec cliqz
@@ -493,7 +495,7 @@ font pango:$sb_font 11
 
 #  media keys {{{ # 
 bindsym control+d exec ~/linux-config/scripts/change-sink dac
-bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
+# bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
 bindsym control+o exec ~/linux-config/scripts/change-sink line-out
 
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 

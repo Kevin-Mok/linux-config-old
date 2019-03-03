@@ -32,15 +32,17 @@ ne /home/kevin/linux-config/configs/neofetch/config.conf
 re README.md
 td todo.md
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
+wh /home/kevin/Documents/journal/work-habit.md
 wt /home/kevin/.config/watson/state.tmp
 
 # }}} cdn *
 
 # sch {{{ *
 
-0c /home/kevin/school/309-proj/main.scss
 0h /home/kevin/school/309-proj/index.html
-0j /home/kevin/school/309-proj/main.js
+0m /home/kevin/school/309-proj/js/main.js
+0f /home/kevin/school/309-proj/js/food.js
+0s /home/kevin/school/309-proj/js/stores.js
 0k /home/kevin/school/309-proj/txt/kevin.md
 
 # }}} sch *

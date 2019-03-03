@@ -1,4 +1,10 @@
 #!/bin/bash
 
+case "$BLOCK_BUTTON" in
+    1) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause ;;
+    2) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous ;;
+    3) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next ;;
+esac
+
 . "/home/kevin/.cache/wal/colors.sh"
 printf "$(spotify-now -i '%artist - %title' -p '' -e '')\n$(spotify-now -i '%title' -p '' -e '')\n%s\n" "$color7"
