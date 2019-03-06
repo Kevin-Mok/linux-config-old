@@ -41,13 +41,17 @@ wo /home/kevin/Documents/workout-logs/11
 
 # sch {{{ *
 
+# 309
 sc /home/kevin/school
 0c /home/kevin/school/309-proj/css
 0d /home/kevin/school/309
 0p /home/kevin/school/309-proj
 e2 /home/kevin/school/309/e2
+
+# 369
 6 /home/kevin/school/369
-a2 /home/kevin/school/369/a2/a2
+a3 /home/kevin/school/369/a3/a3
+
 hp /home/kevin/school/hps
 lt /home/kevin/school/latex-notes
 

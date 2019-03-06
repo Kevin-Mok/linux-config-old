@@ -33,6 +33,11 @@ source $spv_dir/src/api-keys.sh
 # (ruby -e 'print Gem.user_dir')/bin
 set -x PATH $PATH /home/kevin/linux-config/scripts /home/kevin/go/bin
 set -x PASSWORD_STORE_CLIP_TIME 120
+set -xU XSET_RATE 90
+set -xU XSET_DELAY 200
+# causes xmodmap to have issues when opening terminal sometimes
+# xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
+# xset r rate $XSET_DELAY $XSET_RATE
 
 # fxn abbr's
 abbr ag "grep-aliases"
@@ -43,10 +48,12 @@ abbr ev "evince-silent"
 abbr gcamp "git-amend-push"
 abbr gdf "git-diff-files"
 abbr gpsmt "git-push-multiple"
+abbr gremotes "git-mult-remotes"
 abbr grmb "git-delete-branch"
 
 # }}} git #
 abbr hs "scan-history"
+abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr ut "unix-timestamp"
 abbr z "zathura-silent"
 

@@ -39,10 +39,11 @@ wt /home/kevin/.config/watson/state.tmp
 
 # sch {{{ *
 
+0c /home/kevin/school/309-proj/sass/main.scss
 0h /home/kevin/school/309-proj/index.html
 0m /home/kevin/school/309-proj/js/main.js
 0f /home/kevin/school/309-proj/js/food.js
 0s /home/kevin/school/309-proj/js/stores.js
-0k /home/kevin/school/309-proj/txt/kevin.md
+0k /home/kevin/school/309-proj/json/kevin.md
 
 # }}} sch *

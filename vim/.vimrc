@@ -25,6 +25,7 @@ set linespace=5
 " set cursorline
 
 " }}} cursor indicator "
+set diffopt=filler,context:3
 
 " set timeoutlen=500
 set timeoutlen=350
@@ -63,11 +64,6 @@ autocmd VimLeave *.tex !tex-clean %
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 autocmd BufWritePost key_* !sync-shortcuts
-
-autocmd BufNewFile,BufRead main.scss map <F1> :silent !sass %:p %:p:h/main.css<CR>
-" map <leader><F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
-autocmd BufNewFile,BufRead main.scss map <F2> :autocmd BufWritePost main.scss silent !sass %:p %:p:h/main.css<CR>
-autocmd BufNewFile,BufRead main.scss map <F3> :autocmd! BufWritePost main.scss<CR>
 
 " }}} commands for specific files "
 
@@ -190,7 +186,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
 	" let g:multi_cursor_select_all_word_key='<C-a>'
 Plug 'dag/vim-fish'
-Plug 'shime/vim-livedown'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -202,21 +198,18 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
-" map <F1> silent !sass main.scss main.css<CR>
-" " map <leader><F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
-" map <C-F2> :autocmd BufWritePost main.scss silent !sass main.scss main.css<CR>
-" map <F2> :autocmd! BufWritePost main.scss<CR>
 " map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
 " map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
+map <F6> :qa!<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>
 " map <F7> :AutoSaveToggle<CR>
 map <F8> :!clear && shellcheck %<CR>
 map <F9> :VimtexCompile<CR>:VimtexView<CR>
 " map <F9> :VimtexCompile<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
-map <F11> :LivedownPreview<CR>
+map <F11> :LivedownToggle<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
@@ -257,6 +250,8 @@ nnoremap <leader>ff :set foldmethod=marker<CR> zM
 " find copied text
 nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
+" vimdiff split
+nnoremap <leader>gd :Gvdiff<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help

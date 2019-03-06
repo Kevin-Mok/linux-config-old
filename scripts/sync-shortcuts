@@ -45,8 +45,8 @@ sed "s/\s*#.*$//;/^\s*$/d" "$key_dirs" | tee \
 	>(awk '{print "abbr", $1, "\"cd " $2 "\""}' >> "$fish_abbr") \
 	| awk '{print "map f"$1, "cd", $2;
 		print "map t"$1, "tab_new", $2;
-		print "map m"$1, "shell mv -v", $2;
-		print "map Y"$1, "shell cp -rv", $2;
+		print "map m"$1, "shell mv -v %f", $2;
+		print "map Y"$1, "shell cp -rv %f", $2;
 	}' >> "$ranger_mappings"
 
 sed "s/\s*#.*$//;/^\s*$/d"  "$key_files" | tee \

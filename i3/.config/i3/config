@@ -10,7 +10,7 @@ exec compton
 exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
 exec imwheel
 exec xmodmap ~/.Xmodmap
-exec xset r rate 200 70
+exec xset r rate $XSET_DELAY $XSET_RATE
 exec xrdb ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id start-pulseaudio-x11
@@ -55,7 +55,7 @@ bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
 bindsym Mod4+$mod+w exec notify-send "watson stop" "$(watson status && watson stop)"
 bindsym control+$mod+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
 # bindsym Mod4+x exec $swex
-bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate 200 70
+bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 bindsym Mod4+z exec cliqz
 # bindsym Print exec gscreenshot
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"

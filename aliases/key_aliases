@@ -8,7 +8,7 @@ fi "fish"
 # reload urxvt
 ru "xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
-dum "sudo du -d 1 -B M"
+duh "sudo du -d 1 -h"
 tl "tldr"
 
 nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
@@ -16,6 +16,8 @@ nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 
 vgb "sni /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
+bt "bat"
+bta "bat *"
 grep "grep --color=auto -n"
 grr "grep -r"
 # pk "pkill -f"
@@ -32,6 +34,7 @@ ctld "sudo systemctl disable"
 ctla "sudo systemctl start"
 ctls "sudo systemctl stop"
 ctlt "sudo systemctl status"
+ctltd "sudo systemctl status dhcpcd"
 ctlr "sudo systemctl restart"
 
 #  }}} systemctl # 
@@ -77,8 +80,8 @@ s "systemctl suspend"
 sd "sudo shutdown 0"
 reb "sudo shutdown -r 0"
 lo "i3-msg exit"
-x "xmodmap ~/.Xmodmap && xset r rate 200 70"
-X "xmodmap ~/.Xmodmap && xset r rate 200 70"
+x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
+X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 
 #  }}} power options # 
 
@@ -94,11 +97,11 @@ vlh "alsamixer -c 2"
 #  pacman {{{ # 
 
 pc "sudo pacman -S"
-pcr "sudo pacman -Rs"
+pcr "sudo pacman -Rns"
 pcud "sudo pacman -Sy"
 pcug "sudo pacman -Syu"
 pcv "sudo pacman -Q"
-xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
+xpc "pacman -Qqne > ~/linux-config/txt/nzxt-pkgs.txt && pacman -Qqme > ~/linux-config/txt/nzxt-aur.txt "
 # tri "trizen -S --noconfirm"
 tri "trizen -S --noedit"
 
@@ -199,6 +202,7 @@ g "git"
 #  branch {{{ # 
 
 gb "git branch"
+gbd "git branch -D"
 gba "git branch --no-merged && echo '' && git branch --merged"
 gbu "git branch --no-merged"
 gbm "git branch --merged"
@@ -225,8 +229,10 @@ grmfc "git rm -f --cached"
 #  diff/log {{{ # 
 gd "git diff -w"
 gdc "git diff --cached -w"
+gdh "git diff --cached -w HEAD~1"
 gds "git diff --stat"
-gdt "git difftool --tool=vimdiff"
+gdv "git difftool -w --tool=vimdiff"
+gdvc "git difftool -w --cached --tool=vimdiff"
 gl "git log"
 gsl "git shortlog"
 #  }}}  diff/log # 
@@ -261,6 +267,7 @@ gpsf "git push --force"
 gclear "git stash clear"
 
 gpl "git pull --rebase"
+grba "git rebase --abort"
 grbc "git rebase --continue"
 
 #  }}} push # 
@@ -371,6 +378,7 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 
 # 309
 0ht "cd ~/school/309-proj && python3 -m http.server"
-v0c "cd /home/kevin/school/309-proj/css && nvim main.scss"
+wl0 "watson log --all --project=309 --tag=project"
+wr0 "watson report --all --project=309 --tag=project"
 
 #  }}} school # 
