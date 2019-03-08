@@ -9,6 +9,8 @@ fi "fish"
 ru "xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
 duh "sudo du -d 1 -h"
+dum "sudo du -d 1 -m"
+m "man"
 tl "tldr"
 
 nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
@@ -24,7 +26,7 @@ grr "grep -r"
 cld "colordiff -y --suppress-common-lines"
 
 mkpk "makepkg -sri"
-mkex "chmod 777"
+ex "chmod 777"
 
 #  systemctl {{{ # 
 
@@ -59,6 +61,7 @@ fz "fzf"
 fnd "find . -type f -name"
 
 rmr "rm -rf"
+rmd "rm ~/Downloads/*"
 md "mkdir -p"
 rsy "rsync -Pr"
 
@@ -70,7 +73,7 @@ ds "df -h | head -n 1 && df -h | grep sd"
 chownw "sudo chown -R kevin:wheel"
 chwnm "sudo chown -R kevin:wheel /run/media/kevin"
 # cd into backup folder and show backup sizes
-nbu "f /run/media/kevin/pc-backup/backups/nzxt && ll | grep gz"
+nbu "cd /run/media/kevin/backup-hd/nzxt/tar && lsd -l"
 
 #  }}}  directory-related # 
 
@@ -166,7 +169,7 @@ pse "pass edit"
 psi "pass insert -m"
 psg "pass generate -c"
 
-xclip "xclip -selection clipboard"
+xc "xclip -selection clipboard"
 yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
 yg "xclip -selection clipboard ~/.password-store/social/gmail"
 yt "xclip -selection clipboard ~/.password-store/social/trapbot"
@@ -216,6 +219,7 @@ gro "git remote show origin"
 
 ga "git add -A . && git status -u"
 gac "git add -A . && git commit -S"
+gaf "git add -f"
 # unsigned commt
 gacu "git add -A . && git commit"
 
@@ -357,17 +361,23 @@ ssb "ssh-bandit"
 
 #  369 {{{ # 
 
-# a2
-m "printf '\033c' && bear make"
+ma "printf '\033c' && bear make"
 mc "bear make clean"
+
+rms "rm swapfile.*"
+
+#  a2 {{{ # 
+
 mcr "bear make clean && printf '\033c' && bear make && ./carsim light 1 20"
 # mr "printf '\033c' && make && ./carsim stop 10 20"
-mr "printf '\033c' && bear make && ./carsim light 1 20"
+# mr "printf '\033c' && bear make && ./carsim light 1 20"
 # "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind --tool=helgrind ./carsim light 10 50 >> helgrind.txt 2>&1"
 # lk "valgrind --leak-check=yes ./carsim stop 10 20"
 lk "valgrind --leak-check=yes ./carsim light 1 1"
 # hl "valgrind --tool=helgrind ./carsim stop 10 20"
 hl "valgrind --tool=helgrind ./carsim light 10 20"
+
+#  }}} a2 # 
 
 # a1
 # sa "ssh k@192.168.0.17"

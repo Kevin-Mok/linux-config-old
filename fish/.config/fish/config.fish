@@ -19,6 +19,8 @@ bind \ce edit_command_buffer
 bind \cr forward-word
 
 # fish-specific
+set -U fish_fxn_dir "/home/kevin/linux-config/fish/.config/fish/functions"
+abbr ff "cd $fish_fxn_dir"
 source /home/kevin/.config/fish/key_abbr.fish
 abbr xf "fish_config"
 abbr f. "cd .."
@@ -27,7 +29,6 @@ abbr f.. "cd ../.."
 # spv
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 set -U mfs_dir "/home/kevin/coding/mf-site"
-source $spv_dir/src/api-keys.sh
 
 # set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
 # (ruby -e 'print Gem.user_dir')/bin
@@ -42,6 +43,7 @@ set -xU XSET_DELAY 200
 # fxn abbr's
 abbr ag "grep-aliases"
 abbr bq "benq-brightness"
+abbr cf "create-fish-function"
 abbr ev "evince-silent"
 # git {{{ #
 
@@ -60,7 +62,12 @@ abbr z "zathura-silent"
 set -U BROWSER "chromium"
 abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
 
-abbr ga2 "gdb-a2"
+# 369
 abbr grc "grep-c"
 abbr grh "grep-headers"
-abbr cs "carsim"
+abbr rgh "rg-headers"
+
+abbr r6 "run-a3"
+
+# abbr cs "carsim"
+# abbr ga2 "gdb-a2"

@@ -46,7 +46,7 @@ function cd --description "Change directory"
         set -g __fish_cd_direction prev
 
 		set -U last_dir $PWD
-		ls -a
+		lsd -a
     end
 
     return $cd_status

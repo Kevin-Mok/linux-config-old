@@ -7,4 +7,5 @@
 /proc
 /run
 /sys
+/var/cache/pacman
 /var/lib/systemd/coredump

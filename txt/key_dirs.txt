@@ -3,10 +3,10 @@
 bg /home/kevin/Pictures/Backgrounds
 cf /home/kevin/.config
 lc /home/kevin/linux-config/
+lf /mnt/linux-files
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
 fo /home/kevin/.config/fish
-ff /home/kevin/linux-config/fish/.config/fish/functions
 fs /home/kevin/linux-config/fish/.config/fish
 k /home/kevin/
 lc /home/kevin/linux-config/
