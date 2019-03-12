@@ -1,8 +1,11 @@
+mpv/.config/mpv/watch_later/*
+
 *.html
 *.sw*
+
+cp-*
 commit-msg.txt
 core
-cp-*
 ideas.md
 temp.sh
 

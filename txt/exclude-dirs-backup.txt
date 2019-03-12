@@ -1,7 +1,5 @@
 /home/kevin/.cache
 /home/kevin/.local/share/Steam
-/home/kevin/coding/linux-*
-/home/kevin/VirtualBox VMs
 /lost+found
 /mnt
 /proc

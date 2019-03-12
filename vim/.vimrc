@@ -63,7 +63,8 @@ autocmd VimLeave *.tex !tex-clean %
 
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
-autocmd BufWritePost key_* !sync-shortcuts
+" autocmd BufWritePost key_* !sync-shortcuts
+autocmd BufNewFile,BufRead key_* map <F1> !sync-shortcuts
 
 " }}} commands for specific files "
 
@@ -247,6 +248,7 @@ nnoremap <leader>f q/p<CR>
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
 nnoremap <leader>ff :set foldmethod=marker<CR> zM
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
 " find copied text
 nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>

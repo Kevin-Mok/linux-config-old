@@ -21,6 +21,9 @@ bind \cr forward-word
 # fish-specific
 set -U fish_fxn_dir "/home/kevin/linux-config/fish/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
+for fxn in (find $fish_fxn_dir -name '*.fish')
+	source $fxn
+end
 source /home/kevin/.config/fish/key_abbr.fish
 abbr xf "fish_config"
 abbr f. "cd .."
@@ -43,7 +46,9 @@ set -xU XSET_DELAY 200
 # fxn abbr's
 abbr ag "grep-aliases"
 abbr bq "benq-brightness"
-abbr cf "create-fish-function"
+abbr cpc "copy cat"
+abbr cpe "copy echo"
+abbr cff "create-fish-function"
 abbr ev "evince-silent"
 # git {{{ #
 
@@ -68,6 +73,10 @@ abbr grh "grep-headers"
 abbr rgh "rg-headers"
 
 abbr r6 "run-a3"
+abbr r6f "run-a3-file"
+abbr r6c "run-a3-custom"
+abbr g6 "gdb-a3"
+abbr g6b "gdb-a3-break"
 
 # abbr cs "carsim"
 # abbr ga2 "gdb-a2"

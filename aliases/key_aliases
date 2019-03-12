@@ -15,7 +15,7 @@ tl "tldr"
 
 nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
 
-vgb "sni /etc/default/grub"
+vgb "sudo nvim /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 bt "bat"
@@ -26,6 +26,7 @@ grr "grep -r"
 cld "colordiff -y --suppress-common-lines"
 
 mkpk "makepkg -sri"
+ex "chmod 777"
 ex "chmod 777"
 
 #  systemctl {{{ # 
@@ -81,7 +82,7 @@ nbu "cd /run/media/kevin/backup-hd/nzxt/tar && lsd -l"
 
 s "systemctl suspend"
 sd "sudo shutdown 0"
-reb "sudo shutdown -r 0"
+rb "sudo shutdown -r 0"
 lo "i3-msg exit"
 x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
@@ -100,10 +101,10 @@ vlh "alsamixer -c 2"
 #  pacman {{{ # 
 
 pc "sudo pacman -S"
+pcq "sudo pacman -Qi"
 pcr "sudo pacman -Rns"
 pcud "sudo pacman -Sy"
 pcug "sudo pacman -Syu"
-pcv "sudo pacman -Q"
 xpc "pacman -Qqne > ~/linux-config/txt/nzxt-pkgs.txt && pacman -Qqme > ~/linux-config/txt/nzxt-aur.txt "
 # tri "trizen -S --noconfirm"
 tri "trizen -S --noedit"
@@ -142,9 +143,10 @@ cv "cava"
 fh "feh"
 gpd "gpg --decrypt"
 gpe "gpg --encrypt --recipient"
-hc "htop -s PERCENT_CPU"
-# h "htop -s PERCENT_MEM"
+htc "htop -s PERCENT_CPU"
+htm "htop -s PERCENT_MEM"
 kd "killall Discord && killall Discord"
+mp "mpv --volume=50"
 mra "man ranger"
 n "nvim"
 nd "node"
@@ -365,6 +367,8 @@ ma "printf '\033c' && bear make"
 mc "bear make clean"
 
 rms "rm swapfile.*"
+wl6 "watson log --all --project=369 --tag=a3"
+wr6 "watson report --all --project=369 --tag=a3"
 
 #  a2 {{{ # 
 

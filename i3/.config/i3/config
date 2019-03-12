@@ -1,6 +1,6 @@
 #  startup {{{ # 
-# set $browser "firefox"
-set $browser "chromium"
+set $browser "firefox"
+# set $browser "chromium"
 set $def_term "urxvt"
 set $scripts_path "/home/kevin/linux-config/scripts"
 exec redshift -O 2000

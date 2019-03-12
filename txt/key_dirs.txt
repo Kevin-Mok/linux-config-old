@@ -15,6 +15,7 @@ o /
 p /home/kevin/.password-store
 P /home/kevin/Pictures
 tm /tmp
+lfv /mnt/linux-files/Videos
 
 # }}} sys *
 
