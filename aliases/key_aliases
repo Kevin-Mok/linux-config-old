@@ -357,6 +357,8 @@ he "hugo serve -D --disableFastRender"
 ss "ssh kevin@192.168.0.100"
 ssb "ssh-bandit"
 
+rt "python ~/coding/rt-scraper/rt-scraper.py"
+
 #  }}} coding projs # 
 
 #  school {{{ # 

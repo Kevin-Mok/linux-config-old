@@ -64,7 +64,7 @@ autocmd VimLeave *.tex !tex-clean %
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 " autocmd BufWritePost key_* !sync-shortcuts
-autocmd BufNewFile,BufRead key_* map <F1> !sync-shortcuts
+autocmd BufNewFile,BufRead key_* map <F1> :silent !sync-shortcuts<CR>
 
 " }}} commands for specific files "
 

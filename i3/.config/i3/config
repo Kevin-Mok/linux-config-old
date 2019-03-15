@@ -45,6 +45,7 @@ bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
 bindsym Mod4+p exec passmenu
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
+bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
 # bindsym control+$mod+s exec systemctl suspend
 bindsym control+$mod+s exec systemctl suspend
 # bindsym Mod4+t exec st
@@ -213,8 +214,8 @@ set $ws2 "2 "
 workspace $ws2 output $samsung
 bindsym $mod+F2 workspace $ws2; exec $def_term
 
-# set $ws3 "3 "
-set $ws3 "3 "
+set $ws3 "3 "
+# set $ws3 "3 "
 workspace $ws3 output $benq
 bindsym $mod+F3 workspace $ws3; exec $browser
 
