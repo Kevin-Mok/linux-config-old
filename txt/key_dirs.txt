@@ -1,4 +1,5 @@
 # sys {{{ *
+# vim: fdm=marker
 
 bg /home/kevin/Pictures/Backgrounds
 cf /home/kevin/.config
@@ -46,13 +47,14 @@ wo /home/kevin/Documents/workout-logs/11
 sc /home/kevin/school
 0c /home/kevin/school/309-proj/css
 0d /home/kevin/school/309
+0l /home/kevin/school/309/l
 0p /home/kevin/school/309-proj
-e2 /home/kevin/school/309/e2
+e3 /home/kevin/school/309/e3
 
 # 369
 6 /home/kevin/school/369
+6f /home/kevin/linux-config/fish/.config/fish/functions/369/a3
 a3 /home/kevin/school/369/a3/a3
-a3f /home/kevin/linux-config/fish/.config/fish/functions/369/a3
 
 hp /home/kevin/school/hps
 lt /home/kevin/school/latex-notes

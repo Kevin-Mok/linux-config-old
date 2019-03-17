@@ -48,6 +48,7 @@ abbr ag "grep-aliases"
 abbr bq "benq-brightness"
 abbr cpc "copy cat"
 abbr cpe "copy echo"
+abbr cpp "copy echo (pwd)"
 abbr cff "create-fish-function"
 abbr ev "evince-silent"
 # git {{{ #
@@ -62,19 +63,21 @@ abbr grmb "git-delete-branch"
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr ut "unix-timestamp"
-abbr z "zathura-silent"
+abbr uzr "unzip-rm"
 
 set -U BROWSER "chromium"
 abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
+
+# 309
+abbr r0t "revert-e3-json restaurants"
+abbr r0s "revert-e3-json reservations"
 
 # 369
 abbr grc "grep-c"
 abbr grh "grep-headers"
 abbr rgh "rg-headers"
 
-abbr r6 "run-a3 c lru"
-abbr r6o "run-a3 c lru o"
-abbr g6b "gdb-a3-break c lru"
-
-# abbr cs "carsim"
-# abbr ga2 "gdb-a2"
+abbr r6 "run-a3 f d o"
+abbr r6g "run-a3 f d g"
+abbr r6s "run-a3 s c o"
+abbr g6 "source $fish_fxn_dir/369/a3/gdb-a3-break.fish && gdb-a3-break c c"

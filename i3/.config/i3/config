@@ -1,4 +1,5 @@
 #  startup {{{ # 
+# vim: fdm=marker
 set $browser "firefox"
 # set $browser "chromium"
 set $def_term "urxvt"
@@ -46,8 +47,8 @@ bindsym Mod4+p exec passmenu
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
 bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
-# bindsym control+$mod+s exec systemctl suspend
 bindsym control+$mod+s exec systemctl suspend
+bindsym Mod4+$mod+s exec xset dpms force off
 # bindsym Mod4+t exec st
 bindsym Mod4+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
@@ -140,9 +141,11 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
+bindsym Mod4+$mod+b split h; exec $def_term
 
 # split in vertical orientation
 bindsym $mod+v split v
+bindsym Mod4+$mod+v split v; exec $def_term
 
 # bindsym control+Shift+x kill
 bindsym shift+x kill
@@ -326,7 +329,6 @@ bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
 
 #  reload config/computer {{{ #
 
-bindsym $mod+Shift+s exec systemctl suspend
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 # bindsym $mod+control+r exec ~/.cache/wal/colors.sh; restart
 bindsym $mod+control+r exec i3-msg restart

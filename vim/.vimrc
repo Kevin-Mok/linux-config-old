@@ -16,6 +16,7 @@ set autoindent
 set mouse=a
 set clipboard+=unnamedplus
 set foldmethod=marker
+" set foldmethod=indent
 set linespace=5
 " cursor indicator {{{ "
 
@@ -46,7 +47,15 @@ autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
-autocmd VimLeave *.tex !tex-clean %
+
+autocmd Filetype markdown map <F8> :LivedownToggle<CR>
+autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
+autocmd Filetype json set foldmethod=marker
+autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
+" autocmd FileType tex map <F8> :VimtexCompile<CR>:VimtexView<CR>
+autocmd VimEnter *.tex VimtexCompile
+autocmd VimLeave *.tex !tex-clean %:p
+" map <F9> :VimtexCompile<CR>
 
 " " auto-reload vimrc {{{ "
 
@@ -65,6 +74,10 @@ autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 " autocmd BufWritePost key_* !sync-shortcuts
 autocmd BufNewFile,BufRead key_* map <F1> :silent !sync-shortcuts<CR>
+
+" map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
+" map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
+" map <F6> :make -C ~/Documents/resume cv<CR>
 
 " }}} commands for specific files "
 
@@ -97,10 +110,11 @@ Plug 'vim-scripts/L9'
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
+	autocmd VimEnter *.tex let g:auto_save = 0
 
 " provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
-	au BufWritePost *.tex silent call Tex_RunLaTeX()
+	" au BufWritePost *.tex silent call Tex_RunLaTeX()
 	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
 	let g:vimtex_view_general_viewer = 'zathura'
     let g:vimtex_quickfix_latexlog = {
@@ -199,18 +213,12 @@ colorscheme wal
 " Mappings {{{ "
 
 " function keys {{{ "
-" map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
-" map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
+map <F3> :wa<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
 map <F6> :qa!<CR>
-" map <F6> :make -C ~/Documents/resume cv<CR>
-" map <F7> :AutoSaveToggle<CR>
-map <F8> :!clear && shellcheck %<CR>
-map <F9> :VimtexCompile<CR>:VimtexView<CR>
-" map <F9> :VimtexCompile<CR>
+map <F7> :AutoSaveToggle<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
-map <F11> :LivedownToggle<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
@@ -247,13 +255,15 @@ nnoremap <leader>f q/p<CR>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
-nnoremap <leader>ff :set foldmethod=marker<CR> zM
+nnoremap <leader>fmi :set foldmethod=indent<CR> zM
+nnoremap <leader>fmm :set foldmethod=marker<CR> zM
+" add marker foldmethod modeline
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 " find copied text
 nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiff HEAD
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -297,6 +307,7 @@ nnoremap <leader>so q:i.,$sort<CR>
 nnoremap <leader>sol q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
 nnoremap <leader>sys :set syn=sh<CR>
+vnoremap <leader>t :!tac<CR>
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " format current line
