@@ -41,16 +41,17 @@ bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+m exec pass -c uoft/markus
 bindsym Mod4+n exec urxvt -e nvim
 bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
+bindsym Mod4+$mod+o exec xset dpms force off
 # bindsym Mod4+p workspace $ws4; exec pgadmin3
 # bindsym Mod4+p exec pycharm
 bindsym Mod4+p exec passmenu
+# bindsym Mod4+$mod+p exec notify-send "ping" "$(ping -c 3 -W 1 8.8.8.8)"
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
 bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
 bindsym control+$mod+s exec systemctl suspend
-bindsym Mod4+$mod+s exec xset dpms force off
 # bindsym Mod4+t exec st
-bindsym Mod4+t exec xclip -selection clipboard ~/.password-store/social/trapbot
+bindsym Mod4+$mod+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
 bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
@@ -231,7 +232,8 @@ set $ws5 "5 "
 workspace $ws5 output $samsung
 assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
-bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+# bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+bindsym Mod4+t workspace $ws5; exec thunderbird
 
 set $ws6 "6 "
 workspace $ws6 output $samsung

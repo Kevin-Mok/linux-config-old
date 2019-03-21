@@ -30,7 +30,6 @@ e2fsprogs
 electrum
 encfs
 evince
-evolution
 fakeroot
 fd
 feh
@@ -39,6 +38,7 @@ filesystem
 findutils
 firefox
 fish
+flashplugin
 flex
 fzf
 gawk
@@ -52,6 +52,8 @@ glibc
 grep
 grub
 gzip
+hexyl
+highlight
 hugo
 i3-gaps
 i3status
@@ -72,7 +74,6 @@ logrotate
 lolcat
 lsd
 lsof
-lutris
 lvm2
 lxappearance
 make
@@ -82,6 +83,7 @@ mdadm
 meld
 mpv
 nano
+ncdu
 neofetch
 neomutt
 neovim
@@ -117,6 +119,7 @@ python-dbus
 python-pip
 python-pywal
 python-setuptools
+qemu
 qrencode
 ranger
 redshift
@@ -143,9 +146,12 @@ tar
 texinfo
 texlive-core
 the_silver_searcher
+thunderbird
 tidy
+time
 tmux
 tor
+transmission-cli
 transmission-gtk
 ttf-dejavu
 ttf-font-awesome
@@ -158,10 +164,8 @@ valgrind
 vi
 vim
 virtualbox
-vlc
 w3m
 which
-wine
 wireless_tools
 wkhtmltopdf
 wpa_actiond
@@ -187,7 +191,6 @@ xfsprogs
 xorg-bdftopcf
 xorg-iceauth
 xorg-luit
-xorg-mkfontdir
 xorg-mkfontscale
 xorg-server
 xorg-sessreg

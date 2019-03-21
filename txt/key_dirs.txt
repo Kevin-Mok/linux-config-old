@@ -53,8 +53,11 @@ e3 /home/kevin/school/309/e3
 
 # 369
 6 /home/kevin/school/369
+6l /home/kevin/school/369/notes/lectures
+
 6f /home/kevin/linux-config/fish/.config/fish/functions/369/a3
-a3 /home/kevin/school/369/a3/a3
+a4d /home/kevin/school/369/a4/a4
+a43 /home/kevin/school/369/a4-3/fs3
 
 hp /home/kevin/school/hps
 lt /home/kevin/school/latex-notes

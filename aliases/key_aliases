@@ -9,8 +9,8 @@ fi "fish"
 # reload urxvt
 ru "xrdb ~/.Xresources"
 # list file sizes in megabytes with depth 1
-duh "sudo du -d 1 -ah | sort -hr"
-dum "sudo du -d 1 -am | sort -hr"
+duh "sudo du -d 1 -h --apparent-size | sort -hr"
+dum "sudo du -d 1 -m --apparent-size | sort -hr"
 m "man"
 tl "tldr"
 
@@ -102,14 +102,28 @@ vlh "alsamixer -c 2"
 
 #  pacman {{{ # 
 
-pc "sudo pacman -S"
-pcq "sudo pacman -Qi"
-pcr "sudo pacman -Rns"
-pcud "sudo pacman -Sy"
-pcug "sudo pacman -Syu"
-xpc "pacman -Qqne > ~/linux-config/txt/nzxt-pkgs.txt && pacman -Qqme > ~/linux-config/txt/nzxt-aur.txt "
+# pc "sudo pacman -S"
+# pcq "sudo pacman -Qi"
+# pcr "sudo pacman -Rns"
+# pcud "sudo pacman -Sy"
+# pcug "sudo pacman -Syu"
+# xpc "pacman -Qqne > ~/linux-config/txt/nzxt-pkgs.txt && pacman -Qqme > ~/linux-config/txt/nzxt-aur.txt "
+
 # tri "trizen -S --noconfirm"
 tri "trizen -S --noedit"
+
+# install
+ya "yay -S --answerdiff=N --answeredit=N"
+# info
+yaq "yay -Qi"
+# remove
+yar "yay -Rns"
+# sync
+yaud "yay -Sy"
+# sync and update
+yaug "yay -Syu"
+# export packages
+xya "yay -Qqne > ~/linux-config/txt/nzxt-pkgs.txt && yay -Qqme > ~/linux-config/txt/nzxt-aur.txt "
 
 #  }}} pacman # 
 
@@ -117,23 +131,16 @@ py "python"
 pipi "sudo pip install"
 
 # internet
-pgo "ping -c 3 8.8.8.8"
+pg "ping -c 3 -W 1 8.8.8.8"
 dh "sudo dhcpcd"
 kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
 
 id "identify"
 
+# rz "source ~/linux-config/aliases/zsh_aliases"
+
 #  }}} system # 
-
-# config files {{{ #
-rf "source ~/.config/fish/config.fish"
-srf "sync-shortcuts && source ~/.config/fish/config.fish"
-rz "source ~/linux-config/aliases/zsh_aliases"
-
-pipes "pipes.sh -t 3"
-	
-# }}} config files #
 
 #  applications {{{ # 
 
@@ -148,11 +155,13 @@ gpe "gpg --encrypt --recipient"
 htc "htop -s PERCENT_CPU"
 htm "htop -s PERCENT_MEM"
 kd "killall Discord && killall Discord"
+kt "killall thunderbird"
 mp "mpv --volume=50"
 mra "man ranger"
 n "nvim"
 nd "node"
 p3 "python3"
+pipes "pipes.sh -t 3"
 py "python"
 r "ranger"
 rx "redshift -x"
@@ -198,6 +207,7 @@ wrw "watson report"
 wre "watson restart"
 ws "watson status && watson stop"
 wse "watson stop && watson edit"
+wsc "watson cancel"
 wsl "watson stop && watson log --day"
 wt "watson status"
 
@@ -272,6 +282,7 @@ gcam "git add -A . && git commit --amend -S"
 
 psgi "git add . && git commit -m 'Update' -S && git push"
 gps "git push"
+gpsi "git config credential.helper store && git push"
 # gpsn "git push --set-upstream origin master"
 gpsn "eval (git push 2>&1 | tail -n 2)"
 gpsf "git push --force"
@@ -321,10 +332,9 @@ rgt "rg TODO"
 # svscs "f $spv_dir/src/static/scss"
 # svcss "f $spv_dir/src/spotifyvis/static/scss"
 # start spv server from dir
-pg "sudo systemctl start postgresql.service && systemctl status postgresql.service"
+# pg "sudo systemctl start postgresql.service && systemctl status postgresql.service"
 ssv "bash ../bin/activate && python manage.py runserver"
 # start spv server outside dir
-sssv "sv && ssv"
 # open spv db in psql
 spvdb "psql -d spotifyvis -U django"
 mig "python manage.py makemigrations && python manage.py migrate --run-syncdb && ssv"
@@ -372,12 +382,16 @@ rt "python ~/coding/rt-scraper/rt-scraper.py"
 
 #  369 {{{ # 
 
+ssc "ssh mokkar@teach.cs.utoronto.ca"
+
 ma "printf '\033c' && bear make"
 mc "bear make clean"
+mca "bear make clean && printf '\033c' && bear make"
 
+rmc "rm compile_commands.json"
 rms "rm swapfile.*"
-wl6 "watson log --all --project=369 --tag=a3"
-wr6 "watson report --all --project=369 --tag=a3"
+wl6 "watson log --all --project=369 --tag=a4"
+wr6 "watson report --all --project=369 --tag=a4"
 
 #  a2 {{{ # 
 
@@ -401,8 +415,8 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 
 # 309
 0ht "cd ~/school/309-proj && python3 -m http.server"
-wl0 "watson log --all --project=309 --tag=project"
-wr0 "watson report --all --project=309 --tag=project"
+wl0 "watson log --all --project=309 --tag=e3"
+wr0 "watson report --all --project=309 --tag=e3"
 
 e3t "node test-app.js"
 

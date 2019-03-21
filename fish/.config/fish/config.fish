@@ -9,25 +9,34 @@ set -x GPG_TTY (tty)
 
 # }}} login to X #
 
-# input
+# fish-specific {{{ #
+
 fish_vi_key_bindings
 set -x EDITOR nvim 
 set -x VISUAL nvim 
+set -U fish_help_browser firefox 
 
 builtin cd $last_dir
 bind \ce edit_command_buffer
 bind \cr forward-word
 
-# fish-specific
+/home/kevin/linux-config/scripts/sync-shortcuts
+source /home/kevin/.config/fish/key_abbr.fish
 set -U fish_fxn_dir "/home/kevin/linux-config/fish/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
-source /home/kevin/.config/fish/key_abbr.fish
+abbr rf "source ~/.config/fish/config.fish"
+abbr rfs "sync-shortcuts && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
+abbr mt "math ''"
+
+# }}} fish-specific #
+
+# universal var's {{{ #
 
 # spv
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
@@ -43,7 +52,12 @@ set -xU XSET_DELAY 200
 # xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 # xset r rate $XSET_DELAY $XSET_RATE
 
-# fxn abbr's
+set -U BROWSER "chromium"
+
+# }}} universal var's #
+
+# fxn abbr's {{{ #
+
 abbr ag "grep-aliases"
 abbr bq "benq-brightness"
 abbr cpc "copy cat"
@@ -65,19 +79,26 @@ abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 
-set -U BROWSER "chromium"
+# }}} fxn abbr's #
+
 abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
 
+# school {{{ #
+
 # 309
-abbr r0t "revert-e3-json restaurants"
-abbr r0s "revert-e3-json reservations"
+# abbr r0t "./revert-e3-json restaurants"
+# abbr r0s "./revert-e3-json reservations"
 
 # 369
 abbr grc "grep-c"
 abbr grh "grep-headers"
 abbr rgh "rg-headers"
 
-abbr r6 "run-a3 f d o"
-abbr r6g "run-a3 f d g"
-abbr r6s "run-a3 s c o"
-abbr g6 "source $fish_fxn_dir/369/a3/gdb-a3-break.fish && gdb-a3-break c c"
+abbr r6 "run-a4 h e"
+
+# abbr r6 "run-a3 f d o"
+# abbr r6g "run-a3 f d g"
+# abbr r6s "run-a3 s c o"
+# abbr g6 "source $fish_fxn_dir/369/a3/gdb-a3-break.fish && gdb-a3-break c c"
+
+# }}} school #
