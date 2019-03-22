@@ -20,7 +20,7 @@ cn /home/kevin/coding
 ib /home/kevin/linux-config/configs/i3blocks-scripts
 j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
-ra /home/kevin/linux-config/configs/ranger
+ra /home/kevin/linux-config/ranger/.config/ranger
 snp /home/kevin/.vim/plugged/vim-snippets/UltiSnips
 sr /home/kevin/linux-config/scripts
 sv /home/kevin/coding/spotify-lib-vis/src
@@ -34,8 +34,9 @@ wd /home/kevin/.config/watson
 
 sc /home/kevin/school
 0 /home/kevin/school/309
-e2 /home/kevin/school/309/e2
+0p /home/kevin/school/309-proj
+e3 /home/kevin/school/309/e3
 6 /home/kevin/school/369
-a1 /home/kevin/school/369/a1
+a43 /home/kevin/school/369/a4-3/fs3
 
 # }}} sch *

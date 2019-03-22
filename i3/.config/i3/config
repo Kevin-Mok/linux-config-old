@@ -1,6 +1,6 @@
 #  startup {{{ # 
-# set $browser "firefox"
-set $browser "chromium"
+set $browser "firefox"
+# set $browser "chromium"
 set $cur_term "urxvt"
 # set $runelite "java -jar ~/Downloads/RuneLite.jar"
 set $swex "sudo ~/Downloads/swex.appimage"
@@ -134,9 +134,11 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
+bindsym Mod4+$mod+b split h; exec $cur_term
 
 # split in vertical orientation
 bindsym $mod+v split v
+bindsym Mod4+$mod+v split v; exec $cur_term
 
 # bindsym control+Shift+x kill
 bindsym Shift+x kill
@@ -208,7 +210,8 @@ set $ws2 "2 "
 workspace $ws2 output $samsung
 bindsym Mod4+F2 workspace $ws2; exec $cur_term
 
-set $ws3 "3 "
+set $ws3 "3 "
+# set $ws3 "3 "
 workspace $ws3 output $benq
 bindsym Mod4+F3 workspace $ws3; exec $browser
 

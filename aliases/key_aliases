@@ -42,11 +42,13 @@ udmb "udisksctl mount -b /dev/sdc2"
 udu "udisksctl unmount -b"
 udub "udisksctl unmount -b /dev/sdc2"
 
+b "bat"
 to "touch"
 
 #  directory-related {{{ # 
-l "ls -a"
-ll "ls -alFh"
+ls "lsd"
+l "lsd -a"
+ll "lsd -al"
 smv "sudo mv"
 f "cd"
 fz "fzf"
@@ -74,8 +76,8 @@ s "systemctl suspend"
 sd "sudo shutdown 0"
 reb "sudo shutdown -r 0"
 lo "i3-msg exit"
-x "xmodmap ~/.Xmodmap && xset r rate 200 70"
-X "xmodmap ~/.Xmodmap && xset r rate 200 70"
+x "xmodmap ~/.Xmodmap && xset r rate 200 90"
+X "xmodmap ~/.Xmodmap && xset r rate 200 90"
 
 #  }}} power options # 
 
@@ -96,17 +98,19 @@ pcud "sudo pacman -Sy"
 pcug "sudo pacman -Syu"
 pcv "sudo pacman -Q"
 xpc "pacman -Qqe > ~/linux-config/txt/nzxt-pkgs.txt"
-# tri "trizen -S --noconfirm"
-tri "trizen -S"
+tri "trizen -S --noedit"
 
 #  }}} pacman # 
 
 # internet
 pgo "ping -c 3 8.8.8.8"
 dh "sudo dhcpcd"
-rdh "sudo killall dhcpcd && sudo dhcpcd"
+kdh "sudo killall dhcpcd"
 
 id "identify"
+
+xrl "xrandr --output HDMI2 --left-of eDP1"
+xrr "xrandr --output HDMI2 --right-of eDP1"
 
 #  }}} system # 
 
@@ -130,6 +134,7 @@ r "ranger"
 mra "man ranger"
 clc "cloc ."
 n "nvim"
+nd "node"
 sn "sudo nvim"
 fh "feh"
 sx "sxiv"
@@ -213,10 +218,12 @@ grmfc "git rm -f --cached"
 #  }}} add # 
 
 #  diff/log {{{ # 
-gd "git diff -w"
-gdc "git diff --cached"
+gd "git difftool -w --tool=vimdiff"
+gdc "git difftool -w --cached --tool=vimdiff"
+gdl "git diff -w"
+gdlc "git diff --cached -w"
+gdh "git diff --cached -w HEAD~1"
 gds "git diff --stat"
-gdt "git difftool --tool=vimdiff"
 gl "git log"
 gsl "git shortlog"
 #  }}}  diff/log # 
@@ -319,7 +326,7 @@ snw "spotify-now -i '%artist - %title'"
 
 #  }}} spotify-lib-vis # 
 
-sc "shellcheck"
+shc "shellcheck"
 pdl "pdflatex"
 tcl "tex-clean"
 
@@ -350,5 +357,7 @@ hl "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind
 # sa "ssh k@192.168.0.17"
 # cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
 # cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
+
+e3t "node test-app.js"
 
 #  }}} school # 

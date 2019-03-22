@@ -77,12 +77,12 @@ handle_extension() {
             exit 1;;
 
         # HTML
-        htm|html|xhtml)
-            # Preview as text conversion
-            w3m -dump "${FILE_PATH}" && exit 5
-            lynx -dump -- "${FILE_PATH}" && exit 5
-            elinks -dump "${FILE_PATH}" && exit 5
-            ;; # Continue with next handler on failure
+        # htm|html|xhtml)
+            # # Preview as text conversion
+            # w3m -dump "${FILE_PATH}" && exit 5
+            # lynx -dump -- "${FILE_PATH}" && exit 5
+            # elinks -dump "${FILE_PATH}" && exit 5
+            # ;; # Continue with next handler on failure
 
         # htm|html|xhtml)
             # # Preview as text conversion
@@ -90,6 +90,11 @@ handle_extension() {
             # lynx -dump -- "${FILE_PATH}" && exit 5
             # elinks -dump "${FILE_PATH}" && exit 5
             # ;; # Continue with next handler on failure
+
+		# JSON
+        json)
+            jq --color-output . "${FILE_PATH}" && exit 5
+            python -m json.tool -- "${FILE_PATH}" && exit 5
     esac
 }
 

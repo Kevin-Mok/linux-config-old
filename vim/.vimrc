@@ -12,9 +12,11 @@ set linebreak
 " set colorcolumn=80
 set shiftwidth=4
 set autoindent
-set mouse=c
+" set mouse=c
+set mouse=a
 set clipboard+=unnamedplus
 set foldmethod=marker
+" set foldmethod=indent
 set linespace=5
 " cursor indicator {{{ "
 
@@ -24,23 +26,36 @@ set linespace=5
 " set cursorline
 
 " }}} cursor indicator "
+set diffopt=filler,context:3
 
-set timeoutlen=500
+" set timeoutlen=500
+set timeoutlen=350
 set hlsearch
-set noswapfile
+" set noswapfile
+" let maplocalleader="-"
+let maplocalleader="\\"
 " }}} set x=y "
 
 " commands for file types {{{ "
 
 autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd Filetype css,htmldjango,html,tex,txt,markdown set tabstop=2 shiftwidth=2 expandtab
-autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
+filetype plugin on
+filetype indent on
+autocmd FileType *css,htmldjango,html,javascript,markdown,tex,yaml set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
+" autocmd Filetype html set foldmarker=0
 
-autocmd BufWritePost key_* !sync-shortcuts
-autocmd VimLeave *.tex !tex-clean %
+autocmd Filetype markdown map <F8> :LivedownToggle<CR>
+autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
+autocmd Filetype json set foldmethod=marker
+autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
+" autocmd FileType tex map <F8> :VimtexCompile<CR>:VimtexView<CR>
+autocmd VimEnter *.tex VimtexCompile
+autocmd VimLeave *.tex !tex-clean %:p
+" map <F9> :VimtexCompile<CR>
 
 " " auto-reload vimrc {{{ "
 
@@ -52,6 +67,19 @@ autocmd VimLeave *.tex !tex-clean %
 " " }}} auto-reload vimrc "
 
 " }}} commands for file types "
+
+" commands for specific files {{{ "
+
+autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
+autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
+" autocmd BufWritePost key_* !sync-shortcuts
+autocmd BufNewFile,BufRead key_* map <F1> :silent !sync-shortcuts<CR>
+
+" map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
+" map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
+" map <F6> :make -C ~/Documents/resume cv<CR>
+
+" }}} commands for specific files "
 
 " vim-plug {{{ "
 " plug auto-install
@@ -82,10 +110,11 @@ Plug 'vim-scripts/L9'
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
+	autocmd VimEnter *.tex let g:auto_save = 0
 
 " provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
-	au BufWritePost *.tex silent call Tex_RunLaTeX()
+	" au BufWritePost *.tex silent call Tex_RunLaTeX()
 	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
 	let g:vimtex_view_general_viewer = 'zathura'
     let g:vimtex_quickfix_latexlog = {
@@ -97,6 +126,16 @@ Plug 'lervag/vimtex'
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'qf': 1,
+      \ 'notes': 1,
+      \ 'unite': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'mail': 1
+      \}
 
 " wrote short bits of text that expand into whatever you want
 " demo: https://www.youtube.com/watch?v=Zik6u0klD40
@@ -105,6 +144,11 @@ Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = "<tab>"
 	let g:UltiSnipsJumpForwardTrigger = "<tab>"
 	let g:UltiSnipsJumpBackwardTrigger = "<C-tab>"
+	let g:ultisnips_javascript = {
+		 \ 'keyword-spacing': 'always',
+		 \ 'semi': 'never',
+		 \ 'space-before-function-paren': 'never',
+		 \ }
 
 " custom snippets
 Plug 'Kevin-Mok/vim-snippets'
@@ -155,24 +199,25 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 " vim file explorer
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
-	let g:multi_cursor_select_all_word_key='<C-a>'
+	" let g:multi_cursor_select_all_word_key='<C-a>'
+Plug 'dag/vim-fish'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
+
+" }}} vim-plug "
 
 " colorscheme gotham256
 colorscheme wal
 
-" }}} vim-plug "
-
 " Mappings {{{ "
 
 " function keys {{{ "
+map <F3> :wa<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
-" map <F6> :make -C ~/Documents/resume cv<CR>
-" map <F7> :AutoSaveToggle<CR>
-map <F9> :VimtexCompile<CR>:VimtexView<CR>
-" map <F9> :VimtexCompile<CR>
+map <F6> :qa!<CR>
+map <F7> :AutoSaveToggle<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 " }}} function keys "
 
@@ -192,11 +237,12 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
-" replace rest of line
+
+" find alias
+nnoremap <leader>a /^ <Left>
+" replace until end of line
 nnoremap <leader>c c$
-" replace vim-commentary Markdown comments with HTML
-nnoremap <leader>cmt :%s/>\(.*\)>/<!---\1-->/g<CR>
-" delete rest of line
+" delete entire buffer
 nnoremap <leader>d d$
 " delete entire buffer
 nnoremap <leader>dg ggdG
@@ -204,10 +250,21 @@ nnoremap <leader>dg ggdG
 nnoremap <leader>D "+dd
 " delete entire buffer into system clipboard
 nnoremap <leader>DA "+ggdG
+" find copied text
+nnoremap <leader>f q/p<CR>
 " find merge conflicts
 nnoremap <leader>fc /[<>=\|]\{7\}<CR>
 " reload folds
-nnoremap <leader>ff :set foldmethod=marker<CR> zM
+nnoremap <leader>fmi :set foldmethod=indent<CR> zM
+nnoremap <leader>fmm :set foldmethod=marker<CR> zM
+" add marker foldmethod modeline
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
+" find copied text
+nnoremap <leader>ft /TODO<CR>
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+" vimdiff split
+nnoremap <leader>gd :Gvdiff HEAD
+nnoremap <leader>gdm :Gvdiff master<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -223,6 +280,7 @@ nnoremap <leader>nw :set nowrap<CR>
 " check if in neovim
 nnoremap <leader>nv :echo has('nvim')<CR>
 " Plug commands
+nnoremap <leader>p "*p
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
@@ -240,10 +298,17 @@ vnoremap <leader>r q:is///g<ESC>3ha
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
+vnoremap <leader>s :sort<CR>
+nnoremap <leader>sc :set spell spelllang=en_us<CR>
+" run current file in shell
+nnoremap <leader>sh :!%:p
+" sort lines until end of file
+nnoremap <leader>so q:i.,$sort<CR>
 " sort lines
-nnoremap <leader>so q:i.,.+sort<ESC>Fsi
+nnoremap <leader>sol q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
-nnoremap <leader>sh :set syn=sh<CR>
+nnoremap <leader>sys :set syn=sh<CR>
+vnoremap <leader>t :!tac<CR>
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " format current line
@@ -252,9 +317,8 @@ nnoremap <leader>ww Vgq
 nnoremap <leader>www Vjgq
 " copy next thing to system clipboard
 " nnoremap <leader>y "+
-" yank rest of line
+" nnoremap <leader>Y "+Y
 nnoremap <leader>y y$
-nnoremap <leader>Y "+Y
 " yank entire buffer
 nnoremap <leader>yg ggyG
 " toggle fold
@@ -264,9 +328,9 @@ nnoremap <leader>z za
 
 " }}} Mappings "
 
-" (tex) Local Mappings {{{ "
-let maplocalleader="-"
-autocmd Filetype c inoremap <localleader>s struct pixel
+" Local Mappings {{{ "
+
+" tex {{{ "
 
 autocmd Filetype tex inoremap <localleader>bt \bowtie
 autocmd Filetype tex inoremap <localleader>c \checkmark
@@ -302,6 +366,12 @@ autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
 
-autocmd Filetype md inoremap <localleader>x 0f[lRX
+" }}} tex "
+
+autocmd Filetype fish inoremap <localleader>1 $argv[1]
+autocmd Filetype fish inoremap <localleader>2 $argv[2]
+
+autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
+" nnoremap <localleader>x 0f[lrx
 
 " }}} Local Mappings "
