@@ -24,7 +24,7 @@ ba "bat *"
 grep "grep --color=auto -n"
 grr "grep -r"
 # pk "pkill -f"
-cld "colordiff -y --suppress-common-lines"
+cld "colordiff -wy --suppress-common-lines"
 
 mkpk "makepkg -sri"
 ex "chmod 777"
@@ -234,11 +234,11 @@ gro "git remote show origin"
 
 #  add/remove {{{ # 
 
-ga "git add -A . && git status -u"
-gac "git add -A . && git commit -S"
+ga "git add -A && git status -u"
+gac "git add -A && git commit -S"
 gaf "git add -f"
 # unsigned commt
-gacu "git add -A . && git commit"
+gacu "git add -A && git commit"
 
 grm "git rm"
 grmf "git rm -f"
@@ -276,11 +276,11 @@ gstp "git stash pop"
 
 gc "git commit -S"
 gcu "git commit"
-gca "git add -A . && git commit --amend --no-edit -S"
-gcam "git add -A . && git commit --amend -S"
-# gcamp "git add -A . && git commit --amend --no-edit -S && gpsf"
+gca "git add -A && git commit --amend --no-edit -S"
+gcam "git add -A && git commit --amend -S"
+# gcamp "git add -A && git commit --amend --no-edit -S && gpsf"
 
-psgi "git add . && git commit -m 'Update' -S && git push"
+psgi "git add -A && git commit -m 'Update' -S && git push"
 gps "git push"
 gpsi "git config credential.helper store && git push"
 # gpsn "git push --set-upstream origin master"
@@ -392,6 +392,8 @@ rmc "rm compile_commands.json"
 rms "rm swapfile.*"
 wl6 "watson log --all --project=369 --tag=a4"
 wr6 "watson report --all --project=369 --tag=a4"
+
+um6 "sudo umount /mnt/369-a4"
 
 #  a2 {{{ # 
 

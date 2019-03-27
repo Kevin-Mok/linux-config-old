@@ -12,17 +12,23 @@ function run-a4
 			set img_file 'imgs/multilevel.img' 
 		case l
 			set img_file 'imgs/largefile.img' 
+		case s
+			set img_file 'imgs/symlink.img' 
 	end
 
 	switch $argv[1]
 		case h
-			./ext2_helpers_tester 'imgs/multilevel.img' '/level1/level2/bfile'
+			./ext2_helpers_tester $img_file
 		case hg
 			gdb -ex "run" -ex "bt" -ex "q" \
 			--args ./ext2_helpers_tester './imgs/multilevel.img' '/level1/level2/level3//'
 		case m
 			./ext2_mkdir $img_file '/'
 			# ./ext2_mkdir 'imgs/multilevel.img' '/level1/level2/bfile'
+		case rg
+			./readimage $img_file
+			gdb -ex "run" -ex "bt" -ex "q" \
+			--args ./readimage './imgs/symlink.img' 
 		case '*'
 			./readimage $img_file
 	end

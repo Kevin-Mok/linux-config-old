@@ -32,7 +32,7 @@ ne /home/kevin/linux-config/configs/neofetch/config.conf
 re README.md
 td todo.md
 tm /home/kevin/.vim/plugged/vim-snippets/UltiSnips/texmath.snippets
-wh /home/kevin/Documents/journal/work-habit.md
+wh /home/kevin/Documents/journal/todo/work-habit.md
 wt /home/kevin/.config/watson/state.tmp
 
 # }}} cdn *

@@ -32,7 +32,7 @@ abbr rfs "sync-shortcuts && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
-abbr mt "math ''"
+abbr mt "math"
 
 # }}} fish-specific #
 
@@ -76,6 +76,7 @@ abbr grmb "git-delete-branch"
 # }}} git #
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
+abbr pgr "grep-pdf"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 

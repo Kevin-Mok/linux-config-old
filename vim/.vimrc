@@ -247,7 +247,6 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
-" let maplocalleader="-"
 
 " find alias
 nnoremap <leader>a /^ <Left>
@@ -281,6 +280,10 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>he :help 
 nnoremap <leader>ht :set tabstop=2 shiftwidth=2 expandtab<CR>
 nnoremap <leader>vhe :vert help 
+" format current line
+nnoremap <leader>l Vgq
+" format this and next line
+nnoremap <leader>ll Vjgq
 " move cursor to middle of line
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 " apply normal command to selection
@@ -319,10 +322,6 @@ nnoremap <leader>sys :set syn=sh<CR>
 vnoremap <leader>t :!tac<CR>
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
-" format current line
-nnoremap <leader>ww Vgq
-" format this and next line
-nnoremap <leader>www Vjgq
 " copy next thing to system clipboard
 " nnoremap <leader>y "+
 " nnoremap <leader>Y "+Y
@@ -379,6 +378,8 @@ autocmd Filetype tex inoremap <localleader>tx $t(x)$
 " }}} tex "
 
 autocmd Filetype c inoremap <localleader>uc unsigned char
+
+autocmd BufNewFile,BufRead *.h nnoremap <localleader>x 0iextern <Esc>f{hc$;<Esc>
 
 autocmd Filetype fish inoremap <localleader>1 $argv[1]
 autocmd Filetype fish inoremap <localleader>2 $argv[2]
