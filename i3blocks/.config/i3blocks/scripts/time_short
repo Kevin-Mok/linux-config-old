@@ -1,4 +1,0 @@
-#!/bin/bash
-
-. "/home/kevin/.cache/wal/colors.sh"
-printf "$(date '+%H:%M')\n\n%s\n" "$color7"

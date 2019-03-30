@@ -24,7 +24,7 @@ lfv /mnt/linux-files/Videos
 
 b1 /home/kevin/coding/mf-site/themes/base16
 cn /home/kevin/coding
-ib /home/kevin/linux-config/configs/i3blocks-scripts
+ib /home/kevin/linux-config/i3blocks/.config/i3blocks/scripts
 j /home/kevin/Documents/journal
 lh /home/kevin/Documents/listening-history
 ms /home/kevin/coding/mf-site
@@ -43,15 +43,18 @@ wo /home/kevin/Documents/workout-logs/11
 
 # sch {{{ *
 
-# 309
+lt /home/kevin/school/latex-notes
+
+# 309{{{
 sc /home/kevin/school
 0c /home/kevin/school/309-proj/css
 0d /home/kevin/school/309
 0l /home/kevin/school/309/l
 0p /home/kevin/school/309-proj
-e3 /home/kevin/school/309/e3
+e4 /home/kevin/school/309/e4
+# }}}
 
-# 369
+# 369{{{
 6 /home/kevin/school/369
 6l /home/kevin/school/369/notes/lectures
 6m /mnt/369-a4
@@ -59,8 +62,9 @@ e3 /home/kevin/school/309/e3
 6f /home/kevin/linux-config/fish/.config/fish/functions/369/a3
 a4d /home/kevin/school/369/a4/a4
 a43 /home/kevin/school/369/a4-3/fs3
+#}}}
 
 hp /home/kevin/school/hps
-lt /home/kevin/school/latex-notes
+hpe /home/kevin/school/latex-notes/hps
 
 # }}} sch *

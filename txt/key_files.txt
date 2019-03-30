@@ -19,7 +19,7 @@ z /home/kevin/linux-config/aliases/zsh_aliases
 
 # cdn {{{ *
 
-cm ./commit-msg.txt
+cm /tmp/commit-msg.txt
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 id /home/kevin/coding/project-ideas/ideas.md
 ig ./.gitignore

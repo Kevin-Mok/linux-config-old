@@ -23,6 +23,8 @@ set tabstop=4
 " set timeoutlen=500
 set timeoutlen=350
 set tw=80
+set undodir=~/.vim/undo
+set undofile
 set updatetime=1000
 
 autocmd VimResized * wincmd =

@@ -52,6 +52,7 @@ udu "udisksctl unmount -b"
 udub "udisksctl unmount -b /dev/sdc2"
 
 tc "touch"
+vdr "vidir"
 
 #  directory-related {{{ # 
 ls "lsd"
@@ -159,7 +160,6 @@ kt "killall thunderbird"
 mp "mpv --volume=50"
 mra "man ranger"
 n "nvim"
-nd "node"
 p3 "python3"
 pipes "pipes.sh -t 3"
 py "python"
@@ -229,7 +229,7 @@ gbm "git branch --merged"
 
 #  }}} branch # 
 
-gr "git remote"
+gr "git remote -v"
 gro "git remote show origin"
 
 #  add/remove {{{ # 
@@ -416,10 +416,17 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 #  }}} 369 # 
 
 # 309
-0ht "cd ~/school/309-proj && python3 -m http.server"
 wl0 "watson log --all --project=309 --tag=e3"
 wr0 "watson report --all --project=309 --tag=e3"
 
-e3t "node test-app.js"
+nd "node"
+ndm "nodemon"
+mg "mongo"
+mgd "mongod --dbpath mongo-data"
+0ht "cd ~/school/309-proj && python3 -m http.server"
+
+hr "heroku"
+hrt "heroku ps"
+hrl "heroku logs --dyno web -n 1500 | rg up | awk '{ system(\"date -d \" \$1); \$1 = \"\"; print \$0 }' | paste -s -d' \n'"
 
 #  }}} school # 
