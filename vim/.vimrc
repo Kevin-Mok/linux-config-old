@@ -22,10 +22,11 @@ set tabstop=4
 " set t_Co=256
 " set timeoutlen=500
 set timeoutlen=350
-set tw=80
+" set tw=80
+set tw=75
 set undodir=~/.vim/undo
 set undofile
-set updatetime=1000
+set updatetime=5000
 
 autocmd VimResized * wincmd =
 filetype plugin on
@@ -47,17 +48,17 @@ au CursorHold,CursorHoldI * checktime
 " commands for file types {{{ "
 
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd FileType *css,htmldjango,html,javascript,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
+autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
-
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
-" autocmd FileType tex map <F8> :VimtexCompile<CR>:VimtexView<CR>
+autocmd FileType tex map <F8> :VimtexCompile<CR>
 autocmd VimEnter *.tex VimtexCompile
+autocmd FileType markdown,tex,text set spell spelllang=en_us
 autocmd VimLeave *.tex !tex-clean %:p
 
 " " auto-reload vimrc {{{ "
@@ -113,7 +114,8 @@ Plug 'vim-scripts/L9'
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
-	autocmd VimEnter *.tex let g:auto_save = 0
+    let g:auto_save_events = ["CursorHold", "CursorHoldI"]
+	" autocmd VimEnter *.tex let g:auto_save = 0
 
 " provides various functionality for writing LaTeX in Vim
 Plug 'lervag/vimtex'
@@ -126,6 +128,9 @@ Plug 'lervag/vimtex'
           \ 'global' : 0,
           \ 'unused' : 0,
           \}
+    " let g:vimtex_compiler_latexmk = {
+        " \ 'continuous' : 0,
+        " \}
 
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
@@ -275,7 +280,8 @@ nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
-nnoremap <leader>gd :Gvdiff HEAD
+nnoremap <leader>gd :Gvdiff HEAD~
+nnoremap <leader>gdm :Gvdiff master<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -385,6 +391,8 @@ autocmd BufNewFile,BufRead *.h nnoremap <localleader>x 0iextern <Esc>f{hc$;<Esc>
 
 autocmd Filetype fish inoremap <localleader>1 $argv[1]
 autocmd Filetype fish inoremap <localleader>2 $argv[2]
+
+autocmd Filetype javascript inoremap <localleader>x process.exit()
 
 autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx

@@ -42,9 +42,11 @@ abbr mt "math"
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 set -U mfs_dir "/home/kevin/coding/mf-site"
 
-# set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
+# set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl
+# /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
+# /home/kevin/linux-config/scripts/colors 
 # (ruby -e 'print Gem.user_dir')/bin
-set -x PATH $PATH /home/kevin/linux-config/scripts /home/kevin/go/bin
+set -x PATH $PATH /home/kevin/linux-config/scripts /home/kevin/linux-config/scripts/colors /home/kevin/go/bin
 set -x PASSWORD_STORE_CLIP_TIME 120
 set -xU XSET_RATE 90
 set -xU XSET_DELAY 200

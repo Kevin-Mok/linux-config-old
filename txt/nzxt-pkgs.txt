@@ -7,6 +7,7 @@ automake
 bash
 bat
 bc
+biber
 bison
 bookworm
 broadcom-wl
@@ -19,6 +20,7 @@ cmatrix
 colordiff
 compton
 coreutils
+cowsay
 cryptsetup
 device-mapper
 dhcpcd
@@ -112,7 +114,6 @@ pgadmin4
 pkgconf
 postgresql
 procps-ng
-psensor
 psmisc
 pulseaudio
 python-dbus
@@ -131,6 +132,8 @@ scrot
 sed
 shadow
 shellcheck
+sl
+smartmontools
 sqlitebrowser
 sshpass
 steam
@@ -170,6 +173,8 @@ wireless_tools
 wkhtmltopdf
 wpa_actiond
 wpa_supplicant
+xautomation
+xbindkeys
 xclip
 xf86-input-evdev
 xf86-input-keyboard

@@ -66,5 +66,6 @@ a43 /home/kevin/school/369/a4-3/fs3
 
 hp /home/kevin/school/hps
 hpe /home/kevin/school/latex-notes/hps
+hper /home/kevin/school/hps/w5-6-historicism
 
 # }}} sch *

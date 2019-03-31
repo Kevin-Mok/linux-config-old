@@ -2,7 +2,7 @@
 /home/kevin/.AndroidStudio3.3
 /home/kevin/Android
 /home/kevin/.cache
-/home/kevin/.local/share/Steam
+/home/kevin/.local/share/Steam/steamapps/common
 /lost+found
 /mnt
 /proc

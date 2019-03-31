@@ -65,6 +65,7 @@ fnd "find . -type f -name"
 
 rmr "rm -rf"
 rmd "rm ~/Downloads/*"
+rmsw "rm ~/.local/share/nvim/swap/"
 md "mkdir -p"
 rsy "rsync -Pr"
 
@@ -168,6 +169,8 @@ rx "redshift -x"
 sn "sudo nvim"
 sx "sxiv"
 sxa "sxiv -a"
+sxt "sxiv -t *"
+vmd "vimdiff"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
 z "zathura --fork"
@@ -200,6 +203,7 @@ wa "watson start"
 wae "watson start && watson edit"
 we "watson edit"
 wl "watson log --day"
+wla "watson log --all --tag="
 ww "watson log"
 # wlm "watson log --project coding --tag mfs"
 wr "watson report --day"
@@ -226,6 +230,9 @@ gbd "git branch -D"
 gba "git branch --no-merged && echo '' && git branch --merged"
 gbu "git branch --no-merged"
 gbm "git branch --merged"
+
+gmg "git merge"
+gmgt "git mergetool"
 
 #  }}} branch # 
 
@@ -416,17 +423,23 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 #  }}} 369 # 
 
 # 309
-wl0 "watson log --all --project=309 --tag=e3"
-wr0 "watson report --all --project=309 --tag=e3"
+# wl0 "watson log --all --project=309 --tag=e3"
+# wr0 "watson report --all --project=309 --tag=e3"
 
 nd "node"
 ndm "nodemon"
+knd "killall node"
 mg "mongo"
-mgd "mongod --dbpath mongo-data"
+
 0ht "cd ~/school/309-proj && python3 -m http.server"
+mgd "mongod --dbpath mongo-data"
+nds "killall node && nodemon server.js"
 
 hr "heroku"
 hrt "heroku ps"
 hrl "heroku logs --dyno web -n 1500 | rg up | awk '{ system(\"date -d \" \$1); \$1 = \"\"; print \$0 }' | paste -s -d' \n'"
+
+wlh "watson log --all --project=hps --tag=essay"
+wrh "watson report --all --project=hps --tag=essay"
 
 #  }}} school # 

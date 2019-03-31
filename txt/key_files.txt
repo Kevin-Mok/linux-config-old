@@ -20,6 +20,7 @@ z /home/kevin/linux-config/aliases/zsh_aliases
 # cdn {{{ *
 
 cm /tmp/commit-msg.txt
+cmd ./commit-msg.txt
 hlg /home/kevin/coding/spotify-lib-vis/src/api/management/commands/update-history.log
 id /home/kevin/coding/project-ideas/ideas.md
 ig ./.gitignore
@@ -40,10 +41,10 @@ wt /home/kevin/.config/watson/state.tmp
 # sch {{{ *
 
 0c /home/kevin/school/309-proj/sass/main.scss
-0h /home/kevin/school/309-proj/index.html
-0m /home/kevin/school/309-proj/js/main.js
-0f /home/kevin/school/309-proj/js/food.js
-0s /home/kevin/school/309-proj/js/stores.js
+0h /home/kevin/school/309-proj/public/index.html
+0m /home/kevin/school/309-proj/public/js/main.js
+0f /home/kevin/school/309-proj/public/js/food.js
+0s /home/kevin/school/309-proj/public/js/stores.js
 0k /home/kevin/school/309-proj/json/kevin.md
 
 # }}} sch *
