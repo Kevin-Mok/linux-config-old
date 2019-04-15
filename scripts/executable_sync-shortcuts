@@ -30,9 +30,9 @@ ensure "source $fish_abbr" "$fish_config"
 ensure "source $ranger_mappings" "$ranger_config"
 
 # key files
-key_dirs="$HOME/linux-config/txt/key_dirs.txt"
-key_files="$HOME/linux-config/txt/key_files.txt"
-key_aliases="$HOME/linux-config/aliases/key_aliases"
+key_dirs="$HOME/key_dirs"
+key_files="$HOME/key_files"
+key_aliases="$HOME/key_aliases"
 
 # Remove, prepare files
 rm -f "$ranger_mappings" 2>/dev/null

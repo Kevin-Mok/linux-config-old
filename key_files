@@ -1,9 +1,9 @@
 # sys {{{ *
 
-3 /home/kevin/.config/i3/config
-a /home/kevin/linux-config/aliases/key_aliases
-d /home/kevin/linux-config/txt/key_dirs.txt
-f /home/kevin/linux-config/txt/key_files.txt
+3 ~/linux-config/dot_config/i3/config
+a ~/linux-config/key_aliases
+d ~/linux-config/key_dirs
+f ~/linux-config/key_files
 i /home/kevin/.config/i3blocks/i3blocks.conf
 p /home/kevin/linux-config/txt/pacman-pkgs/pacman-pkgs.txt
 r /home/kevin/.config/ranger/rc.conf
@@ -11,7 +11,7 @@ sr /home/kevin/linux-config/configs/ranger/shortcuts.conf
 ss /home/kevin/.shortcuts
 u /home/kevin/.Xresources
 v /home/kevin/.vimrc
-x /home/kevin/.config/fish/config.fish
+x ~/linux-config/dot_config/private_fish/config.fish
 y /home/kevin/.zshrc
 z /home/kevin/linux-config/aliases/zsh_aliases
 

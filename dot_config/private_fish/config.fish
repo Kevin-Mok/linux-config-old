@@ -20,9 +20,11 @@ builtin cd $last_dir
 bind \ce edit_command_buffer
 bind \cr forward-word
 
-/home/kevin/linux-config/scripts/sync-shortcuts
+chezmoi apply
+/home/kevin/scripts/sync-shortcuts
 source /home/kevin/.config/fish/key_abbr.fish
-set -U fish_fxn_dir "/home/kevin/linux-config/fish/.config/fish/functions"
+# set -U fish_fxn_dir "/home/kevin/linux-config/fish/.config/fish/functions"
+set -U fish_fxn_dir "/home/kevin/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
@@ -42,11 +44,7 @@ abbr mt "math"
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 set -U mfs_dir "/home/kevin/coding/mf-site"
 
-# set -U PATH /usr/local/sbin /usr/local/bin /usr/bin /usr/bin/site_perl
-# /usr/bin/vendor_perl /usr/bin/core_perl /home/kevin/linux-config/scripts
-# /home/kevin/linux-config/scripts/colors 
-# (ruby -e 'print Gem.user_dir')/bin
-set -x PATH $PATH /home/kevin/linux-config/scripts /home/kevin/linux-config/scripts/colors /home/kevin/go/bin
+set -x PATH $PATH /home/kevin/scripts /home/kevin/scripts/colors /home/kevin/go/bin
 set -x PASSWORD_STORE_CLIP_TIME 120
 set -xU XSET_RATE 90
 set -xU XSET_DELAY 200

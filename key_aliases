@@ -174,7 +174,7 @@ sxt "sxiv -t *"
 vmd "vimdiff"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
-z "zathura --fork"
+zt "zathura --fork"
 
 lz "unzip -l"
 
@@ -325,9 +325,11 @@ gunc "git update-index --assume-unchanged"
 #  coding projs {{{ # 
 # coding_dir="~/coding"
 
-cz "chezmoi"
-cza "chezmoi add"
-cze "chezmoi edit"
+zm "chezmoi"
+za "chezmoi add"
+zar "chezmoi add -r"
+ze "chezmoi edit"
+zp "chezmoi -v apply"
 
 rgt "rg TODO"
 

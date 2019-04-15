@@ -3,21 +3,19 @@
 
 bg /home/kevin/Pictures/Backgrounds
 cf /home/kevin/.config
-lc /home/kevin/linux-config/
-lf /mnt/linux-files
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
 fo /home/kevin/.config/fish
-fs /home/kevin/linux-config/fish/.config/fish
 k /home/kevin/
-lc /home/kevin/linux-config/
+lf /mnt/linux-files
+lfv /mnt/linux-files/Videos
 me /run/media/kevin
 o /
 p /home/kevin/.password-store
 P /home/kevin/Pictures
 sw ~/.local/share/nvim/swap/
 tm /tmp
-lfv /mnt/linux-files/Videos
+z /home/kevin/linux-config
 
 # }}} sys *
 
@@ -39,7 +37,6 @@ swa /home/kevin/.local/share/nvim/swap
 tx /home/kevin/linux-config/txt
 wd /home/kevin/.config/watson
 wo /home/kevin/Documents/workout-logs/11
-zd /home/kevin/chezmoi
 
 # }}} cdn *
 
