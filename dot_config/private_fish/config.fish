@@ -29,8 +29,8 @@ abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
-abbr rf "source ~/.config/fish/config.fish"
-abbr rfs "sync-shortcuts && source ~/.config/fish/config.fish"
+abbr rf "chezmoi apply && source ~/.config/fish/config.fish"
+abbr rfs "sync-shortcuts && chezmoi apply && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."

@@ -54,7 +54,7 @@ sed "s/\s*#.*$//;/^\s*$/d"  "$key_files" | tee \
 	>(awk '{print "abbr v"$1, "\"$EDITOR "$2"\""}' >> "$fish_abbr") \
 	| awk '{print "map v"$1" shell $EDITOR "$2}' >> "$ranger_mappings"
 
-sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort | tee \
+sed -e '/^$/d' -e '/[ ]*#.*/d' "$key_aliases" | sort | tee \
 	>(awk '{printf "abbr " $1; $1 = ""; print $0; }' >> "$fish_abbr") \
 	| awk '{
 		printf $1;
@@ -62,4 +62,4 @@ sed -e '/^$/d' -e '/^[ \t#].*/d' "$key_aliases" | sort | tee \
 		printf "=";
 		printf gensub(" ", "", 1, $0);
 		print " \\";
-	}' >> "$aliases"
+    }' >> "$aliases"

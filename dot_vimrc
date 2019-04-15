@@ -55,14 +55,15 @@ autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype markdown inoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
+autocmd FileType markdown,tex,text set spell spelllang=en_us
 autocmd Filetype javascript set updatetime=1000
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
 autocmd FileType tex map <F8> :VimtexCompile<CR>
 autocmd VimEnter *.tex VimtexCompile
-autocmd FileType markdown,tex,text set spell spelllang=en_us
 autocmd VimLeave *.tex !tex-clean %:p
+autocmd BufNewFile,BufRead *.tmpl set tw=0 sw=2
 
 " " auto-reload vimrc {{{ "
 

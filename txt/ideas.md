@@ -1,9 +1,13 @@
 # chezmoi
-- edit chez dir files?
+- root
+  - shortcut script 
+  - fish config template
 - nvim setup
-- fish config
-- home dir var
 - merge laptop
+- home server
+- lab
+  - template bash file
 
+# Other
 - nnn
 - spotify blocklet - escape chars.
