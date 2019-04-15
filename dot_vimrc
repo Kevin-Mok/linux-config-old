@@ -80,7 +80,7 @@ autocmd VimLeave *.tex !tex-clean %:p
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 " autocmd BufWritePost key_* !sync-shortcuts
-autocmd BufNewFile,BufRead key_* map <F1> :silent !sync-shortcuts<CR>
+autocmd BufNewFile,BufRead key_* map <F1> :w<CR>:silent !sync-shortcuts<CR>
 
 " map <F1> :silent !scp %:p k@192.168.0.17:/home/k/a1<CR>
 " map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>

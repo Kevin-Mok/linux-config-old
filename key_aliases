@@ -325,6 +325,10 @@ gunc "git update-index --assume-unchanged"
 #  coding projs {{{ # 
 # coding_dir="~/coding"
 
+cz "chezmoi"
+cza "chezmoi add"
+cze "chezmoi edit"
+
 rgt "rg TODO"
 
 #  trapbot {{{ # 

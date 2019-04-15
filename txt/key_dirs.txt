@@ -39,6 +39,7 @@ swa /home/kevin/.local/share/nvim/swap
 tx /home/kevin/linux-config/txt
 wd /home/kevin/.config/watson
 wo /home/kevin/Documents/workout-logs/11
+zd /home/kevin/chezmoi
 
 # }}} cdn *
 
