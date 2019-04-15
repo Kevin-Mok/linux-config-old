@@ -65,7 +65,7 @@ fnd "find . -type f -name"
 
 rmr "rm -rf"
 rmd "rm ~/Downloads/*"
-rmsw "rm ~/.local/share/nvim/swap/"
+rmw "rm ~/.local/share/nvim/swap/"
 md "mkdir -p"
 rsy "rsync -Pr"
 
@@ -162,6 +162,7 @@ mp "mpv --volume=50"
 mra "man ranger"
 n "nvim"
 p3 "python3"
+pdft "pdftotext"
 pipes "pipes.sh -t 3"
 py "python"
 r "ranger"
@@ -187,6 +188,7 @@ psc "pass -c"
 pse "pass edit"
 psi "pass insert -m"
 psg "pass generate -c"
+pss "pass show"
 
 xc "xclip -selection clipboard"
 yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
@@ -209,6 +211,7 @@ ww "watson log"
 wr "watson report --day"
 wrw "watson report"
 wre "watson restart"
+wree "watson restart && watson edit"
 ws "watson status && watson stop"
 wse "watson stop && watson edit"
 wsc "watson cancel"
@@ -251,6 +254,7 @@ grm "git rm"
 grmf "git rm -f"
 grmc "git rm --cached"
 grmfc "git rm -f --cached"
+grmor "rm (fd -e orig --no-ignore -H)"
 
 #  }}} add # 
 
@@ -387,6 +391,9 @@ rt "python ~/coding/rt-scraper/rt-scraper.py"
 
 #  school {{{ # 
 
+wlf "watson log --all --tag=final"
+wrf "watson report --all --tag=final"
+
 #  369 {{{ # 
 
 ssc "ssh mokkar@teach.cs.utoronto.ca"
@@ -422,24 +429,32 @@ hl "valgrind --tool=helgrind ./carsim light 10 20"
 
 #  }}} 369 # 
 
-# 309
-# wl0 "watson log --all --project=309 --tag=e3"
-# wr0 "watson report --all --project=309 --tag=e3"
+# 309{{{
 
+wl0 "watson log --all --project=309 --tag=phase2"
+wr0 "watson report --all --project=309 --tag=phase2"
+
+# apps
 nd "node"
 ndm "nodemon"
 knd "killall node"
 mg "mongo"
 
+# server
 0ht "cd ~/school/309-proj && python3 -m http.server"
 mgd "mongod --dbpath mongo-data"
-nds "killall node && nodemon server.js"
+# nds "killall node && nodemon server.js"
+nds "nodemon server.js"
 
+# heroku
 hr "heroku"
+hrs "heroku local web"
 hrt "heroku ps"
 hrl "heroku logs --dyno web -n 1500 | rg up | awk '{ system(\"date -d \" \$1); \$1 = \"\"; print \$0 }' | paste -s -d' \n'"
+gpsh "git push heroku"
 
-wlh "watson log --all --project=hps --tag=essay"
-wrh "watson report --all --project=hps --tag=essay"
+0c "node collections.js"
+
+# }}}
 
 #  }}} school # 

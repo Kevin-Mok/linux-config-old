@@ -15,6 +15,7 @@ me /run/media/kevin
 o /
 p /home/kevin/.password-store
 P /home/kevin/Pictures
+sw ~/.local/share/nvim/swap/
 tm /tmp
 lfv /mnt/linux-files/Videos
 
@@ -49,23 +50,16 @@ lt /home/kevin/school/latex-notes
 sc /home/kevin/school
 0c /home/kevin/school/309-proj/css
 0d /home/kevin/school/309
+0j /home/kevin/school/309-proj/public/js
 0l /home/kevin/school/309/l
 0p /home/kevin/school/309-proj
+0m /home/kevin/school/309-proj/mongo
 e4 /home/kevin/school/309/e4
 # }}}
 
-# 369{{{
 6 /home/kevin/school/369
 6l /home/kevin/school/369/notes/lectures
-6m /mnt/369-a4
-
-6f /home/kevin/linux-config/fish/.config/fish/functions/369/a3
-a4d /home/kevin/school/369/a4/a4
-a43 /home/kevin/school/369/a4-3/fs3
-#}}}
 
 hp /home/kevin/school/hps
-hpe /home/kevin/school/latex-notes/hps
-hper /home/kevin/school/hps/w5-6-historicism
 
 # }}} sch *

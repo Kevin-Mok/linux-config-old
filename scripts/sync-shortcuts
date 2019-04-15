@@ -41,8 +41,8 @@ printf "# vim: filetype=sh\\nalias " > "$aliases"
 
 # Format the key file in the correct syntax and sent it to all configs.
 sed "s/\s*#.*$//;/^\s*$/d" "$key_dirs" | tee \
-	>(awk '{print $1"=\"cd "$2" && ls -a\" \\"}' >> "$aliases") \
-	>(awk '{print "abbr", $1, "\"cd " $2 "\""}' >> "$fish_abbr") \
+	>(awk '{print $1"=\"cd "$2" && lsd -a\" \\"}' >> "$aliases") \
+	>(awk '{print "abbr", $1, "\"cd", $2, "\""}' >> "$fish_abbr") \
 	| awk '{print "map f"$1, "cd", $2;
 		print "map t"$1, "tab_new", $2;
 		print "map m"$1, "shell mv -v %f", $2;

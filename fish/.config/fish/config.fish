@@ -79,6 +79,8 @@ abbr grmb "git-delete-branch"
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr pgr "grep-pdf"
+abbr pgrf "grep-pdf-file"
+abbr rs "redshift-set"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 

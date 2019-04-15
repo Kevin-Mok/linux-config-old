@@ -27,13 +27,15 @@ set $mod Mod1
 set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts {{{ # 
-bindsym Mod4+a exec studio
-# bindsym Mod4+1 exec xdotool click --repeat 5 --delay 100 1
-# bindsym Mod4+2 exec xdotool click --repeat 10 --delay 100 1
-# bindsym Mod4+3 exec xdotool click --repeat 20 --delay 100 1
+
 # bindsym $mod+control+Return exec i3-sensible-terminal
 # bindsym $mod+control+Return exec $def_term
 bindsym control+Return exec $def_term
+# bindsym Mod4+1 exec xdotool click --repeat 5 --delay 100 1
+# bindsym Mod4+2 exec xdotool click --repeat 10 --delay 100 1
+# bindsym Mod4+3 exec xdotool click --repeat 20 --delay 100 1
+bindsym Mod4+a exec studio
+bindsym Mod4+b layout tabbed; exec zathura
 bindsym Mod4+c exec $browser
 bindsym Mod4+e exec notify-send "HPS Word Count" "$(pdftotext /home/kevin/school/latex-notes/hps/essay.pdf - | wc -w)"
 bindsym Mod4+f exec firefox
@@ -68,7 +70,7 @@ bindsym control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).pn
 
 #  redshift {{{ # 
 
-bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1250
+bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1100
 bindsym $mod+Mod4+2 exec redshift -x && redshift -O 2000
 bindsym $mod+Mod4+3 exec redshift -x && redshift -O 3000
 bindsym $mod+Mod4+4 exec redshift -x && redshift -O 4000
@@ -233,7 +235,7 @@ set $ws5 "5 "
 workspace $ws5 output $samsung
 assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
-# bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
 bindsym Mod4+t workspace $ws5; exec thunderbird
 
 set $ws6 "6 "

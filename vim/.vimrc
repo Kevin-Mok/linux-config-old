@@ -26,13 +26,13 @@ set timeoutlen=350
 set tw=75
 set undodir=~/.vim/undo
 set undofile
-set updatetime=5000
+set updatetime=2000
 
 autocmd VimResized * wincmd =
 filetype plugin on
 filetype indent on
 syntax on
-au CursorHold,CursorHoldI * checktime
+au CursorHold * checktime
 
 " cursor indicator {{{ "
 
@@ -50,9 +50,12 @@ au CursorHold,CursorHoldI * checktime
 autocmd BufNewFile,BufRead .* set syntax=sh
 autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd Filetype markdown set textwidth=0
+" autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
+autocmd Filetype markdown inoremap <Tab> <Esc>>>A
+autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
+autocmd Filetype javascript set updatetime=1000
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
@@ -215,6 +218,7 @@ Plug 'shime/vim-livedown'
 Plug 'tpope/vim-fugitive'
 " auto reload file
 Plug 'djoshea/vim-autoread'
+" Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
 
@@ -224,6 +228,11 @@ call plug#end()
 colorscheme wal
 
 " Mappings {{{ "
+
+nnoremap > >>
+nnoremap < <<
+inoremap >> <Esc>>>A
+inoremap << <Esc><<A
 
 " function keys {{{ "
 map <F3> :wa<CR>
@@ -280,7 +289,8 @@ nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
-nnoremap <leader>gd :Gvdiff HEAD~
+nnoremap <leader>gd :Gvdiff 
+nnoremap <leader>gdh :Gvdiff HEAD~
 nnoremap <leader>gdm :Gvdiff master<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
@@ -328,6 +338,8 @@ nnoremap <leader>sol q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
 nnoremap <leader>sys :set syn=sh<CR>
 vnoremap <leader>t :!tac<CR>
+" capitalize letter
+nnoremap <leader>u vU
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " copy next thing to system clipboard

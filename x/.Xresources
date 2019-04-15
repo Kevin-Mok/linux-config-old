@@ -19,6 +19,8 @@ URxvt*shading: 40
 /* }}} transparency */
 
 URxvt.scrollBar: false
+! URxvt.scrollBar: true
+! URxvt*scrollBar_right: true
 
 ! Clickable URLs {{{ */
 URxvt.perl-ext-common: default,matcher
