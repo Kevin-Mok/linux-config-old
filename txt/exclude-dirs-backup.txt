@@ -1,0 +1,12 @@
+/home/kevin/.android
+/home/kevin/.AndroidStudio3.3
+/home/kevin/Android
+/home/kevin/.cache
+/home/kevin/.local/share/Steam
+/lost+found
+/mnt
+/proc
+/run
+/sys
+/var/cache/pacman
+/var/lib/systemd/coredump

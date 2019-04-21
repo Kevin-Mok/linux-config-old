@@ -1,23 +1,35 @@
 " set x=y {{{ "
-au BufWinEnter * set relativenumber
-" set background=dark
-set encoding=utf-8
-set background=light
-" set t_Co=256
-filetype plugin on
-syntax on
-set tabstop=4
-set tw=80
-set linebreak
-" set colorcolumn=80
-set shiftwidth=4
+
 set autoindent
-" set mouse=c
-set mouse=a
+set autoread
+set background=dark
+" set colorcolumn=80
 set clipboard+=unnamedplus
-set foldmethod=marker
+set diffopt=filler,context:3
+set encoding=utf-8
 " set foldmethod=indent
+set foldmethod=marker
+set hlsearch
+set linebreak
 set linespace=5
+set mouse=a
+" set mouse=c
+" set noswapfile
+set relativenumber
+set shiftwidth=4
+set tabstop=4
+" set t_Co=256
+" set timeoutlen=500
+set timeoutlen=350
+set tw=80
+set updatetime=1000
+
+autocmd VimResized * wincmd =
+filetype plugin on
+filetype indent on
+syntax on
+au CursorHold,CursorHoldI * checktime
+
 " cursor indicator {{{ "
 
 " set listchars=tab:\|\
@@ -26,22 +38,12 @@ set linespace=5
 " set cursorline
 
 " }}} cursor indicator "
-set diffopt=filler,context:3
 
-" set timeoutlen=500
-set timeoutlen=350
-set hlsearch
-" set noswapfile
-" let maplocalleader="-"
-let maplocalleader="\\"
 " }}} set x=y "
 
 " commands for file types {{{ "
 
-autocmd VimResized * wincmd =
 autocmd BufNewFile,BufRead .* set syntax=sh
-filetype plugin on
-filetype indent on
 autocmd FileType *css,htmldjango,html,javascript,markdown,tex,yaml set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.txt set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -55,7 +57,6 @@ autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
 " autocmd FileType tex map <F8> :VimtexCompile<CR>:VimtexView<CR>
 autocmd VimEnter *.tex VimtexCompile
 autocmd VimLeave *.tex !tex-clean %:p
-" map <F9> :VimtexCompile<CR>
 
 " " auto-reload vimrc {{{ "
 
@@ -81,7 +82,7 @@ autocmd BufNewFile,BufRead key_* map <F1> :silent !sync-shortcuts<CR>
 
 " }}} commands for specific files "
 
-" vim-plug {{{ "
+" vim-plug {{{ 
 " plug auto-install
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -200,8 +201,13 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
 	" let g:multi_cursor_select_all_word_key='<C-a>'
+	let g:multi_cursor_exit_from_visual_mode=0
+	let g:multi_cursor_exit_from_insert_mode=0
 Plug 'dag/vim-fish'
+Plug 'shime/vim-livedown'
 Plug 'tpope/vim-fugitive'
+" auto reload file
+Plug 'djoshea/vim-autoread'
 
 call plug#end()
 
@@ -218,12 +224,16 @@ map <F4> :xa<CR>
 map <F5> :q!<CR>
 map <F6> :qa!<CR>
 map <F7> :AutoSaveToggle<CR>
+" reload file
+nnoremap <F9> :e<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
+nnoremap <F11> :set paste<CR>"*p:set nopaste<CR>
 " }}} function keys "
 
 map <S-Enter> O<ESC>
 " swap text visually
 vnoremap <C-P> <Esc>`.``gvP``P
+ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
 " splits {{{ "
 nnoremap <C-Down> <C-W><C-J>
@@ -237,6 +247,7 @@ nnoremap <C-w> <C-W>|
 
 " leader mappings {{{ "
 let mapleader="\<Space>"
+" let maplocalleader="-"
 
 " find alias
 nnoremap <leader>a /^ <Left>
@@ -264,7 +275,6 @@ nnoremap <leader>ft /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
 nnoremap <leader>gd :Gvdiff HEAD
-nnoremap <leader>gdm :Gvdiff master<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
@@ -286,10 +296,8 @@ nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>
 " don't break lines
 nnoremap <leader>py :set tw=0<CR>
-" reload file
-nnoremap <leader>r :e<CR>
 " replace in next x lines
-nnoremap <leader>re q:i.,.+s///g<ESC>Fsi
+nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
 " replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
 " replace in visual selection
@@ -331,6 +339,8 @@ nnoremap <leader>z za
 " Local Mappings {{{ "
 
 " tex {{{ "
+
+let maplocalleader="\\"
 
 autocmd Filetype tex inoremap <localleader>bt \bowtie
 autocmd Filetype tex inoremap <localleader>c \checkmark

@@ -13,6 +13,8 @@ abbr f. "cd .."
 abbr f.. "cd ../.."
 
 set -x PATH $PATH /home/kevin/linux-config/scripts /home/kevin/go/bin
+set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
+set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
 set -x PASSWORD_STORE_CLIP_TIME 120
 
 # fxn abbr's

@@ -2,6 +2,7 @@
 
 bg /home/kevin/Pictures/Backgrounds
 cf /home/kevin/.config
+ff /home/kevin/linux-config/fish/.config/fish/functions
 lc /home/kevin/linux-config/
 d  /home/kevin/Downloads
 D  /home/kevin/Documents
@@ -33,9 +34,12 @@ wd /home/kevin/.config/watson
 # sch {{{ *
 
 sc /home/kevin/school
+
 0 /home/kevin/school/309
 0p /home/kevin/school/309-proj
-e3 /home/kevin/school/309/e3
+0m /home/kevin/school/309-proj/mongo
+0j /home/kevin/school/309-proj/public/js
+
 6 /home/kevin/school/369
 a43 /home/kevin/school/369/a4-3/fs3
 

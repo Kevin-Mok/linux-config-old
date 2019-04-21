@@ -1,6 +1,0 @@
-/home/kevin/.cache
-/lost+found
-/mnt
-/proc
-/run
-/sys

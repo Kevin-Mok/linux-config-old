@@ -116,6 +116,7 @@ xrr "xrandr --output HDMI2 --right-of eDP1"
 
 # config files {{{ #
 rf "source ~/.config/fish/config.fish"
+srf "sync-shortcuts && source ~/.config/fish/config.fish"
 rz "source ~/linux-config/aliases/zsh_aliases"
 lca "f ~/linux-config/aliases"
 
@@ -205,10 +206,10 @@ gr "git remote"
 
 #  add/remove {{{ # 
 
-ga "git add -A . && git status -u"
-gac "git add -A . && git commit -S"
+ga "git add -A && git status -u"
+gac "git add -A && git commit -S"
 # unsigned commt
-gacu "git add -A . && git commit"
+gacu "git add -A && git commit"
 
 grm "git rm"
 grmf "git rm -f"
@@ -246,9 +247,9 @@ gstp "git stash pop"
 
 gc "git commit -S"
 gcu "git commit"
-gca "git add -A . && git commit --amend --no-edit -S"
-gcam "git add -A . && git commit --amend -S"
-# gcamp "git add -A . && git commit --amend --no-edit -S && gpsf"
+gca "git add -A && git commit --amend --no-edit -S"
+gcam "git add -A && git commit --amend -S"
+# gcamp "git add -A && git commit --amend --no-edit -S && gpsf"
 
 psgi "git add . && git commit -m 'Update' -S && git push"
 gps "git push"
@@ -344,7 +345,7 @@ ss "ssh kevin@192.168.0.100"
 
 #  school {{{ # 
 
-# 369
+# 369{{{
 # a2
 m "printf '\033c' && bear make"
 mc "bear make clean"
@@ -357,7 +358,10 @@ hl "valgrind --tool=helgrind ./carsim stop 10 50 > helgrind.txt 2>&1 && valgrind
 # sa "ssh k@192.168.0.17"
 # cpi "scp interceptor.c kevin@192.168.0.17:/home/kevin/a1"
 # cpti "gcc -m32 -o test_intercept test_intercept.c && scp test_intercept k@192.168.0.17:/home/k/a1"
+# }}}
 
-e3t "node test-app.js"
+nds "nodemon server.js"
+0c "node collections.js"
+gpsh "git push heroku -f hotfix:master"
 
 #  }}} school # 
