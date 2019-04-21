@@ -1,9 +1,9 @@
 # chezmoi
+- merge laptop
 - root
   - shortcut script 
   - fish config template
 - nvim setup
-- merge laptop
 - home server
 - lab
   - template bash file

@@ -1,4 +1,5 @@
 alsa-utils
+android-file-transfer
 apache
 arch-install-scripts
 asp
@@ -11,7 +12,9 @@ biber
 bison
 bookworm
 broadcom-wl
+browserpass
 bzip2
+calcurse
 certbot
 chromium
 cloc
@@ -42,6 +45,7 @@ firefox
 fish
 flashplugin
 flex
+fortune-mod
 fzf
 gawk
 gcc
@@ -54,6 +58,7 @@ glibc
 grep
 grub
 gzip
+hdf5
 hexyl
 highlight
 hugo
@@ -117,6 +122,7 @@ procps-ng
 psmisc
 pulseaudio
 python-dbus
+python-numpy
 python-pip
 python-pywal
 python-setuptools
@@ -146,6 +152,7 @@ sysfsutils
 sysstat
 systemd-sysvcompat
 tar
+termdown
 texinfo
 texlive-core
 the_silver_searcher
@@ -167,15 +174,16 @@ valgrind
 vi
 vim
 virtualbox
+vtk
 w3m
 which
 wireless_tools
 wkhtmltopdf
-wpa_actiond
 wpa_supplicant
 xautomation
 xbindkeys
 xclip
+xdotool
 xf86-input-evdev
 xf86-input-keyboard
 xf86-input-mouse

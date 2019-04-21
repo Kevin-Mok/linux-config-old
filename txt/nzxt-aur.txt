@@ -1,6 +1,9 @@
+acestream-engine
+acestream-player
 android-studio
+aurvote
 bear
-browserpass
+chezmoi
 chromium-widevine
 cliqz-bin
 curseradio-git
@@ -8,10 +11,12 @@ discord
 dragon-drag-and-drop-git
 ffcast
 flashplugin-focusfix
+godot-bin
 heroku-cli
 htop-vim-git
 i3blocks-git
 insomnia
+libavutil-52
 linux-kevin
 linux-kevin-headers
 linux-nzxt
@@ -27,8 +32,10 @@ pipes.sh
 pycp
 qdirstat
 riot-desktop-git
+robo3t-bin
 rxvt-unicode-pixbuf
 sc-im
+slack-desktop-dark
 spotify
 spotify-now-git
 st
@@ -37,6 +44,8 @@ systemd-numlockontty
 texlive-local-algorithmicx
 texlive-local-algorithms
 texlive-local-biblatex
+texlive-local-biblatex-apa
+texlive-local-csquotes
 texlive-local-enumitem
 texlive-local-ifmtarg
 texlive-local-logreq
@@ -55,5 +64,6 @@ vidir
 watson
 weechat-vimode-git
 wego
+wpa_actiond
 yad
 yay

@@ -2,9 +2,10 @@
 
 #  system 
   # clear screen
-  cs "printf '\033c'"
+  c "printf '\033c'"
   hst "history"
-  nf "printf '\033c' && neofetch | lolcat"
+  ## nf "printf '\033c' && neofetch | lolcat"
+  nf "printf '\033c' && neofetch"
   fi "fish"
   # reload urxvt
   ru "xrdb ~/.Xresources"
@@ -49,7 +50,7 @@
     udub "udisksctl unmount -b /dev/sdc2"
 
   tc "touch"
-  vdr "vidir"
+  vd "vidir --verbose"
 
   #  directory-related # 
     ls "lsd"
@@ -109,15 +110,17 @@
     tri "trizen -S --noedit"
 
     # install
-    ya "yay -S --answerdiff=N --answeredit=N"
+    ya "yay -S  --answerclean=None --answerdiff=None --answeredit=None"
     # info
     yaq "yay -Qi"
     # remove
     yar "yay -Rns"
     # sync
     yaud "yay -Sy"
+    # sync and download
+    yaugd "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
     # sync and update
-    yaug "yay -Syu"
+    yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
     # export packages
     xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
 
@@ -145,7 +148,11 @@ chr "google-chrome"
   gpe "gpg --encrypt --recipient"
   htc "htop -s PERCENT_CPU"
   htm "htop -s PERCENT_MEM"
-  kd "killall Discord && killall Discord"
+  i "sxiv"
+  ig "sxiv -a"
+  it "sxiv -t *"
+  ka "killall"
+  kd "killall Discord && killall Discord && killall slack"
   kt "killall thunderbird"
   mp "mpv --volume=50"
   mra "man ranger"
@@ -157,13 +164,10 @@ chr "google-chrome"
   r "ranger"
   rx "redshift -x"
   sn "sudo nvim"
-  sx "sxiv"
-  sxa "sxiv -a"
-  sxt "sxiv -t *"
   vmd "vimdiff"
   wg "wego"
   wp "grep wallpaper ~/.cache/wal/colors.sh"
-  zt "zathura --fork"
+  z "zathura --fork"
 
   lz "unzip -l"
 
@@ -193,6 +197,7 @@ chr "google-chrome"
     ww "watson log"
     # wlm "watson log --project coding --tag mfs"
     wr "watson report --day"
+    wra "watson report --all"
     wrw "watson report"
     wre "watson restart"
     wree "watson restart && watson edit"
@@ -302,7 +307,7 @@ rgt "rg TODO"
     ze "chezmoi edit"
     zp "chezmoi -v apply"
 
-  ssv "bash ../bin/activate && python manage.py runserver"
+  ssv "source ../bin/activate.fish && python manage.py runserver"
   #  spotify-lib-vis # 
     # start spv server outside dir
     # open spv db in psql
@@ -342,7 +347,9 @@ rgt "rg TODO"
     ss "ssh {{ .chezmoi.group }}@192.168.0.100"
     ssb "ssh-bandit"
 
-    rt "python ~/coding/rt-scraper/rt-scraper.py"
+    rt "python ~/coding/rt-scraper/!rt-scraper.py"
+
+  med "printf '\033c' && bear make move_mouse_with_head && ./move_mouse_with_head"
 #  coding projs # 
 
 wlf "watson log --all --tag=final"

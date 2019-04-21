@@ -3,7 +3,7 @@
 set $browser "firefox"
 # set $browser "chromium"
 set $def_term "urxvt"
-set $scripts_path "/home/kevin/linux-config/scripts"
+set $scripts_path "/home/kevin/scripts"
 exec redshift -O 2000
 # exec redshift -O 3000
 # random bg
@@ -37,7 +37,7 @@ bindsym control+Return exec $def_term
 bindsym Mod4+a exec studio
 bindsym Mod4+b layout tabbed; exec zathura
 bindsym Mod4+c exec $browser
-bindsym Mod4+e exec notify-send "HPS Word Count" "$(pdftotext /home/kevin/school/latex-notes/hps/essay.pdf - | wc -w)"
+# bindsym Mod4+e exec notify-send "HPS Word Count" "$(pdftotext /home/kevin/school/latex-notes/hps/essay.pdf - | wc -w)"
 bindsym Mod4+f exec firefox
 bindsym Mod4+$mod+f exec echo 'Kevin@fosstodon.org' | xclip -selection clipboard
 bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
@@ -237,13 +237,16 @@ assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
 bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
 bindsym Mod4+t workspace $ws5; exec thunderbird
+bindsym Mod4+5 workspace $ws5; exec cd ~/coding/ada-mario-prep && godot -e
+for_window [class="ada-mario-prep"] floating enable
+for_window [class="Move_mouse_with_head"] floating enable
 
 set $ws6 "6 "
 workspace $ws6 output $samsung
 assign [class="Slack"] $ws6
 bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+i workspace $ws6; exec firefox -new-window https://riot.im/app/#/home
-# bindsym Mod4+k workspace $ws6; exec slack
+bindsym Mod4+k workspace $ws6; exec slack
 
 set $ws7 "7 "
 # set $ws7 "7 📤"
@@ -305,10 +308,10 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 bindsym Mod4+1 workspace $ws11
-bindsym Mod4+2 workspace $ws12
-bindsym Mod4+3 workspace $ws13
-bindsym Mod4+4 workspace $ws14
-bindsym Mod4+5 workspace $ws15
+# bindsym Mod4+2 workspace $ws12
+# bindsym Mod4+3 workspace $ws13
+# bindsym Mod4+4 workspace $ws14
+# bindsym Mod4+5 workspace $ws15
 #  }}} ws bindings # 
 
 #  move container to ws {{{ # 
@@ -431,8 +434,8 @@ bar {
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
 	}
 	tray_output none
-	# status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
+    status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	# status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
 	output $benq
 	wheel_up_cmd nop
 	wheel_down_cmd nop
@@ -456,8 +459,8 @@ bar {
 		active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
 		inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
 	}
-	# status_command i3blocks -c ~/.config/sam-i3blocks/sam-i3blocks.conf
-	status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
+    status_command i3blocks -c ~/.config/i3blocks/sam-i3blocks.conf
+    # status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
 	tray_output none
 	wheel_up_cmd nop
 	wheel_down_cmd nop

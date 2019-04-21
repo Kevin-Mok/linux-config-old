@@ -96,7 +96,6 @@ plugins=(
 #  }}}  default # 
 
 source $ZSH/oh-my-zsh.sh
-source ~/linux-config/aliases/zsh_aliases
 
 # ZSH_THEME="bira"
 # ZSH_THEME="miloshadzic"
@@ -171,7 +170,6 @@ fi
 
 # #  }}} autoreload zsh aliases #
 
-source /home/kevin/coding/spotify-lib-vis/src/api-keys.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export GPG_TTY=$(tty)
