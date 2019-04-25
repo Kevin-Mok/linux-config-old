@@ -5,21 +5,9 @@ command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator=true
 separator_block_width=25
 markup=pango
-# color=#d1e7ff
-# color=#acc0cd
 color=#cbe4ff
 
-# color=$foreground
-# color="${foreground}"
-# color="$(echo $foreground)"
-
-# [time]
-# label=
-# # label=🕓
-# # command=date '+%H:%M.%a-%m-%d'
-# interval=30
-# # color=#acc0cd
-
+{{ if eq .chezmoi.fullHostname "nzxt" }}
 [volume]
 interval=once
 signal=1
@@ -30,46 +18,63 @@ label=
 LONG_NAME=
 SHORT_NAME=
 interval=5
+{{ end }}
+
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+[battery]
+label=⚡ 
+interval=30
+
+[wifi]
+label= 
+instance=wlp3s0
+interval=10
+
+[backlight]
+label= 
+interval=5
+{{ end }}
 
 [calendar]
 interval=30
 label= 
+{{ if eq .chezmoi.fullHostname "nzxt" }}
 DATEFMT=+%H:%M
+{{ else }}
+DATEFMT=+%H:%M.%a-%m-%d
+{{ end }}
 # SHORTFMT=+%H:%M:%S
 HEIGHT=180
 WIDTH=220
+
+{{ if eq .chezmoi.fullHostname "nzxt" }}
+[temperature]
+label= 
+interval=5
 
 # unbold this?
 # [load_average]
 # label=
 # interval=5
 # color=#990000
+{{ end }}
 
-[temperature]
-label= 
-interval=5
-
-# [cpu_usage -w 50 -c 80]
 [cpu_usage]
 label= 
-# color=#990000
 interval=5
 
+{{ if eq .chezmoi.fullHostname "nzxt" }}
 [memory]
 label= 
 # color=#3da061
 interval=5
 
-# [wifi]
-# label=
-# instance=wlp4s0
-# interval=10
-
 [name]
 label= 
 interval=30
+{{ end }}
 
-#  unused blocks {{{ # 
+#  unused blocks # 
 
 # [memory]
 # label=SWAP
@@ -149,9 +154,9 @@ interval=30
 #instance=NUM
 #interval=once
 #signal=11
-#  }}} unused blocks # 
+#  unused blocks # 
 
-# list of properties {{{ # 
+# list of properties # 
 # i3blocks config file
 #
 # Please see man i3blocks for a complete reference!
@@ -173,5 +178,5 @@ interval=30
 # short_text
 # signal
 # urgent
-#  }}} properties # 
+#  properties # 
 

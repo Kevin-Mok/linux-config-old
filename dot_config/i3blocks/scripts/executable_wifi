@@ -17,6 +17,8 @@
 #------------------------------------------------------------------------
 
 INTERFACE="${BLOCK_INSTANCE:-wlan0}"
+# echo $INTERFACE
+# INTERFACE="${INSTANCE}"
 
 #------------------------------------------------------------------------
 
@@ -27,24 +29,23 @@ INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 
 #------------------------------------------------------------------------
 
-QUALITY=$(sudo grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+# echo $QUALITY
 W_inter=$(ip link | grep "[1-9]: wlp" | cut -d " " -f2 | tr -d ':')
 W_name=$(nmcli d | grep "$W_inter" | awk '{print $4}')
 
 #------------------------------------------------------------------------
 
-# echo $QUALITY% "$W_name" # full text
-# echo $QUALITY% # short text
-. "/home/kevin/.cache/wal/colors.sh"
-printf "%s%%\n\n%s\n" $QUALITY $color7
+echo $QUALITY% "$W_name" # full text
+echo $QUALITY% # short text
 
 # color
-# if [[ $QUALITY -ge 80 ]]; then
-    # echo "#00FF00"
-# elif [[ $QUALITY -lt 80 ]]; then
-    # echo "#FFF600"
-# elif [[ $QUALITY -lt 60 ]]; then
-    # echo "#FFAE00"
-# elif [[ $QUALITY -lt 40 ]]; then
-    # echo "#FF0000"
-# fi
+if [[ $QUALITY -ge 80 ]]; then
+    echo "#00FF00"
+elif [[ $QUALITY -lt 80 ]]; then
+    echo "#FFF600"
+elif [[ $QUALITY -lt 60 ]]; then
+    echo "#FFAE00"
+elif [[ $QUALITY -lt 40 ]]; then
+    echo "#FF0000"
+fi
