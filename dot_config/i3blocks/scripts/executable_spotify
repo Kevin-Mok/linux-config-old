@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LONG_NAME=${LONG_NAME:-"%artist - %title"} 
+SHORT_NAME=${SHORT_NAME:-"%title"} 
+case "$BLOCK_BUTTON" in
+    1) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause ;;
+    2) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous ;;
+    3) dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next ;;
+esac
+
+. "/home/kevin/.cache/wal/colors.sh"
+long_title=$(spotify-now -i "$LONG_NAME" -p '' -e '' | sed 's/&/&amp;/g')
+short_title=$(spotify-now -i "$SHORT_NAME" -p '' -e '' | sed 's/&/&amp;/g')
+printf "$long_title\n$short_title\n%s\n" "$color7"

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-. "/home/kevin/.cache/wal/colors.sh"
-
-temps="$(sensors | rg 'temp1:.*' | awk '{ print $2 }' | rg -o '\d{2}' | \
-    sed 's/$/°C/' | tr '\n' ' ' | xargs)"
-printf "%s\n\n%s\n" "$temps" "$color7"
