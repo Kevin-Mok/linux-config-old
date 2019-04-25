@@ -34,7 +34,6 @@ abbr rfs "sync-shortcuts && chezmoi apply && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
-abbr mt "math"
 
 # }}} fish-specific #
 
@@ -55,7 +54,8 @@ set -xU XSET_DELAY 200
 # xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 # xset r rate $XSET_DELAY $XSET_RATE
 
-set -U BROWSER "chromium"
+# set -U BROWSER "chromium"
+set -U BROWSER "firefox"
 
 # }}} universal var's #
 
@@ -79,6 +79,7 @@ abbr grmb "git-delete-branch"
 # }}} git #
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
+abbr mt "math"
 abbr pgr "grep-pdf"
 abbr pgrf "grep-pdf-file"
 abbr rs "redshift-set"

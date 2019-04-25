@@ -8,10 +8,10 @@ README.md
 .config/zathura/
 scripts/
 txt/
-.bashrc
 .gitconfig
 .imwheelrc
 .xinitrc
 .Xresources
 .zshrc
 {{ end }}
+.bashrc

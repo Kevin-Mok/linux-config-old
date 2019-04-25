@@ -1,0 +1,12 @@
+clear Lock
+
+{{ if and (eq .chezmoi.fullHostname "x1-carbon") (not .ext_kb) }}
+keycode 115 = BackSpace
+keycode 110 = Delete
+
+keycode 22 = Home
+keycode 119 = End
+{{ else }}
+keycode 22 = Caps_Lock
+keycode 66 = BackSpace
+{{ end }}

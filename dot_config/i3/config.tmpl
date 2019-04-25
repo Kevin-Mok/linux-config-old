@@ -1,0 +1,473 @@
+# vim: fdm=indent ft=i3.tmpl
+
+#  startup # 
+  set $browser "firefox"
+  # set $browser "chromium"
+  set $term "urxvt"
+  set $scripts_path "/home/kevin/scripts"
+  exec redshift -O 2000
+  # exec redshift -O 3000
+  # random bg
+  exec compton
+  exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
+  exec imwheel
+  exec xmodmap ~/.Xmodmap
+  exec xset r rate $XSET_DELAY $XSET_RATE
+  {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+  exec xbacklight -set 10
+  {{ end }}
+  exec xrdb ~/.Xresources
+  exec --no-startup-id dunst
+  exec --no-startup-id start-pulseaudio-x11
+  exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
+  exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
+  # exec --no-startup-id i3-msg 'workspace $ws11; exec $swex'
+  exec_always --no-startup-id numlockx on
+
+bindsym control+Return exec $term
+#  applications # 
+  set $mod Mod1
+  set $sch_dir "$HOME/Documents/School"
+
+  #  app shortcuts # 
+    # PROTIP: You can also dynamically set dmenu's colors this way:
+    bindsym Mod4+Return exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+    # bindsym Mod4+Return exec dmenu_run
+    # There also is the (new) i3-dmenu-desktop which only displays applications
+    # shipping a .desktop file. It is a wrapper around dmenu, so you need that
+    # installed.
+    # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+    bindsym Mod4+b layout tabbed; exec zathura
+    bindsym Mod4+c exec $browser
+    # bindsym Mod4+e exec notify-send "HPS Word Count" "$(pdftotext /home/kevin/school/latex-notes/hps/essay.pdf - | wc -w)"
+    bindsym Mod4+f exec firefox
+    bindsym Mod4+$mod+f exec echo 'Kevin@fosstodon.org' | xclip -selection clipboard
+    bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
+    bindsym Mod4+$mod+m exec pass -c uoft/markus
+    bindsym Mod4+n exec urxvt -e nvim
+    bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
+    bindsym Mod4+$mod+o exec xset dpms force off
+    # bindsym Mod4+p workspace $ws4; exec pgadmin3
+    # bindsym Mod4+p exec pycharm
+    bindsym Mod4+p exec passmenu
+    # bindsym Mod4+$mod+p exec notify-send "ping" "$(ping -c 3 -W 1 8.8.8.8)"
+    bindsym Mod4+q exec qdirstat
+    bindsym Mod4+r exec urxvt -e ranger
+    bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
+    bindsym control+$mod+s exec systemctl suspend
+    # bindsym Mod4+t exec st
+    bindsym Mod4+$mod+t exec xclip -selection clipboard ~/.password-store/social/trapbot
+    bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
+    bindsym Mod4+$mod+u exec pass -c uoft/acorn
+    bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
+    bindsym Mod4+$mod+w exec notify-send "watson stop" "$(watson status && watson stop)"
+    {{ if eq .chezmoi.fullHostname "nzxt" }}
+    bindsym control+$mod+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
+    {{ end }}
+    # bindsym Mod4+x exec $swex
+    bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
+    bindsym Mod4+z exec cliqz
+    {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+    bindsym $mod+p --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    bindsym control+$mod+p --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    {{ else }}
+    bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    bindsym control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    {{ end }}
+  #  app shortcuts # 
+
+  bindsym $mod+Mod4+1 exec redshift -x && redshift -O 1100
+  #  redshift # 
+    bindsym $mod+Mod4+2 exec redshift -x && redshift -O 2000
+    bindsym $mod+Mod4+3 exec redshift -x && redshift -O 3000
+    bindsym $mod+Mod4+4 exec redshift -x && redshift -O 4000
+    bindsym $mod+Mod4+5 exec redshift -x && redshift -O 5000
+    bindsym $mod+Mod4+grave exec redshift -x
+  #  redshift # 
+
+  {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+    bindsym Shift+F1 exec xbacklight -set 10
+    bindsym Shift+F2 exec xbacklight -set 20
+    bindsym Shift+F3 exec xbacklight -set 30
+    bindsym Shift+F4 exec xbacklight -set 40
+    bindsym Shift+F5 exec xbacklight -set 50
+    bindsym Shift+F6 exec xbacklight -set 60
+    bindsym Shift+F7 exec xbacklight -set 70
+    bindsym Shift+F8 exec xbacklight -set 80
+    bindsym Shift+F9 exec xbacklight -set 90
+    bindsym Shift+F0 exec xbacklight -set 100
+
+    bindsym control+$mod+plus exec xbacklight -inc 2
+    bindsym control+$mod+minus exec xbacklight -dec 2
+
+    bindsym $mod+w exec sudo systemctl start netctl-auto@wlp3s0.service
+    bindsym $mod+q exec sudo systemctl stop netctl-auto@wlp3s0.service
+  {{ end }}
+
+  # Use Mouse+$mod to drag floating windows to their wanted position
+  floating_modifier $mod
+  for_window [class="Peek"] floating enable
+
+#  changing/focusing/moving windows # 
+bindsym control+h focus left
+  # change focus
+  bindsym control+j focus down
+  bindsym control+k focus up
+  bindsym control+l focus right
+
+  # move workspace to other monitor
+  bindsym $mod+minus move workspace to output left
+  bindsym $mod+plus move workspace to output right
+
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+
+  # move focused window
+  bindsym control+Shift+h move left
+  bindsym control+Shift+j move down
+  bindsym control+Shift+k move up
+  bindsym control+Shift+l move right
+
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
+
+  # split in horizontal orientation
+  bindsym $mod+b split h
+  bindsym Mod4+$mod+b split h; exec $term
+
+  # split in vertical orientation
+  bindsym $mod+v split v
+  bindsym Mod4+$mod+v split v; exec $term
+
+  # bindsym control+Shift+x kill
+  bindsym shift+x kill
+#  changing/focusing/moving windows # 
+
+# backgrounds
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+  bindsym control+$mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"; exec ~/.cache/wal/colors.sh
+  bindsym control+$mod+w exec /home/kevin/linux-config/scripts/bg-chooser; exec ~/.cache/wal/colors.sh
+  bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"; exec ~/.cache/wal/colors.sh
+  # bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"; exec ~/.cache/wal/colors.sh
+  bindsym control+$mod+z exec feh --bg-fill ~/Pictures/Backgrounds/dim/black.jpg
+  {{ else }}
+  bindsym $mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing")
+  bindsym $mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
+  # bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
+  bindsym $mod+r exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/editing")
+  bindsym $mod+y exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/non-editing")
+{{ end }}
+# backgrounds
+
+#  container display # 
+bindsym $mod+s layout stacking
+  # change container layout (stacked, tabbed, toggle split)
+  bindsym $mod+t layout tabbed
+  bindsym $mod+e layout toggle split
+
+  # enter fullscreen mode for the focused container
+  bindsym $mod+f fullscreen toggle
+
+  # toggle tiling /floating
+  bindsym $mod+Shift+space floating toggle
+
+  # change focus between tiling / floating windows
+  bindsym $mod+space focus mode_toggle
+
+  # focus the parent container
+  bindsym $mod+a focus parent
+  # focus the child container
+  #bindsym $mod+d focus child
+#  container display # 
+
+#  change container colors from pywal # 
+set_from_resource $fg i3wm.color7 #f0f0f0
+  # Set colors from Xresources
+  # Change 'color7' and 'color2' to whatever colors you want i3 to use 
+  # from the generated scheme.
+  # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+  # it fails to get colors from Xresources.
+  set_from_resource $bg i3wm.color2 #f0f0f0
+
+  # class                 border  backgr. text indicator child_border
+  client.focused          $bg     $bg     $fg  $bg       $bg
+  # client.unfocused        $fg     $bg     $fg  $bg       $fg
+  # client.urgent           $bg     $bg     $fg  $bg       $bg
+  # client.placeholder      $bg     $bg     $fg  $bg       $bg
+  # client.background       $bg
+#  change container colors from pywal # 
+
+#  ws names # 
+set $ws1 "1 "
+  {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+  set $secondary "HDMI2"
+  set $main "eDP1"
+  {{ else if eq .chezmoi.fullHostname "nzxt" }}
+  set $secondary "DVI-I-1"
+  set $main "HDMI-0"
+  {{ end }}
+
+  workspace $ws1 output $main
+  bindsym $mod+F1 workspace $ws1; exec $term
+
+  set $ws2 "2 "
+  workspace $ws2 output $secondary
+  bindsym $mod+F2 workspace $ws2; exec $term
+
+  set $ws3 "3 "
+  # set $ws3 "3 "
+  workspace $ws3 output $main
+  bindsym $mod+F3 workspace $ws3; exec $browser
+
+  set $ws4 "4 "
+  workspace $ws4 output $secondary
+  bindsym $mod+F4 workspace $ws4; exec $term
+
+  set $ws5 "5 "
+  # set $ws5 "5 🎥"
+  workspace $ws5 output $secondary
+  assign [class="Steam"] $ws5
+  bindsym $mod+F5 workspace $ws5; exec $browser
+  bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+  bindsym Mod4+t workspace $ws5; exec thunderbird
+  bindsym Mod4+5 workspace $ws5; exec cd ~/coding/ada-mario-prep && godot -e
+  for_window [class="ada-mario-prep"] floating enable
+  for_window [class="Move_mouse_with_head"] floating enable
+
+  set $ws6 "6 "
+  workspace $ws6 output $secondary
+  assign [class="Slack"] $ws6
+  bindsym Mod4+d workspace $ws6; exec discord
+  # bindsym Mod4+i workspace $ws6; exec firefox -new-window https://riot.im/app/#/home
+  bindsym Mod4+k workspace $ws6; exec slack
+
+  set $ws7 "7 "
+  # set $ws7 "7 📤"
+  workspace $ws7 output $secondary
+  bindsym $mod+F7 workspace $ws7; exec $term
+  # bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
+
+  set $ws8 "8 "
+  # set $ws8 "8 📊"
+  # assign [class="jetbrains-"] $ws8
+  workspace $ws8 output $secondary
+  bindsym $mod+F8 workspace $ws8; exec $term
+
+  set $ws9 "9 "
+  # set $ws9 "9 🔧"
+  workspace $ws9 output $secondary
+  bindsym $mod+F9 workspace $ws9; exec $term
+
+  set $ws10 "10 "
+  # set $ws10 "10 🎵"
+  assign [class="spotify"] $ws10
+  workspace $ws10 output $secondary
+  set $hp 2
+  # bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
+  bindsym Mod4+v workspace $ws10; exec urxvt -e cava
+  # bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
+  bindsym Mod4+s workspace $ws10; exec spotify
+
+  set $ws11 "11 "
+  # set $ws11 "11 📊"
+  # assign [class="Summoners War Exporter"] $ws11
+  workspace $ws11 output $secondary
+  bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_CPU 
+
+  set $ws12 "12 "
+  bindsym $mod+F12 workspace $ws12; exec $term
+
+  set $ws13 "13 "
+  bindsym Mod4+F3 workspace $ws13; exec $term
+
+  set $ws14 "14"
+  set $ws15 "15"
+
+#  ws bindings # 
+bindsym $mod+h workspace prev
+  bindsym $mod+l workspace next
+
+  bindsym $mod+1 workspace $ws1
+  bindsym $mod+2 workspace $ws2
+  bindsym $mod+3 workspace $ws3
+  bindsym $mod+4 workspace $ws4
+  bindsym $mod+5 workspace $ws5
+  bindsym $mod+6 workspace $ws6
+  bindsym $mod+7 workspace $ws7
+  bindsym $mod+8 workspace $ws8
+  bindsym $mod+9 workspace $ws9
+  bindsym $mod+0 workspace $ws10
+  bindsym Mod4+1 workspace $ws11
+  # bindsym Mod4+2 workspace $ws12
+  # bindsym Mod4+3 workspace $ws13
+  # bindsym Mod4+4 workspace $ws14
+  # bindsym Mod4+5 workspace $ws15
+#  ws bindings # 
+
+#  move container to ws # 
+bindsym $mod+control+1 move container to workspace $ws1; workspace $ws1
+  bindsym $mod+control+2 move container to workspace $ws2; workspace $ws2
+  bindsym $mod+control+3 move container to workspace $ws3; workspace $ws3
+  bindsym $mod+control+4 move container to workspace $ws4; workspace $ws4
+  bindsym $mod+control+5 move container to workspace $ws5; workspace $ws5
+  bindsym $mod+control+6 move container to workspace $ws6; workspace $ws6
+  bindsym $mod+control+7 move container to workspace $ws7; workspace $ws7
+  bindsym $mod+control+8 move container to workspace $ws8; workspace $ws8
+  bindsym $mod+control+9 move container to workspace $ws9; workspace $ws9
+  bindsym $mod+control+0 move container to workspace $ws10; workspace $ws10
+  bindsym $mod+Shift+1 move container to workspace $ws11; workspace $ws11
+  bindsym $mod+Shift+2 move container to workspace $ws12; workspace $ws12
+  bindsym $mod+Shift+3 move container to workspace $ws13; workspace $ws13
+  bindsym $mod+Shift+4 move container to workspace $ws14; workspace $ws14
+  bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
+#  move container to ws # 
+
+#  reload config/computer #
+bindsym $mod+control+r exec i3-msg restart
+  bindsym $mod+Shift+c reload
+  # bindsym $mod+control+r reload
+  bindsym $mod+control+u exec xrdb ~/.Xresources
+
+  # exit i3 (logs you out of your X session)
+  bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#  resizing windows # 
+bindsym $mod+control+h resize grow width 5 px or 5 ppt
+  bindsym $mod+control+k resize grow height 5 px or 5 ppt
+  bindsym $mod+control+j resize shrink height 5 px or 5 ppt
+  bindsym $mod+control+l resize shrink width 5 px or 5 ppt
+
+#  gaps # 
+for_window [class="^.*"] border pixel 3
+  set $inner_gaps 40
+  set $outer_gaps 0
+  # remove window titlebars
+  # for_window [class="^.*"] border pixel 1
+
+  # gaps inner $inner_gaps
+  # gaps outer $outer_gaps
+  # gaps bottom 0
+  gaps inner 0
+  gaps outer 0
+
+  #  other gaps # 
+
+  # gaps horizontal 20
+  # gaps vertical 10
+  # gaps top
+  # gaps left 20
+  # gaps right 20
+  # gaps bottom
+
+  #  other gaps # 
+
+  bindsym control+shift+plus gaps inner all set $inner_gaps;gaps outer all set $outer_gaps
+  bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
+
+#  status bar # 
+# set $sb_font Hack NF Bold
+# set $sb_font EmojiOne
+set $sb_font DejaVuSansMono Nerd Font Mono Bold
+  set $black #000000
+  set $white #ffffff
+  for_window [class="Yad"] floating enable
+
+  # set $inactive_ws_bg $white
+  set $inactive_ws_bg #444c52
+  # set $inactive_ws_trans 96
+  set $inactive_ws_trans 00
+
+  # set $active_ws_trans 91
+  set $active_ws_trans 4b
+
+  set $focused_ws_text #ffffff
+
+  # set $bar_trans 64
+  set $bar_trans 00
+  set $main_ws_trans aa
+  # main bar
+  bar {
+      i3bar_command i3bar -t 
+      {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+      font pango:$sb_font 17
+      {{ else }}
+      font pango:$sb_font 21
+      {{ end }}
+      colors {
+          # 0 (transparent) -> 255 (opaque) in hex
+          background $black$bar_trans
+          # border, bg, text color
+          # focused_workspace $inactive_ws_bg $bg $focused_ws_text
+          focused_workspace $inactive_ws_bg $bg $fg
+          # active = focused on other screen
+          active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
+          inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
+      }
+      tray_output none
+      # status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+      status_command 2>/tmp/i3blocks.err i3blocks -vvv -c ~/.config/i3blocks/i3blocks.conf | tee /tmp/i3blocks.out
+      output $main
+      wheel_up_cmd nop
+      wheel_down_cmd nop
+  }
+
+  #  sam bar
+  bar {
+      output $secondary
+      {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+      font pango:$sb_font 18
+      {{ else }}
+      font pango:$sb_font 25
+      {{ end }}
+      # output $main
+      i3bar_command i3bar -t
+      colors {
+          background $black$bar_trans
+          # border, bg, text color
+          # focused_workspace $inactive_ws_bg $bg $focused_ws_text
+          focused_workspace $inactive_ws_bg $bg $fg
+          active_workspace $inactive_ws_bg $fg$active_ws_trans $fg
+          inactive_workspace $inactive_ws_bg $inactive_ws_bg$inactive_ws_trans $fg
+      }
+      # status_command i3blocks -c ~/.config/i3blocks/sam-i3blocks.conf
+      status_command 2>/tmp/i3blocks-sam.err i3blocks -vvv -c ~/.config/i3blocks/sam-i3blocks.conf | tee /tmp/i3blocks-sam.out
+      tray_output none
+      wheel_up_cmd nop
+      wheel_down_cmd nop
+  }
+  # # #  display #
+  # bar {
+      # i3bar_command i3bar -t
+      # font pango:$sb_font 23
+      # tray_output none
+      # status_command i3blocks -c ~/.config/i3blocks/i3blocks-display.conf
+      # output $secondary
+      # wheel_up_cmd nop
+      # wheel_down_cmd nop
+  # }
+  # #   display #
+#  status bar #
+
+# Font for window titles
+font pango:$sb_font 11
+
+#  media keys # 
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+  bindsym control+d exec ~/linux-config/scripts/change-sink dac
+  # bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
+  bindsym control+o exec ~/linux-config/scripts/change-sink line-out
+
+  bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+  bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+
+  # Media player controls
+  bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+  bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+  bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+  bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"

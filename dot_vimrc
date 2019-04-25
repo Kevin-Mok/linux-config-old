@@ -66,7 +66,7 @@ autocmd FileType tex set updatetime=3000
 autocmd FileType tex map <F8> :VimtexCompile<CR>
 autocmd VimEnter *.tex VimtexCompile
 autocmd VimLeave *.tex !tex-clean %:p
-autocmd BufNewFile,BufRead *.tmpl set tw=0 sw=2
+autocmd BufNewFile,BufRead *.tmpl set tw=0 sw=2 ft=tmpl
 
 " " auto-reload vimrc {{{ "
 
@@ -413,5 +413,7 @@ autocmd Filetype javascript inoremap <localleader>x process.exit()
 
 autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx
+
+autocmd Filetype tmpl inoremap <localleader>e {{ else }}
 
 " }}} Local Mappings "
