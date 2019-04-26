@@ -11,6 +11,4 @@ txt/
 .imwheelrc
 .xinitrc
 .Xresources
-.zshrc
 {{ end }}
-.bashrc

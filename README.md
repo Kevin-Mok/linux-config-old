@@ -18,7 +18,7 @@ Startup finished in 2.341s (kernel) + 1.085s (userspace) = 3.426s
 graphical.target reached after 1.085s in userspace
 ```
 * **Terminal**: [rxvt-unicode-pixbuf](https://www.wikiwand.com/en/Rxvt) 
-* **Shell**: [Zsh](http://zsh.sourceforge.net/) + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* **Shell**: [Fish](https://fishshell.com/)
 * **Window Manager**: [i3-gaps](https://github.com/Airblader/i3)
 * **Editor**: [Neovim](https://github.com/neovim/neovim) ([plugins](dotfiles/.vimrc#L51))
 * **File Manager**: [ranger](https://ranger.github.io/)
@@ -27,8 +27,7 @@ graphical.target reached after 1.085s in userspace
 <!---  Setup {{{ --> 
 
 ## Setup
-I use
-[Stow](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html)
-to symbolically link the configs/dotfiles.
+I use [chezmoi](https://github.com/twpayne/chezmoi) to manage varying
+configs for different machines with a single branch.
 
 <!---  }}} Setup --> 
