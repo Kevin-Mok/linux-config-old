@@ -1,8 +1,6 @@
 # chezmoi
-- home server
-- lab
-  - template bash file
+- scripts
+  - copy sync-shortcut 
 
 # Other
-- nnn
-- spotify blocklet - escape chars.
+- nnn?

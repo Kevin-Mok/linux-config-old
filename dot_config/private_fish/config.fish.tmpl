@@ -25,16 +25,16 @@ bind \ce edit_command_buffer
 bind \cr forward-word
 
 chezmoi apply
-/home/kevin/scripts/sync-shortcuts
-# source /home/kevin/.config/fish/key_abbr.fish > /dev/null
-set -U fish_fxn_dir "/home/kevin/linux-config/dot_config/private_fish/private_functions"
-# set -U fish_fxn_dir "/home/kevin/.config/fish/functions"
+~/scripts/sync-shortcuts
+# source ~/.config/fish/key_abbr.fish > /dev/null
+set -U fish_fxn_dir "{{ .chezmoi.homedir }}/linux-config/dot_config/private_fish/private_functions"
+# set -U fish_fxn_dir "~/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
-abbr rf "chezmoi apply && source ~/.config/fish/config.fish"
-abbr rfs "sync-shortcuts && chezmoi apply && source ~/.config/fish/key_abbr.fish > /dev/null"
+abbr rf "chezmoi apply && sync-shortcuts && source ~/.config/fish/key_abbr.fish > /dev/null"
+abbr rfc "chezmoi apply && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
@@ -44,10 +44,12 @@ abbr f.. "cd ../.."
 # universal var's [[[ #
 
 # spv
-set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
-set -U mfs_dir "/home/kevin/coding/mf-site"
+{{ if eq .chezmoi.fullHostname "nzxt" }}
+set -U spv_dir "~/coding/spotify-lib-vis"
+set -U mfs_dir "~/coding/mf-site"
+{{ end }}
 
-set -x PATH $PATH /home/kevin/scripts /home/kevin/scripts/colors /home/kevin/go/bin
+set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
 

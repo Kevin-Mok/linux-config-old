@@ -1,10 +1,9 @@
 README.md
 
-{{ if eq .chezmoi.username "root" }}
+{{ if or (eq .chezmoi.username "root") (not (eq .chezmoi.osRelease.id "arch")) }}
 .config/i3/
 .config/i3blocks/
 .config/mpv/
-.config/neofetch/
 .config/zathura/
 scripts/
 txt/
