@@ -310,6 +310,8 @@ gchpc "git cherry-pick --continue"
 gst "git stash"
 gstl "git stash list"
 gstp "git stash pop"
+gsts "git stash show stash@\{0\} -p"
+gclear "git stash clear"
 
 gpl "git pull --rebase"
 grba "git rebase --abort"
@@ -331,7 +333,6 @@ gpsi "git config credential.helper store && git push"
 # gpsn "git push --set-upstream origin master"
 gpsn "eval (git push 2>&1 | tail -n 2)"
 gpsf "git push --force"
-gclear "git stash clear"
 
 # assume file unchanged
 gunc "git update-index --assume-unchanged"

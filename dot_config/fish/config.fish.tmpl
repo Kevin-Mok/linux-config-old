@@ -27,7 +27,7 @@ bind \cr forward-word
 chezmoi apply
 ~/scripts/sync-shortcuts
 # source ~/.config/fish/key_abbr.fish > /dev/null
-set -U fish_fxn_dir "{{ .chezmoi.homedir }}/linux-config/dot_config/private_fish/private_functions"
+set -U fish_fxn_dir "{{ .chezmoi.homedir }}/linux-config/dot_config/fish/functions"
 # set -U fish_fxn_dir "~/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
