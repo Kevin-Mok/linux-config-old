@@ -12,8 +12,8 @@ r {{ .chezmoi.homedir }}/linux-config/dot_config/ranger/rc.conf
 sr {{ .chezmoi.homedir }}/{{ .chezmoi.os }}-config/configs/ranger/shortcuts.conf
 ss {{ .chezmoi.homedir }}/.shortcuts
 u {{ .chezmoi.homedir }}/.Xresources
-v {{ .chezmoi.homedir }}/linux-config/dot_vimrc
-x ~/{{ .chezmoi.os }}-config/dot_config/private_fish/config.fish
+v {{ .chezmoi.homedir }}/linux-config/dot_vimrc.tmpl
+x ~/{{ .chezmoi.os }}-config/dot_config/private_fish/config.fish.tmpl
 y {{ .chezmoi.homedir }}/.zshrc
 z {{ .chezmoi.homedir }}/{{ .chezmoi.os }}-config/aliases/zsh_aliases
 

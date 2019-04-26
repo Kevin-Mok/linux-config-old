@@ -1,8 +1,4 @@
 # chezmoi
-- root
-  - shortcut script 
-  - fish config template
-- nvim setup
 - home server
 - lab
   - template bash file

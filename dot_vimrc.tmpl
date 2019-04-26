@@ -1,4 +1,6 @@
-" set x=y {{{ "
+" vim: fdm=marker ft=vim.go-template
+
+" set x=y [[[ "
 
 set autoindent
 set autoread
@@ -34,18 +36,18 @@ filetype indent on
 syntax on
 au CursorHold * checktime
 
-" cursor indicator {{{ "
+" cursor indicator [[[ "
 
 " set listchars=tab:\|\
 " set list
 " set cursorcolumn
 " set cursorline
 
-" }}} cursor indicator "
+" ]]] cursor indicator "
 
-" }}} set x=y "
+" ]]] set x=y "
 
-" commands for file types {{{ "
+" commands for file types [[[ "
 
 autocmd BufNewFile,BufRead .* set syntax=sh
 autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
@@ -68,18 +70,18 @@ autocmd VimEnter *.tex VimtexCompile
 autocmd VimLeave *.tex !tex-clean %:p
 autocmd BufNewFile,BufRead *.tmpl set tw=0 sw=2 ft=go-template fmr=[[[,]]]
 
-" " auto-reload vimrc {{{ "
+" " auto-reload vimrc [[[ "
 
 " augroup myvimrc
 	" au!
 	" au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 " augroup END
 
-" " }}} auto-reload vimrc "
+" " ]]] auto-reload vimrc "
 
-" }}} commands for file types "
+" ]]] commands for file types "
 
-" commands for specific files {{{ "
+" commands for specific files [[[ "
 
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
@@ -90,9 +92,9 @@ autocmd BufNewFile,BufRead key_* map <F1> :w<CR>:silent !sync-shortcuts<CR>
 " map <F2> :silent !scp -P 2222 e1.html e1_style.css kevin@127.0.0.1:/home/kevin/Downloads/e1<CR>
 " map <F6> :make -C ~/Documents/resume cv<CR>
 
-" }}} commands for specific files "
+" ]]] commands for specific files "
 
-" vim-plug {{{ 
+" vim-plug [[[ 
 " plug auto-install
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -139,6 +141,7 @@ Plug 'lervag/vimtex'
         " \ 'continuous' : 0,
         " \}
 
+{{ if not (eq .chezmoi.username "root") }}
 " auto-completion for various languages
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_filetype_blacklist = {
@@ -151,6 +154,7 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog': 1,
       \ 'mail': 1
       \}
+{{ end }}
 
 " wrote short bits of text that expand into whatever you want
 " demo: https://www.youtube.com/watch?v=Zik6u0klD40
@@ -226,9 +230,9 @@ Plug 'djoshea/vim-autoread'
 " Plug 'mustache/vim-mustache-handlebars'
 " Plug 'trapd00r/vim-syntax-vidir-ls'
 Plug 'calviken/vim-gdscript3'
-" }}} vim-plug "
+" ]]] vim-plug "
 
-" Mappings {{{ "
+" Mappings [[[ "
 
 call plug#end()
 " colorscheme gotham256
@@ -238,7 +242,7 @@ nnoremap > >>
 nnoremap < <<
 inoremap << <Esc><<A
 
-" function keys {{{ "
+" function keys [[[ "
 map <F3> :wa<CR>
 map <F4> :xa<CR>
 map <F5> :q!<CR>
@@ -248,14 +252,14 @@ map <F7> :AutoSaveToggle<CR>
 nnoremap <F9> :e<CR>
 nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
 nnoremap <F11> :set paste<CR>"*p:set nopaste<CR>
-" }}} function keys "
+" ]]] function keys "
 
 map <S-Enter> O<ESC>
 " swap text visually
 vnoremap <C-P> <Esc>`.``gvP``P
 ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
-" splits {{{ "
+" splits [[[ "
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>
 nnoremap <C-Right> <C-W><C-L>
@@ -263,9 +267,9 @@ nnoremap <C-Left> <C-W><C-H>
 " Maximize height/width.
 nnoremap <C-g> <C-W>_
 nnoremap <C-w> <C-W>|
-" }}} splits "
+" ]]] splits "
 
-" leader mappings {{{ "
+" leader mappings [[[ "
 let mapleader="\<Space>"
 
 " find alias
@@ -355,15 +359,15 @@ nnoremap <leader>yg ggyG
 " toggle fold
 nnoremap <leader>z za
 
-" }}} leader mappings "
+" ]]] leader mappings "
 
-" }}} Mappings "
+" ]]] Mappings "
 
-" Local Mappings {{{ "
+" Local Mappings [[[ "
 
 let maplocalleader="\\"
 
-" tex {{{ "
+" tex [[[ "
 
 autocmd Filetype tex inoremap <localleader>bt \bowtie
 autocmd Filetype tex inoremap <localleader>c \checkmark
@@ -399,7 +403,7 @@ autocmd Filetype tex inoremap <localleader>Z \mathbb{Z}
 autocmd Filetype tex inoremap <localleader>wx $w(x)$
 autocmd Filetype tex inoremap <localleader>tx $t(x)$
 
-" }}} tex "
+" ]]] tex "
 
 autocmd Filetype c inoremap <localleader>uc unsigned char
 
@@ -413,6 +417,6 @@ autocmd Filetype javascript inoremap <localleader>x process.exit()
 autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx
 
-autocmd Filetype go-template inoremap <localleader>e {{ else }}
+autocmd Filetype go-template inoremap <localleader>e {{"{{ else }}"}}
 
-" }}} Local Mappings "
+" ]]] Local Mappings "

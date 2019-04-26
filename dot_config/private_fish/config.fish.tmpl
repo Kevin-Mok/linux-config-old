@@ -1,15 +1,19 @@
-# login to X {{{ #
+# vim: fdm=marker ft=fish.go-template
 
+# login to X [[[ #
+
+{{ if eq .chezmoi.username "kevin" }}
 if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
         exec startx -- -keeptty
     end
 end
 set -x GPG_TTY (tty)
+{{ end }}
 
-# }}} login to X #
+# ]]] login to X #
 
-# fish-specific {{{ #
+# fish-specific [[[ #
 
 fish_vi_key_bindings
 set -x EDITOR nvim 
@@ -30,14 +34,14 @@ for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
 abbr rf "chezmoi apply && source ~/.config/fish/config.fish"
-abbr rfs "sync-shortcuts && chezmoi apply && source /home/kevin/.config/fish/key_abbr.fish > /dev/null"
+abbr rfs "sync-shortcuts && chezmoi apply && source ~/.config/fish/key_abbr.fish > /dev/null"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
 
-# }}} fish-specific #
+# ]]] fish-specific #
 
-# universal var's {{{ #
+# universal var's [[[ #
 
 # spv
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
@@ -52,14 +56,16 @@ set -xU XSET_RATE 90
 set -xU XSET_DELAY 200
 # causes xmodmap to have issues when opening terminal sometimes
 # xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
+{{ if and (eq .chezmoi.fullHostname "x1-carbon") (not (eq .chezmoi.username "root")) }}
 xset r rate $XSET_DELAY $XSET_RATE
+{{ end }}
 
 # set -U BROWSER "chromium"
 set -U BROWSER "firefox"
 
-# }}} universal var's #
+# ]]] universal var's #
 
-# fxn abbr's {{{ #
+# fxn abbr's [[[ #
 
 abbr ag "grep-aliases"
 abbr bq "benq-brightness"
@@ -68,7 +74,7 @@ abbr cpe "copy echo"
 abbr cpp "copy echo (pwd)"
 abbr cff "create-fish-function"
 abbr ev "evince-silent"
-# git {{{ #
+# git [[[ #
 
 abbr gcamp "git-amend-push"
 abbr gdf "git-diff-files"
@@ -76,7 +82,7 @@ abbr gpsmt "git-push-multiple"
 abbr gremotes "git-mult-remotes"
 abbr grmb "git-delete-branch"
 
-# }}} git #
+# ]]] git #
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr mt "math"
@@ -86,11 +92,11 @@ abbr rs "redshift-set"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 
-# }}} fxn abbr's #
+# ]]] fxn abbr's #
 
 abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
 
-# school {{{ #
+# school [[[ #
 
 # 309
 # abbr r0t "./revert-e3-json restaurants"
@@ -108,4 +114,4 @@ abbr r6 "run-a4 h e"
 # abbr r6s "run-a3 s c o"
 # abbr g6 "source $fish_fxn_dir/369/a3/gdb-a3-break.fish && gdb-a3-break c c"
 
-# }}} school #
+# ]]] school #
