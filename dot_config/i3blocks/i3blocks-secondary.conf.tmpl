@@ -1,4 +1,6 @@
-#  Global properties {{{ # 
+# vim: fdm=marker ft=conf.go-template
+
+#  Global properties [[[ # 
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 align=center
@@ -7,7 +9,9 @@ separator=true
 separator_block_width=25
 markup=pango
 color=#cbe4ff
-#  }}} Global properties # 
+#  ]]] Global properties # 
+
+#  volume/spotify [[[ # 
 
 [spotify]
 # command=python ~/linux-config/configs/i3blocks-scripts/spotify.py
@@ -25,12 +29,31 @@ interval=once
 signal=1
 interval=60
 
+#  ]]] volume/spotify # 
+
+#  time [[[ # 
+
 [calendar]
 interval=30
 label= 
+{{ if eq .chezmoi.fullHostname "nzxt" }}
 DATEFMT=+%H:%M.%a-%m-%d
+{{ else }}
+DATEFMT=+%H:%M
+{{ end }}
 # SHORTFMT=+%H:%M:%S
-SHORTFMT=+%H:%M.%a-%m-%d
+# SHORTFMT=+%H:%M.%a-%m-%d
 HEIGHT=180
 WIDTH=220
 
+#  ]]] time # 
+
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+[temperature]
+label= 
+interval=5
+
+[name]
+label= 
+interval=30
+{{ end }}

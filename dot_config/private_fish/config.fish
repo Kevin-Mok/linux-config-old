@@ -22,7 +22,7 @@ bind \cr forward-word
 
 chezmoi apply
 /home/kevin/scripts/sync-shortcuts
-source /home/kevin/.config/fish/key_abbr.fish
+# source /home/kevin/.config/fish/key_abbr.fish > /dev/null
 set -U fish_fxn_dir "/home/kevin/linux-config/dot_config/private_fish/private_functions"
 # set -U fish_fxn_dir "/home/kevin/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"
@@ -30,7 +30,7 @@ for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
 abbr rf "chezmoi apply && source ~/.config/fish/config.fish"
-abbr rfs "sync-shortcuts && chezmoi apply && source ~/.config/fish/config.fish"
+abbr rfs "sync-shortcuts && chezmoi apply && source /home/kevin/.config/fish/key_abbr.fish > /dev/null"
 abbr xf "fish_config"
 abbr f. "cd .."
 abbr f.. "cd ../.."
@@ -52,7 +52,7 @@ set -xU XSET_RATE 90
 set -xU XSET_DELAY 200
 # causes xmodmap to have issues when opening terminal sometimes
 # xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
-# xset r rate $XSET_DELAY $XSET_RATE
+xset r rate $XSET_DELAY $XSET_RATE
 
 # set -U BROWSER "chromium"
 set -U BROWSER "firefox"

@@ -1,391 +1,459 @@
-# vim: fdm=indent
+# vim: fdm=marker ft=go-template.sh syntax=sh
 
-#  system 
-  # clear screen
-  c "printf '\033c'"
-  hst "history"
-  ## nf "printf '\033c' && neofetch | lolcat"
-  nf "printf '\033c' && neofetch"
-  fi "fish"
-  # reload urxvt
-  ru "xrdb ~/.Xresources"
-  # list file sizes in megabytes with depth 1
-  duh "sudo du -d 1 -h --apparent-size | sort -hr"
-  dum "sudo du -d 1 -m --apparent-size | sort -hr"
-  m "man"
-  tl "tldr"
+#  system [[[
+# clear screen
+c "printf '\033c'"
+hst "history"
+## nf "printf '\033c' && neofetch | lolcat"
+nf "printf '\033c' && neofetch"
+fi "fish"
+# reload urxvt
+ru "xrdb ~/.Xresources"
+# list file sizes in megabytes with depth 1
+duh "sudo du -d 1 -h --apparent-size | sort -hr"
+dum "sudo du -d 1 -m --apparent-size | sort -hr"
+m "man"
+tl "tldr"
 
-  nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
+nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+xr "xrandr"
+xrs "xrandr -s 0"
+xrr "xrandr --output HDMI2 --auto --right-of eDP1 --scale 1.33x1.33" 
+xrm "xrandr --output HDMI2 --auto --same-as eDP1 --scale 1.33x1.33"
+{{ end }}
 
-  vgb "sudo nvim /etc/default/grub"
-  mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+vgb "sudo nvim /etc/default/grub"
+mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-  b "bat"
-  ba "bat *"
-  grep "grep --color=auto -n"
-  grr "grep -r"
-  # pk "pkill -f"
-  cld "colordiff -wy --suppress-common-lines"
+b "bat"
+ba "bat *"
+grep "grep --color=auto -n"
+grr "grep -r"
+# pk "pkill -f"
+cld "colordiff -wy --suppress-common-lines"
 
-  mkpk "makepkg -sri"
-  ex "chmod 777"
-  ex "chmod 777"
+mkpk "makepkg -sri"
+ex "chmod 777"
+ex "chmod 777"
 
-  #  systemctl # 
-    ctl "sudo systemctl"
-    ctle "sudo systemctl enable"
-    ctld "sudo systemctl disable"
-    ctla "sudo systemctl start"
-    ctls "sudo systemctl stop"
-    ctlt "sudo systemctl status"
-    ctltd "sudo systemctl status dhcpcd"
-    ctlr "sudo systemctl restart"
+# systemctl  [[[ #
+ctl "sudo systemctl"
+ctle "sudo systemctl enable"
+ctld "sudo systemctl disable"
+ctla "sudo systemctl start"
+ctls "sudo systemctl stop"
+ctlt "sudo systemctl status"
+ctltd "sudo systemctl status dhcpcd"
+ctlr "sudo systemctl restart"
+# ]]] systemctl  #
 
-  wm "sudo wifi-menu"
+wm "sudo wifi-menu"
 
-  #  mounting
-    udm "udisksctl mount -b"
-    udmb "udisksctl mount -b /dev/sdc2"
-    udu "udisksctl unmount -b"
-    udub "udisksctl unmount -b /dev/sdc2"
+# mounting [[[ #
+udm "udisksctl mount -b"
+udmb "udisksctl mount -b /dev/sdc2"
+udu "udisksctl unmount -b"
+udub "udisksctl unmount -b /dev/sdc2"
+# ]]] mounting # 
 
-  tc "touch"
-  vd "vidir --verbose"
+tc "touch"
+vd "vidir --verbose"
 
-  #  directory-related # 
-    ls "lsd"
-    l "lsd -a"
-    ll "lsd -al"
-    smv "sudo mv"
-    f "cd"
-    fz "fzf"
-    fnd "find . -type f -name"
+# directory-related [[[ #
 
-    rmr "rm -rf"
-    rmd "rm ~/Downloads/*"
-    rmw "rm ~/.local/share/nvim/swap/"
-    md "mkdir -p"
-    rsy "rsync -Pr"
+ls "lsd"
+l "lsd -a"
+ll "lsd -al"
+smv "sudo mv"
+f "cd"
+fz "fzf"
+fnd "find . -type f -name"
 
-    # list all (un)mounted drives
-    lhd "sudo fdisk -l"
-    # get disc space for mounted drives
-    # ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
-    ds "df -h | head -n 1 && df -h | grep sd"
-    chownw "sudo chown -R {{ .chezmoi.group }}:wheel"
-    chwnm "sudo chown -R {{ .chezmoi.group }}:wheel /run/media/{{ .chezmoi.username }}"
-    # cd into backup folder and show backup sizes
-    nbu "cd /run/media/{{ .chezmoi.group }}/backup-hd/{{ .chezmoi.fullHostname }}/tar && lsd -l"
+rmr "rm -rf"
+rmd "rm ~/Downloads/*"
+rmw "rm ~/.local/share/nvim/swap/"
+md "mkdir -p"
+rsy "rsync -Pr"
 
-  #  directory-related # 
+# list all (un)mounted drives
+lhd "sudo fdisk -l"
+# get disc space for mounted drives
+# ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
+ds "df -h | head -n 1 && df -h | grep sd"
+chownw "sudo chown -R {{ .chezmoi.group }}:wheel"
+chwnm "sudo chown -R {{ .chezmoi.group }}:wheel /run/media/{{ .chezmoi.username }}"
+# cd into backup folder and show backup sizes
+nbu "cd /run/media/{{ .chezmoi.group }}/backup-hd/{{ .chezmoi.fullHostname }}/tar && lsd -l"
 
-  #  power options # 
-    s "systemctl suspend"
-    so "xset dpms force off"
-    sd "systemctl poweroff"
-    rb "systemctl reboot"
-    lo "i3-msg exit"
-    x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
-    X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
+# ]]] directory-related #
 
-  # sound
-  vlm "alsamixer -c 0"
-  vlh "alsamixer -c 2"
+# power options  [[[ #
 
-  # apt
-    # apti "sudo apt install"
-    # aptr "sudo apt remove"
-    # aptu "sudo apt upgrade"
+s "systemctl suspend"
+so "xset dpms force off"
+sd "systemctl poweroff"
+rb "systemctl reboot"
+lo "i3-msg exit"
+x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
+X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 
-  #  pacman # 
+# ]]] power options  # 
 
-    # pc "sudo pacman -S"
-    # pcq "sudo pacman -Qi"
-    # pcr "sudo pacman -Rns"
-    # pcud "sudo pacman -Sy"
-    # pcug "sudo pacman -Syu"
-    # xpc "pacman -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && pacman -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
+# sound
+{{ if eq .chezmoi.fullHostname "nzxt" }}
+vlm "alsamixer -c 0"
+vlh "alsamixer -c 2"
+{{ else }}
+vlm "alsamixer -c 1"
+{{ end }}
 
-    # tri "trizen -S --noconfirm"
-    tri "trizen -S --noedit"
+# apt [[[ #
 
-    # install
-    ya "yay -S  --answerclean=None --answerdiff=None --answeredit=None"
-    # info
-    yaq "yay -Qi"
-    # remove
-    yar "yay -Rns"
-    # sync
-    yaud "yay -Sy"
-    # sync and download
-    yaugd "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
-    # sync and update
-    yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
-    # export packages
-    xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
+# apti "sudo apt install"
+# aptr "sudo apt remove"
+# aptu "sudo apt upgrade"
 
-  py "python"
-  pipi "sudo pip install"
+# ]]] apt # 
 
-  # internet
-  pg "ping -c 3 -W 1 8.8.8.8"
-  dh "sudo dhcpcd"
-  kdh "sudo killall dhcpcd"
-  rdh "sudo killall dhcpcd && sudo dhcpcd"
+# pacman  [[[ #
 
-  id "identify"
-  # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
-#  system 
+# pc "sudo pacman -S"
+# pcq "sudo pacman -Qi"
+# pcr "sudo pacman -Rns"
+# pcud "sudo pacman -Sy"
+# pcug "sudo pacman -Syu"
+# xpc "pacman -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && pacman -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
 
+# ]]] pacman  #
+
+# tri "trizen -S --noconfirm"
+tri "trizen -S --noedit"
+
+# yay [[[ #
+
+# install
+ya "yay -S  --answerclean=None --answerdiff=None --answeredit=None"
+# info
+yaq "yay -Qi"
+# remove
+yar "yay -Rns"
+# sync
+yaud "yay -Sy"
+# sync and download
+yaugd "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
+# sync and update
+yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
+# export packages
+xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
+
+# ]]] yay #
+
+py "python"
+pipi "sudo pip install"
+
+# internet
+pg "ping -c 3 -W 1 8.8.8.8"
+dh "sudo dhcpcd"
+kdh "sudo killall dhcpcd"
+rdh "sudo killall dhcpcd && sudo dhcpcd"
+
+id "identify"
+# rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
+#  system ]]]
+
+# applications  [[[ #
+
+# silent="> /dev/null 2>&1& "
 chr "google-chrome"
-#  applications # 
-  # silent="> /dev/null 2>&1& "
-  clc "cloc ."
-  cv "cava"
-  dg "dragon-drag-and-drop -x"
-  fh "feh"
-  gpd "gpg --decrypt"
-  gpe "gpg --encrypt --recipient"
-  htc "htop -s PERCENT_CPU"
-  htm "htop -s PERCENT_MEM"
-  i "sxiv"
-  ig "sxiv -a"
-  it "sxiv -t *"
-  ka "killall"
-  kd "killall Discord && killall Discord && killall slack"
-  kt "killall thunderbird"
-  mp "mpv --volume=50"
-  mra "man ranger"
-  n "nvim"
-  p3 "python3"
-  pdft "pdftotext"
-  pipes "pipes.sh -t 3"
-  py "python"
-  r "ranger"
-  rx "redshift -x"
-  sn "sudo nvim"
-  vmd "vimdiff"
-  wg "wego"
-  wp "grep wallpaper ~/.cache/wal/colors.sh"
-  z "zathura --fork"
+clc "cloc ."
+cv "cava"
+dg "dragon-drag-and-drop -x"
+fh "feh"
+gpd "gpg --decrypt"
+gpe "gpg --encrypt --recipient"
+htc "htop -s PERCENT_CPU"
+htm "htop -s PERCENT_MEM"
+i "sxiv"
+ig "sxiv -a"
+it "sxiv -t *"
+ka "killall"
+kd "killall Discord && killall Discord && killall slack"
+kt "killall thunderbird"
+mp "mpv --volume=50"
+mra "man ranger"
+n "nvim"
+p3 "python3"
+pdft "pdftotext"
+pipes "pipes.sh -t 3"
+py "python"
+r "ranger"
+rx "redshift -x"
+sn "sudo nvim"
+vmd "vimdiff"
+wg "wego"
+wp "grep wallpaper ~/.cache/wal/colors.sh"
+z "zathura --fork"
 
-  lz "unzip -l"
+lz "unzip -l"
 
-  # rsl "java -jar ~/Downloads/RuneLite.jar"
-  # swex "sudo nohup ~/Downloads/swex.appimage $silent"
+# pass  [[[ #
 
-  #  pass # 
-    ps "pass"
-    psc "pass -c"
-    pse "pass edit"
-    psi "pass insert -m"
-    psg "pass generate -c"
-    pss "pass show"
+ps "pass"
+psc "pass -c"
+pse "pass edit"
+psi "pass insert -m"
+psg "pass generate -c"
+pss "pass show"
 
-    xc "xclip -selection clipboard"
-    yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
-    yg "xclip -selection clipboard ~/.password-store/social/gmail"
-    yt "xclip -selection clipboard ~/.password-store/social/trapbot"
-    yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
+xc "xclip -selection clipboard"
+yh "echo 'kevin.mok@live.ca' | xclip -selection clipboard"
+yg "xclip -selection clipboard ~/.password-store/social/gmail"
+yt "xclip -selection clipboard ~/.password-store/social/trapbot"
+yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 
-  w "watson"
-    wa "watson start"
-    wae "watson start && watson edit"
-    we "watson edit"
-    wl "watson log --day"
-    wla "watson log --all --tag="
-    ww "watson log"
-    # wlm "watson log --project coding --tag mfs"
-    wr "watson report --day"
-    wra "watson report --all"
-    wrw "watson report"
-    wre "watson restart"
-    wree "watson restart && watson edit"
-    ws "watson status && watson stop"
-    wse "watson stop && watson edit"
-    wsc "watson cancel"
-    wsl "watson stop && watson log --day"
-    wt "watson status"
-#  applications # 
+# ]]] pass  #
+
+# watson [[[ #
+
+w "watson"
+wa "watson start"
+wae "watson start && watson edit"
+we "watson edit"
+wl "watson log --day"
+wla "watson log --all --tag="
+ww "watson log"
+# wlm "watson log --project coding --tag mfs"
+wr "watson report --day"
+wra "watson report --all"
+wrw "watson report"
+wre "watson restart"
+wree "watson restart && watson edit"
+ws "watson status && watson stop"
+wse "watson stop && watson edit"
+wsc "watson cancel"
+wsl "watson stop && watson log --day"
+wt "watson status"
+
+# ]]] watson #
+
+# ]]] applications  #
+
+# git  [[[ #
 
 g "git"
-#  git # 
-  gstr "git config credential.helper store"
+gstr "git config credential.helper store"
 
-  #  branch # 
-    gb "git branch"
-    gbd "git branch -D"
-    gba "git branch --no-merged && echo '' && git branch --merged"
-    gbu "git branch --no-merged"
-    gbm "git branch --merged"
+# branch  [[[ #
 
-    gmg "git merge"
-    gmgt "git mergetool"
+gb "git branch"
+gbd "git branch -D"
+gba "git branch --no-merged && echo '' && git branch --merged"
+gbu "git branch --no-merged"
+gbm "git branch --merged"
 
-  gr "git remote -v"
-  gro "git remote show origin"
+gmg "git merge"
+gmgt "git mergetool"
 
-  #  add/remove # 
-    ga "git add -A && git status -u"
-    gac "git add -A && git commit -S"
-    gaf "git add -f"
-    # unsigned commt
-    gacu "git add -A && git commit"
+gr "git remote -v"
+gro "git remote show origin"
 
-    grm "git rm"
-    grmf "git rm -f"
-    grmc "git rm --cached"
-    grmfc "git rm -f --cached"
-    grmor "rm (fd -e orig --no-ignore -H)"
-  #  add # 
+# ]]] branch  #
 
-  gd "git difftool -w --tool=vimdiff"
-  #  diff/log # 
-    gdc "git difftool -w --cached --tool=vimdiff"
-    gdl "git diff -w"
-    gdlc "git diff --cached -w"
-    gdh "git diff --cached -w HEAD~1"
-    gds "git diff --stat"
-    gl "git log"
-    gsl "git shortlog"
-  #   diff/log # 
+# add/remove [[[ #
 
-  gs "git status -u"
-  #  update # 
-    gchom "git checkout master"
-    gchnw "git checkout -b wip"
-    gchw "git checkout wip"
-    gheadm1 "git reset --hard HEAD~1"
-    # show files in git repo
-    # gls "git ls-tree -r HEAD --name-only"
-    gls "git ls-tree HEAD --name-only"
+ga "git add -A && git status -u"
+gac "git add -A && git commit -S"
+gaf "git add -f"
+# unsigned commt
+gacu "git add -A && git commit"
 
-    #  push # 
-      gst "git stash"
-      gstl "git stash list"
-      gstp "git stash pop"
+grm "git rm"
+grmf "git rm -f"
+grmc "git rm --cached"
+grmfc "git rm -f --cached"
+grmor "rm (fd -e orig --no-ignore -H)"
 
-      gc "git commit -S"
-      gcu "git commit"
-      gca "git add -A && git commit --amend --no-edit -S"
-      gcam "git add -A && git commit --amend -S"
-      # gcamp "git add -A && git commit --amend --no-edit -S && gpsf"
+# ]]] add/remove #
 
-      psgi "git add -A && git commit -m 'Update' -S && git push"
-      gps "git push"
-      gpsi "git config credential.helper store && git push"
-      # gpsn "git push --set-upstream origin master"
-      gpsn "eval (git push 2>&1 | tail -n 2)"
-      gpsf "git push --force"
-      gclear "git stash clear"
+# diff/log [[[ #
 
-      gpl "git pull --rebase"
-      grba "git rebase --abort"
-    grbc "git rebase --continue"
+gd "git difftool -w --tool=vimdiff"
+gdc "git difftool -w --cached --tool=vimdiff"
+gdl "git diff -w"
+gdlc "git diff --cached -w"
+gdh "git diff --cached -w HEAD~1"
+gds "git diff --stat"
+gl "git log"
+gsl "git shortlog"
 
-  crm "mrk README.md"
+# ]]] diff/log #
 
-  gcho "git checkout"
-  gchon "git checkout -b"
-  gf "git fetch origin"
+# pull [[[ #
 
-  gcln "git clone"
-  gchp "git cherry-pick"
-  gchpc "git cherry-pick --continue"
+gcln "git clone"
+gs "git status -u"
+gf "git fetch origin"
+gcho "git checkout"
+gchon "git checkout -b"
+gchom "git checkout master"
+gchnw "git checkout -b wip"
+gchw "git checkout wip"
+gheadm1 "git reset --hard HEAD~1"
+# show files in git repo
+# gls "git ls-tree -r HEAD --name-only"
+gls "git ls-tree HEAD --name-only"
 
-  # assume file unchanged
-  gunc "git update-index --assume-unchanged"
-#  git # 
+gchp "git cherry-pick"
+gchpc "git cherry-pick --continue"
+
+gst "git stash"
+gstl "git stash list"
+gstp "git stash pop"
+
+gpl "git pull --rebase"
+grba "git rebase --abort"
+grbc "git rebase --continue"
+
+# ]]] pull #
+
+# push [[[ #
+
+gc "git commit -S"
+gcu "git commit"
+gca "git add -A && git commit --amend --no-edit -S"
+gcam "git add -A && git commit --amend -S"
+# gcamp "git add -A && git commit --amend --no-edit -S && gpsf"
+
+psgi "git add -A && git commit -m 'Update' -S && git push"
+gps "git push"
+gpsi "git config credential.helper store && git push"
+# gpsn "git push --set-upstream origin master"
+gpsn "eval (git push 2>&1 | tail -n 2)"
+gpsf "git push --force"
+gclear "git stash clear"
+
+# assume file unchanged
+gunc "git update-index --assume-unchanged"
+
+# ]]] push #
+
+# ]]] git  #
+
+# coding projs  [[[ #
 
 rgt "rg TODO"
-#  coding projs # 
-  ## chezmoi
-    zm "chezmoi"
-    za "chezmoi add"
-    zar "chezmoi add -r"
-    zd "chezmoi data"
-    ze "chezmoi edit"
-    zp "chezmoi -v apply"
 
-  ssv "source ../bin/activate.fish && python manage.py runserver"
-  #  spotify-lib-vis # 
-    # start spv server outside dir
-    # open spv db in psql
-    spvdb "psql -d spotifyvis -U django"
-    mig "python manage.py makemigrations && python manage.py migrate --run-syncdb && ssv"
-    cldb "python manage.py flush --no-input && ssv"
-    # django shell
-    djs "python manage.py shell"
-    # update pip
-    upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
-    # update pip req's.
-    ureq "pip freeze > requirements.txt"
+# chezmoi [[[ #
 
-    # show last history scan
-    hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
-    # scan history
-    # hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
-    # scan cron log for hs cmd
-    crnl "grep \"({{ .chezmoi.group }}) CMD\" /var/log/syslog | tail -n 1 && hlg"
-    # removes all but newest file
-    # rmol "ls -t | tail -n +2 | xargs rm -- && l"
+zm "chezmoi"
+za "chezmoi add"
+zar "chezmoi add -r"
+zd "chezmoi data"
+zp "chezmoi -v apply"
 
-    snw "spotify-now -i '%artist - %title'"
+# ]]] chezmoi #
 
-  shc "shellcheck"
-  pdl "pdflatex"
-  tcl "tex-clean"
+# spotify-lib-vis [[[ #
 
-  # mfs
-    mfs "nvim {{ .chezmoi.homedir }}/coding/best-mf-site-personal/index.html"
-    ht "python3 -m http.server"
-    # j "jekyll"
-    # js "jekyll serve"
-    h "hugo"
-    he "hugo serve -D --disableFastRender"
+# start spv server outside dir
+ssv "source ../bin/activate.fish && python manage.py runserver"
+# open spv db in psql
+spvdb "psql -d spotifyvis -U django"
+mig "python manage.py makemigrations && python manage.py migrate --run-syncdb && ssv"
+cldb "python manage.py flush --no-input && ssv"
+# django shell
+djs "python manage.py shell"
+# update pip
+upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+# update pip req's.
+ureq "pip freeze > requirements.txt"
 
-    ss "ssh {{ .chezmoi.group }}@192.168.0.100"
-    ssb "ssh-bandit"
+# show last history scan
+hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan history
+# hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+# scan cron log for hs cmd
+crnl "grep \"({{ .chezmoi.group }}) CMD\" /var/log/syslog | tail -n 1 && hlg"
+# removes all but newest file
+# rmol "ls -t | tail -n +2 | xargs rm -- && l"
 
-    rt "python ~/coding/rt-scraper/!rt-scraper.py"
+snw "spotify-now -i '%artist - %title'"
 
-  med "printf '\033c' && bear make move_mouse_with_head && ./move_mouse_with_head"
-#  coding projs # 
+# ]]] spotify-lib-vis #
+
+shc "shellcheck"
+pdl "pdflatex"
+tcl "tex-clean"
+
+# mfs [[[ #
+
+mfs "nvim {{ .chezmoi.homedir }}/coding/best-mf-site-personal/index.html"
+ht "python3 -m http.server"
+# j "jekyll"
+# js "jekyll serve"
+h "hugo"
+he "hugo serve -D --disableFastRender"
+
+ss "ssh {{ .chezmoi.group }}@192.168.0.100"
+ssb "ssh-bandit"
+
+rt "python ~/coding/rt-scraper/!rt-scraper.py"
+
+# ]]] mfs #
+
+med "printf '\033c' && bear make move_mouse_with_head && ./move_mouse_with_head"
+
+# ]]] coding projs  #
+
+# school  [[[ #
+
+# 369 [[[ #
 
 wlf "watson log --all --tag=final"
 wrf "watson report --all --tag=final"
-#  school # 
-  #  369 # 
-    ssc "ssh mokkar@teach.cs.utoronto.ca"
+ssc "ssh mokkar@teach.cs.utoronto.ca"
 
-    ma "printf '\033c' && bear make"
-    mc "bear make clean"
-    mca "bear make clean && printf '\033c' && bear make"
+ma "printf '\033c' && bear make"
+mc "bear make clean"
+mca "bear make clean && printf '\033c' && bear make"
 
-    rmc "rm compile_commands.json"
-    rms "rm swapfile.*"
+rmc "rm compile_commands.json"
+rms "rm swapfile.*"
 
-  wl0 "watson log --all --project=309 --tag=phase2"
-  wr0 "watson report --all --project=309 --tag=phase2"
-  # 309
-    # apps
-      nd "node"
-      ndm "nodemon"
-      knd "killall node"
-      mg "mongo"
+# ]]] 369 #
 
-    # server
-      0ht "cd ~/school/309-proj && python3 -m http.server"
-      mgd "mongod --dbpath mongo-data"
-      # nds "killall node && nodemon server.js"
-      nds "nodemon server.js"
+# 309 [[[ #
 
-    # heroku
-      hr "heroku"
-      hrs "heroku local web"
-      hrt "heroku ps"
-      hrl "heroku logs --dyno web -n 1500 | rg up | awk '{ system(\"date -d \" \$1); \$1 = \"\"; print \$0 }' | paste -s -d' \n'"
-      gpsh "git push heroku"
+wl0 "watson log --all --project=309 --tag=phase2"
+wr0 "watson report --all --project=309 --tag=phase2"
 
-      0c "node collections.js"
-#  school # 
+# server [[[ #
+
+nd "node"
+ndm "nodemon"
+knd "killall node"
+mg "mongo"
+
+0ht "cd ~/school/309-proj && python3 -m http.server"
+mgd "mongod --dbpath mongo-data"
+# nds "killall node && nodemon server.js"
+nds "nodemon server.js"
+
+# ]]] server #
+
+# heroku [[[ #
+
+hr "heroku"
+hrs "heroku local web"
+hrt "heroku ps"
+hrl "heroku logs --dyno web -n 1500 | rg up | awk '{ system(\"date -d \" \$1); \$1 = \"\"; print \$0 }' | paste -s -d' \n'"
+gpsh "git push heroku"
+
+0c "node collections.js"
+
+# ]]] heroku #
+
+# ]]] 309 #
+
+# ]]] school  #

@@ -1,5 +1,4 @@
 # chezmoi
-- merge laptop
 - root
   - shortcut script 
   - fish config template

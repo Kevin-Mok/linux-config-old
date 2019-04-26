@@ -1,3 +1,7 @@
+# vim: fdm=marker ft=conf.go-template
+
+#  global [[[ # 
+
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 align=center
@@ -6,6 +10,10 @@ separator=true
 separator_block_width=25
 markup=pango
 color=#cbe4ff
+
+#  ]]] global # 
+
+#  volume/spotify [[[ # 
 
 {{ if eq .chezmoi.fullHostname "nzxt" }}
 [volume]
@@ -19,6 +27,10 @@ LONG_NAME=
 SHORT_NAME=
 interval=5
 {{ end }}
+
+#  ]]] volume/spotify # 
+
+#  laptop [[[ # 
 
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 [battery]
@@ -35,6 +47,10 @@ label=
 interval=5
 {{ end }}
 
+#  ]]] laptop # 
+
+#  time [[[ # 
+
 [calendar]
 interval=30
 label= 
@@ -46,6 +62,10 @@ DATEFMT=+%H:%M.%a-%m-%d
 # SHORTFMT=+%H:%M:%S
 HEIGHT=180
 WIDTH=220
+
+#  ]]] time # 
+
+#  sys.monitoring [[[ # 
 
 {{ if eq .chezmoi.fullHostname "nzxt" }}
 [temperature]
@@ -69,12 +89,18 @@ label=
 # color=#3da061
 interval=5
 
+#  ]]] sys.monitoring # 
+
+#  name [[[ # 
+
 [name]
 label= 
 interval=30
 {{ end }}
 
-#  unused blocks # 
+#  ]]] name # 
+
+#  unused blocks [[[ # 
 
 # [memory]
 # label=SWAP
@@ -154,9 +180,11 @@ interval=30
 #instance=NUM
 #interval=once
 #signal=11
-#  unused blocks # 
 
-# list of properties # 
+#  ]]] unused blocks # 
+
+#  properties [[[ # 
+
 # i3blocks config file
 #
 # Please see man i3blocks for a complete reference!
@@ -178,5 +206,5 @@ interval=30
 # short_text
 # signal
 # urgent
-#  properties # 
 
+#  ]]] properties # 
