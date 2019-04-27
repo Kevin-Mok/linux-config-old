@@ -1,40 +1,28 @@
-# vim: fdm=marker ft=i3.go-template
-
 #  startup [[[ # 
 
-set $browser "firefox"
-# set $browser "chromium"
-set $term "urxvt"
-set $scripts_path "/home/kevin/scripts"
-exec redshift -O 2000
-# exec redshift -O 3000
-# random bg
-exec compton
-exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
-exec imwheel
-exec xmodmap ~/.Xmodmap
-exec xset r rate $XSET_DELAY $XSET_RATE
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 exec xbacklight -set 10
 {{ end }}
-exec xrdb ~/.Xresources
-exec --no-startup-id dunst
-exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
-# exec --no-startup-id i3-msg 'workspace $ws11; exec $swex'
-exec_always --no-startup-id numlockx on
 
 #  ]]] startup # 
 
 #  applications [[[ # 
 
 set $mod Mod1
+set $browser "firefox"
+# set $browser "chromium"
+# set $term "urxvt"
+set $term "st"
+set $scripts_path "/home/kevin/scripts"
 set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts [[[ # 
 
 bindsym control+Return exec $term
+bindsym control+$mod+Return exec urxvt
+# bindsym control+$mod+Return exec st
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym Mod4+Return exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 # bindsym Mod4+Return exec dmenu_run
@@ -59,7 +47,6 @@ bindsym Mod4+p exec passmenu
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec urxvt -e ranger
 bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
-# bindsym Mod4+t exec st
 bindsym Mod4+$mod+t exec xclip -selection clipboard ~/.password-store/social/trapbot
 bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
@@ -174,6 +161,7 @@ bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
 #  colors from pywal [[[ # 
 
 set_from_resource $fg i3wm.color7 #f0f0f0
+#F0F0F0
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
@@ -234,6 +222,8 @@ bindsym shift+x kill
 
 #  backgrounds [[[ # 
 
+set $make_st_script "/home/kevin/st/make-st.sh"
+
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 bindsym control+$mod+q exec wal -i "$HOME/Pictures/Backgrounds/bright/editing"; exec ~/.cache/wal/colors.sh
 bindsym control+$mod+w exec /home/kevin/linux-config/scripts/bg-chooser; exec ~/.cache/wal/colors.sh
@@ -241,11 +231,11 @@ bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/dim/editing"; exec ~/.cac
 # bindsym $mod+r exec wal -i "$HOME/Pictures/Backgrounds/"; exec ~/.cache/wal/colors.sh
 bindsym control+$mod+z exec feh --bg-fill ~/Pictures/Backgrounds/dim/black.jpg
 {{ else }}
-bindsym $mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing")
-bindsym $mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
+bindsym $mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing") && $make_st_script
+bindsym $mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing") && $make_st_script
 # bindsym $mod+w exec ~/linux-config/scripts/bg-chooser
-bindsym $mod+r exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/editing")
-bindsym $mod+y exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/non-editing")
+bindsym $mod+r exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/editing") && $make_st_script
+bindsym $mod+y exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/non-editing") && $make_st_script
 {{ end }}
 
 #  ]]] backgrounds # 
@@ -278,7 +268,6 @@ workspace $ws4 output $secondary
 bindsym $mod+F4 workspace $ws4; exec $term
 
 set $ws5 "5 "
-# set $ws5 "5 🎥"
 workspace $ws5 output $secondary
 assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
@@ -296,19 +285,16 @@ bindsym Mod4+d workspace $ws6; exec discord
 bindsym Mod4+k workspace $ws6; exec slack
 
 set $ws7 "7 "
-# set $ws7 "7 📤"
 workspace $ws7 output $secondary
 bindsym $mod+F7 workspace $ws7; exec $term
 # bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
 
 set $ws8 "8 "
-# set $ws8 "8 📊"
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $secondary
 bindsym $mod+F8 workspace $ws8; exec $term
 
 set $ws9 "9 "
-# set $ws9 "9 🔧"
 workspace $ws9 output $secondary
 bindsym $mod+F9 workspace $ws9; exec $term
 
@@ -409,6 +395,7 @@ for_window [class="Yad"] floating enable
 
 # set $inactive_ws_bg $white
 set $inactive_ws_bg #444c52
+#00ffff
 # set $inactive_ws_trans 96
 set $inactive_ws_trans 00
 
@@ -512,3 +499,5 @@ bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 #  ]]] media keys # 
+
+# vim: fdm=marker ft=i3.go-template

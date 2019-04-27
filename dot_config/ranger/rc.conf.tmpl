@@ -1,4 +1,6 @@
-#  default {{{ # 
+# vim: fdm=marker ft=conf.go-template
+
+#  default [[[ # 
 # ===================================================================
 # This file contains the default startup commands for ranger.
 # To change them, it is recommended to create the file
@@ -632,9 +634,9 @@ tmap <delete>   eval -q fm.ui.taskview.task_remove()
 tmap <C-l> redraw_window
 tmap <ESC> taskview_close
 copytmap <ESC> q Q w <C-c>
-#  }}}  # 
+#  ]]]  # 
 
-#  image preview {{{ # 
+#  image preview [[[ # 
 
 # Use one of the supported image preview protocols
 set preview_images true
@@ -663,18 +665,19 @@ set preview_images true
 #   The same as urxvt but utilizing not only the preview pane but the
 #   whole terminal window.
 set preview_images_method w3m
+# set preview_images_method ueberzug
 # set preview_images_method urxvt
 # set preview_images_method urxvt-full
 
-#  }}} image preview # 
+#  ]]] image preview # 
 
-#  custom {{{ # 
+#  custom [[[ # 
 
 # editing ranger config
 map R chain shell nvim -p ~/.config/ranger/rc.conf %rangerdir/config/rc.conf; source ~/.config/ranger/rc.conf
 map rr source ~/.config/ranger/rc.conf
 
-#  backgrounds {{{ # 
+#  backgrounds [[[ # 
 
 map w shell /usr/bin/wal -i %f
 map bde shell mv %f /home/kevin/Pictures/Backgrounds/dim/editing
@@ -684,7 +687,7 @@ map bbn shell mv %f /home/kevin/Pictures/Backgrounds/bright/non-editing
 map be shell mv %f editing
 map bn shell mv %f non-editing
 
-#  }}} backgrounds # 
+#  ]]] backgrounds # 
 
 # bulk rename
 map cw eval fm.execute_console("bulkrename") if fm.thisdir.marked_items else fm.open_console("rename ")
@@ -695,7 +698,7 @@ map zr shell unzip %f && rm %f
 map e. open_with evince f
 map v. shell $EDITOR %f
 
-source ~/.config/ranger/key_mappings.conf
+source {{ .chezmoi.homedir }}/.config/ranger/key_mappings.conf
 
 map dg shell dragon-drag-and-drop -a -x %p
 # map <C-d> shell dragon-drag-and-drop -a -x %p
@@ -703,4 +706,4 @@ map dg shell dragon-drag-and-drop -a -x %p
 # https://github.com/alexanderjeurissen/ranger_devicons
 default_linemode devicons
 
-#  }}} custom # 
+#  ]]] custom # 

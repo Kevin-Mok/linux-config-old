@@ -58,7 +58,7 @@ udub "udisksctl unmount -b /dev/sdc2"
 # ]]] mounting # 
 
 tc "touch"
-vd "vidir --verbose"
+vdr "vidir --verbose"
 
 # directory-related [[[ #
 
@@ -116,6 +116,7 @@ vlm "alsamixer -c 1"
 
 # ]]] apt # 
 
+{{ if eq .chezmoi.osRelease.id "arch" }}
 # pacman  [[[ #
 
 # pc "sudo pacman -S"
@@ -148,6 +149,7 @@ yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
 xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
 
 # ]]] yay #
+{{ end }}
 
 py "python"
 pipi "sudo pip install"
@@ -160,6 +162,9 @@ rdh "sudo killall dhcpcd && sudo dhcpcd"
 
 id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
+
+mst "sudo rm config.h && sudo bear make install"
+
 #  system ]]]
 
 # applications  [[[ #
@@ -188,6 +193,7 @@ pdft "pdftotext"
 pipes "pipes.sh -t 3"
 py "python"
 r "ranger"
+rg "printf '\033c' && rg"
 rx "redshift -x"
 sn "sudo nvim"
 vmd "vimdiff"
@@ -351,6 +357,7 @@ zm "chezmoi"
 za "chezmoi add"
 zar "chezmoi add -r"
 zd "chezmoi data"
+zdf "chezmoi diff"
 zp "chezmoi -v apply"
 
 # ]]] chezmoi #

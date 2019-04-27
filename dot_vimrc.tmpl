@@ -22,13 +22,15 @@ set relativenumber
 set shiftwidth=4
 set tabstop=4
 " set t_Co=256
+" set termguicolors
 " set timeoutlen=500
 set timeoutlen=350
 " set tw=80
 set tw=75
 set undodir=~/.vim/undo
 set undofile
-set updatetime=1000
+" set updatetime=1000
+set updatetime=500
 
 autocmd VimResized * wincmd =
 filetype plugin on
@@ -55,6 +57,7 @@ autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set
 " autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
 autocmd BufNewFile,BufRead *.gd set expandtab!
+autocmd Filetype go set expandtab! sw=4
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype markdown nnoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
@@ -84,6 +87,10 @@ autocmd BufNewFile,BufRead *.tmpl set tw=0 sw=2 ft=go-template fmr=[[[,]]]
 " commands for specific files [[[ "
 
 autocmd BufNewFile,BufRead watson*.fish set tabstop=2 shiftwidth=2 expandtab
+autocmd BufWritePost config.def.h silent !cd %:p:h; sudo rm config.h; sudo bear make install
+" autocmd BufRead config.def.h map <F8> :silent !cd %:p:h; sudo rm config.h; sudo bear make install<CR>
+autocmd BufRead config.def.h map <F10> :silent !cd %:p:h<CR>:!sudo rm config.h; sudo bear make install<CR>
+autocmd BufRead config.def.h set updatetime=3000
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
 " autocmd BufWritePost key_* !sync-shortcuts
 autocmd BufNewFile,BufRead key_* map <F1> :w<CR>:silent !sync-shortcuts<CR>
@@ -231,7 +238,7 @@ Plug 'djoshea/vim-autoread'
 " Plug 'trapd00r/vim-syntax-vidir-ls'
 Plug 'calviken/vim-gdscript3'
 " display hex colors in Vim
-" Plug 'RRethy/vim-hexokinase'
+Plug 'RRethy/vim-hexokinase'
 " ]]] vim-plug "
 
 " Mappings [[[ "
@@ -240,6 +247,7 @@ call plug#end()
 " colorscheme gotham256
 colorscheme wal
 
+nnoremap v <C-V>
 nnoremap > >>
 nnoremap < <<
 inoremap << <Esc><<A
@@ -420,5 +428,7 @@ autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx
 
 autocmd Filetype go-template inoremap <localleader>e {{"{{ else }}"}}
+autocmd Filetype go-template inoremap <localleader>hd {{"{{ .chezmoi.homedir }}"}}
+autocmd Filetype go-template nnoremap <localleader>fp :%s/{{"{{{"}}/[[[/g<CR>:%s/}}}/]]]/g<CR>
 
 " ]]] Local Mappings "
