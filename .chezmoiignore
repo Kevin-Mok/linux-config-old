@@ -5,7 +5,8 @@ README.md
 .config/i3blocks/
 .config/mpv/
 .config/zathura/
-scripts/
+scripts/*
+!scripts/sync-shortcuts
 txt/
 .gitconfig
 .imwheelrc

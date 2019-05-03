@@ -6,6 +6,7 @@ redshift -O 2000
 xset r rate $XSET_DELAY $XSET_RATE
 # exec /home/kevin/Downloads/dwm/reload-dwm.sh
 
+{{ if eq .chezmoi.fullHostname "nzxt" }}
 dunst &
 compton -b
 imwheel &
@@ -13,6 +14,7 @@ numlockx on &
 start-pulseaudio-x11 &
 
 wal -i "$(/home/kevin/scripts/shuffler \"$HOME/Pictures/Backgrounds/dim/non-editing\")" && /home/kevin/st/make-st.sh &
+{{ end }}
 exec i3
 
 # # Statusbar loop
@@ -24,3 +26,5 @@ exec i3
 # # wal -i $(/home/kevin/scripts/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing") &
 # wal -i "$HOME/Pictures/Backgrounds/dim/editing/captain-marvel.jpg" &
 # exec dwm
+
+# vim: ft=conf.go-template

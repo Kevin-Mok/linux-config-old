@@ -13,6 +13,32 @@ set -x GPG_TTY (tty)
 
 # ]]] login to X #
 
+# universal var's [[[ #
+
+# spv
+{{ if eq .chezmoi.fullHostname "nzxt" }}
+set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
+set -U mfs_dir "/home/kevin/coding/mf-site"
+{{ end }}
+
+set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
+set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
+set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
+
+set -x PASSWORD_STORE_CLIP_TIME 120
+set -xU XSET_RATE 90
+set -xU XSET_DELAY 200
+# causes xmodmap to have issues when opening terminal sometimes
+# xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
+{{ if and (eq .chezmoi.fullHostname "x1-carbon") (not (eq .chezmoi.username "root")) }}
+xset r rate $XSET_DELAY $XSET_RATE
+{{ end }}
+
+# set -U BROWSER "chromium"
+set -U BROWSER "firefox"
+
+# ]]] universal var's #
+
 # fish-specific [[[ #
 
 fish_vi_key_bindings
@@ -40,32 +66,6 @@ abbr f. "cd .."
 abbr f.. "cd ../.."
 
 # ]]] fish-specific #
-
-# universal var's [[[ #
-
-# spv
-{{ if eq .chezmoi.fullHostname "nzxt" }}
-set -U spv_dir "~/coding/spotify-lib-vis"
-set -U mfs_dir "~/coding/mf-site"
-{{ end }}
-
-set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
-set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
-set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
-
-set -x PASSWORD_STORE_CLIP_TIME 120
-set -xU XSET_RATE 90
-set -xU XSET_DELAY 200
-# causes xmodmap to have issues when opening terminal sometimes
-# xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
-{{ if and (eq .chezmoi.fullHostname "x1-carbon") (not (eq .chezmoi.username "root")) }}
-xset r rate $XSET_DELAY $XSET_RATE
-{{ end }}
-
-# set -U BROWSER "chromium"
-set -U BROWSER "firefox"
-
-# ]]] universal var's #
 
 # fxn abbr's [[[ #
 

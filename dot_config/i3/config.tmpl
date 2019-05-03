@@ -1,9 +1,14 @@
 #  startup [[[ # 
 
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
+exec dunst
+exec compton
+exec imwheel
+exec numlockx on
 exec xbacklight -set 10
+exec wal -i "$(/home/kevin/scripts/shuffler \"$HOME/Pictures/Backgrounds/dim/non-editing\")"
 {{ end }}
-exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
+# exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 
 #  ]]] startup # 
@@ -13,16 +18,17 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 set $mod Mod1
 # set $browser "firefox"
 set $browser "chromium"
-set $term "urxvt"
-set $term_alt "st"
-# set $term "st"
-# set $term_alt "urxvt"
+# set $term st
+# set $term_alt urxvt
+set $term urxvt
+set $term_alt st
 set $scripts_path "/home/kevin/scripts"
 set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts [[[ # 
 
 bindsym Control+Return exec $term
+bindsym Control+Shift+Return exec $term -A1
 bindsym Control+$mod+Return exec $term_alt
 # bindsym Control+$mod+Return exec st
 # PROTIP: You can also dynamically set dmenu's colors this way:
@@ -198,10 +204,17 @@ bindsym $mod+minus move workspace to output left
 bindsym $mod+plus move workspace to output right
 
 # move focused window
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
 bindsym Control+Shift+h move left 50px
 bindsym Control+Shift+j move down 50px
 bindsym Control+Shift+k move up 50px
 bindsym Control+Shift+l move right 50px
+{{ else }}
+bindsym Control+Shift+h move left
+bindsym Control+Shift+j move down
+bindsym Control+Shift+k move up
+bindsym Control+Shift+l move right
+{{ end }}
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -388,7 +401,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 #  status bar [[[ # 
 
-
 # bar vars [[[ # 
 
 # set $sb_font Hack NF Bold
@@ -422,6 +434,7 @@ bar {
   font pango:$sb_font 17
   {{ else }}
   font pango:$sb_font 21
+  # font pango:$sb_font 19
   {{ end }}
   colors {
     # 0 (transparent) -> 255 (opaque) in hex
@@ -451,6 +464,7 @@ bar {
   font pango:$sb_font 18
   {{ else }}
   font pango:$sb_font 25
+  # font pango:$sb_font 20
   {{ end }}
   # output $main
   i3bar_command i3bar -t

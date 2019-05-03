@@ -35,8 +35,7 @@ grr "grep -r"
 cld "colordiff -wy --suppress-common-lines"
 
 mkpk "makepkg -sri"
-ex "chmod 777"
-ex "chmod 777"
+ex "chmod +x"
 
 # systemctl  [[[ #
 ctl "sudo systemctl"
@@ -164,7 +163,8 @@ rdh "sudo killall dhcpcd && sudo dhcpcd"
 id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
 
-mst "sudo rm config.h && sudo bear make install"
+# mst "sudo rm ~/st/config.h && sudo bear make -C ~/st install"
+mst "sudo ~/st/make-st.sh"
 
 #  system ]]]
 

@@ -36,7 +36,6 @@ autocmd VimResized * wincmd =
 filetype plugin on
 filetype indent on
 syntax on
-" au CursorHold * checktime
 autocmd CursorHold * if !bufexists("[Command Line]") | checktime | endif
 
 " cursor indicator [[[ "
@@ -93,6 +92,7 @@ autocmd BufWritePost config.def.h silent !cd %:p:h; sudo rm config.h; sudo bear 
 autocmd BufRead config.def.h map <F10> :silent !cd %:p:h<CR>:!sudo rm config.h; sudo bear make install<CR>
 autocmd BufRead config.def.h set updatetime=3000
 autocmd BufRead commit-msg.txt set filetype=gitcommit tw=72
+autocmd VimLeave /etc/default/grub !sudo grub-mkconfig -o /boot/grub/grub.cfg
 " autocmd BufWritePost key_* !sync-shortcuts
 autocmd BufNewFile,BufRead key_* map <F1> :w<CR>:silent !sync-shortcuts<CR>
 
@@ -240,6 +240,7 @@ Plug 'djoshea/vim-autoread'
 Plug 'calviken/vim-gdscript3'
 " display hex colors in Vim
 Plug 'RRethy/vim-hexokinase'
+Plug 'junegunn/goyo.vim'
 " ]]] vim-plug "
 
 " Mappings [[[ "
@@ -252,33 +253,6 @@ nnoremap v <C-V>
 nnoremap > >>
 nnoremap < <<
 inoremap << <Esc><<A
-
-" function keys [[[ "
-map <F3> :wa<CR>
-map <F4> :xa<CR>
-map <F5> :q!<CR>
-map <F6> :qa!<CR>
-map <F7> :AutoSaveToggle<CR>
-" reload file
-nnoremap <F9> :e<CR>
-nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
-nnoremap <F11> :set paste<CR>"*p:set nopaste<CR>
-" ]]] function keys "
-
-map <S-Enter> O<ESC>
-" swap text visually
-vnoremap <C-P> <Esc>`.``gvP``P
-ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-
-" splits [[[ "
-nnoremap <C-Down> <C-W><C-J>
-nnoremap <C-Up> <C-W><C-K>
-nnoremap <C-Right> <C-W><C-L>
-nnoremap <C-Left> <C-W><C-H>
-" Maximize height/width.
-nnoremap <C-g> <C-W>_
-nnoremap <C-w> <C-W>|
-" ]]] splits "
 
 " leader mappings [[[ "
 let mapleader="\<Space>"
@@ -305,7 +279,8 @@ nnoremap <leader>fmm :set foldmethod=marker<CR> zM
 " add marker foldmethod modeline
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 " find copied text
-nnoremap <leader>ft /TODO<CR>
+nnoremap <leader>ft :se ft?
+nnoremap <leader>ftd /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
 nnoremap <leader>gd :Gvdiff 
@@ -365,12 +340,40 @@ nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " nnoremap <leader>y "+
 " nnoremap <leader>Y "+Y
 nnoremap <leader>y y$
+nnoremap <leader>yo :Goyo<CR>
 " yank entire buffer
 nnoremap <leader>yg ggyG
 " toggle fold
 nnoremap <leader>z za
 
 " ]]] leader mappings "
+
+" function keys [[[ "
+map <F3> :wa<CR>
+map <F4> :xa<CR>
+map <F5> :q!<CR>
+map <F6> :qa!<CR>
+map <F7> :AutoSaveToggle<CR>
+" reload file
+nnoremap <F9> :e<CR>
+nnoremap <F10> :set paste<CR>"+p:set nopaste<CR>
+nnoremap <F11> :set paste<CR>"*p:set nopaste<CR>
+" ]]] function keys "
+
+map <S-Enter> O<ESC>
+" swap text visually
+vnoremap <C-P> <Esc>`.``gvP``P
+ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" splits [[[ "
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-Up> <C-W><C-K>
+nnoremap <C-Right> <C-W><C-L>
+nnoremap <C-Left> <C-W><C-H>
+" Maximize height/width.
+nnoremap <C-g> <C-W>_
+nnoremap <C-w> <C-W>|
+" ]]] splits "
 
 " ]]] Mappings "
 
