@@ -23,8 +23,8 @@ set shiftwidth=4
 set tabstop=4
 " set t_Co=256
 " set termguicolors
-" set timeoutlen=500
-set timeoutlen=350
+" set timeoutlen=350
+set timeoutlen=200
 " set tw=80
 set tw=75
 set undodir=~/.vim/undo
@@ -36,7 +36,8 @@ autocmd VimResized * wincmd =
 filetype plugin on
 filetype indent on
 syntax on
-au CursorHold * checktime
+" au CursorHold * checktime
+autocmd CursorHold * if !bufexists("[Command Line]") | checktime | endif
 
 " cursor indicator [[[ "
 
@@ -130,7 +131,7 @@ Plug 'vim-scripts/L9'
 " automatically save buffers upon returning to normal mode
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
-    let g:auto_save_events = ["CursorHold", "CursorHoldI"]
+    " let g:auto_save_events = ["CursorHold", "CursorHoldI"]
 	" autocmd VimEnter *.tex let g:auto_save = 0
 
 " provides various functionality for writing LaTeX in Vim
@@ -424,6 +425,7 @@ autocmd Filetype fish inoremap <localleader>2 $argv[2]
 
 autocmd Filetype javascript inoremap <localleader>x process.exit()
 
+autocmd Filetype markdown inoremap <localleader>cb - [ ] 
 autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx
 

@@ -11,18 +11,20 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 #  applications [[[ # 
 
 set $mod Mod1
-set $browser "firefox"
-# set $browser "chromium"
-# set $term "urxvt"
-set $term "st"
+# set $browser "firefox"
+set $browser "chromium"
+set $term "urxvt"
+set $term_alt "st"
+# set $term "st"
+# set $term_alt "urxvt"
 set $scripts_path "/home/kevin/scripts"
 set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts [[[ # 
 
-bindsym control+Return exec $term
-bindsym control+$mod+Return exec urxvt
-# bindsym control+$mod+Return exec st
+bindsym Control+Return exec $term
+bindsym Control+$mod+Return exec $term_alt
+# bindsym Control+$mod+Return exec st
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym Mod4+Return exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 # bindsym Mod4+Return exec dmenu_run
@@ -52,16 +54,16 @@ bindsym Mod4+u exec echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboa
 bindsym Mod4+$mod+u exec pass -c uoft/acorn
 bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
 bindsym Mod4+$mod+w exec notify-send "watson stop" "$(watson status && watson stop)"
-bindsym control+Mod4+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
+bindsym Control+Mod4+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
 # bindsym Mod4+x exec $swex
 bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 bindsym Mod4+z exec cliqz
 {{ if .ext_kb }}
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-bindsym control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 {{ else }}
 bindsym $mod+p --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-bindsym control+$mod+p --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Control+$mod+p --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 {{ end }}
 
 #  ]]] app shortcuts # 
@@ -91,8 +93,8 @@ bindsym Shift+F8 exec xbacklight -set 80
 bindsym Shift+F9 exec xbacklight -set 90
 bindsym Shift+F0 exec xbacklight -set 100
 
-bindsym control+$mod+plus exec xbacklight -inc 2
-bindsym control+$mod+minus exec xbacklight -dec 2
+bindsym Control+$mod+plus exec xbacklight -inc 2
+bindsym Control+$mod+minus exec xbacklight -dec 2
 
 bindsym $mod+w exec sudo systemctl start netctl-auto@wlp3s0.service
 bindsym $mod+q exec sudo systemctl stop netctl-auto@wlp3s0.service
@@ -153,8 +155,8 @@ gaps outer 0
 
 #  ]]] other gaps # 
 
-bindsym control+shift+plus gaps inner all set $inner_gaps;gaps outer all set $outer_gaps
-bindsym control+shift+0 gaps inner all set 0;gaps outer all set 0
+bindsym Control+shift+plus gaps inner all set $inner_gaps;gaps outer all set $outer_gaps
+bindsym Control+shift+0 gaps inner all set 0;gaps outer all set 0
 
 #  ]]] gaps # 
 
@@ -186,20 +188,20 @@ client.focused          $bg     $bg     $fg  $bg       $bg
 floating_modifier $mod
 
 # change focus
-bindsym control+h focus left
-bindsym control+j focus down
-bindsym control+k focus up
-bindsym control+l focus right
+bindsym Control+h focus left
+bindsym Control+j focus down
+bindsym Control+k focus up
+bindsym Control+l focus right
 
 # move workspace to other monitor
 bindsym $mod+minus move workspace to output left
 bindsym $mod+plus move workspace to output right
 
 # move focused window
-bindsym control+Shift+h move left
-bindsym control+Shift+j move down
-bindsym control+Shift+k move up
-bindsym control+Shift+l move right
+bindsym Control+Shift+h move left 50px
+bindsym Control+Shift+j move down 50px
+bindsym Control+Shift+k move up 50px
+bindsym Control+Shift+l move right 50px
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -210,12 +212,12 @@ bindsym $mod+v split v
 bindsym Mod4+$mod+v split v; exec $term
 
 #  resizing windows # 
-bindsym $mod+control+h resize grow width 5 px or 5 ppt
-bindsym $mod+control+k resize grow height 5 px or 5 ppt
-bindsym $mod+control+j resize shrink height 5 px or 5 ppt
-bindsym $mod+control+l resize shrink width 5 px or 5 ppt
+bindsym $mod+Control+h resize grow width 5 px or 5 ppt
+bindsym $mod+Control+k resize grow height 5 px or 5 ppt
+bindsym $mod+Control+j resize shrink height 5 px or 5 ppt
+bindsym $mod+Control+l resize shrink width 5 px or 5 ppt
 
-# bindsym control+Shift+x kill
+# bindsym Control+Shift+x kill
 bindsym shift+x kill
 
 #  ]]] moving windows # 
@@ -225,9 +227,9 @@ bindsym shift+x kill
 set $make_st_script "/home/kevin/st/make-st.sh"
 
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
-bindsym control+$mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing")
-bindsym control+$mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
-bindsym control+$mod+z exec feh --bg-fill ~/Pictures/Backgrounds/dim/black.jpg
+bindsym Control+$mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing") && $make_st_script
+bindsym Control+$mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing") && $make_st_script
+bindsym Control+$mod+z exec feh --bg-fill ~/Pictures/Backgrounds/dim/black.jpg
 {{ else }}
 bindsym $mod+q exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/bright/editing") && $make_st_script
 bindsym $mod+w exec wal -i $($scripts_path/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing") && $make_st_script
@@ -269,11 +271,16 @@ set $ws5 "5 "
 workspace $ws5 output $secondary
 assign [class="Steam"] $ws5
 bindsym $mod+F5 workspace $ws5; exec $browser
-bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+# bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
+bindsym Mod4+g workspace $ws5; layout tabbed; exec gimp
 bindsym Mod4+t workspace $ws5; exec thunderbird
-bindsym Mod4+5 workspace $ws5; exec cd ~/coding/ada-mario-prep && godot -e
-for_window [class="ada-mario-prep"] floating enable
+bindsym Mod4+F5 workspace $ws5; exec cd ~/coding/ada-mario-prep && godot -e
+# for_window [class="Move_mouse_with_head"] floating enable; move absolute position 0 0
 for_window [class="Move_mouse_with_head"] floating enable
+for_window [class="Move_mouse_with_head"] move absolute position 0 0
+# for_window [class="ada-mario-prep"] floating enable; move absolute position 1000 700
+for_window [class="ada-mario-prep"] floating enable
+for_window [class="ada-mario-prep"] move absolute position 930 480
 
 set $ws6 "6 "
 workspace $ws6 output $secondary
@@ -346,16 +353,16 @@ bindsym Mod4+1 workspace $ws11
 
 #  move container to ws [[[ # 
 
-bindsym $mod+control+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+control+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+control+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+control+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+control+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+control+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+control+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+control+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+control+9 move container to workspace $ws9; workspace $ws9
-bindsym $mod+control+0 move container to workspace $ws10; workspace $ws10
+bindsym $mod+Control+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Control+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Control+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Control+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Control+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Control+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Control+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Control+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Control+0 move container to workspace $ws10; workspace $ws10
 bindsym $mod+Shift+1 move container to workspace $ws11; workspace $ws11
 bindsym $mod+Shift+2 move container to workspace $ws12; workspace $ws12
 bindsym $mod+Shift+3 move container to workspace $ws13; workspace $ws13
@@ -368,13 +375,13 @@ bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
 
 #  reload config [[[ # 
 
-bindsym $mod+control+r exec i3-msg restart
+bindsym $mod+Control+r exec i3-msg restart
 bindsym $mod+Shift+c reload
-# bindsym $mod+control+r reload
-bindsym $mod+control+u exec xrdb ~/.Xresources
+# bindsym $mod+Control+r reload
+bindsym $mod+Control+u exec xrdb ~/.Xresources
 
 # exit i3 (logs you out of your X session)
-bindsym control+$mod+s exec systemctl suspend
+bindsym Control+$mod+s exec systemctl suspend
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #  ]]] reload config # 
@@ -484,9 +491,9 @@ bar {
 
 # sink
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym control+d exec ~/linux-config/scripts/change-sink dac
-# bindsym control+shift+d exec ~/linux-config/scripts/change-sink dac2
-bindsym control+o exec ~/linux-config/scripts/change-sink line-out
+bindsym Control+d exec ~/linux-config/scripts/change-sink dac
+# bindsym Control+shift+d exec ~/linux-config/scripts/change-sink dac2
+bindsym Control+o exec ~/linux-config/scripts/change-sink line-out
 
 # media
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks

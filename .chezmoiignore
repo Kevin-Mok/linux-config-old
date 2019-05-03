@@ -12,3 +12,6 @@ txt/
 .xinitrc
 .Xresources
 {{ end }}
+{{ if not (eq .chezmoi.fullHostname "x1-carbon") }}
+.Xmodmap-laptop
+{{ end }}

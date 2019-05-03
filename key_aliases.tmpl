@@ -18,9 +18,10 @@ tl "tldr"
 nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 xr "xrandr"
-xrs "xrandr -s 0"
+xro "xrandr --output HDMI2 --off" 
 xrr "xrandr --output HDMI2 --auto --right-of eDP1 --scale 1.33x1.33" 
 xrm "xrandr --output HDMI2 --auto --same-as eDP1 --scale 1.33x1.33"
+xrs "xrandr -s 0"
 {{ end }}
 
 vgb "sudo nvim /etc/default/grub"
@@ -305,6 +306,7 @@ gchon "git checkout -b"
 gchom "git checkout master"
 gchnw "git checkout -b wip"
 gchw "git checkout wip"
+grom "git reset --hard origin/master"
 gheadm1 "git reset --hard HEAD~1"
 # show files in git repo
 # gls "git ls-tree -r HEAD --name-only"
@@ -410,7 +412,7 @@ rt "python ~/coding/rt-scraper/!rt-scraper.py"
 
 # ]]] mfs #
 
-med "printf '\033c' && bear make move_mouse_with_head && ./move_mouse_with_head"
+mm "printf '\033c' && bear make clean move_mouse_with_head && ./move_mouse_with_head"
 
 # ]]] coding projs  #
 
