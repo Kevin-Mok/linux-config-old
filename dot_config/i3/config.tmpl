@@ -287,13 +287,13 @@ bindsym $mod+F5 workspace $ws5; exec $browser
 # bindsym Mod4+g workspace $ws5; layout stacking; exec urxvt -e steam
 bindsym Mod4+g workspace $ws5; layout tabbed; exec gimp
 bindsym Mod4+t workspace $ws5; exec thunderbird
-bindsym Mod4+F5 workspace $ws5; exec cd ~/coding/ada-mario-prep && godot -e
+bindsym Mod4+5 workspace $ws5; exec godot
+bindsym Mod4+F5 workspace $ws5; exec cd ~/coding/ada-mario && godot -e
 # for_window [class="Move_mouse_with_head"] floating enable; move absolute position 0 0
-for_window [class="Move_mouse_with_head"] floating enable
-for_window [class="Move_mouse_with_head"] move absolute position 0 0
-# for_window [class="ada-mario-prep"] floating enable; move absolute position 1000 700
-for_window [class="ada-mario-prep"] floating enable
-for_window [class="ada-mario-prep"] move absolute position 930 480
+for_window [class="Face_detector"] floating enable
+for_window [class="Face_detector"] move absolute position 0 0
+for_window [class="ada-mario"] floating enable
+for_window [class="ada-mario"] move absolute position 930 480
 
 set $ws6 "6 "
 workspace $ws6 output $secondary

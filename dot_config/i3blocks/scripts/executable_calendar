@@ -32,9 +32,10 @@ case "$BLOCK_BUTTON" in
 	i3-msg -q "exec yad --calendar \
         --width=$WIDTH --height=$HEIGHT \
 	    --undecorated --fixed \
-	    --close-on-unfocus --no-buttons \
+        --no-buttons \
 	    --posx=$posX --posy=$posY \
 	    > /dev/null"
+    # --close-on-unfocus \
 esac
 . "/home/kevin/.cache/wal/colors.sh"
 echo "$LABEL$(date "$DATEFMT")"

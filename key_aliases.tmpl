@@ -97,6 +97,10 @@ rb "systemctl reboot"
 lo "i3-msg exit"
 x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+xl "xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE"
+XL "xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE"
+{{ end }}
 
 # ]]] power options  # 
 
@@ -292,6 +296,7 @@ gdlc "git diff --cached -w"
 gdh "git diff --cached -w HEAD~1"
 gds "git diff --stat"
 gl "git log"
+glm "git log master"
 gsl "git shortlog"
 
 # ]]] diff/log #
@@ -413,6 +418,10 @@ rt "python ~/coding/rt-scraper/!rt-scraper.py"
 # ]]] mfs #
 
 mm "printf '\033c' && bear make clean move_mouse_with_head && ./move_mouse_with_head"
+med "printf '\033c' && bear make clean eye_detector && ./eye_detector"
+mft "printf '\033c' && bear make clean face_detector && ./face_detector"
+rft "~/coding/face-tracker/face_detector > /tmp/move_mouse_with_head.out"
+gpsb "git push bitbucket"
 
 # ]]] coding projs  #
 
