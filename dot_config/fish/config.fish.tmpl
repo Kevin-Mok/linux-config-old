@@ -22,6 +22,7 @@ set -U mfs_dir "/home/kevin/coding/mf-site"
 {{ end }}
 
 set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
+set -x CLASSPATH $CLASSPATH /home/kevin/java/*.jar
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
 
@@ -59,6 +60,9 @@ abbr ff "cd $fish_fxn_dir"
 for fxn in (find $fish_fxn_dir -name '*.fish')
 	source $fxn
 end
+
+abbr ab "abbr"
+abbr abe "abbr -e"
 abbr rf "chezmoi apply && sync-shortcuts && source ~/.config/fish/key_abbr.fish > /dev/null"
 abbr rfc "chezmoi apply && source ~/.config/fish/config.fish"
 abbr xf "fish_config"
@@ -100,20 +104,11 @@ abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
 
 # school [[[ #
 
-# 309
-# abbr r0t "./revert-e3-json restaurants"
-# abbr r0s "./revert-e3-json reservations"
-
 # 369
 abbr grc "grep-c"
 abbr grh "grep-headers"
 abbr rgh "rg-headers"
 
-abbr r6 "run-a4 h e"
-
-# abbr r6 "run-a3 f d o"
-# abbr r6g "run-a3 f d g"
-# abbr r6s "run-a3 s c o"
-# abbr g6 "source $fish_fxn_dir/369/a3/gdb-a3-break.fish && gdb-a3-break c c"
+abbr jcp "java-compile-run Percolation"
 
 # ]]] school #
