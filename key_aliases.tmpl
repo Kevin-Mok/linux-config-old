@@ -146,7 +146,7 @@ yar "yay -Rns"
 # sync
 yaud "yay -Sy"
 # sync and download
-yaugd "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
+yadl "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
 # sync and update
 yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
 # export packages
@@ -475,7 +475,7 @@ gpsh "git push heroku"
 
 # ]]] 309 #
 
-jc "javac *.java"
-j "java"
+jc "javac -d out *.java"
+jr "java -cp \"$CLASSPATH:out\""
 
 # ]]] school  #

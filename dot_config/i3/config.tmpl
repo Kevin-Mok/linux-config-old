@@ -6,9 +6,10 @@ exec compton
 exec imwheel
 exec numlockx on
 exec xbacklight -set 10
-exec wal -i "$(/home/kevin/scripts/shuffler \"/home/kevin/Pictures/Backgrounds/dim/non-editing\")"
+# exec wal -i "$(/home/kevin/scripts/shuffler \"/home/kevin/Pictures/Backgrounds/dim/non-editing\")"
+exec wal -i $(/home/kevin/scripts/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
 {{ end }}
-# exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 
 #  ]]] startup # 
@@ -16,8 +17,8 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 #  applications [[[ # 
 
 set $mod Mod1
-# set $browser "firefox"
-set $browser "chromium"
+set $browser "firefox"
+# set $browser "chromium"
 # set $term st
 # set $term_alt urxvt
 set $term urxvt
@@ -28,7 +29,7 @@ set $sch_dir "$HOME/Documents/School"
 #  app shortcuts [[[ # 
 
 bindsym Control+Return exec $term
-bindsym Control+Shift+Return exec $term -A1
+bindsym Control+Shift+Return exec st -A1
 bindsym Control+$mod+Return exec $term_alt
 # bindsym Control+$mod+Return exec st
 # PROTIP: You can also dynamically set dmenu's colors this way:
@@ -44,6 +45,8 @@ bindsym Mod4+c exec $browser
 bindsym Mod4+f exec firefox
 bindsym Mod4+$mod+f exec echo 'Kevin@fosstodon.org' | xclip -selection clipboard
 bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
+# bindsym $mod+m exec ~/scripts/vim-man
+bindsym $mod+m exec urxvt -e ~/scripts/vim-man
 bindsym Mod4+$mod+m exec pass -c uoft/markus
 bindsym Mod4+n exec urxvt -e nvim
 bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
@@ -293,7 +296,8 @@ bindsym Mod4+F5 workspace $ws5; exec cd ~/coding/ada-mario && godot -e
 for_window [class="Face_detector"] floating enable
 for_window [class="Face_detector"] move absolute position 0 0
 for_window [class="ada-mario"] floating enable
-for_window [class="ada-mario"] move absolute position 930 480
+# for_window [class="ada-mario"] move absolute position 930 480
+for_window [class="ada-mario"] move absolute position 640 0
 
 set $ws6 "6 "
 workspace $ws6 output $secondary
