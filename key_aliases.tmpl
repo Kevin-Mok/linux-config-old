@@ -156,6 +156,7 @@ xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs
 {{ end }}
 
 py "python"
+pyt "python -m unittest"
 pipi "sudo pip install"
 
 # internet
@@ -254,6 +255,7 @@ wt "watson status"
 
 g "git"
 gstr "git config credential.helper store"
+gstrp "git config credential.helper store && git push"
 
 # branch  [[[ #
 
@@ -327,6 +329,7 @@ gsts "git stash show stash@\{0\} -p"
 gclear "git stash clear"
 
 gpl "git pull --rebase"
+grb "git rebase -"
 grba "git rebase --abort"
 grbc "git rebase --continue"
 
@@ -357,6 +360,15 @@ gunc "git update-index --assume-unchanged"
 # coding projs  [[[ #
 
 rgt "rg TODO"
+
+# make [[[ #
+
+ma "printf '\033c' && bear make"
+mc "bear make clean"
+mca "bear make clean && printf '\033c' && bear make"
+rmc "rm compile_commands.json"
+
+# ]]] make #
 
 # chezmoi [[[ #
 
@@ -401,48 +413,7 @@ shc "shellcheck"
 pdl "pdflatex"
 tcl "tex-clean"
 
-# mfs [[[ #
-
-mfs "nvim ~/coding/best-mf-site-personal/index.html"
-ht "python3 -m http.server"
-# j "jekyll"
-# js "jekyll serve"
-h "hugo"
-he "hugo serve -D --disableFastRender"
-
-ss "ssh {{ .chezmoi.group }}@192.168.0.100"
-ssb "ssh-bandit"
-
-rt "python ~/coding/rt-scraper/!rt-scraper.py"
-
-# ]]] mfs #
-
-mm "printf '\033c' && bear make clean move_mouse_with_head && ./move_mouse_with_head"
-med "printf '\033c' && bear make clean eye_detector && ./eye_detector"
-mft "printf '\033c' && bear make clean face_detector && ./face_detector"
-rft "~/coding/face-tracker/face_detector > /tmp/move_mouse_with_head.out"
-gpsb "git push bitbucket"
-
-# ]]] coding projs  #
-
-# school  [[[ #
-
-# 369 [[[ #
-
-wlf "watson log --all --tag=final"
-wrf "watson report --all --tag=final"
-ssc "ssh mokkar@teach.cs.utoronto.ca"
-
-ma "printf '\033c' && bear make"
-mc "bear make clean"
-mca "bear make clean && printf '\033c' && bear make"
-
-rmc "rm compile_commands.json"
-rms "rm swapfile.*"
-
-# ]]] 369 #
-
-# 309 [[[ #
+# grocery-finder [[[ #
 
 wl0 "watson log --all --project=309 --tag=phase2"
 wr0 "watson report --all --project=309 --tag=phase2"
@@ -475,7 +446,44 @@ gpsh "git push heroku"
 
 # ]]] 309 #
 
+# mfs [[[ #
+
+mfs "nvim ~/coding/best-mf-site-personal/index.html"
+ht "python3 -m http.server"
+# j "jekyll"
+# js "jekyll serve"
+h "hugo"
+he "hugo serve -D --disableFastRender"
+
+ss "ssh {{ .chezmoi.group }}@192.168.0.100"
+ssb "ssh-bandit"
+
+rt "python ~/coding/rt-scraper/!rt-scraper.py"
+
+# ]]] mfs #
+
+# ada-mario [[[ #
+
+mm "printf '\033c' && bear make clean move_mouse_with_head && ./move_mouse_with_head"
+med "printf '\033c' && bear make clean eye_detector && ./eye_detector"
+mft "printf '\033c' && bear make clean face_detector && ./face_detector"
+rft "~/coding/face-tracker/face_detector > /tmp/move_mouse_with_head.out"
+gpsb "git push bitbucket"
+
+# ]]] ada-mario #
+
+# ]]] coding projs  #
+
+# school  [[[ #
+
+# wlf "watson log --all --tag=final"
+# wrf "watson report --all --tag=final"
+ssc "ssh mokkar@teach.cs.utoronto.ca"
+
 jc "javac -d out *.java"
 jr "java -cp \"$CLASSPATH:out\""
+
+wl1 "watson log --all --project=263 --tag=a1"
+wr1 "watson report --all --project=263 --tag=a1"
 
 # ]]] school  #

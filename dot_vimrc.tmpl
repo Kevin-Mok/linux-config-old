@@ -64,10 +64,11 @@ autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
 autocmd Filetype markdown inoremap > <Esc>>>A
 autocmd Filetype markdown inoremap >> >
 autocmd FileType markdown,tex,text set spell spelllang=en_us
+autocmd FileType python set fdm=indent
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
-autocmd FileType tex set updatetime=3000
+autocmd FileType tex set updatetime=1000
 autocmd FileType tex map <F8> :VimtexCompile<CR>
 autocmd VimEnter *.tex VimtexCompile
 autocmd VimLeave *.tex !tex-clean %:p
@@ -132,6 +133,7 @@ Plug 'vim-scripts/L9'
 Plug '907th/vim-auto-save'
 	let g:auto_save = 1
     " let g:auto_save_events = ["CursorHold", "CursorHoldI"]
+    let g:auto_save_events = ["CursorHold"]
 	" autocmd VimEnter *.tex let g:auto_save = 0
 
 " provides various functionality for writing LaTeX in Vim
@@ -392,7 +394,8 @@ autocmd Filetype tex inoremap <localleader>ep \epsilon
 autocmd Filetype tex inoremap <localleader>fa \forall
 autocmd Filetype tex inoremap <localleader>g \geq
 autocmd Filetype tex inoremap <localleader>i \in
-autocmd Filetype tex inoremap <localleader>l \leq
+autocmd Filetype tex inoremap <localleader>le \leq
+autocmd Filetype tex inoremap <localleader>lo \log
 autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
 " autocmd Filetype tex inoremap <localleader>n \neg
 autocmd Filetype tex inoremap <localleader>n \neq
@@ -435,5 +438,8 @@ autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 autocmd Filetype go-template inoremap <localleader>e {{"{{ else }}"}}
 autocmd Filetype go-template inoremap <localleader>hd {{"{{ .chezmoi.homedir }}"}}
 autocmd Filetype go-template nnoremap <localleader>fp :%s/{{"{{{"}}/[[[/g<CR>:%s/}}}/]]]/g<CR>
+
+autocmd Filetype python inoremap <localleader>bp breakpoint()
+autocmd Filetype python inoremap <localleader>s self.
 
 " ]]] Local Mappings "
