@@ -48,6 +48,9 @@ ctltd "sudo systemctl status dhcpcd"
 ctlr "sudo systemctl restart"
 # ]]] systemctl  #
 
+ct "crontab"
+cte "crontab -e"
+
 wm "sudo wifi-menu"
 
 # mounting [[[ #
@@ -95,7 +98,7 @@ so "xset dpms force off"
 sd "systemctl poweroff"
 rb "systemctl reboot"
 lo "i3-msg exit"
-x "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
+xm "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 xl "xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE"
@@ -144,7 +147,7 @@ yaq "yay -Qi"
 # remove
 yar "yay -Rns"
 # sync
-yaud "yay -Sy"
+yau "yay -Sy"
 # sync and download
 yadl "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
 # sync and update
@@ -157,7 +160,8 @@ xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs
 
 py "python"
 pyt "python -m unittest"
-pipi "sudo pip install"
+pipi "pip install"
+spipi "sudo pip install"
 
 # internet
 pg "ping -c 3 -W 1 8.8.8.8"
@@ -329,7 +333,7 @@ gsts "git stash show stash@\{0\} -p"
 gclear "git stash clear"
 
 gpl "git pull --rebase"
-grb "git rebase -"
+grb "git rebase -i"
 grba "git rebase --abort"
 grbc "git rebase --continue"
 
@@ -397,7 +401,7 @@ upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xa
 ureq "pip freeze > requirements.txt"
 
 # show last history scan
-hlg "cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
+hlg "tail -n 5 $spv_dir/src/api/management/commands/update-history.log"
 # scan history
 # hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 # scan cron log for hs cmd
@@ -410,6 +414,9 @@ snw "spotify-now -i '%artist - %title'"
 # ]]] spotify-lib-vis #
 
 shc "shellcheck"
+tll "tllocalmgr"
+tli "tllocalmgr install"
+# tlh "tllocalmgr texhash"
 pdl "pdflatex"
 tcl "tex-clean"
 
@@ -472,6 +479,9 @@ gpsb "git push bitbucket"
 
 # ]]] ada-mario #
 
+sac "source ../../bin/activate.fish"
+dea "deactivate"
+
 # ]]] coding projs  #
 
 # school  [[[ #
@@ -483,7 +493,7 @@ ssc "ssh mokkar@teach.cs.utoronto.ca"
 jc "javac -d out *.java"
 jr "java -cp \"$CLASSPATH:out\""
 
-wl1 "watson log --all --project=263 --tag=a1"
-wr1 "watson report --all --project=263 --tag=a1"
+wl2 "watson log --all --project=263 --tag=a2"
+wr2 "watson report --all --project=263 --tag=a2"
 
 # ]]] school  #

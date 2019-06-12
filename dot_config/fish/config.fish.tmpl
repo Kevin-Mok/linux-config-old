@@ -19,6 +19,7 @@ set -x GPG_TTY (tty)
 {{ if eq .chezmoi.fullHostname "nzxt" }}
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 set -U mfs_dir "/home/kevin/coding/mf-site"
+source /home/kevin/coding/spotify-lib-vis/src/scripts/api-keys-fish.sh
 {{ end }}
 
 set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
@@ -79,8 +80,10 @@ abbr cpc "copy cat"
 abbr cpe "copy echo"
 abbr cpp "copy echo (pwd)"
 abbr cff "create-fish-function"
+abbr def "define"
 abbr ev "evince-silent"
 abbr fbg "find-bg"
+abbr fzv "fzf-vim"
 # git [[[ #
 
 abbr gcamp "git-amend-push"
@@ -96,6 +99,8 @@ abbr mt "math"
 abbr pgr "grep-pdf"
 abbr pgrf "grep-pdf-file"
 abbr rs "redshift-set"
+abbr shrm "shred-rm"
+abbr thes "thesaurus"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 abbr fvft "find-vim-filetype"

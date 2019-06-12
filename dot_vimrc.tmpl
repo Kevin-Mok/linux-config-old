@@ -68,7 +68,7 @@ autocmd FileType python set fdm=indent
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
-autocmd FileType tex set updatetime=1000
+autocmd FileType tex set updatetime=1000 timeoutlen=300
 autocmd FileType tex map <F8> :VimtexCompile<CR>
 autocmd VimEnter *.tex VimtexCompile
 autocmd VimLeave *.tex !tex-clean %:p
@@ -243,6 +243,11 @@ Plug 'calviken/vim-gdscript3'
 " display hex colors in Vim
 Plug 'RRethy/vim-hexokinase'
 Plug 'junegunn/goyo.vim'
+" prevent commands being executed through modelines "
+Plug 'ciaranm/securemodelines/'
+" different colors for each layer of surrounding brackets
+Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
 " ]]] vim-plug "
 
 " Mappings [[[ "
@@ -250,6 +255,8 @@ Plug 'junegunn/goyo.vim'
 call plug#end()
 " colorscheme gotham256
 colorscheme wal
+
+nnoremap Q @@
 
 nnoremap v <C-V>
 nnoremap > >>
@@ -263,10 +270,14 @@ let mapleader="\<Space>"
 nnoremap <leader>a /^ <Left>
 " replace until end of line
 nnoremap <leader>c c$
-" delete entire buffer
+" delete until end of line
 nnoremap <leader>d d$
 " delete entire buffer
 nnoremap <leader>dg ggdG
+" delete lines matching pattern
+nnoremap <leader>dl :g//d<left><left>
+" show docstring for cur word
+nnoremap <leader>do :YcmCompleter GetDoc<CR>
 " delete line into system clipboard
 nnoremap <leader>D "+dd
 " delete entire buffer into system clipboard
@@ -395,11 +406,13 @@ autocmd Filetype tex inoremap <localleader>fa \forall
 autocmd Filetype tex inoremap <localleader>g \geq
 autocmd Filetype tex inoremap <localleader>i \in
 autocmd Filetype tex inoremap <localleader>le \leq
-autocmd Filetype tex inoremap <localleader>lo \log
+autocmd Filetype tex inoremap <localleader>ln \log n
 autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
 " autocmd Filetype tex inoremap <localleader>n \neg
 autocmd Filetype tex inoremap <localleader>n \neq
 autocmd Filetype tex inoremap <localleader>N \mathbb{N}
+autocmd Filetype tex inoremap <localleader>pg \pagebreak<Enter>
+autocmd Filetype tex inoremap <localleader>ph [,phantom]
 autocmd Filetype tex inoremap <localleader>q \qquad
 autocmd Filetype tex inoremap <localleader>r \rightarrow
 autocmd Filetype tex inoremap <localleader>R \Rightarrow

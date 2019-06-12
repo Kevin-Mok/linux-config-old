@@ -173,7 +173,7 @@ export SHORT_USER=${USER:0:8}
 # export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
 # Load Bash It
-source "$BASH_IT"/bash_it.sh
+# source "$BASH_IT"/bash_it.sh
 
 # export JAVA_HOME=/home/kevin/usr/java/jdk1.8.0_151/
 # export PATH=$JAVA_HOME/bin:$PATH

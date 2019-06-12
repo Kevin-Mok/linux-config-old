@@ -21,9 +21,9 @@ cloc
 cmake
 cmatrix
 colordiff
-compton
 coreutils
 cowsay
+cronie
 cryptsetup
 device-mapper
 dhcpcd
@@ -55,6 +55,7 @@ gettext
 gimp
 git
 glibc
+gradle
 grep
 grub
 gzip
@@ -68,9 +69,12 @@ imv
 imwheel
 inetutils
 iniparser
+intellij-idea-community-edition
 iproute2
 iputils
 jfsutils
+jp2a
+junit
 less
 lib32-nvidia-utils
 licenses
@@ -102,6 +106,7 @@ ntp
 numlockx
 nvidia-dkms
 nvidia-settings
+openshot
 openssh
 os-prober
 pacman
@@ -135,6 +140,7 @@ ripgrep
 rsync
 s-nail
 scrot
+sdcv
 sed
 shadow
 shellcheck
@@ -174,6 +180,7 @@ valgrind
 vi
 vim
 virtualbox
+vlc
 vtk
 w3m
 which
