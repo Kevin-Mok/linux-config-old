@@ -1,15 +1,19 @@
 #  startup [[[ # 
 
+set $term urxvt
+set $term_alt st
+# set $term st
+# set $term_alt urxvt
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 exec dunst
 exec compton
 exec imwheel
-exec numlockx on
+xec numlockx on
 exec xbacklight -set 10
 # exec wal -i "$(/home/kevin/scripts/shuffler \"/home/kevin/Pictures/Backgrounds/dim/non-editing\")"
 exec wal -i $(/home/kevin/scripts/shuffler "$HOME/Pictures/Backgrounds/dim/non-editing")
 {{ end }}
-exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
+# exec --no-startup-id i3-msg 'workspace $ws2; exec $term'
 exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 
 #  ]]] startup # 
@@ -19,10 +23,6 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec $browser'
 set $mod Mod1
 set $browser "firefox"
 # set $browser "chromium"
-# set $term st
-# set $term_alt urxvt
-set $term urxvt
-set $term_alt st
 set $scripts_path "/home/kevin/scripts"
 set $sch_dir "$HOME/Documents/School"
 

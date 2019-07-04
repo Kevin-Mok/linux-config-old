@@ -30,7 +30,8 @@ set tw=75
 set undodir=~/.vim/undo
 set undofile
 " set updatetime=1000
-set updatetime=500
+" set updatetime=500
+set updatetime=0
 
 autocmd VimResized * wincmd =
 filetype plugin on
@@ -58,6 +59,7 @@ autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set
 " autocmd Filetype html set foldmarker=0
 autocmd BufNewFile,BufRead *.gd set expandtab!
 autocmd Filetype go set expandtab! sw=4
+autocmd Filetype markdown set commentstring=<!---\ %s\ -->
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype markdown nnoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
@@ -140,13 +142,16 @@ Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 	" au BufWritePost *.tex silent call Tex_RunLaTeX()
 	au BufWritePost *.tex silent !pkill -USR1 xdvi.bin
+	let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 	let g:vimtex_view_general_viewer = 'zathura'
     let g:vimtex_quickfix_latexlog = {
           \ 'overfull' : 0,
           \ 'underfull' : 0,
           \ 'global' : 0,
+          \ 'references' : 0,
           \ 'unused' : 0,
           \}
+    let g:vimtex_quickfix_autoclose_after_keystrokes = 5
     " let g:vimtex_compiler_latexmk = {
         " \ 'continuous' : 0,
         " \}
@@ -256,12 +261,20 @@ call plug#end()
 " colorscheme gotham256
 colorscheme wal
 
-nnoremap Q @@
+" normal mappings [[[ "
 
 nnoremap v <C-V>
+nnoremap Q @@
+
+" folds
+nnoremap , za
+
+" indenting
 nnoremap > >>
 nnoremap < <<
 inoremap << <Esc><<A
+
+" ]]] normal mappings "
 
 " leader mappings [[[ "
 let mapleader="\<Space>"
@@ -274,8 +287,10 @@ nnoremap <leader>c c$
 nnoremap <leader>d d$
 " delete entire buffer
 nnoremap <leader>dg ggdG
+" delete entire line
+nnoremap <leader>dl 0d$
 " delete lines matching pattern
-nnoremap <leader>dl :g//d<left><left>
+nnoremap <leader>dls :g//d<left><left>
 " show docstring for cur word
 nnoremap <leader>do :YcmCompleter GetDoc<CR>
 " delete line into system clipboard
@@ -291,8 +306,9 @@ nnoremap <leader>fmi :set foldmethod=indent<CR> zM
 nnoremap <leader>fmm :set foldmethod=marker<CR> zM
 " add marker foldmethod modeline
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
-" find copied text
-nnoremap <leader>ft :se ft?
+" check filetype
+nnoremap <leader>ft :se ft?<CR>
+" check todo's
 nnoremap <leader>ftd /TODO<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 " vimdiff split
@@ -317,6 +333,8 @@ vnoremap <leader>n q:anorm
 nnoremap <leader>nw :set nowrap<CR>
 " check if in neovim
 nnoremap <leader>nv :echo has('nvim')<CR>
+" open fold recursively
+nnoremap <leader>o zO
 " Plug commands
 nnoremap <leader>p "*p
 nnoremap <leader>pli :PlugInstall<CR>
