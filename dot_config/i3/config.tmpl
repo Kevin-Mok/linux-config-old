@@ -64,12 +64,13 @@ bindsym Mod4+w exec notify-send "watson status" "$(watson status)"
 bindsym Mod4+$mod+w exec notify-send "watson stop" "$(watson status && watson stop)"
 bindsym Control+Mod4+w exec urxvt -e nvim /home/kevin/.config/watson/state.tmp
 # bindsym Mod4+x exec $swex
-bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 bindsym Mod4+z exec cliqz
 {{ if .ext_kb }}
+bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym Control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 {{ else }}
+bindsym Mod4+x exec xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE
 bindsym $mod+p --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym Control+$mod+p --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 {{ end }}
@@ -325,7 +326,8 @@ assign [class="spotify"] $ws10
 workspace $ws10 output $secondary
 set $hp 2
 # bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 0
-bindsym Mod4+v workspace $ws10; exec urxvt -e cava
+bindsym Mod4+v workspace $ws10; exec urxvt -e alsamixer -c 1
+bindsym Mod4+$mod+c workspace $ws10; exec urxvt -e cava
 # bindsym Mod4+h workspace $ws10; exec urxvt -e alsamixer -c $hp
 bindsym Mod4+s workspace $ws10; exec spotify
 

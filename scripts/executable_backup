@@ -26,6 +26,4 @@ case $2 in
 	full )
 		sudo rsync -PraAX --exclude-from="$exclude_dirs_list_full" / "$backup_dest/full"
 		# sudo rsync -PraAX /home "$backup_dest/full"
-		# echo rsync -PraAX --exclude-from="$exclude_dirs_list_full" / "$backup_dest/full"
-		# echo rsync -PraAX /home "$backup_dest/full/home"
 esac

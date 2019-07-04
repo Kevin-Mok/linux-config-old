@@ -103,6 +103,7 @@ X "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 xl "xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE"
 XL "xmodmap ~/.Xmodmap-laptop && xset r rate $XSET_DELAY $XSET_RATE"
+bt "~/linux-config/dot_config/i3blocks/scripts/executable_battery"
 {{ end }}
 
 # ]]] power options  # 
@@ -165,7 +166,8 @@ pipi "pip install"
 spipi "sudo pip install"
 
 # internet
-pg "ping -c 3 -W 1 8.8.8.8"
+pg "ping -c 2 -W 1 8.8.8.8"
+pgc "ping 8.8.8.8"
 dh "sudo dhcpcd"
 kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"

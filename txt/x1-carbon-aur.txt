@@ -1,6 +1,7 @@
 bear
 chezmoi
 discord
+dragon-drag-and-drop-git
 gdm3setup-utils
 godot
 heroku-cli
@@ -11,7 +12,9 @@ libc++abi
 libc++experimental
 mongodb-bin
 nerd-fonts-dejavu-complete
+pdftk-bin
 qdirstat
+spotify
 spotify-now-git
 texlive-local-algorithmicx
 texlive-local-algorithms
@@ -26,11 +29,14 @@ texlive-local-pgfplots
 texlive-local-siunitx
 texlive-local-tkz-base
 texlive-local-tkz-euclide
+texlive-local-was
 texlive-local-xifthen
 texlive-localmanager-git
 trizen
 ttf-hack-powerline-git
+vidir
 watson
+wego
 wpa_actiond
 yad
 yay

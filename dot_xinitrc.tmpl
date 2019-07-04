@@ -1,7 +1,11 @@
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 # xrandr --auto
+{{ if .ext_kb }}
 xmodmap ~/.Xmodmap
+{{ else }}
+xmodmap ~/.Xmodmap-laptop
+{{ end }}
 redshift -O 2000
 xset r rate $XSET_DELAY $XSET_RATE
 # exec /home/kevin/Downloads/dwm/reload-dwm.sh

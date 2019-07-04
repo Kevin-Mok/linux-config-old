@@ -37,8 +37,6 @@ wd ~/.config/watson
 b1 ~/coding/mf-site/themes/base16
 2d ~/coding/godot-demos/2d-plat
 ad ~/coding/ada-mario
-ads ~/coding/ada-mario/scripts
-adP ~/Pictures/ada-mario
 ft ~/coding/face-tracker
 j ~/Documents/journal
 lh ~/Documents/listening-history
@@ -52,6 +50,14 @@ svg ~/coding/spotify-lib-vis/src/graphs/static/graphs/scripts
 swd ~/coding/swex
 tb ~/coding/trapbot/src/trapbot
 wo ~/Documents/workout-logs/11
+{{ end }}
+
+{{ if eq .chezmoi.fullHostname "x1-carbon" }}
+adb ~/coding/ada-mario/build
+adm ~/coding/ada-mario/media
+adp ~/coding/ada-mario-presentation
+ads ~/coding/ada-mario/scripts
+adP ~/Pictures/ada-mario
 {{ end }}
 
 # ]]] cdn #
