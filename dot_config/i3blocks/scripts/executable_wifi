@@ -36,16 +36,22 @@ W_name=$(nmcli d | grep "$W_inter" | awk '{print $4}')
 
 #------------------------------------------------------------------------
 
-echo $QUALITY% "$W_name" # full text
+echo $QUALITY% # full text
 echo $QUALITY% # short text
 
+. "/home/kevin/.cache/wal/colors.sh"
 # color
-if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
-elif [[ $QUALITY -lt 80 ]]; then
-    echo "#FFF600"
-elif [[ $QUALITY -lt 60 ]]; then
-    echo "#FFAE00"
-elif [[ $QUALITY -lt 40 ]]; then
+if [[ $QUALITY -lt 50 ]]; then
     echo "#FF0000"
+else
+    echo "$color7"
 fi
+# if [[ $QUALITY -ge 80 ]]; then
+    # echo "#00FF00"
+# elif [[ $QUALITY -lt 80 ]]; then
+    # echo "#FFF600"
+# elif [[ $QUALITY -lt 60 ]]; then
+    # echo "#FFAE00"
+# elif [[ $QUALITY -lt 40 ]]; then
+    # echo "#FF0000"
+# fi

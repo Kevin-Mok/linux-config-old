@@ -46,6 +46,10 @@ ctls "sudo systemctl stop"
 ctlt "sudo systemctl status"
 ctltd "sudo systemctl status dhcpcd"
 ctlr "sudo systemctl restart"
+
+nct "sudo netctl"
+nct "sudo netctl"
+
 # ]]] systemctl  #
 
 ct "crontab"
@@ -245,7 +249,7 @@ wla "watson log --all --tag="
 ww "watson log"
 # wlm "watson log --project coding --tag mfs"
 wr "watson report --day"
-wra "watson report --all"
+wra "watson report --all --tag="
 wrw "watson report"
 wre "watson restart"
 wree "watson restart && watson edit"
@@ -299,12 +303,13 @@ grmor "rm (fd -e orig --no-ignore -H)"
 
 # diff/log [[[ #
 
-gd "git difftool -w --tool=vimdiff"
-gdc "git difftool -w --cached --tool=vimdiff"
-gdl "git diff -w"
-gdlc "git diff --cached -w"
+gd "git diff -w"
+gdc "git diff -w --cached"
 gdh "git diff --cached -w HEAD~1"
 gds "git diff --stat"
+gdt "git difftool -w --tool=vimdiff"
+gdtc "git difftool -w --cached --tool=vimdiff"
+
 gl "git log"
 glm "git log master"
 gsl "git shortlog"
@@ -349,7 +354,7 @@ gc "git commit -S"
 gcu "git commit"
 gca "git add -A && git commit --amend --no-edit -S"
 gcam "git add -A && git commit --amend -S"
-# gcamp "git add -A && git commit --amend --no-edit -S && gpsf"
+gcap "git add -A && git commit --amend --no-edit -S && gpsf"
 
 psgi "git add -A && git commit -m 'Update' -S && git push"
 gps "git push"
@@ -490,14 +495,18 @@ dea "deactivate"
 
 # school  [[[ #
 
+# basic
 # wlf "watson log --all --tag=final"
 # wrf "watson report --all --tag=final"
 ssc "ssh mokkar@teach.cs.utoronto.ca"
 
+# alg course
 jc "javac -d out *.java"
 jr "java -cp \"$CLASSPATH:out\""
 
+# 263
 wl6 "watson log --all --project=263 --tag=a3"
 wr6 "watson report --all --project=263 --tag=a3"
+pd3 "pdflatex a3"
 
 # ]]] school  #
