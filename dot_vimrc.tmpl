@@ -13,6 +13,7 @@ set expandtab
 " set foldmethod=indent
 set foldmethod=marker
 set hlsearch
+set ignorecase
 set linebreak
 set linespace=5
 set mouse=a
@@ -20,6 +21,7 @@ set mouse=a
 " set noswapfile
 set relativenumber
 set shiftwidth=4
+set smartcase
 set tabstop=4
 " set t_Co=256
 " set termguicolors
@@ -63,6 +65,8 @@ autocmd Filetype markdown set commentstring=<!---\ %s\ -->
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype markdown nnoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
+autocmd Filetype markdown inoremap < <Esc><<A
+autocmd Filetype markdown inoremap << <
 autocmd Filetype markdown inoremap > <Esc>>>A
 autocmd Filetype markdown inoremap >> >
 autocmd FileType markdown,tex,text set spell spelllang=en_us
@@ -253,6 +257,12 @@ Plug 'ciaranm/securemodelines/'
 " different colors for each layer of surrounding brackets
 Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
+" easy custom text objects
+Plug 'kana/vim-textobj-user'
+" latex custom text objects
+Plug 'rbonvall/vim-textobj-latex'
+" swap words
+Plug 'tommcdo/vim-exchange'
 " ]]] vim-plug "
 
 " Mappings [[[ "
@@ -281,6 +291,7 @@ let mapleader="\<Space>"
 
 " find alias
 nnoremap <leader>a /^ <Left>
+nnoremap <leader>ac :.s/\(\w\w\)/\u\1\U\2/g<CR>
 " replace until end of line
 nnoremap <leader>c c$
 " delete until end of line
