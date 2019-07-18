@@ -46,7 +46,11 @@ function cd --description "Change directory"
         set -g __fish_cd_direction prev
 
 		set -U last_dir $PWD
-		lsd -a
+        {{ if (not (eq .linux_os "termux")) }}
+        lsd -a
+        {{ else }}
+        ls -a
+        {{ end }}
     end
 
     return $cd_status

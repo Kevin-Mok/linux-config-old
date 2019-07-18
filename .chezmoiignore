@@ -1,6 +1,6 @@
 README.md
 
-{{ if or (eq .chezmoi.username "root") (not (eq .chezmoi.osRelease.id "arch")) }}
+{{ if .gui }}
 .config/i3/
 .config/i3blocks/
 .config/mpv/

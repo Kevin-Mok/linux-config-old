@@ -69,9 +69,13 @@ vdr "vidir --verbose"
 
 # directory-related [[[ #
 
-ls "lsd"
+{{ if not (eq .linux_os "termux") }}
 l "lsd -a"
 ll "lsd -al"
+{{ else }}
+l "ls -a"
+ll "ls -al"
+{{ end }}
 smv "sudo mv"
 f "cd"
 fz "fzf"
@@ -88,16 +92,17 @@ lhd "sudo fdisk -l"
 # get disc space for mounted drives
 # ds "df -h | tee >(head -n 1) >(grep sd) >/dev/null"
 ds "df -h | head -n 1 && df -h | grep sd"
-chownw "sudo chown -R {{ .chezmoi.group }}:wheel"
-chwnm "sudo chown -R {{ .chezmoi.group }}:wheel /run/media/{{ .chezmoi.username }}"
+chownw "sudo chown -R kevin:wheel"
+chwnm "sudo chown -R kevin:wheel /run/media/{{ .chezmoi.username }}"
 # cd into backup folder and show backup sizes
-nbu "cd /run/media/{{ .chezmoi.group }}/backup-hd/{{ .chezmoi.fullHostname }}/tar && lsd -l"
+nbu "cd /run/media/kevin/backup-hd/{{ .chezmoi.fullHostname }}/tar && lsd -l"
 
 # ]]] directory-related #
 
 # power options  [[[ #
 
 s "systemctl suspend"
+x "exit"
 so "xset dpms force off"
 sd "systemctl poweroff"
 rb "systemctl reboot"
@@ -120,15 +125,9 @@ vlh "alsamixer -c 2"
 vlm "alsamixer -c 1"
 {{ end }}
 
-# apt [[[ #
+# pkg management [[[ #
 
-# apti "sudo apt install"
-# aptr "sudo apt remove"
-# aptu "sudo apt upgrade"
-
-# ]]] apt # 
-
-{{ if eq .chezmoi.osRelease.id "arch" }}
+{{ if eq .linux_os "arch" }}#[[[
 # pacman  [[[ #
 
 # pc "sudo pacman -S"
@@ -161,7 +160,26 @@ yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
 xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
 
 # ]]] yay #
-{{ end }}
+#]]]
+
+{{ else if eq .linux_os "termux" }}#[[[
+pki "pkg install"
+pkli "pkg list-installed"
+pku "pkg uninstall"
+pks "pkg search"
+xpk "pkg list-installed | awk -F/ '{print \$1}' > ~/{{ .chezmoi.os }}-config/txt/termux-pkgs.txt"
+
+{{ end }}#]]]
+
+# apt [[[ #
+
+# apti "sudo apt install"
+# aptr "sudo apt remove"
+# aptu "sudo apt upgrade"
+
+# ]]] apt # 
+
+# ]]] pkg management #
 
 py "python"
 pyt "pytest -vv"
@@ -192,6 +210,7 @@ clc "cloc ."
 cv "cava"
 dg "dragon-drag-and-drop -x"
 fh "feh"
+fi "fish"
 gpd "gpg --decrypt"
 gpe "gpg --encrypt --recipient"
 htc "htop -s PERCENT_CPU"
@@ -213,7 +232,10 @@ r "ranger"
 rg "printf '\033c' && rg"
 rx "redshift -x"
 sn "sudo nvim"
-sw "swex"
+# sw "swex"
+t "tmux"
+ta "tmux a"
+tls "tmux ls"
 vmd "vimdiff"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
@@ -281,7 +303,9 @@ gmg "git merge"
 gmgt "git mergetool"
 
 gr "git remote -v"
-gro "git remote show origin"
+gra "git remote add origin"
+grr "git remote remove origin"
+grs "git remote show origin"
 
 # ]]] branch  #
 
@@ -413,8 +437,6 @@ ureq "pip freeze > requirements.txt"
 hlg "tail -n 5 $spv_dir/src/api/management/commands/update-history.log"
 # scan history
 # hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
-# scan cron log for hs cmd
-crnl "grep \"({{ .chezmoi.group }}) CMD\" /var/log/syslog | tail -n 1 && hlg"
 # removes all but newest file
 # rmol "ls -t | tail -n +2 | xargs rm -- && l"
 
@@ -471,7 +493,6 @@ ht "python3 -m http.server"
 h "hugo"
 he "hugo serve -D --disableFastRender"
 
-ss "ssh {{ .chezmoi.group }}@192.168.0.100"
 ssb "ssh-bandit"
 
 rt "python ~/coding/rt-scraper/!rt-scraper.py"

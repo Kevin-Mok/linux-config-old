@@ -22,10 +22,19 @@ set -U mfs_dir "/home/kevin/coding/mf-site"
 source /home/kevin/coding/spotify-lib-vis/src/scripts/api-keys-fish.sh
 {{ end }}
 
-set -x PATH $PATH ~/scripts ~/scripts/colors ~/go/bin
+set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin
 set -x CLASSPATH $CLASSPATH /home/kevin/java/*.jar
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
+
+{{ if eq .linux_os "termux" }}
+# set SPACEFISH_PROMPT_ORDER time user dir host git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time line_sep battery jobs exit_code vi_mode char
+set SPACEFISH_DIR_PREFIX ''
+set SPACEFISH_PROMPT_ORDER vi_mode dir git pyenv exec_time jobs exit_code line_sep char
+set SPACEFISH_VI_MODE_INSERT ''
+set SPACEFISH_VI_MODE_NORMAL '[n] '
+set SPACEFISH_VI_MODE_SUFFIX ''
+{{ end }}
 
 set -x PASSWORD_STORE_CLIP_TIME 120
 set -xU XSET_RATE 90
@@ -53,8 +62,10 @@ bind \ce edit_command_buffer
 bind \cr forward-word
 
 chezmoi apply
-~/scripts/sync-shortcuts
-# source ~/.config/fish/key_abbr.fish > /dev/null
+{{ if not (eq .linux_os "termux") }}
+  ~/scripts/sync-shortcuts
+{{ end }}
+source ~/.config/fish/key_abbr.fish > /dev/null
 set -U fish_fxn_dir "{{ .chezmoi.homedir }}/linux-config/dot_config/fish/functions"
 # set -U fish_fxn_dir "~/.config/fish/functions"
 abbr ff "cd $fish_fxn_dir"

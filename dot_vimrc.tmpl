@@ -124,8 +124,10 @@ Plug 'vim-scripts/L9'
 " find files from within Vim
 " Plug 'vim-scripts/FuzzyFinder'
 
+{{ if not .gui }}
 " Gotham color scheme
-" Plug 'whatyouhide/vim-gotham'
+Plug 'whatyouhide/vim-gotham'
+{{ end }}
 
 " " collection of Vim color schemes
 " Plug 'flazz/vim-colorschemes'
@@ -263,13 +265,44 @@ Plug 'kana/vim-textobj-user'
 Plug 'rbonvall/vim-textobj-latex'
 " swap words
 Plug 'tommcdo/vim-exchange'
+Plug 'scrooloose/nerdtree'
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeShowHidden=1
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+    let g:tmux_navigator_no_mappings = 1
+    " nnoremap <C-Down> :TmuxNavigateDown<cr>
+    " nnoremap <C-Up> :TmuxNavigateUp<cr>
+    " nnoremap <C-Left> :TmuxNavigateLeft<cr>
+    " nnoremap <C-Right> :TmuxNavigateRight<cr>
+    " nnoremap <silent> <leader>j :TmuxNavigateDown<cr>
+    " nnoremap <silent> <leader>k :TmuxNavigateUp<cr>
+    " nnoremap <silent> <leader>h :TmuxNavigateLeft<cr>
+    " nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
+    " nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+    " nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+    " nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+    " nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+    " nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+    " nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+    " nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+    " nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+    " nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+    " nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+    " nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+    " nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 " ]]] vim-plug "
 
 " Mappings [[[ "
 
 call plug#end()
-" colorscheme gotham256
+
+{{ if .gui }}
 colorscheme wal
+{{ else }}
+colorscheme gotham256
+{{ end }}
 
 " normal mappings [[[ "
 
@@ -340,10 +373,11 @@ nnoremap <leader>ll Vjgq
 nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
 " apply normal command to selection
 vnoremap <leader>n q:anorm 
-" don't wrap lines
-nnoremap <leader>nw :set nowrap<CR>
+nnoremap <leader>nt :NERDTree<CR>
 " check if in neovim
 nnoremap <leader>nv :echo has('nvim')<CR>
+" don't wrap lines
+nnoremap <leader>nw :set nowrap<CR>
 " recursively open fold
 nnoremap <leader>o zO
 " Plug commands
@@ -416,6 +450,7 @@ nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>
 nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-Left> <C-W><C-H>
+
 " Maximize height/width.
 nnoremap <C-g> <C-W>_
 nnoremap <C-w> <C-W>|
