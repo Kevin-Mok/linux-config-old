@@ -48,6 +48,7 @@ ctltd "sudo systemctl status dhcpcd"
 ctlr "sudo systemctl restart"
 
 nct "sudo netctl"
+nctf "sudo ip link set dev wlp3s0 down"
 nctr "sudo systemctl restart netctl-auto@wlp4s0.service"
 
 # ]]] systemctl  #
@@ -328,12 +329,11 @@ grmor "rm (fd -e orig --no-ignore -H)"
 # diff/log [[[ #
 
 gd "git diff -w"
-gdc "git diff -w --cached"
+gdc "git diff --cached -w"
 gdh "git diff --cached -w HEAD~1"
 gds "git diff --stat"
 gdt "git difftool -w --tool=vimdiff"
 gdtc "git difftool -w --cached --tool=vimdiff"
-
 gl "git log"
 glm "git log master"
 gsl "git shortlog"
