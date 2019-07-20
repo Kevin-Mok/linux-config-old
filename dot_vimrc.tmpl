@@ -271,27 +271,21 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+    " mappings [[[ "
+
     let g:tmux_navigator_no_mappings = 1
+    {{ if eq .linux_os "arch" }}
+    nnoremap <A-j> :TmuxNavigateDown<cr>
+    nnoremap <A-k> :TmuxNavigateUp<cr>
+    nnoremap <A-h> :TmuxNavigateLeft<cr>
+    nnoremap <A-l> :TmuxNavigateRight<cr>
+    {{ end }}
     " nnoremap <C-Down> :TmuxNavigateDown<cr>
     " nnoremap <C-Up> :TmuxNavigateUp<cr>
     " nnoremap <C-Left> :TmuxNavigateLeft<cr>
     " nnoremap <C-Right> :TmuxNavigateRight<cr>
-    " nnoremap <silent> <leader>j :TmuxNavigateDown<cr>
-    " nnoremap <silent> <leader>k :TmuxNavigateUp<cr>
-    " nnoremap <silent> <leader>h :TmuxNavigateLeft<cr>
-    " nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
-    " nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-    " nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-    " nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-    " nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-    " nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-    " nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-    " nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-    " nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-    " nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-    " nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-    " nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-    " nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+
+    " ]]] mappings "
 " ]]] vim-plug "
 
 " Mappings [[[ "

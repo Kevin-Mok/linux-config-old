@@ -1,4 +1,4 @@
-# basic {{{ 
+# basic [[[ 
 
 # reload config file (change file location to your the tmux.conf you want to use)
 bind r source-file ~/.tmux.conf
@@ -11,18 +11,32 @@ set -g mouse on
 # clear rename prompt
 bind-key , command-prompt "rename-window '%%'"
 
-#  }}} # 
+#  ]]] # 
 
-# panes{{{
+# panes[[[
 
 bind h split-window -h
 bind v split-window -v
 unbind '"'
 unbind %
 
-# vim-tmux-navigator{{{
+# vim-tmux-navigator[[[
+
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+
+{{ if .gui }}
+bind-key -n M-h if-shell "$is_vim" "send-keys M-h"  "select-pane -L"
+bind-key -n M-j if-shell "$is_vim" "send-keys M-j"  "select-pane -D"
+bind-key -n M-k if-shell "$is_vim" "send-keys M-k"  "select-pane -U"
+bind-key -n M-l if-shell "$is_vim" "send-keys M-l"  "select-pane -R"
+bind-key -n M-\ if-shell "$is_vim" "send-keys M-\\" "select-pane -l"
+bind-key -T copy-mode-vi M-h select-pane -L
+bind-key -T copy-mode-vi M-j select-pane -D
+bind-key -T copy-mode-vi M-k select-pane -U
+bind-key -T copy-mode-vi M-l select-pane -R
+bind-key -T copy-mode-vi M-\ select-pane -l
+{{ else }}
 bind-key -n C-Left if-shell "$is_vim" "send-keys C-Left"  "select-pane -L"
 bind-key -n C-Down if-shell "$is_vim" "send-keys C-Down"  "select-pane -D"
 bind-key -n C-Up if-shell "$is_vim" "send-keys C-Up"  "select-pane -U"
@@ -33,12 +47,9 @@ bind-key -T copy-mode-vi C-Down select-pane -D
 bind-key -T copy-mode-vi C-Up select-pane -U
 bind-key -T copy-mode-vi C-Right select-pane -R
 bind-key -T copy-mode-vi C-\ select-pane -l
-# bind-key -T copy-mode-vi M-h select-pane -L
-# bind-key -T copy-mode-vi M-j select-pane -D
-# bind-key -T copy-mode-vi M-k select-pane -U
-# bind-key -T copy-mode-vi M-l select-pane -R
-# bind-key -T copy-mode-vi M-\ select-pane -l
-# }}}
+{{ end }}
+
+# ]]]
 
 # kill panes without confirmation
 bind-key x kill-pane
@@ -50,9 +61,9 @@ bind-key & kill-window
 # bind -n C-Left select-pane -L
 # bind -n C-l select-pane -R
 
-# }}}
+# ]]]
 
-#  plugins {{{
+#  plugins [[[
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -64,4 +75,4 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 run -b '~/.tmux/plugins/tpm/tpm'
 
-#  }}} plugins # 
+#  ]]] plugins # 
