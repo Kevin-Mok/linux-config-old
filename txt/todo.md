@@ -1,3 +1,7 @@
+- tmux keybindings
+  - rename session/window
+  - detach
+
 - suckless
   - dwm
     - layout
@@ -12,4 +16,3 @@
 - scripts
   - copy sync-shortcut 
   - YCM
-

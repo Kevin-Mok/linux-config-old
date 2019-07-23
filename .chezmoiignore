@@ -1,6 +1,6 @@
 README.md
 
-{{ if .gui }}
+{{ if not .gui }}
 .config/i3/
 .config/i3blocks/
 .config/mpv/

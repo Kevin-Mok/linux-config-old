@@ -8,24 +8,25 @@ set-option -g prefix C-Space
 bind-key C-Space send-prefix
 # Enable mouse mode (tmux 2.1 and above)
 set -g mouse on
-# clear rename prompt
-bind-key , command-prompt "rename-window '%%'"
 
-#  ]]] # 
-
-# panes[[[
-
-bind h split-window -h
-bind v split-window -v
+set -s escape-time 0
 unbind '"'
 unbind %
-
-# vim-tmux-navigator[[[
 
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
 
-{{ if .gui }}
+bind v split-window -v
+
+#  ]]] # 
+
+{{ if .gui }}# [[[
+
+bind-key , command-prompt "rename-session '%%'"
+bind-key -n M-d detach
+
+#  panes [[[ # 
+
 bind-key -n M-h if-shell "$is_vim" "send-keys M-h"  "select-pane -L"
 bind-key -n M-j if-shell "$is_vim" "send-keys M-j"  "select-pane -D"
 bind-key -n M-k if-shell "$is_vim" "send-keys M-k"  "select-pane -U"
@@ -36,7 +37,35 @@ bind-key -T copy-mode-vi M-j select-pane -D
 bind-key -T copy-mode-vi M-k select-pane -U
 bind-key -T copy-mode-vi M-l select-pane -R
 bind-key -T copy-mode-vi M-\ select-pane -l
-{{ else }}
+
+bind-key -n M-Enter split-window -h
+# bind-key -n M-v split-window -h
+
+bind-key -n M-q kill-pane
+
+#  ]]] panes # 
+
+#  windows [[[ # 
+
+bind-key -n M-w new-window
+bind x kill-window
+bind-key -n M-a command-prompt "rename-window '%%'"
+# bind-key , command-prompt "rename-window '%%'"
+
+bind-key -n M-p previous-window
+bind-key -n M-n next-window
+bind-key -n C-S-[ swap-window -t -1
+bind-key -n C-S-] swap-window -t +1
+
+#  ]]] windows # 
+
+bind-key -n M-c copy-mode
+
+# ]]]
+{{ else }}# [[[
+
+#  panes [[[ # 
+
 bind-key -n C-Left if-shell "$is_vim" "send-keys C-Left"  "select-pane -L"
 bind-key -n C-Down if-shell "$is_vim" "send-keys C-Down"  "select-pane -D"
 bind-key -n C-Up if-shell "$is_vim" "send-keys C-Up"  "select-pane -U"
@@ -47,13 +76,6 @@ bind-key -T copy-mode-vi C-Down select-pane -D
 bind-key -T copy-mode-vi C-Up select-pane -U
 bind-key -T copy-mode-vi C-Right select-pane -R
 bind-key -T copy-mode-vi C-\ select-pane -l
-{{ end }}
-
-# ]]]
-
-# kill panes without confirmation
-bind-key x kill-pane
-bind-key & kill-window
 
 # switch panes using Alt-arrow without prefix
 # bind -n C-Down select-pane -D
@@ -61,18 +83,105 @@ bind-key & kill-window
 # bind -n C-Left select-pane -L
 # bind -n C-l select-pane -R
 
+bind h split-window -h
+
+bind-key x kill-pane
+
+#  ]]] panes # 
+
+bind-key -n C-Left previous-window
+bind-key -n C-Right next-window
+
+bind-key & kill-window
+
+{{ end }}# ]]]
+
+#  status bar [[[ # 
+
+#
+# Powerline Double Cyan - Tmux Theme
+# Created by Jim Myhrberg <contact@jimeh.me>.
+#
+# Inspired by vim-powerline: https://github.com/Lokaltog/powerline
+#
+# Requires terminal to be using a powerline compatible font, find one here:
+# https://github.com/Lokaltog/powerline-fonts
+#
+
+# Status update interval
+set -g status-interval 60
+
+# Basic status bar colors
+set -g status-style fg=colour240,bg=colour233
+
+# Left side of status bar[[[
+set -g status-left-style bg=colour233,fg=colour243
+set -g status-left-length 40
+# set -g status-left "#[fg=colour233,bg=colour39,bold] #S #[fg=colour39,bg=colour240,nobold]#[fg=colour233,bg=colour240] #(whoami) #[fg=colour240,bg=colour235]#[fg=colour240,bg=colour235] #I:#P #[fg=colour235,bg=colour233,nobold]"
+# set -g status-left "#[fg=colour233,bg=colour39,bold] #S:#P #[fg=colour39,bg=colour233,nobold]"
+set -g status-left "#[fg=colour233,bg=colour240] #S #[fg=colour240,bg=colour235] #P #[fg=colour235,bg=colour233]"
 # ]]]
+
+# Right side of status bar[[[
+set -g status-right-style bg=colour233,fg=colour243
+set -g status-right-length 150
+# set -g status-right "#[fg=colour235,bg=colour233]#[fg=colour240,bg=colour235] %H:%M #[fg=colour240,bg=colour235]#[fg=colour233,bg=colour240] %d-%b-%y #[fg=colour39,bg=colour240]#[fg=colour233,bg=colour39,bold] #H "
+set -g status-right "#[fg=colour235,bg=colour233]#[fg=colour240,bg=colour235] %H:%M #[fg=colour240,bg=colour235]#[fg=colour233,bg=colour240] %a-%d-%m #[fg=colour39,bg=colour240]"
+# ]]]
+
+# Window status
+set -g window-status-format "  #I:#W#F  "
+set -g window-status-current-format "#[fg=colour233,bg=black]#[fg=colour81,nobold] #I:#W#F #[fg=colour233,bg=black,nobold]"
+
+# Current window status
+set -g window-status-current-style bg=colour39,fg=colour235
+
+# Window with activity status
+set -g window-status-activity-style bg=colour233,fg=colour245
+
+# Window separator
+set -g window-status-separator ""
+
+# Window status alignment
+set -g status-justify centre
+
+# Pane border
+set -g pane-border-style bg=default,fg=colour238
+
+# Active pane border
+set -g pane-active-border-style bg=default,fg=colour39
+
+# Pane number indicator
+set -g display-panes-colour colour233
+set -g display-panes-active-colour colour245
+
+# Clock mode
+set -g clock-mode-colour colour39
+set -g clock-mode-style 24
+
+# Message
+set -g message-style bg=colour39,fg=black
+
+# Command message
+set -g message-command-style bg=colour233,fg=black
+
+# Mode
+set -g mode-style bg=colour39,fg=colour232
+
+#  ]]] status bar # 
 
 #  plugins [[[
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 
-set -g @plugin 'jimeh/tmux-themepack'
-set -g @themepack 'powerline/double/blue'
+# set -g @plugin 'jimeh/tmux-themepack'
+# set -g @themepack 'powerline/double/blue'
 
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
 run -b '~/.tmux/plugins/tpm/tpm'
 
 #  ]]] plugins # 
+
+# vim: fdm=marker ft=tmux.go-template

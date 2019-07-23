@@ -1,4 +1,4 @@
 #!/bin/bash
 
 man_choice=$(apropos . | awk '{ print $1 }' | dmenu -i)
-nvim -c ":Man $man_choice" -c "resize 100"
+nvim -c ":Man $man_choice" -c "only"

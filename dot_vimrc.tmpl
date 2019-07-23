@@ -363,7 +363,8 @@ nnoremap <leader>l Vgq
 " format this and next line
 nnoremap <leader>ll Vjgq
 " move cursor to middle of line
-nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
+" nnoremap <leader>m :call cursor(0, len(getline('.'))/2)<CR>
+nnoremap <leader>m :vert Man 
 " apply normal command to selection
 vnoremap <leader>n q:anorm 
 nnoremap <leader>nt :NERDTree<CR>
