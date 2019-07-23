@@ -274,12 +274,10 @@ Plug 'christoomey/vim-tmux-navigator'
     " mappings [[[ "
 
     let g:tmux_navigator_no_mappings = 1
-    {{ if eq .linux_os "arch" }}
     nnoremap <A-j> :TmuxNavigateDown<cr>
     nnoremap <A-k> :TmuxNavigateUp<cr>
     nnoremap <A-h> :TmuxNavigateLeft<cr>
     nnoremap <A-l> :TmuxNavigateRight<cr>
-    {{ end }}
     " nnoremap <C-Down> :TmuxNavigateDown<cr>
     " nnoremap <C-Up> :TmuxNavigateUp<cr>
     " nnoremap <C-Left> :TmuxNavigateLeft<cr>
