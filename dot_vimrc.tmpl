@@ -1,5 +1,3 @@
-" vim: fdm=marker ft=vim.go-template
-
 " set x=y [[[ "
 
 set autoindent
@@ -69,7 +67,7 @@ autocmd Filetype markdown inoremap < <Esc><<A
 autocmd Filetype markdown inoremap << <
 autocmd Filetype markdown inoremap > <Esc>>>A
 autocmd Filetype markdown inoremap >> >
-autocmd FileType markdown,tex,text set spell spelllang=en_us
+autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=tcqjvaw
 autocmd FileType python set fdm=indent
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
@@ -465,6 +463,7 @@ autocmd Filetype tex inoremap <localleader>ep \epsilon
 autocmd Filetype tex inoremap <localleader>fa \forall
 autocmd Filetype tex inoremap <localleader>g \geq
 autocmd Filetype tex inoremap <localleader>i \in
+autocmd Filetype tex inoremap <localleader>la \leftarrow
 autocmd Filetype tex inoremap <localleader>le \leq
 autocmd Filetype tex inoremap <localleader>ln \log n
 autocmd Filetype tex inoremap <localleader>lr \Leftrightarrow
@@ -516,3 +515,5 @@ autocmd Filetype python inoremap <localleader>bp breakpoint()
 autocmd Filetype python inoremap <localleader>s self.
 
 " ]]] Local Mappings "
+
+" vim: fdm=marker ft=vim.go-template
