@@ -45,7 +45,7 @@ bindsym Mod4+c exec $browser
 bindsym Mod4+f exec firefox
 bindsym Mod4+$mod+f exec echo 'Kevin@fosstodon.org' | xclip -selection clipboard
 bindsym Mod4+h exec echo 'kevin.mok@live.ca' | xclip -selection clipboard
-bindsym Mod4+m exec urxvt -e ~/scripts/vim-man
+# bindsym Mod4+m exec urxvt -e ~/scripts/vim-man
 bindsym Mod4+$mod+m exec pass -c uoft/markus
 bindsym Mod4+n exec urxvt -e nvim
 bindsym Mod4+o exec xclip -selection clipboard ~/.password-store/social/gmail
@@ -141,17 +141,24 @@ bindsym $mod+space focus mode_toggle
 
 #  gaps [[[ # 
 
-for_window [class="^.*"] border pixel 3
-set $inner_gaps 40
+set $inner_gaps 20
+# set $inner_gaps 7
+# set $inner_gaps 0
+
 set $outer_gaps 0
+set $border_radius 15
 # remove window titlebars
-# for_window [class="^.*"] border pixel 1
+# for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 # gaps inner $inner_gaps
 # gaps outer $outer_gaps
 # gaps bottom 0
 gaps inner 0
 gaps outer 0
+{{ if eq .chezmoi.fullHostname "nzxt" }}
+border_radius $border_radius
+{{ end }}
 
 #  other gaps [[[ # 
 
@@ -288,6 +295,7 @@ bindsym $mod+F5 workspace $ws5; exec $browser
 # bindsym Mod4+g workspace $ws5; layout tabbed; exec gimp
 bindsym Mod4+g workspace $ws5; exec mgba-qt
 bindsym Mod4+i workspace $ws5; exec idea
+bindsym Mod4+m workspace $ws5; layout tabbed; exec urxvt -e ~/.minetest/minetest/bin/minetest
 bindsym Mod4+t workspace $ws5; exec thunderbird
 bindsym Mod4+5 workspace $ws5; exec godot
 bindsym Mod4+F5 workspace $ws5; exec cd ~/coding/ada-mario && godot -e
@@ -335,6 +343,7 @@ set $ws11 "11 "
 # assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $secondary
 bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_CPU 
+bindsym Mod4+a workspace $ws11; exec antimicro
 
 set $ws12 "12 "
 bindsym $mod+F12 workspace $ws12; exec $term

@@ -67,8 +67,21 @@ autocmd Filetype markdown inoremap < <Esc><<A
 autocmd Filetype markdown inoremap << <
 autocmd Filetype markdown inoremap > <Esc>>>A
 autocmd Filetype markdown inoremap >> >
-autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=tcqjvaw
-autocmd FileType python set fdm=indent
+" format options [[[ "
+
+" a = auto-format paragraphs 
+" c = wrap comments
+" j = remove comment header when joining lines
+" M = don't add space when joining lines
+" q = format comments with gq
+" t = wrap lines
+" v = break lines in insert 
+" w = whitespace continues paragraph
+
+" ]]] format options "
+" autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=acjMqtvw
+autocmd FileType tex,text set spell spelllang=en_us formatoptions=acjMqtvw
+autocmd FileType python,lua set fdm=indent
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
 autocmd FileType sh map <F8> :!clear && shellcheck %<CR>
@@ -296,9 +309,11 @@ colorscheme gotham256
 
 " normal mappings [[[ "
 
+" visual select across lines by default "
 nnoremap v <C-V>
+" last macro "
 nnoremap Q @@
-
+" toggle fold "
 nnoremap , za
 
 " indenting
@@ -351,9 +366,11 @@ nnoremap <leader>gdm :Gvdiff master<CR>
 " toggle search highlighting
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " help
-nnoremap <leader>he :help 
+nnoremap <leader>he :vert help 
 nnoremap <leader>ht :set tabstop=2 shiftwidth=2 expandtab<CR>
 nnoremap <leader>vhe :vert help 
+" don't add space when joining lines "
+nnoremap <leader>j gJ
 " format current line
 nnoremap <leader>l Vgq
 " format this and next line
@@ -370,8 +387,11 @@ nnoremap <leader>nv :echo has('nvim')<CR>
 nnoremap <leader>nw :set nowrap<CR>
 " recursively open fold
 nnoremap <leader>o zO
+" paste from?
+" nnoremap <leader>p "*p
+" format paragraph
+nnoremap <leader>p gqip
 " Plug commands
-nnoremap <leader>p "*p
 nnoremap <leader>pli :PlugInstall<CR>
 nnoremap <leader>plc :PlugClean<CR>
 nnoremap <leader>plu :PlugUpdate<CR>

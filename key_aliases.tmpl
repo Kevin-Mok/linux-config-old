@@ -80,7 +80,8 @@ ll "ls -al"
 cwd "echo (pwd) | xclip -selection clipboard"
 smv "sudo mv"
 f "cd"
-fz "fzf"
+fz "fzf -e"
+fbg "cd ~/Pictures/Backgrounds && fzf -e --delimiter '/' --with-nth -1"
 fnd "find . -type f -name"
 
 rmr "rm -rf"
@@ -150,6 +151,8 @@ tri "trizen -S --noedit"
 ya "yay -S  --answerclean=None --answerdiff=None --answeredit=None"
 # info
 yaq "yay -Qi"
+# list files
+yal "yay -Ql"
 # remove
 yar "yay -Rns"
 # sync
@@ -202,13 +205,14 @@ id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
 
 # mst "sudo rm ~/st/config.h && sudo bear make -C ~/st install"
-mst "sudo ~/st/make-st.sh"
+# mst "sudo ~/st/make-st.sh"
 
 #  system ]]]
 
 # applications  [[[ #
 
 # silent="> /dev/null 2>&1& "
+a "antimicro"
 chr "google-chrome"
 clc "cloc ."
 cv "cava"
@@ -222,29 +226,34 @@ htm "htop -s PERCENT_MEM"
 i "sxiv"
 ig "sxiv -a"
 it "sxiv -t *"
+ki "kill -9"
 ka "killall"
 kd "killall Discord && killall Discord && killall slack"
 kt "killall thunderbird"
 mp "mpv --volume=50"
 mra "man ranger"
-mt "minetest"
+# mt "minetest"
 n "nvim"
 p3 "python3"
 pdft "pdftotext"
 pipes "pipes.sh -t 3"
 py "python"
 r "ranger"
-rgc "printf '\033c' && rg"
+# rgc "printf '\033c' && rg"
+# rgc "printf '\033c' && rg"
+rgc "clear && tmux clear-history && rg"
 rx "redshift -x"
 sn "sudo nvim"
 # sw "swex"
 t "tmux"
-ta "tmux a"
+ta "tmux a -t"
+tal "tmux a"
 tl "tmux ls"
 tn "tmux new -s"
 vmd "vimdiff"
 wg "wego"
 wp "grep wallpaper ~/.cache/wal/colors.sh"
+ytd "youtube-dl"
 z "zathura --fork"
 
 lz "unzip -l"
@@ -499,7 +508,6 @@ gpsh "git push heroku"
 
 # mfs [[[ #
 
-mfs "nvim ~/coding/best-mf-site-personal/index.html"
 ht "python3 -m http.server"
 # j "jekyll"
 # js "jekyll serve"
@@ -527,30 +535,38 @@ dea "deactivate"
 
 # ]]] coding projs  #
 
+# games [[[ #
+
+wlm "watson log --all --project=minetest"
+wrm "watson report --all --project=minetest"
+wamv "watson start minetest +video"
+
+mtg "minetest"
+ms "minetestserver"
+msc "minetestserver --gameid minetest --worldname Creative --terminal"
+# msh "minetestserver --gameid minetest --worldname Hevin --config ~/.minetest/hevin.conf --terminal"
+msh "minetestserver --gameid mineclone2 --worldname Hevin-MC --config ~/.minetest/hevin-mc.conf --terminal"
+mst "minetestserver --gameid minimal --worldname Test --terminal"
+# mtrsy "rsync -vr .minetest/ /mnt/linux-files/.minetest/"
+
+# ]]] games #
+
 # school  [[[ #
 
 # basic
 # wlf "watson log --all --tag=final"
 # wrf "watson report --all --tag=final"
 ssc "ssh mokkar@teach.cs.utoronto.ca"
+ssp "ssh -p 8022 192.168.0.11"
 
 # alg course
 jc "javac -d out *.java"
 jr "java -cp \"$CLASSPATH:out\""
 
 # 263
-wl6 "watson log --all --project=263 --tag=a4"
-wr6 "watson report --all --project=263 --tag=a4"
+wl6 "watson log --all --project=263 --tag=a5"
+wr6 "watson report --all --project=263 --tag=a5"
 z6 "zathura --fork ~/school/263/Introduction-to-Algorithms-CLRs/Introduction\ to\ Algorithms\ -\ 3rd\ Edition.pdf"
-pd6 "pdflatex a4"
+pd6 "pdflatex a5"
 
 # ]]] school  #
-
-# games [[[ #
-
-mtc "minetestserver --gameid minetest --worldname Creative --terminal"
-mth "minetestserver --gameid minetest --worldname Hevin --config hevin.conf --terminal"
-mtt "minetestserver --gameid minimal --worldname Test --terminal"
-# mtrsy "rsync -vr .minetest/ /mnt/linux-files/.minetest/"
-
-# ]]] games #

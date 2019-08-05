@@ -22,7 +22,7 @@ set -U mfs_dir "/home/kevin/coding/mf-site"
 source /home/kevin/coding/spotify-lib-vis/src/scripts/api-keys-fish.sh
 {{ end }}
 
-set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin
+set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin ~/.minetest/minetest/bin
 set -x CLASSPATH $CLASSPATH /home/kevin/java/*.jar
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
@@ -92,7 +92,7 @@ abbr cpp "copy echo (pwd)"
 abbr cff "create-fish-function"
 abbr def "define"
 abbr ev "evince-silent"
-abbr fbg "find-bg"
+# abbr fbg "find-bg"
 abbr fzv "fzf-vim"
 # git [[[ #
 
@@ -101,10 +101,12 @@ abbr gdf "git-diff-files"
 abbr gpsmt "git-push-multiple"
 abbr gremotes "git-mult-remotes"
 abbr grmb "git-delete-branch"
+abbr gro "git-replace-origin"
 
 # ]]] git #
 abbr hs "scan-history"
 abbr hst "$EDITOR ~/.local/share/fish/fish_history"
+abbr mn "man-vim"
 abbr mat "math"
 abbr pgr "grep-pdf"
 abbr pgrf "grep-pdf-file"
@@ -117,10 +119,6 @@ abbr uzr "unzip-rm"
 abbr vsnp "vim-snippet"
 abbr fvft "find-vim-filetype"
 
-# ]]] fxn abbr's #
-
-abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
-
 # school [[[ #
 
 # 369
@@ -132,3 +130,7 @@ abbr jcr "java-compile-run"
 abbr jct "java-compile-test"
 
 # ]]] school #
+
+# ]]] fxn abbr's #
+
+abbr hm "cd $mfs_dir && hugo serve -D --disableFastRender"
