@@ -1,8 +1,8 @@
 function refresh-config
     chezmoi apply
     and echo 'Applied chezmoi.'
-    and tmux source-file ~/.tmux.conf
-    and echo 'Sourced tmux config.'
+    # and tmux source-file ~/.tmux.conf
+    # and echo 'Sourced tmux config.'
 
     sync-shortcuts
     echo 'Synced shortcuts.'

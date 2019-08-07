@@ -47,9 +47,11 @@ function cd --description "Change directory"
 
 		set -U last_dir $PWD
         {{ if (not (eq .linux_os "termux")) }}
-        lsd -a
+        # lsd -a
+        lsd
         {{ else }}
-        ls -a
+        # ls -a
+        ls
         {{ end }}
     end
 

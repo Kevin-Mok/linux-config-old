@@ -57,7 +57,8 @@ set -x EDITOR nvim
 set -x VISUAL nvim 
 set -U fish_help_browser firefox 
 
-builtin cd $last_dir
+builtin cd $last_dir && ls > /dev/null
+# builtin cd $last_dir
 bind \ce edit_command_buffer
 bind \cr forward-word
 

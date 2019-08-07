@@ -44,8 +44,10 @@ ctld "sudo systemctl disable"
 ctla "sudo systemctl start"
 ctls "sudo systemctl stop"
 ctlt "sudo systemctl status"
-ctltd "sudo systemctl status dhcpcd"
 ctlr "sudo systemctl restart"
+
+ctltd "sudo systemctl status dhcpcd"
+ctlas "sudo systemctl start sshd"
 
 nct "sudo netctl"
 nctf "sudo ip link set dev wlp3s0 down"
@@ -71,10 +73,13 @@ vdr "vidir --verbose"
 # directory-related [[[ #
 
 {{ if not (eq .linux_os "termux") }}
-l "lsd -a"
-ll "lsd -al"
+# l "lsd --group-dirs first"
+l "lsd"
+la "lsd -A --group-dirs first"
+ll "lsd -Al --group-dirs first --size short"
 {{ else }}
-l "ls -a"
+l "ls"
+la "ls -a"
 ll "ls -al"
 {{ end }}
 cwd "echo (pwd) | xclip -selection clipboard"
@@ -326,6 +331,7 @@ gr "git remote -v"
 gra "git remote add origin"
 grr "git remote remove origin"
 grs "git remote show origin"
+gru "git branch --set-upstream-to=origin/master master"
 
 # ]]] branch  #
 

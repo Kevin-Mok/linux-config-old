@@ -1,4 +1,5 @@
 README.md
+commit-msg.txt
 
 {{ if not .gui }}
 .config/i3/
