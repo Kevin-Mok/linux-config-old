@@ -6,6 +6,7 @@
 	ui = auto
 [core]
 	editor = nvim
+    autocrlf = input
 [push]
 	default = simple
 [merge]

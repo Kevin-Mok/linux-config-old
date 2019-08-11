@@ -48,7 +48,7 @@ function cd --description "Change directory"
 		set -U last_dir $PWD
         {{ if (not (eq .linux_os "termux")) }}
         # lsd -a
-        lsd
+        lsd -F --group-dirs first
         {{ else }}
         # ls -a
         ls

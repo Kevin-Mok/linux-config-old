@@ -9,5 +9,5 @@ function refresh-config
     source ~/.config/fish/key_abbr.fish > /dev/null
     and echo 'Sourced shortcuts.'
     and echo 'Reloading fish.'
-    and fish
+    and exec fish
 end

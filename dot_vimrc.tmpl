@@ -6,6 +6,9 @@ set background=dark
 " set colorcolumn=80
 set clipboard+=unnamedplus
 set diffopt=filler,context:3
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+  set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
 set encoding=utf-8
 set expandtab
 " set foldmethod=indent
@@ -53,7 +56,7 @@ autocmd CursorHold * if !bufexists("[Command Line]") | checktime | endif
 " commands for file types [[[ "
 
 autocmd BufNewFile,BufRead .* set syntax=sh
-autocmd FileType *css,htmldjango,html,javascript,json,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
+autocmd FileType *css,htmldjango,html,javascript,json,lisp,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead *.md set filetype=markdown
 " autocmd Filetype markdown set textwidth=0
 " autocmd Filetype html set foldmarker=0
@@ -77,10 +80,10 @@ autocmd Filetype markdown inoremap >> >
 " t = wrap lines
 " v = break lines in insert 
 " w = whitespace continues paragraph
-
 " ]]] format options "
-" autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=acjMqtvw
-autocmd FileType tex,text set spell spelllang=en_us formatoptions=acjMqtvw
+" autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=cjMqtvw
+autocmd FileType markdown,tex,text set spell spelllang=en_us formatoptions=acjMqtvw
+" autocmd FileType tex,text set spell spelllang=en_us formatoptions=acjMqtvw
 autocmd FileType python,lua set fdm=indent
 autocmd Filetype json nnoremap <leader>j :%!python -m json.tool<CR>
 autocmd Filetype json set foldmethod=marker
@@ -315,6 +318,8 @@ nnoremap v <C-V>
 nnoremap Q @@
 " toggle fold "
 nnoremap , za
+" jump to horizontal position for mark "
+nnoremap ' `
 
 " indenting
 nnoremap > >>
@@ -371,6 +376,8 @@ nnoremap <leader>ht :set tabstop=2 shiftwidth=2 expandtab<CR>
 nnoremap <leader>vhe :vert help 
 " don't add space when joining lines "
 nnoremap <leader>j gJ
+" join all paragraphs into single line "
+nnoremap <leader>jl :set tw=9999999<CR>gggqG
 " format current line
 nnoremap <leader>l Vgq
 " format this and next line
@@ -524,7 +531,6 @@ autocmd Filetype fish inoremap <localleader>2 $argv[2]
 autocmd Filetype javascript inoremap <localleader>x process.exit()
 
 autocmd Filetype markdown inoremap <localleader>cb - [ ] 
-autocmd Filetype markdown nnoremap <localleader>j :set tw=9999999<CR>gggqG
 autocmd Filetype markdown nnoremap <localleader>x 0f[lrx
 " nnoremap <localleader>x 0f[lrx
 

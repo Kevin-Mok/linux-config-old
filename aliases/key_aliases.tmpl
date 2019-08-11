@@ -1,21 +1,31 @@
 # vim: fdm=marker ft=go-template.sh syntax=sh
 
 #  system [[[
+
+# basic [[[ #
+
 # clear screen
 c "printf '\033c'"
+dc "cd ~/Downloads && printf '\033c'"
 hst "history"
 ## nf "printf '\033c' && neofetch | lolcat"
 nf "printf '\033c' && neofetch"
 fi "fish"
 # reload urxvt
-ru "xrdb ~/.Xresources"
+ru "xrdb ~/.Xresources && grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2 | xargs wal -i > /dev/null"
+
+dua "sudo du -h --apparent-size | sort -h"
 # list file sizes in megabytes with depth 1
-duh "sudo du -d 1 -h --apparent-size | sort -hr"
-dum "sudo du -d 1 -m --apparent-size | sort -hr"
+duh "sudo du -d 1 -h --apparent-size | sort -h"
+dum "sudo du -d 1 -m --apparent-size | sort -h"
 m "man"
 tld "tldr"
 
-nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
+# ]]] basic #
+
+# display [[[ #
+
+# nvt "nvidia-settings --assign CurrentMetaMode='DVI-I-1: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}'"
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 xr "xrandr"
 xro "xrandr --output HDMI2 --off" 
@@ -23,6 +33,8 @@ xrr "xrandr --output HDMI2 --auto --right-of eDP1 --scale 1.33x1.33"
 xrm "xrandr --output HDMI2 --auto --same-as eDP1 --scale 1.33x1.33"
 xrs "xrandr -s 0"
 {{ end }}
+
+# ]]] display #
 
 vgb "sudo nvim /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -73,10 +85,9 @@ vdr "vidir --verbose"
 # directory-related [[[ #
 
 {{ if not (eq .linux_os "termux") }}
-# l "lsd --group-dirs first"
-l "lsd"
-la "lsd -A --group-dirs first"
-ll "lsd -Al --group-dirs first --size short"
+l "lsd -F --group-dirs first"
+la "lsd -AF --group-dirs first"
+ll "lsd -AlF --group-dirs first --size short"
 {{ else }}
 l "ls"
 la "ls -a"
@@ -125,13 +136,16 @@ bt "~/linux-config/dot_config/i3blocks/scripts/executable_battery"
 
 # ]]] power options  # 
 
-# sound
+# sound [[[ #
+
 {{ if eq .chezmoi.fullHostname "nzxt" }}
 vlm "alsamixer -c 0"
 vlh "alsamixer -c 2"
 {{ else }}
 vlm "alsamixer -c 1"
 {{ end }}
+
+# ]]] sound #
 
 # pkg management [[[ #
 
@@ -191,20 +205,27 @@ xpk "pkg list-installed | awk -F/ '{print \$1}' > ~/{{ .chezmoi.os }}-config/txt
 
 # ]]] pkg management #
 
+# python [[[ #
+
 py "python"
 # pyt "printf '\033c' && pytest -vvs"
 pyt "clear && tmux clear-history && pytest -vvs"
 pyts "clear && tmux clear-history && pytest -vv"
 pyu "python -m unittest"
-pipi "pip install"
+pipi "pip install --user"
 spipi "sudo pip install"
 
-# internet
+# ]]] python #
+
+# internet [[[ #
+
 pg "ping -c 2 -W 1 8.8.8.8"
 pgc "ping 8.8.8.8"
 dh "sudo dhcpcd"
 kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
+
+# ]]] internet #
 
 id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
@@ -222,6 +243,7 @@ chr "google-chrome"
 clc "cloc ."
 cv "cava"
 dg "dragon-drag-and-drop -x"
+ffx "firefox"
 fh "feh"
 fi "fish"
 gpd "gpg --decrypt"
@@ -239,25 +261,30 @@ mp "mpv --volume=50"
 mra "man ranger"
 # mt "minetest"
 n "nvim"
+ndu "ncdu"
 p3 "python3"
 pdft "pdftotext"
 pipes "pipes.sh -t 3"
 py "python"
+qc "qalc ''"
+qcg "qalculate-gtk"
 r "ranger"
+rbg "ranger --selectfile (grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2)"
 # rgc "printf '\033c' && rg"
 # rgc "printf '\033c' && rg"
 rgc "clear && tmux clear-history && rg"
 rx "redshift -x"
 sn "sudo nvim"
 # sw "swex"
-t "tmux"
+t "tmux"#[[[
 ta "tmux a -t"
 tal "tmux a"
+tk "tmux kill-server"
 tl "tmux ls"
 tn "tmux new -s"
+#]]]
 vmd "vimdiff"
 wg "wego"
-wp "grep wallpaper ~/.cache/wal/colors.sh"
 ytd "youtube-dl"
 z "zathura --fork"
 
@@ -283,9 +310,31 @@ yu "echo 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard"
 # watson [[[ #
 
 w "watson"
+
+# start [[[ #
+
 wa "watson start"
 wae "watson start && watson edit"
+wad "watson add -f '' -t ''"
+
 we "watson edit"
+wre "watson restart"
+wree "watson restart && watson edit"
+
+# ]]] start #
+
+# stop [[[ #
+
+ws "watson status && watson stop"
+wse "watson stop && watson edit"
+wsc "watson cancel"
+wsl "watson stop && watson log --day"
+wt "watson status"
+
+# ]]] stop #
+
+# log/report [[[ #
+
 wl "watson log --day"
 wla "watson log --all --tag="
 ww "watson log"
@@ -293,13 +342,8 @@ ww "watson log"
 wr "watson report --day"
 wra "watson report --all --tag="
 wrw "watson report"
-wre "watson restart"
-wree "watson restart && watson edit"
-ws "watson status && watson stop"
-wse "watson stop && watson edit"
-wsc "watson cancel"
-wsl "watson stop && watson log --day"
-wt "watson status"
+
+# ]]] log/report #
 
 # ]]] watson #
 
@@ -562,8 +606,8 @@ mst "minetestserver --gameid minimal --worldname Test --terminal"
 # basic
 # wlf "watson log --all --tag=final"
 # wrf "watson report --all --tag=final"
-ssc "ssh mokkar@teach.cs.utoronto.ca"
-ssp "ssh -p 8022 192.168.0.11"
+ssc "mosh mokkar@teach.cs.utoronto.ca"
+ssp "mosh --ssh='ssh -p 8022' 192.168.0.11"
 
 # alg course
 jc "javac -d out *.java"
