@@ -6,7 +6,7 @@
 
 # clear screen
 c "printf '\033c'"
-dc "cd ~/Downloads && printf '\033c'"
+d "cd ~/Downloads && printf '\033c'"
 hst "history"
 ## nf "printf '\033c' && neofetch | lolcat"
 nf "printf '\033c' && neofetch"
@@ -39,8 +39,8 @@ xrs "xrandr -s 0"
 vgb "sudo nvim /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-b "bat"
-ba "bat *"
+ba "bat"
+# ba "bat *"
 grep "grep --color=auto -n"
 grpr "grep -r"
 # pk "pkill -f"
@@ -67,6 +67,16 @@ nctr "sudo systemctl restart netctl-auto@wlp4s0.service"
 
 # ]]] systemctl  #
 
+# ssh [[[ #
+
+cpssh "ssh-copy-id -i ~/.ssh/id_rsa.pub"
+xcssh "bat ~/.ssh/id_rsa.pub | xclip -selection clipboard"
+ssp "mosh --ssh='ssh -p 8022' 192.168.0.12"
+ssd "mosh kevin@165.22.239.234 tmux a"
+
+# ]]] ssh #
+
+wh "watch"
 ct "crontab"
 cte "crontab -e"
 
@@ -97,7 +107,7 @@ cwd "echo (pwd) | xclip -selection clipboard"
 smv "sudo mv"
 f "cd"
 fz "fzf -e"
-fbg "cd ~/Pictures/Backgrounds && fzf -e --delimiter '/' --with-nth -1"
+fbg "cd ~/Pictures/Backgrounds && ranger --selectfile (fzf -e --delimiter '/' --with-nth -1)"
 fnd "find . -type f -name"
 
 rmr "rm -rf"
@@ -225,6 +235,8 @@ dh "sudo dhcpcd"
 kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
 
+wgt "wget"
+
 # ]]] internet #
 
 id "identify"
@@ -239,6 +251,20 @@ id "identify"
 
 # silent="> /dev/null 2>&1& "
 a "antimicro"
+# buku [[[ #
+
+b "buku"
+bd "buku -za ''"
+bh "buku -h | bat"
+bi "buku --immutable 1 -zu"
+bo "buku -o"
+br "buku -zd"
+brp "buku --replace"
+bs "buku --deep -n5 -s"
+bsv "bukuserver run --host 127.0.0.1 --port 5001"
+bw "buku -zw --immutable 1"
+
+# ]]] buku #
 chr "google-chrome"
 clc "cloc ."
 cv "cava"
@@ -275,6 +301,8 @@ rbg "ranger --selectfile (grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2)"
 rgc "clear && tmux clear-history && rg"
 rx "redshift -x"
 sn "sudo nvim"
+ssh "mosh"
+stp "termdown"
 # sw "swex"
 t "tmux"#[[[
 ta "tmux a -t"
@@ -282,6 +310,8 @@ tal "tmux a"
 tk "tmux kill-server"
 tl "tmux ls"
 tn "tmux new -s"
+tnc "tmux new -s config"
+tnj "tmux new -s journal"
 #]]]
 vmd "vimdiff"
 wg "wego"
@@ -335,13 +365,12 @@ wt "watson status"
 
 # log/report [[[ #
 
-wl "watson log --day"
-wla "watson log --all --tag="
-ww "watson log"
-# wlm "watson log --project coding --tag mfs"
-wr "watson report --day"
-wra "watson report --all --tag="
-wrw "watson report"
+wl "watson log -Gcd"
+wla "watson log -Gca -T"
+ww "watson log -Gc"
+wr "watson report -Gcd"
+wra "watson report -Gca -T"
+wrw "watson report -Gc"
 
 # ]]] log/report #
 
@@ -373,6 +402,8 @@ gmgt "git mergetool"
 
 gr "git remote -v"
 gra "git remote add origin"
+grag "git remote add gitea git@ataraxy.tk:Kevin-Mok/.git"
+
 grr "git remote remove origin"
 grs "git remote show origin"
 gru "git branch --set-upstream-to=origin/master master"
@@ -564,11 +595,11 @@ ht "python3 -m http.server"
 h "hugo"
 he "hugo serve -D --disableFastRender"
 
+# ]]] mfs #
+
 ssb "ssh-bandit"
 
 rt "python ~/coding/rt-scraper/!rt-scraper.py"
-
-# ]]] mfs #
 
 # ada-mario [[[ #
 
@@ -582,6 +613,9 @@ gpsb "git push bitbucket"
 
 sac "source ../../bin/activate.fish"
 dea "deactivate"
+
+whe "watch echo"
+vst "cp ~/Documents/workout-logs/stretching.md /tmp && nvim /tmp/stretching.md"
 
 # ]]] coding projs  #
 
@@ -607,7 +641,6 @@ mst "minetestserver --gameid minimal --worldname Test --terminal"
 # wlf "watson log --all --tag=final"
 # wrf "watson report --all --tag=final"
 ssc "mosh mokkar@teach.cs.utoronto.ca"
-ssp "mosh --ssh='ssh -p 8022' 192.168.0.11"
 
 # alg course
 jc "javac -d out *.java"

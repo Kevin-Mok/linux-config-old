@@ -29,7 +29,8 @@ set tabstop=4
 " set timeoutlen=350
 set timeoutlen=200
 " set tw=80
-set tw=75
+" set tw=75
+set tw=70
 set undodir=~/.vim/undo
 set undofile
 " set updatetime=1000
@@ -62,7 +63,7 @@ autocmd FileType *css,htmldjango,html,javascript,json,lisp,markdown,tex,text,yam
 " autocmd Filetype html set foldmarker=0
 autocmd BufNewFile,BufRead *.gd set expandtab!
 autocmd Filetype go set expandtab! sw=4
-autocmd Filetype markdown set commentstring=<!---\ %s\ -->
+" autocmd Filetype markdown set commentstring=<!---\ %s\ -->
 autocmd Filetype markdown map <F8> :LivedownToggle<CR>
 autocmd Filetype markdown nnoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
@@ -258,7 +259,10 @@ Plug 'terryma/vim-multiple-cursors'
 	let g:multi_cursor_exit_from_visual_mode=0
 	let g:multi_cursor_exit_from_insert_mode=0
 Plug 'dag/vim-fish'
-Plug 'shime/vim-livedown'
+" live preview Markdown"
+" Plug 'shime/vim-livedown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" git helper
 Plug 'tpope/vim-fugitive'
 " auto reload file
 Plug 'djoshea/vim-autoread'
@@ -298,6 +302,11 @@ Plug 'christoomey/vim-tmux-navigator'
     " nnoremap <C-Right> :TmuxNavigateRight<cr>
 
     " ]]] mappings "
+" highlight multiple words
+" TODO: mapping conflicts "
+" Plug 'inkarkat/vim-mark'
+" Plug 'jceb/vim-orgmode'
+  " let g:org_todo_keywords=['TODO', 'STARTED', '|', 'DONE']
 " ]]] vim-plug "
 
 " Mappings [[[ "
@@ -409,9 +418,11 @@ nnoremap <leader>r q:i.,.+s///g<ESC>Fsi
 " replace in line
 nnoremap <leader>rl q:i.s///g<left><left><left>
 " replace in visual selection
-vnoremap <leader>r q:is///g<ESC>3ha
+" remove italics tags
+nnoremap <leader>rmi :%s/<\/\?i>//g<CR>
 " reload vim config
 nnoremap <leader>rv :source $MYVIMRC<CR>
+vnoremap <leader>r q:is///g<ESC>3ha
 " replace in entire file
 nnoremap <leader>R q:i%s///g<ESC>2F/i
 vnoremap <leader>s :sort<CR>
