@@ -22,6 +22,10 @@ xi ~/linux-config/dot_xinitrc
 y ~/.zshrc
 z ~/linux-config/aliases/zsh_aliases
 
+{{ if and (eq .chezmoi.username "root") (eq .linux_os "debian") }}
+ng /etc/nginx/nginx.conf
+{{ end }}
+
 # ]]] sys #
 
 # cdn [[[ #

@@ -19,6 +19,11 @@ P ~/Pictures
 std ~/st
 tm /tmp
 
+{{ if and (eq .chezmoi.username "root") (eq .linux_os "debian") }}
+ng /etc/nginx/sites-available
+sv /etc/systemd/system
+{{ end }}
+
 # ]]] sys #
 
 # cdn [[[ #

@@ -9,7 +9,6 @@ commit-msg.txt
 scripts/*
 !scripts/sync-shortcuts
 txt/
-.gitconfig
 .imwheelrc
 .xinitrc
 .Xresources

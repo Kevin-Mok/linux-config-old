@@ -52,13 +52,14 @@ mkpk "makepkg -sri"
 ex "chmod +x"
 
 # systemctl  [[[ #
-ctl "sudo systemctl"
-ctle "sudo systemctl enable"
-ctld "sudo systemctl disable"
-ctla "sudo systemctl start"
-ctls "sudo systemctl stop"
-ctlt "sudo systemctl status"
-ctlr "sudo systemctl restart"
+ct "sudo systemctl"
+cte "sudo systemctl enable"
+ctd "sudo systemctl daemon-reload"
+ctdi "sudo systemctl disable"
+cta "sudo systemctl start"
+cts "sudo systemctl stop"
+ctt "sudo systemctl status"
+# ctr "sudo systemctl restart"
 
 ctltd "sudo systemctl status dhcpcd"
 ctlas "sudo systemctl start sshd"
@@ -210,9 +211,11 @@ xpk "pkg list-installed | awk -F/ '{print \$1}' > ~/{{ .chezmoi.os }}-config/txt
 
 # apt [[[ #
 
-# apti "sudo apt install"
-# aptr "sudo apt remove"
-# aptu "sudo apt upgrade"
+{{ if and (eq .chezmoi.username "root") (eq .linux_os "debian") }}
+ap "apt install"
+apr "apt remove"
+apu "apt upgrade"
+{{ end }}
 
 # ]]] apt # 
 
@@ -239,6 +242,10 @@ kdh "sudo killall dhcpcd"
 rdh "sudo killall dhcpcd && sudo dhcpcd"
 
 wgt "wget"
+
+{{ if and (eq .chezmoi.username "root") (eq .linux_os "debian") }}
+nt "nginx -t"
+{{ end }}
 
 # ]]] internet #
 
