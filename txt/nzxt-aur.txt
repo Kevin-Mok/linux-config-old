@@ -4,15 +4,16 @@ antimicro
 arno-iptables-firewall
 aurvote
 bear
+bukuserver
 chromium-widevine
 cliqz-bin
 compton-tryone-git
 curseradio-git
-discord
 dragon-drag-and-drop-git
 ffcast
 flashplugin-focusfix
 godot-bin
+habitctl-git
 heroku-cli
 htop-vim-git
 i3-gaps-rounded

@@ -22,10 +22,11 @@ set -U mfs_dir "/home/kevin/coding/mf-site"
 source /home/kevin/coding/spotify-lib-vis/src/scripts/api-keys-fish.sh
 {{ end }}
 
-set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin ~/.minetest/minetest/bin
+set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin ~/.minetest/minetest/bin ~/.gem/ruby/2.6.0/bin
 set -x CLASSPATH $CLASSPATH /home/kevin/java/*.jar
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
+set -x HASTE_SERVER https://pste.gq
 
 {{ if eq .linux_os "termux" }}
 # set SPACEFISH_PROMPT_ORDER time user dir host git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time line_sep battery jobs exit_code vi_mode char
@@ -88,9 +89,10 @@ abbr xf "fish_config"
 
 abbr ! "sudo !!"
 abbr ag "grep-aliases"
-abbr bf "buku-fzf"
-abbr bff "buku-fzf fq"
+abbr b "buku-fzf"
+abbr bf "buku-fzf fq"
 abbr bq "benq-brightness"
+abbr bupp "backup-phone-pics"
 abbr cpc "copy cat"
 abbr cpe "copy echo"
 abbr cpp "copy echo (pwd)"
@@ -98,6 +100,7 @@ abbr cff "create-fish-function"
 abbr def "define"
 abbr ev "evince-silent"
 # abbr fbg "find-bg"
+abbr fvft "find-vim-filetype"
 abbr fzv "fzf-vim"
 # git [[[ #
 
@@ -110,11 +113,12 @@ abbr gro "git-replace-origin"
 
 # ]]] git #
 abbr hs "scan-history"
-abbr hst "$EDITOR ~/.local/share/fish/fish_history"
 abbr mn "man-vim"
 abbr mat "math"
 abbr pgr "grep-pdf"
 abbr pgrf "grep-pdf-file"
+abbr png "git-push-new-gitea"
+abbr pst "pastebin"
 abbr rf "refresh-config"
 abbr rs "redshift-set"
 abbr shrm "shred-rm"
@@ -122,7 +126,7 @@ abbr thes "thesaurus"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
 abbr vsnp "vim-snippet"
-abbr fvft "find-vim-filetype"
+abbr xya "export-pkgs"
 
 # school [[[ #
 

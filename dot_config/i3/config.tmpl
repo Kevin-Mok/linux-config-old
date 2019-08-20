@@ -40,7 +40,7 @@ bindsym Mod4+Return exec /home/kevin/scripts/dmenu-history -nb "$fg" -nf "$bg" -
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym Mod4+b layout tabbed; exec zathura
+# bindsym Mod4+b layout tabbed; exec zathura
 bindsym Mod4+c exec $browser
 # bindsym Mod4+e exec notify-send "HPS Word Count" "$(pdftotext /home/kevin/school/latex-notes/hps/essay.pdf - | wc -w)"
 bindsym Mod4+e exec emacs
@@ -232,7 +232,7 @@ bindsym Control+Shift+l move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
-bindsym Mod4+$mod+b split h; exec $term
+bindsym Control+$mod+b split h; exec $term
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -286,6 +286,12 @@ set $ws3 "3 "
 # set $ws3 "3 "
 workspace $ws3 output $main
 bindsym $mod+F3 workspace $ws3; exec $browser
+# bindsym Mod4+b workspace $ws3; layout stacked; exec urxvt -e fish -c "buku-fzf"
+# bindsym Mod4+$mod+b workspace $ws3; layout stacked; exec urxvt -e fish -c "buku-fzf fq"
+# bindsym Mod4+b layout stacked; exec urxvt -e fish -c "buku-fzf"
+# bindsym Mod4+$mod+b layout stacked; exec urxvt -e fish -c "buku-fzf fq"
+bindsym Mod4+b layout tabbed; exec urxvt -e fish -c "buku-fzf"
+bindsym Mod4+$mod+b layout tabbed; exec urxvt -e fish -c "buku-fzf fq"
 
 set $ws4 "4 "
 workspace $ws4 output $secondary
@@ -451,8 +457,8 @@ bar {
   {{ if eq .chezmoi.fullHostname "x1-carbon" }}
   font pango:$sb_font 17
   {{ else }}
-  font pango:$sb_font 21
   # font pango:$sb_font 19
+  font pango:$sb_font 17
   {{ end }}
   colors {
     # 0 (transparent) -> 255 (opaque) in hex
@@ -481,8 +487,8 @@ bar {
   {{ if eq .chezmoi.fullHostname "x1-carbon" }}
   font pango:$sb_font 18
   {{ else }}
-  font pango:$sb_font 25
-  # font pango:$sb_font 20
+  # font pango:$sb_font 22
+  font pango:$sb_font 20
   {{ end }}
   # output $main
   i3bar_command i3bar -t

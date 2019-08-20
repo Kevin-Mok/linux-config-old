@@ -16,8 +16,10 @@ ru "xrdb ~/.Xresources && grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2 |
 
 dua "sudo du -h --apparent-size | sort -h"
 # list file sizes in megabytes with depth 1
-duh "sudo du -d 1 -h --apparent-size | sort -h"
-dum "sudo du -d 1 -m --apparent-size | sort -h"
+# duh "sudo du -d 1 -h --apparent-size | sort -h"
+# dum "sudo du -d 1 -m --apparent-size | sort -h"
+duh "du -d 1 -h --apparent-size | sort -h"
+dum "du -d 1 -m --apparent-size | sort -h"
 m "man"
 tld "tldr"
 
@@ -39,7 +41,7 @@ xrs "xrandr -s 0"
 vgb "sudo nvim /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-ba "bat"
+a "bat"
 # ba "bat *"
 grep "grep --color=auto -n"
 grpr "grep -r"
@@ -87,6 +89,7 @@ udm "udisksctl mount -b"
 udmb "udisksctl mount -b /dev/sdc2"
 udu "udisksctl unmount -b"
 udub "udisksctl unmount -b /dev/sdc2"
+
 # ]]] mounting # 
 
 tc "touch"
@@ -97,11 +100,13 @@ vdr "vidir --verbose"
 {{ if not (eq .linux_os "termux") }}
 l "lsd -F --group-dirs first"
 la "lsd -AF --group-dirs first"
-ll "lsd -AlF --group-dirs first --size short"
+ll "lsd -lF --group-dirs first --size short"
+lla "lsd -AlF --group-dirs first --size short"
 {{ else }}
 l "ls"
 la "ls -a"
-ll "ls -al"
+ll "ls -l"
+lla "ls -al"
 {{ end }}
 cwd "echo (pwd) | xclip -selection clipboard"
 smv "sudo mv"
@@ -133,7 +138,7 @@ nbu "cd /run/media/kevin/backup-hd/{{ .chezmoi.fullHostname }}/tar && lsd -l"
 s "systemctl suspend"
 x "exit"
 so "xset dpms force off"
-sd "systemctl poweroff"
+sd "tmux kill-server; systemctl poweroff"
 rb "systemctl reboot"
 lo "i3-msg exit"
 xm "xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE"
@@ -190,8 +195,6 @@ yau "yay -Sy"
 yadl "yay -Syuw --answerclean=None --answerdiff=None --answeredit=None"
 # sync and update
 yaug "yay -Syu --answerclean=None --answerdiff=None --answeredit=None"
-# export packages
-xya "yay -Qqne > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-pkgs.txt && yay -Qqme > ~/{{ .chezmoi.os }}-config/txt/{{ .chezmoi.fullHostname }}-aur.txt "
 
 # ]]] yay #
 #]]]
@@ -250,19 +253,24 @@ id "identify"
 # applications  [[[ #
 
 # silent="> /dev/null 2>&1& "
-a "antimicro"
+am "antimicro"
 # buku [[[ #
 
-b "buku"
-bd "buku -za ''"
+# b "buku"
+bd "buku -za '"
 bh "buku -h | bat"
 bi "buku --immutable 1 -zu"
 bo "buku -o"
+bp "buku -p"
 br "buku -zd"
 brp "buku --replace"
 bs "buku --deep -n5 -s"
+bsq "sqlitebrowser ~/.local/share/buku/bookmarks.db &"
 bsv "bukuserver run --host 127.0.0.1 --port 5001"
-bw "buku -zw --immutable 1"
+bt "buku --deep -n5 -t"
+bu "buku -zu"
+but "buku -zu --tag"
+bw "buku --immutable 1 -zw"
 
 # ]]] buku #
 chr "google-chrome"
@@ -292,7 +300,7 @@ p3 "python3"
 pdft "pdftotext"
 pipes "pipes.sh -t 3"
 py "python"
-qc "qalc ''"
+qc "qalc '"
 qcg "qalculate-gtk"
 r "ranger"
 rbg "ranger --selectfile (grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2)"
@@ -306,10 +314,13 @@ stp "termdown"
 # sw "swex"
 t "tmux"#[[[
 ta "tmux a -t"
+tac "tmux a -t config"
+taj "tmux a -t journal"
 tal "tmux a"
 tk "tmux kill-server"
 tl "tmux ls"
 tn "tmux new -s"
+tnb "tmux new -s backup"
 tnc "tmux new -s config"
 tnj "tmux new -s journal"
 #]]]
@@ -366,10 +377,12 @@ wt "watson status"
 # log/report [[[ #
 
 wl "watson log -Gcd"
-wla "watson log -Gca -T"
+wla "watson log -Gca -p"
+wlat "watson log -Gca -T"
 ww "watson log -Gc"
 wr "watson report -Gcd"
-wra "watson report -Gca -T"
+wra "watson report -Gca -p"
+wrat "watson report -Gca -T"
 wrw "watson report -Gc"
 
 # ]]] log/report #
@@ -481,10 +494,11 @@ gc "git commit -S"
 gcu "git commit"
 gca "git add -A && git commit --amend --no-edit -S"
 gcam "git add -A && git commit --amend -S"
-gcap "git add -A && git commit --amend --no-edit -S && gpsf"
+gcap "git add -A && git commit --amend --no-edit -S && git push --force"
 
 psgi "git add -A && git commit -m 'Update' -S && git push"
 gps "git push"
+gpsg "git push gitea"
 gpsi "git config credential.helper store && git push"
 # gpsn "git push --set-upstream origin master"
 gpsn "eval (git push 2>&1 | tail -n 2)"
@@ -537,13 +551,16 @@ upip "pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xa
 ureq "pip freeze > requirements.txt"
 
 # show last history scan
-hlg "tail -n 5 $spv_dir/src/api/management/commands/update-history.log"
+hlg "psql -d spotifyvis -a -f /home/kevin/coding/spotify-lib-vis/src/scripts/history.sql | rg 2019 | tac"
+slg "tail -n 5 $spv_dir/src/api/management/commands/update-history.log"
 # scan history
 # hs "$spv_dir/src/update-history.sh && cat $spv_dir/src/api/management/commands/update-history.log | tail -n 1"
 # removes all but newest file
 # rmol "ls -t | tail -n +2 | xargs rm -- && l"
 
 snw "spotify-now -i '%artist - %title'"
+
+svd "pg_dump spotifyvis > spotifyvis.bak"
 
 # ]]] spotify-lib-vis #
 

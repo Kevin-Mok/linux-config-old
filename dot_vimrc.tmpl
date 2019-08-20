@@ -64,7 +64,8 @@ autocmd FileType *css,htmldjango,html,javascript,json,lisp,markdown,tex,text,yam
 autocmd BufNewFile,BufRead *.gd set expandtab!
 autocmd Filetype go set expandtab! sw=4
 " autocmd Filetype markdown set commentstring=<!---\ %s\ -->
-autocmd Filetype markdown map <F8> :LivedownToggle<CR>
+" autocmd Filetype markdown map <F8> :LivedownToggle<CR>
+autocmd Filetype markdown map <F8> :InstantMarkdownPreview<CR>
 autocmd Filetype markdown nnoremap <Tab> <Esc>>>A
 autocmd Filetype markdown inoremap <S-Tab> <Esc><<A
 autocmd Filetype markdown inoremap < <Esc><<A
@@ -262,6 +263,7 @@ Plug 'dag/vim-fish'
 " live preview Markdown"
 " Plug 'shime/vim-livedown'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+  let g:instant_markdown_autostart = 0
 " git helper
 Plug 'tpope/vim-fugitive'
 " auto reload file
@@ -320,6 +322,9 @@ colorscheme gotham256
 {{ end }}
 
 " normal mappings [[[ "
+
+nnoremap <ScrollWheelUp> <C-U>
+nnoremap <ScrollWheelDown> <C-D>
 
 " visual select across lines by default "
 nnoremap v <C-V>
