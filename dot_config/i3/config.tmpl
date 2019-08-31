@@ -1,9 +1,9 @@
 #  startup [[[ # 
 
-set $term urxvt
-set $term_alt st
-# set $term st
-# set $term_alt urxvt
+# set $term urxvt
+# set $term_alt st
+set $term st
+set $term_alt urxvt
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 exec dunst
 exec compton
@@ -239,13 +239,19 @@ bindsym $mod+v split v
 bindsym Mod4+$mod+v split v; exec $term
 
 #  resizing windows # 
-bindsym $mod+Control+h resize grow width 5 px or 5 ppt
-bindsym $mod+Control+k resize grow height 5 px or 5 ppt
-bindsym $mod+Control+j resize shrink height 5 px or 5 ppt
-bindsym $mod+Control+l resize shrink width 5 px or 5 ppt
+bindsym Control+$mod+h resize grow width 5 px or 5 ppt
+bindsym Control+$mod+k resize grow height 5 px or 5 ppt
+bindsym Control+$mod+j resize shrink height 5 px or 5 ppt
+bindsym Control+$mod+l resize shrink width 5 px or 5 ppt
 
 # bindsym Control+Shift+x kill
 bindsym shift+x kill
+
+bindsym Control+$mod+t sticky toggle
+bindsym Control+$mod+a floating enable; resize set 400px 125px; move absolute position 1648 0; sticky toggle
+
+# for_window [class="ada-mario"] floating enable
+# for_window [class="ada-mario"] move absolute position 640 0
 
 #  ]]] moving windows # 
 
@@ -332,11 +338,13 @@ bindsym $mod+F7 workspace $ws7; exec $term
 set $ws8 "8 "
 # assign [class="jetbrains-"] $ws8
 workspace $ws8 output $secondary
-bindsym $mod+F8 workspace $ws8; exec $term
+# bindsym $mod+F8 workspace $ws8; exec $term
+bindsym $mod+F8 workspace $ws8; exec urxvt -e tmux a -t journal
 
 set $ws9 "9 "
 workspace $ws9 output $secondary
-bindsym $mod+F9 workspace $ws9; exec $term
+# bindsym $mod+F9 workspace $ws9; exec $term
+bindsym $mod+F9 workspace $ws9; exec urxvt -e tmux a -t config
 
 set $ws10 "10 "
 # set $ws10 "10 🎵"
@@ -353,7 +361,8 @@ set $ws11 "11 "
 # set $ws11 "11 📊"
 # assign [class="Summoners War Exporter"] $ws11
 workspace $ws11 output $secondary
-bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_CPU 
+bindsym $mod+F11 workspace $ws11; exec urxvt -e htop -s PERCENT_CPU
+# bindsym $mod+F11 workspace $ws11; exec urxvt -e gotop -m
 bindsym Mod4+a workspace $ws11; exec antimicro
 
 set $ws12 "12 "
@@ -457,8 +466,8 @@ bar {
   {{ if eq .chezmoi.fullHostname "x1-carbon" }}
   font pango:$sb_font 17
   {{ else }}
-  # font pango:$sb_font 19
-  font pango:$sb_font 17
+  # font pango:$sb_font 17
+  font pango:$sb_font 16
   {{ end }}
   colors {
     # 0 (transparent) -> 255 (opaque) in hex
@@ -487,7 +496,6 @@ bar {
   {{ if eq .chezmoi.fullHostname "x1-carbon" }}
   font pango:$sb_font 18
   {{ else }}
-  # font pango:$sb_font 22
   font pango:$sb_font 20
   {{ end }}
   # output $main

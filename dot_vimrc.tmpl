@@ -436,6 +436,8 @@ nnoremap <leader>sc :set spell spelllang=en_us<CR>
 nnoremap <leader>sh :!%:p
 " sort lines until end of file
 nnoremap <leader>so q:i.,$sort<CR>
+" vertical split "
+nnoremap <leader>sp :sp 
 " sort lines
 nnoremap <leader>sol q:i.,.+sort<ESC>Fsi
 " set syntax to shell (for dotfiles)
@@ -443,6 +445,8 @@ nnoremap <leader>sys :set syn=sh<CR>
 vnoremap <leader>t :!tac<CR>
 " capitalize letter
 nnoremap <leader>u vU
+" horizontal split "
+nnoremap <leader>vs :vs 
 " open vimrc in vertical split
 nnoremap <leader>vv :vsp ~/.vimrc<CR>
 " copy next thing to system clipboard

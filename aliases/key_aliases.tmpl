@@ -9,7 +9,7 @@ c "printf '\033c'"
 d "cd ~/Downloads && printf '\033c'"
 hst "history"
 ## nf "printf '\033c' && neofetch | lolcat"
-nf "printf '\033c' && neofetch"
+nft "printf '\033c' && neofetch"
 fi "fish"
 # reload urxvt
 ru "xrdb ~/.Xresources && grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2 | xargs wal -i > /dev/null"
@@ -20,7 +20,7 @@ dua "sudo du -h --apparent-size | sort -h"
 # dum "sudo du -d 1 -m --apparent-size | sort -h"
 duh "du -d 1 -h --apparent-size | sort -h"
 dum "du -d 1 -m --apparent-size | sort -h"
-m "man"
+# m "man"
 tld "tldr"
 
 # ]]] basic #
@@ -76,6 +76,11 @@ cpssh "ssh-copy-id -i ~/.ssh/id_rsa.pub"
 xcssh "bat ~/.ssh/id_rsa.pub | xclip -selection clipboard"
 ssp "mosh --ssh='ssh -p 8022' 192.168.0.12"
 ssd "mosh kevin@165.22.239.234 tmux a"
+ssdh "mosh kevin@165.22.239.234 htop"
+# test server sites
+svp "firefox pste.gq smol.gq git.ataraxy.tk"
+# postgres ssh tunnel
+ssdt "ssh kevin@165.22.239.234 -L 5433:localhost:5432"
 
 # ]]] ssh #
 
@@ -190,6 +195,8 @@ yaq "yay -Qi"
 yal "yay -Ql"
 # remove
 yar "yay -Rns"
+# search
+yas "yay -Qs"
 # sync
 yau "yay -Sy"
 # sync and download
@@ -252,7 +259,7 @@ nt "nginx -t"
 id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
 
-# mst "sudo rm ~/st/config.h && sudo bear make -C ~/st install"
+mst "sudo rm ~/st/config.h && sudo bear make -C ~/st install"
 # mst "sudo ~/st/make-st.sh"
 
 #  system ]]]
@@ -277,7 +284,7 @@ bsv "bukuserver run --host 127.0.0.1 --port 5001"
 bt "buku --deep -n5 -t"
 bu "buku -zu"
 but "buku -zu --tag"
-bw "buku --immutable 1 -zw"
+bw "buku --immutable 1 -zw -1"
 
 # ]]] buku #
 chr "google-chrome"
@@ -289,6 +296,8 @@ fh "feh"
 fi "fish"
 gpd "gpg --decrypt"
 gpe "gpg --encrypt --recipient"
+hba "habitctl ask"
+hbl "habitctl log"
 htc "htop -s PERCENT_CPU"
 htm "htop -s PERCENT_MEM"
 i "sxiv"
@@ -316,20 +325,18 @@ rbg "ranger --selectfile (grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2)"
 rgc "clear && tmux clear-history && rg"
 rx "redshift -x"
 sn "sudo nvim"
-ssh "mosh"
+ss "mosh"
 stp "termdown"
 # sw "swex"
 t "tmux"#[[[
 ta "tmux a -t"
-tac "tmux a -t config"
-taj "tmux a -t journal"
+tac "tmux a -t config || tmux new -s config"
+taj "tmux a -t journal || tmux new -s journal"
 tal "tmux a"
 tk "tmux kill-server"
 tl "tmux ls"
 tn "tmux new -s"
 tnb "tmux new -s backup"
-tnc "tmux new -s config"
-tnj "tmux new -s journal"
 #]]]
 vmd "vimdiff"
 wg "wego"
@@ -465,6 +472,7 @@ gsl "git shortlog"
 gcln "git clone"
 gs "git status -u"
 gf "git fetch origin"
+gfg "git fetch gitea"
 
 gch "git checkout"
 gchn "git checkout -b"
@@ -585,7 +593,7 @@ wr0 "watson report --all --project=309 --tag=phase2"
 
 # server [[[ #
 
-nd "node"
+# nd "node"
 ndm "nodemon"
 knd "killall node"
 mg "mongo"
@@ -654,8 +662,10 @@ ms "minetestserver"
 msc "minetestserver --gameid minetest --worldname Creative --terminal"
 # msh "minetestserver --gameid minetest --worldname Hevin --config ~/.minetest/hevin.conf --terminal"
 msh "minetestserver --gameid mineclone2 --worldname Hevin-MC --config ~/.minetest/hevin-mc.conf --terminal"
-mst "minetestserver --gameid minimal --worldname Test --terminal"
+msv "minetestserver --gameid minimal --worldname Test --terminal"
 # mtrsy "rsync -vr .minetest/ /mnt/linux-files/.minetest/"
+
+tet "pandoc -f markdown -t html twitch-emote-conversion.md | xclip -selection clipboard"
 
 # ]]] games #
 

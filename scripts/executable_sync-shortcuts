@@ -50,9 +50,9 @@ sed "s/\s*#.*$//;/^\s*$/d" "$key_dirs" | tee \
 	}' >> "$ranger_mappings"
 
 sed "s/\s*#.*$//;/^\s*$/d"  "$key_files" | tee \
-	>(awk '{print v$1"=\"$EDITOR "$2"\" \\"}' >> "$aliases") \
-	>(awk '{print "abbr v"$1, "\"$EDITOR "$2"\""}' >> "$fish_abbr") \
-	| awk '{print "map v"$1" shell $EDITOR "$2}' >> "$ranger_mappings"
+	>(awk '{print n$1"=\"$EDITOR "$2"\" \\"}' >> "$aliases") \
+	>(awk '{print "abbr n"$1, "\"$EDITOR "$2"\""}' >> "$fish_abbr") \
+	| awk '{print "map n"$1" shell $EDITOR "$2}' >> "$ranger_mappings"
 
 sed -e '/^$/d' -e '/[ ]*#.*/d' "$key_aliases" | sort | tee \
 	>(awk '{printf "abbr " $1; $1 = ""; print $0; }' >> "$fish_abbr") \
