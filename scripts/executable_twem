@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# printf 'twem.tk/.png' | xclip -selection clipboard
+sleep .3
+xdotool type 'twem.tk/.png'
+for i in {1..4} ; do
+    xdotool key Left
+done

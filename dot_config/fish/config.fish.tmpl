@@ -29,6 +29,7 @@ set -x CLASSPATH $CLASSPATH /home/kevin/java/*.jar
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib /usr/local/lib64
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/lib/pkgconfig
 set -x HASTE_SERVER https://pste.gq
+set -x CALCURSE_CALDAV_PASSWORD (pass show technology/linux/baikal | head -n1)
 
 {{ if eq .linux_os "termux" }}
 # set SPACEFISH_PROMPT_ORDER time user dir host git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time line_sep battery jobs exit_code vi_mode char
@@ -127,6 +128,8 @@ abbr pst "pastebin"
 abbr rf "refresh-config"
 abbr rs "redshift-set"
 abbr shrm "shred-rm"
+abbr tac "tmux-attach config"
+abbr taj "tmux-attach journal"
 abbr thes "thesaurus"
 abbr ut "unix-timestamp"
 abbr uzr "unzip-rm"
