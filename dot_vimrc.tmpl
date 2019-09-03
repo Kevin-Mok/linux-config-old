@@ -57,6 +57,7 @@ autocmd CursorHold * if !bufexists("[Command Line]") | checktime | endif
 " commands for file types [[[ "
 
 autocmd BufNewFile,BufRead .* set syntax=sh
+autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 autocmd FileType *css,gitcommit,htmldjango,html,javascript,json,lisp,markdown,tex,text,yaml set tabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead *.md set filetype=markdown
 " autocmd Filetype markdown set textwidth=0
@@ -309,6 +310,11 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'inkarkat/vim-mark'
 " Plug 'jceb/vim-orgmode'
   " let g:org_todo_keywords=['TODO', 'STARTED', '|', 'DONE']
+Plug 'junegunn/vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 " ]]] vim-plug "
 
 " Mappings [[[ "

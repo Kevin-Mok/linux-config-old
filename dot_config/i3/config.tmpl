@@ -28,7 +28,7 @@ set $sch_dir "$HOME/Documents/School"
 
 #  app shortcuts [[[ # 
 
-set $type_delay_cmd sleep .4
+set $type_delay_cmd sleep .3
 
 bindsym Control+Return exec $term
 bindsym Control+Shift+Return exec st -A1
@@ -73,7 +73,7 @@ bindsym Control+Mod4+w exec $term -e nvim /home/kevin/.config/watson/state.tmp
 # bindsym Mod4+x exec $swex
 bindsym Mod4+z exec cliqz
 {{ if .ext_kb }}
-bindsym Mod4+x exec xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
+bindsym Mod4+x exec ~/scripts/xmodmap-custom
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym Control+Print --release exec "scrot -u /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 {{ else }}
@@ -254,7 +254,7 @@ bindsym shift+x kill
 
 bindsym Control+$mod+t sticky toggle
 # bindsym Control+$mod+a floating enable; resize set 400px 125px; move absolute position 1648 200; sticky enable
-bindsym Control+$mod+a floating enable; resize set 400px 110px; move absolute position 824 992; sticky enable
+bindsym Control+$mod+a floating enable; resize set 400px 150px; move absolute position 424 945; sticky enable
 
 # for_window [class="ada-mario"] floating enable
 # for_window [class="ada-mario"] move absolute position 640 0
@@ -339,7 +339,7 @@ bindsym Mod4+k workspace $ws6; exec slack
 set $ws7 "7 "
 workspace $ws7 output $secondary
 # bindsym $mod+F7 workspace $ws7; exec $term
-bindsym $mod+F7 workspace $ws7; exec $term -e mosh kevin@165.22.239.234 tmux a
+bindsym $mod+F7 workspace $ws7; exec $term -e mosh --ssh='ssh -p 399' kevin@165.22.239.234 tmux a
 # bindsym Mod4+v workspace $ws7; exec VBoxManage startvm "369-a1"
 
 set $ws8 "8 "

@@ -28,6 +28,8 @@ sv /etc/systemd/system
 
 # cdn [[[ #
 
+ad ~/.task
+ccd ~/.calcurse
 cn ~/coding
 ib ~/linux-config/dot_config/i3blocks/scripts
 ra ~/linux-config/dot_config/ranger
@@ -40,7 +42,7 @@ wd ~/.config/watson
 {{ if eq .chezmoi.fullHostname "nzxt" }}
 b1 ~/coding/mf-site/themes/base16
 2d ~/coding/godot-demos/2d-plat
-ad ~/coding/ada-mario
+ada ~/coding/ada-mario
 ft ~/coding/face-tracker
 j ~/Documents/journal
 lh ~/Documents/listening-history
@@ -52,8 +54,21 @@ sv ~/coding/spotify-lib-vis/src
 svg ~/coding/spotify-lib-vis/src/graphs/static/graphs/scripts
 swd ~/coding/swex
 tb ~/coding/trapbot/src/trapbot
-te ~/Documents/twitch-emotes
 wo ~/Documents/workout-logs
+
+# gaming [[[ #
+
+te ~/Documents/twitch-emotes
+
+mt ~/.minetest
+mta ~/.minetest/clientmods/custom_aliases
+mtc ~/.minetest/games/mineclone2/mods
+mtm ~/.minetest/minetest
+
+pk ~/Downloads/gba/mgba/pokemon/emerald/1
+
+# ]]] gaming #
+
 {{ end }}
 
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
@@ -65,19 +80,6 @@ adP ~/Pictures/ada-mario
 {{ end }}
 
 # ]]] cdn #
-
-# gaming [[[ #
-
-te ~/Documents/twitch-emote-conversion
-
-mt ~/.minetest
-mta ~/.minetest/clientmods/custom_aliases
-mtc ~/.minetest/games/mineclone2/mods
-mtm ~/.minetest/minetest
-
-pk ~/Downloads/gba/mgba/pokemon/emerald/1
-
-# ]]] gaming #
 
 # sch [[[ #
 

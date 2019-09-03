@@ -25,7 +25,7 @@ generic-redraw  ^R
 generic-add-appt  ^A 
 generic-add-todo  ^T 
 generic-prev-day  T ^H 
-generic-next-day  t ^L 
+generic-next-day  ^L 
 generic-prev-week  W ^K 
 generic-next-week  w 
 generic-prev-month  M 
@@ -34,7 +34,7 @@ generic-prev-year  Y
 generic-next-year  y 
 generic-scroll-down  ^N 
 generic-scroll-up  ^P 
-generic-goto-today  ^G 
+generic-goto-today  ^G t
 generic-command  : 
 move-right  l L RGT 
 move-left  h H LFT 

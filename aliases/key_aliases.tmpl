@@ -41,10 +41,13 @@ xrs "xrandr -s 0"
 ngb "sudo nvim /etc/default/grub"
 mkgb "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-a "bat"
+# a "bat"
+ba "bat"
 # ba "bat *"
+awkp "awk -F',' '{print \$0}'"
 grep "grep --color=auto -n"
 grpr "grep -r"
+rg "rg -S"
 # pk "pkill -f"
 cld "colordiff -wy --suppress-common-lines"
 
@@ -76,8 +79,8 @@ nctr "sudo systemctl restart netctl-auto@wlp4s0.service"
 cpssh "ssh-copy-id -i ~/.ssh/id_rsa.pub"
 xcssh "bat ~/.ssh/id_rsa.pub | xclip -selection clipboard"
 sp "mosh --ssh='ssh -p 8022' 192.168.0.12"
-ssd "mosh kevin@165.22.239.234 tmux a"
-sdh "mosh kevin@165.22.239.234 htop"
+ssd "mosh --ssh='ssh -p 399' kevin@165.22.239.234 tmux a"
+sdh "mosh --ssh='ssh -p 399' kevin@165.22.239.234 htop"
 # test server sites
 svp "firefox git.ataraxy.tk khkm.tk cal.khkm.tk pste.gq smol.gq twem.tk"
 # postgres ssh tunnel
@@ -257,6 +260,7 @@ nt "nginx -t"
 
 # ]]] internet #
 
+whc "which"
 fl "file"
 id "identify"
 # rz "source ~/{{ .chezmoi.os }}-config/aliases/zsh_aliases"
@@ -270,6 +274,15 @@ mst "sudo rm ~/st/config.h && sudo bear make -C ~/st install"
 
 # silent="> /dev/null 2>&1& "
 am "antimicro"
+# task [[[ #
+
+a "task"
+aa "task add"
+ac "task context"
+ao "taskopen"
+ay "task sync"
+
+# ]]] task #
 # buku [[[ #
 
 # b "buku"
@@ -303,6 +316,8 @@ fi "fish"
 gpd "gpg --decrypt"
 gpe "gpg --encrypt --recipient"
 hba "habitctl ask"
+hbe "habitctl edit"
+hbeh "habitctl edith"
 hbl "habitctl log"
 htc "htop -s PERCENT_CPU"
 htm "htop -s PERCENT_MEM"
@@ -329,7 +344,7 @@ r "ranger"
 rbg "ranger --selectfile (grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2)"
 # rgc "printf '\033c' && rg"
 # rgc "printf '\033c' && rg"
-rgc "clear && tmux clear-history && rg"
+rgc "clear && tmux clear-history && rg -S"
 rx "redshift -x"
 sn "sudo nvim"
 ss "mosh"
@@ -352,6 +367,8 @@ ytd "youtube-dl"
 z "zathura --fork"
 
 lz "unzip -l"
+trl "tar tvzf"
+trx "tar xvzf"
 
 # pass  [[[ #
 
@@ -477,7 +494,7 @@ gsl "git shortlog"
 
 # pull [[[ #
 
-gcln "git clone"
+gcl "git clone"
 gs "git status -u"
 gf "git fetch origin"
 gfg "git fetch gitea"
@@ -536,6 +553,8 @@ gunc "git update-index --assume-unchanged"
 
 # coding projs  [[[ #
 
+# fsl "zathura --fork ~/coding/fastest-languages.pdf"
+fsl "bat ~/Documents/fastest-languages/fastest-languages.md"
 rgt "rg TODO"
 
 # make [[[ #
