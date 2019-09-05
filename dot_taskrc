@@ -19,8 +19,8 @@ data.location=~/.task
 # Color theme (uncomment one to use){{{
 #include /usr/share/doc/task/rc/light-16.theme
 #include /usr/share/doc/task/rc/light-256.theme
-#include /usr/share/doc/task/rc/dark-16.theme
-include /usr/share/doc/task/rc/dark-256.theme
+include /usr/share/doc/task/rc/dark-16.theme
+# include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/dark-red-256.theme
 #include /usr/share/doc/task/rc/dark-green-256.theme
 #include /usr/share/doc/task/rc/dark-blue-256.theme
@@ -31,6 +31,9 @@ include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
+
+# color.blocking=color1 on color15
+
 # }}}
 
 #  server {{{ # 
@@ -54,12 +57,13 @@ urgency.uda.priority..coefficient=1
 
 #  context {{{ # 
 
-# context.home=project.not:ideas project.not:out project.not:sch tag.not:amn
-context.home=project.not:ideas project.not:out tag.not:amn
+# context.home=project.not:ieas project.not:out project.not:sch tag.not:amn
+context.home=project.not:ieas project.not:out tag.not:amn
 context.out=project:out 
-# context.sch=project:sch
+context.sch=project:sch
 
 context=home
+# context=out
 # context=sch
 
 #  }}} context # 

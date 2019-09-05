@@ -1,7 +1,7 @@
 appearance.calendarview=weekly
 appearance.compactpanels=yes
-appearance.defaultpanel=todo
-appearance.layout=7
+appearance.defaultpanel=calendar
+appearance.layout=3
 appearance.headerline=yes
 appearance.eventseparator=no
 appearance.dayseparator=no
