@@ -22,6 +22,7 @@ set -U fish_greeting
 set -U spv_dir "/home/kevin/coding/spotify-lib-vis"
 set -U mfs_dir "/home/kevin/coding/mf-site"
 source /home/kevin/coding/spotify-lib-vis/src/scripts/api-keys-fish.sh
+abbr hum "cd $mfs_dir && hugo serve -D --disableFastRender"
 {{ end }}
 
 set -x PATH $PATH ~/.local/bin ~/scripts ~/scripts/colors ~/go/bin ~/.minetest/minetest/bin ~/.gem/ruby/2.6.0/bin
@@ -84,6 +85,7 @@ abbr hs "history search --show-time"
 abbr f. "cd .."
 abbr f.. "cd ../.."
 abbr hsm "history merge"
+abbr nxv "$EDITOR ~/.config/fish/fish_variables"
 abbr xf "fish_config"
 
 # ]]] fish-specific #
@@ -91,9 +93,20 @@ abbr xf "fish_config"
 # fxn abbr's [[[ #
 
 abbr ! "sudo !!"
+# task [[[ #
+
+abbr aan "task-anno"
 abbr ae "task-edit"
-abbr ad "task-done"
-abbr ap "task-mod-pri"
+abbr adl "task-delete"
+abbr adn "task-done"
+abbr an "task-next"
+abbr apr "task-mod-pri"
+abbr apj "task-mod-proj"
+abbr at "task-mod-tag"
+abbr asr "task-start"
+abbr ax "task-context"
+
+# ]]] task #
 abbr ag "grep-aliases"
 abbr b "buku-fzf"
 abbr bf "buku-fzf fq"
@@ -115,14 +128,17 @@ abbr fzv "fzf-vim"
 abbr gcamp "git-amend-push"
 abbr gclg "git-clone-gitea"
 abbr gdf "git-diff-files"
+abbr gpsi "git-push-initial"
 abbr gpsmt "git-push-multiple"
+abbr gpng "git-push-new-gitea gitea"
+abbr gpngo "git-push-new-gitea origin"
 abbr gremotes "git-mult-remotes"
 abbr grmb "git-delete-branch"
 abbr gro "git-replace-origin"
 
 # ]]] git #
-abbr svs "scan-history"
 abbr m "man-vim"
+abbr ma "man-vim task"
 abbr mat "math"
 abbr pgr "grep-pdf"
 abbr pgrf "grep-pdf-file"
@@ -130,7 +146,12 @@ abbr png "git-push-new-gitea"
 abbr pst "pastebin"
 abbr rf "refresh-config"
 abbr rs "redshift-set"
+abbr sma "smol-add"
+abbr smd "smol-delete"
+abbr sml "smol-slist"
+abbr smr "smol-replace"
 abbr shrm "shred-rm"
+abbr svs "scan-history"
 abbr tac "tmux-attach config"
 abbr taj "tmux-attach journal"
 abbr thes "thesaurus"
@@ -153,10 +174,5 @@ abbr jct "java-compile-test"
 
 # ]]] fxn abbr's #
 
-abbr hum "cd $mfs_dir && hugo serve -D --disableFastRender"
-
 # task sync > /dev/null 2>&1
-# causes xmodmap to have issues when opening terminal sometimes (with Alt key?)
-# sleep .2 && xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
-# xmodmap ~/.Xmodmap && xset r rate $XSET_DELAY $XSET_RATE
 ~/scripts/xmodmap-custom

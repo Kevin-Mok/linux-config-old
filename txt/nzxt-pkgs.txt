@@ -36,6 +36,7 @@ dmenu
 doxygen
 dunst
 e2fsprogs
+ecryptfs-utils
 electrum
 emacs
 encfs
@@ -64,6 +65,7 @@ gradle
 grep
 grub
 gzip
+handbrake
 hdf5
 hexyl
 highlight
@@ -109,6 +111,7 @@ neofetch
 neomutt
 neovim
 netctl
+nmap
 nnn
 noto-fonts
 ntfs-3g
@@ -204,6 +207,8 @@ sysfsutils
 sysstat
 systemd-sysvcompat
 tar
+task
+tcpdump
 termdown
 texinfo
 texlive-core
@@ -213,6 +218,7 @@ tidy
 time
 tmux
 tor
+traceroute
 transmission-cli
 transmission-gtk
 ttf-dejavu

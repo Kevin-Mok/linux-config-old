@@ -17,7 +17,8 @@ o /
 p ~/.password-store
 P ~/Pictures
 std ~/st
-tm /tmp
+# tm /tmp
+tm ~/tmp
 
 {{ if and (eq .chezmoi.username "root") (eq .linux_os "debian") }}
 ng /etc/nginx/sites-available
@@ -31,6 +32,7 @@ sv /etc/systemd/system
 ad ~/.task
 ccd ~/.calcurse
 cn ~/coding
+hbd ~/.habitctl
 ib ~/linux-config/dot_config/i3blocks/scripts
 ra ~/linux-config/dot_config/ranger
 sr ~/linux-config/scripts

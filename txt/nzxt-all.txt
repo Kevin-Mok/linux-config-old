@@ -48,6 +48,8 @@ doxygen
 dragon-drag-and-drop-git
 dunst
 e2fsprogs
+ecryptfs-simple
+ecryptfs-utils
 electrum
 emacs
 encfs
@@ -75,11 +77,13 @@ gimp
 git
 glibc
 godot-bin
+gotop-bin
 gradle
 grep
 grub
 gzip
 habitctl-git
+handbrake
 hdf5
 heroku-cli
 hexyl
@@ -142,6 +146,7 @@ neovim
 nerd-fonts-dejavu-complete
 nerd-fonts-hack
 netctl
+nmap
 nnn
 noto-fonts
 ntfs-3g
@@ -252,6 +257,10 @@ sysstat
 systemd-numlockontty
 systemd-sysvcompat
 tar
+task
+taskopen
+tasksh
+tcpdump
 termdown
 texinfo
 texlive-core
@@ -294,6 +303,7 @@ tidy
 time
 tmux
 tor
+traceroute
 transmission-cli
 transmission-gtk
 trizen

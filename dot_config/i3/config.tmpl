@@ -1,9 +1,9 @@
 #  startup [[[ # 
 
-# set $term $term
-# set $term_alt st
-set $term st
-set $term_alt urxvt
+set $term urxvt
+set $term_alt st
+# set $term st
+# set $term_alt urxvt
 {{ if eq .chezmoi.fullHostname "x1-carbon" }}
 exec dunst
 exec compton
@@ -63,6 +63,7 @@ bindsym Mod4+p exec passmenu
 bindsym Mod4+q exec qdirstat
 bindsym Mod4+r exec $term -e ranger
 bindsym Mod4+$mod+r exec notify-send "watson restart" "$(watson restart)"
+bindsym Mod4+$mod+s exec $type_delay_cmd && xdotool type 'https://smol.gq/'
 bindsym Mod4+$mod+t exec xclip -selection clipboard ~/.password-store/social/trapbot && $type_delay_cmd && xdotool key 'Control_L+v'
 # bindsym Mod4+u exec printf 'kevin.mok@mail.utoronto.ca' | xclip -selection clipboard
 bindsym Mod4+u exec $type_delay_cmd && xdotool type 'kevin.mok@mail.utoronto.ca'
@@ -433,7 +434,7 @@ bindsym $mod+Shift+5 move container to workspace $ws15; workspace $ws15
 bindsym Control+$mod+r exec i3-msg restart
 bindsym $mod+Shift+c reload
 # bindsym $mod+Control+r reload
-bindsym $mod+Control+u exec xrdb ~/.Xresources
+bindsym $mod+Control+u exec xrdb ~/.Xresources && grep wallpaper ~/.cache/wal/colors.sh | cut -d\' -f2 | xargs wal -i > /dev/null
 
 # exit i3 (logs you out of your X session)
 bindsym Control+$mod+s exec systemctl suspend

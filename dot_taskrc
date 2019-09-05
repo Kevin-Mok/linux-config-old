@@ -1,3 +1,5 @@
+#  info {{{ # 
+
 # [Created by task 2.5.1 9/3/2019 01:25:18]
 # Taskwarrior program configuration file.
 # For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
@@ -10,14 +12,15 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
-# Files
+#  }}} info # 
+
 data.location=~/.task
 
-# Color theme (uncomment one to use)
+# Color theme (uncomment one to use){{{
 #include /usr/share/doc/task/rc/light-16.theme
 #include /usr/share/doc/task/rc/light-256.theme
 #include /usr/share/doc/task/rc/dark-16.theme
-#include /usr/share/doc/task/rc/dark-256.theme
+include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/dark-red-256.theme
 #include /usr/share/doc/task/rc/dark-green-256.theme
 #include /usr/share/doc/task/rc/dark-blue-256.theme
@@ -28,13 +31,35 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
+# }}}
+
+#  server {{{ # 
 
 taskd.certificate=\/home\/kevin\/.task\/do.cert.pem
 taskd.key=\/home\/kevin\/.task\/do.key.pem
 taskd.ca=\/home\/kevin\/.task\/ca.cert.pem
 taskd.server=taskd.khkm.tk:53589
 taskd.credentials=Hevin\/Kevin\/e843c83c-b701-43e7-9509-70595333b419
-context.school=project:school
-context.personal=project.not:school project.not:ideas project.not:buy 
-# context=school
-context=personal
+
+#  }}} server # 
+
+#  urgency {{{ # 
+
+urgency.user.project.mfs.coefficient=3
+urgency.user.project.sch.coefficient=5
+urgency.uda.priority.L.coefficient=-1
+urgency.uda.priority..coefficient=1
+
+#  }}} urgency # 
+
+#  context {{{ # 
+
+# context.home=project.not:ideas project.not:out project.not:sch tag.not:amn
+context.home=project.not:ideas project.not:out tag.not:amn
+context.out=project:out 
+# context.sch=project:sch
+
+context=home
+# context=sch
+
+#  }}} context # 

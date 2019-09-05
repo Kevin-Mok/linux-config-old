@@ -10,9 +10,11 @@ cliqz-bin
 compton-tryone-git
 curseradio-git
 dragon-drag-and-drop-git
+ecryptfs-simple
 ffcast
 flashplugin-focusfix
 godot-bin
+gotop-bin
 habitctl-git
 heroku-cli
 htop-vim-git
@@ -46,6 +48,8 @@ spotify
 spotify-now-git
 steamos-xpad-dkms
 systemd-numlockontty
+taskopen
+tasksh
 texlive-local-adjustbox
 texlive-local-algorithmicx
 texlive-local-algorithms
